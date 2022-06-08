@@ -17,15 +17,28 @@ namespace _Game.Script.Manager
                 PlayerPrefs.SetInt("FirstLogin", 1);
             }
             else
-            {
-                SceneManager.LoadSceneAsync(nextSceneName);
-            }
+                OpenScene();
         }
 
         public void ButtonAcceptTerms()
         {
             privacyPolicy.SetActive(false);
-            SceneManager.LoadSceneAsync(nextSceneName);
+            OpenScene();
+        }
+        private void OpenScene()
+        {
+            var asyncOperation = SceneManager.LoadSceneAsync(nextSceneName);
+            asyncOperation.completed -= OpennedGame;
+            asyncOperation.completed += OpennedGame;
+        }
+        private void OpennedGame(AsyncOperation asyncValue)
+        {
+            Debug.Log("Test Deniyeceğiz !");
+            var gameManager = FindObjectOfType<GameManager>();
+            if (gameManager != null)
+            {
+                gameManager.Init();
+            }
         }
 
         public void ButtonShowTerms()

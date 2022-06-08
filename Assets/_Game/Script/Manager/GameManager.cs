@@ -8,16 +8,18 @@ namespace _Game.Script.Manager
     {
         public static GameManager instance;
         public GameSettings gameSettings;
-
-        public PlayerController playerPrefab;
+        public Transform playerSpawnPoint;
 
         private void Awake()
         {
             instance = this;
         }
-
-        private void Start()
+        /// <summary>
+        /// Game is start
+        /// </summary>
+        public void Init()
         {
+
         }
     }
 }

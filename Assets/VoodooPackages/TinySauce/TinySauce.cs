@@ -104,8 +104,6 @@ public static class TinySauce
 #if UNITY_IOS
         return sauceSettings.adjustIOSToken.Replace(" ", string.Empty);
 #endif
-        return "";
-
     }
     public enum AnalyticsProvider
     {

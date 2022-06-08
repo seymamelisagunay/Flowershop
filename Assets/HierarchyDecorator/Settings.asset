@@ -839,6 +839,12 @@ MonoBehaviour:
       shown: 0
     - name: CinemachineVolumeSettings
       shown: 0
+    - name: ExampleScript
+      shown: 0
+    - name: ExampleScript2
+      shown: 0
+    - name: ExampleScriptWithIcon
+      shown: 0
     - name: PlaymodeTestsController
       shown: 0
     - name: PlayerQuitHandler
@@ -972,12 +978,6 @@ MonoBehaviour:
     - name: DropdownItem
       shown: 0
     - name: RecorderBindings
-      shown: 0
-    - name: ExampleScript
-      shown: 0
-    - name: ExampleScript2
-      shown: 0
-    - name: ExampleScriptWithIcon
       shown: 0
     - name: DOTweenComponent
       shown: 0

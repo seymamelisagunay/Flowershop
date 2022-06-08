@@ -14,13 +14,13 @@ namespace _Game.Script.Core.Character
         private void Start()
         {
             _playerController = GetComponent<PlayerController>();
-            if (_playerController.isOwner)
+            if (_playerController.playerSettings.isOwner)
                 _joystick = FindObjectOfType<FloatingJoystick>();
         }
 
         private void Update()
         {
-            if (_playerController.isOwner)
+            if (_playerController.playerSettings.isOwner)
             {
                 SetDirection(new Vector3(_joystick.Direction.x, 0, _joystick.Direction.y));
             }
@@ -29,7 +29,6 @@ namespace _Game.Script.Core.Character
         public void SetDirection(Vector3 direction)
         {
             if (!_listenInput) return;
-            if (_playerController.IsDeath) return;
             Direction = direction;
         }
 

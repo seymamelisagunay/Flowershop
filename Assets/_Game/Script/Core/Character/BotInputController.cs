@@ -28,7 +28,6 @@ namespace _Game.Script.Core.Character
 
         public void SetDirection(Vector3 direction)
         {
-            if (_playerController.IsDeath) return;
             if (!_listenInput) return;
             Direction = Quaternion.Euler(0, Random.Range(-10f, 10f), 0) * direction;
         }

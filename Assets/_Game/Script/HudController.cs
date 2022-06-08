@@ -24,7 +24,6 @@ namespace _Game.Script
 
             transform.SetParent(null);
             _defaultFontSize = nameText.fontSizeMax;
-            _player.OnLose += OnEliminated;
         }
 
         private void OnCreateLevel()
@@ -52,14 +51,6 @@ namespace _Game.Script
             if (_fixed)
             {
                 _canvasGroup.alpha = _fixAlpha;
-            }
-            else if (_player.IsDeath)
-            {
-                _canvasGroup.alpha = 0;
-            }
-            else if (_player.isOwner)
-            {
-                _canvasGroup.alpha = 1;
             }
             else
             {

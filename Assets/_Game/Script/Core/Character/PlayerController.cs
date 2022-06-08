@@ -1,5 +1,6 @@
 using System;
 using _Game.Script.Bot;
+using _Game.Script.Core.Character;
 using _Game.Script.Manager;
 using DG.Tweening;
 using ECM.Controllers;
@@ -10,72 +11,61 @@ namespace _Game.Script.Character
     public class PlayerController : MonoBehaviour
     {
         private Animator _animator;
-        public bool IsQualified { get; set; }
-        public bool IsEliminated { get; set; }
-        public bool IsLoser { get; set; }
-        public bool IsDeath { get; set; }
         public Transform hudPoint;
-        public bool isOwner;
-        public bool IsBot => false;
+        public PlayerControllerSettings playerSettings;
         public IInput Input { get; private set; }
-        public Action OnLose { get; set; }
         public Action OnSpawn { get; set; }
-        public GameObject ownerIndicator;
-        public Action<PlayerController> OnDeath { get; set; }
-        [SerializeField] private GameSettings gameSettings;
         public HudController hudController;
         private Transform _spawnPoint;
-        public BaseCharacterController CharacterController { get; private set; }
+        public MovementController CharacterController { get; private set; }
 
         private void Awake()
         {
-            CharacterController = GetComponent<BaseCharacterController>();
+            CharacterController = GetComponent<MovementController>();
         }
         public void Init()
         {
             Input = GetComponent<IInput>();
             hudController.Init(this);
-            CharacterController.speed = IsBot ? gameSettings.botSpeed : gameSettings.playerSpeed;
         }
         private void OnDestroy()
         {
         }
-        private void OnCreateLevel()
+        /// <summary>
+        ///  Oyun Açıldığında Burası tetiklencek Playerda.
+        /// </summary>
+        private void OnOpenLevel()
         {
-            if (isOwner)
+            if (playerSettings.isOwner)
             {
                 var camera = Camera.main.GetComponent<CustomCameraFollow>();
                 if (camera != null)
                     camera.SetTarget(this);
             }
-            IsQualified = false;
-            IsEliminated = false;
             Input.StartListen();
-            if (isOwner)
-            {
-                ownerIndicator.SetActive(true);
-                ownerIndicator.transform.DOLocalMoveY(3, 0.5f)
-                    .SetLoops(6, LoopType.Yoyo)
-                    .OnComplete(() => ownerIndicator.SetActive(false));
-            }
-            Spawn();
+            
+            Spawn(_spawnPoint.position,_spawnPoint.rotation);
         }
-        public void Spawn()
+        /// <summary>
+        /// Player Controllerı spawn yaptığımız yer oluyor .
+        /// </summary>
+        /// <param name="spawnPoint">spawn Noktasını Vector3 cinsinden veriyoruz
+        /// Spawn noktasının yukarı yönde 5 ile çarpıyoruz yukarıdan düşme etkisi
+        /// yapıyor .</param>
+        /// <param name="spawnRotation"></param>
+        public void Spawn(Vector3 spawnPoint,Quaternion spawnRotation)
         {
-            var position = _spawnPoint.transform.position + Vector3.up * 5f;
+            var position = spawnPoint + (Vector3.up * 5f);
             transform.position = position;
-            transform.rotation = _spawnPoint.transform.rotation;
+            transform.rotation = spawnRotation;
             CharacterController.pause = false;
             OnSpawn?.Invoke();
         }
         public void OnTriggerEnter(Collider other)
         {
-       
         }
         private void OnCollisionEnter(Collision collision)
         {
-          
         }
-       
     }
 }
