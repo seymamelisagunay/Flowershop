@@ -367,6 +367,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1359888755}
     m_Modifications:
+    - target: {fileID: 1754311283, guid: 1a8e74e54babc64478ec9f505a07ac34, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 657496909264179265, guid: 1a8e74e54babc64478ec9f505a07ac34, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -510,6 +514,10 @@ PrefabInstance:
     - target: {fileID: 7782101275250220929, guid: 1a8e74e54babc64478ec9f505a07ac34, type: 3}
       propertyPath: m_Name
       value: MatchReward
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782101275250220929, guid: 1a8e74e54babc64478ec9f505a07ac34, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8316306395881146554, guid: 1a8e74e54babc64478ec9f505a07ac34, type: 3}
       propertyPath: m_AnchorMax.x
@@ -16685,6 +16693,10 @@ PrefabInstance:
     - target: {fileID: 9112971621563524236, guid: fd85157616ab1934f83e1d0606079126, type: 3}
       propertyPath: m_Name
       value: MatchMaking
+      objectReference: {fileID: 0}
+    - target: {fileID: 9112971621563524236, guid: fd85157616ab1934f83e1d0606079126, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9112971621563524239, guid: fd85157616ab1934f83e1d0606079126, type: 3}
       propertyPath: m_Pivot.x

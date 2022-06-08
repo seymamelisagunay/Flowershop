@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using _Game.Script.Manager;
 using DG.Tweening;
 using UnityEngine;
 
@@ -53,25 +52,25 @@ namespace _Game.Script
 
         private void CreateMatch(string enemyName)
         {
-            var matchData = new MatchData()
-            {
-                players = new List<MatchData.PlayerData>()
-                {
-                    new MatchData.PlayerData()
-                    {
-                        UserID = UserManager.Instance.UserModel.id,
-                        Name = UserManager.Instance.UserModel.name
-                    },
-                    new MatchData.PlayerData()
-                    {
-                        UserID = "Bot",
-                        Name = enemyName
-                    },
-                }
-            };
-
-            var match = new GameObject("MatchController").AddComponent<Match>();
-            match.Init(matchData);
+            // var matchData = new MatchData()
+            // {
+            //     players = new List<MatchData.PlayerData>()
+            //     {
+            //         new MatchData.PlayerData()
+            //         {
+            //             UserID = UserManager.Instance.UserModel.id,
+            //             Name = UserManager.Instance.UserModel.name
+            //         },
+            //         new MatchData.PlayerData()
+            //         {
+            //             UserID = "Bot",
+            //             Name = enemyName
+            //         },
+            //     }
+            // };
+            //
+            // var match = new GameObject("MatchController").AddComponent<Match>();
+            // match.Init(matchData);
         }
     }
 }

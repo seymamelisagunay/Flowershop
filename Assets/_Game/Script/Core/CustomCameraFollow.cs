@@ -1,4 +1,4 @@
-using _Game.Script.Core.Character;
+using _Game.Script.Character;
 using UnityEngine;
 
 namespace _Game.Script

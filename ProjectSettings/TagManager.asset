@@ -3,12 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Axe
-  - Ball
-  - TargetPlatform
-  - Enemy
-  - FallGround
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -16,14 +11,14 @@ TagManager:
   - 
   - Water
   - UI
-  - PlayerBlock
-  - Player
-  - Ball
-  - CharacterController
-  - Ragdoll
-  - Ground
-  - BallDetection
-  - ExplosionProp
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 

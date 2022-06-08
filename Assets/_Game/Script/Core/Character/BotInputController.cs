@@ -1,4 +1,5 @@
 using _Game.Script.Bot;
+using _Game.Script.Character;
 using _Game.Script.Manager;
 using Sources.Bot;
 using UnityEngine;
@@ -21,7 +22,7 @@ namespace _Game.Script.Core.Character
 
         private void Update()
         {
-            if (Match.Instance.State != MatchState.Begin) return;
+            // if (Match.Instance.State != MatchState.Begin) return;
             _stateMachine?.Update();
         }
 

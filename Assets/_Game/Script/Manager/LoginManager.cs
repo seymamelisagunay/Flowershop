@@ -6,21 +6,26 @@ namespace _Game.Script.Manager
     public class LoginManager : MonoBehaviour
     {
         public GameObject privacyPolicy;
-        public NameInputPanel nameInputPanel;
+        public string nextSceneName;
 
         private void Start()
         {
-            var isFirstLogin = UserManager.Instance.MatchCount == 0;
-            if (isFirstLogin)
+            var isFirstLogin = PlayerPrefs.HasKey("FirstLogin");
+            if (!isFirstLogin)
+            {
                 privacyPolicy.SetActive(true);
+                PlayerPrefs.SetInt("FirstLogin", 1);
+            }
             else
-                SceneManager.LoadSceneAsync("Lobby");
+            {
+                SceneManager.LoadSceneAsync(nextSceneName);
+            }
         }
 
         public void ButtonAcceptTerms()
         {
             privacyPolicy.SetActive(false);
-            nameInputPanel.Show(() => SceneManager.LoadSceneAsync("Lobby"));
+            SceneManager.LoadSceneAsync(nextSceneName);
         }
 
         public void ButtonShowTerms()

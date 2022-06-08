@@ -1,5 +1,5 @@
 ﻿using _Game.Script.Bot;
-using _Game.Script.Manager;
+using _Game.Script.Character;
 using UnityEngine;
 
 namespace _Game.Script.Core.Character
@@ -14,14 +14,13 @@ namespace _Game.Script.Core.Character
         private void Start()
         {
             _playerController = GetComponent<PlayerController>();
-            if (_playerController.IsOwner)
+            if (_playerController.isOwner)
                 _joystick = FindObjectOfType<FloatingJoystick>();
         }
 
         private void Update()
         {
-            if (Match.Instance.State != MatchState.Begin) return;
-            if (_playerController.IsOwner)
+            if (_playerController.isOwner)
             {
                 SetDirection(new Vector3(_joystick.Direction.x, 0, _joystick.Direction.y));
             }

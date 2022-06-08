@@ -1,48 +1,81 @@
 using System;
 using _Game.Script.Bot;
 using _Game.Script.Manager;
+using DG.Tweening;
+using ECM.Controllers;
 using UnityEngine;
 
-namespace _Game.Script.Core.Character
+namespace _Game.Script.Character
 {
     public class PlayerController : MonoBehaviour
     {
-        public bool IsDeath { get; set; }
-        public bool IsOwner => !Data.IsBot;
-        public bool IsBot => Data.IsBot;
-        public MatchData.PlayerData Data { get; private set; }
-        public IInput Input { get; private set; }
-        public Action<PlayerController> OnDeath { get; set; }
-        private Vector3 _spawnPosition;
         private Animator _animator;
+        public bool IsQualified { get; set; }
+        public bool IsEliminated { get; set; }
+        public bool IsLoser { get; set; }
+        public bool IsDeath { get; set; }
+        public Transform hudPoint;
+        public bool isOwner;
+        public bool IsBot => false;
+        public IInput Input { get; private set; }
+        public Action OnLose { get; set; }
+        public Action OnSpawn { get; set; }
+        public GameObject ownerIndicator;
+        public Action<PlayerController> OnDeath { get; set; }
+        [SerializeField] private GameSettings gameSettings;
+        public HudController hudController;
+        private Transform _spawnPoint;
+        public BaseCharacterController CharacterController { get; private set; }
 
-        public void Init(MatchData.PlayerData playerData, Transform spawnPoint)
+        private void Awake()
         {
-            Data = playerData;
+            CharacterController = GetComponent<BaseCharacterController>();
+        }
+        public void Init()
+        {
             Input = GetComponent<IInput>();
-            if (IsOwner)
+            hudController.Init(this);
+            CharacterController.speed = IsBot ? gameSettings.botSpeed : gameSettings.playerSpeed;
+        }
+        private void OnDestroy()
+        {
+        }
+        private void OnCreateLevel()
+        {
+            if (isOwner)
             {
                 var camera = Camera.main.GetComponent<CustomCameraFollow>();
                 if (camera != null)
                     camera.SetTarget(this);
             }
-
-            _spawnPosition = spawnPoint.transform.position;
-            _spawnPosition.y += 5;
+            IsQualified = false;
+            IsEliminated = false;
             Input.StartListen();
+            if (isOwner)
+            {
+                ownerIndicator.SetActive(true);
+                ownerIndicator.transform.DOLocalMoveY(3, 0.5f)
+                    .SetLoops(6, LoopType.Yoyo)
+                    .OnComplete(() => ownerIndicator.SetActive(false));
+            }
             Spawn();
         }
-
-        private void Death()
+        public void Spawn()
         {
-            IsDeath = true;
-            Input.ClearDirection();
-            OnDeath.Invoke(this);
+            var position = _spawnPoint.transform.position + Vector3.up * 5f;
+            transform.position = position;
+            transform.rotation = _spawnPoint.transform.rotation;
+            CharacterController.pause = false;
+            OnSpawn?.Invoke();
         }
-
-        private void Spawn()
+        public void OnTriggerEnter(Collider other)
         {
-            transform.position = _spawnPosition;
+       
         }
+        private void OnCollisionEnter(Collision collision)
+        {
+          
+        }
+       
     }
 }
