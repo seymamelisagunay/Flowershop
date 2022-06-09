@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e80d822363640738b006321791a5d7c, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
-  playerSpeed: 2.5
-  rotateLerpFactor: 10
-  MatchTime: 60
+  playerControllerPrefab: {fileID: 171249232236716552, guid: 6d411a366b9cc5d4eb067ed63ee9765f,
+    type: 3}

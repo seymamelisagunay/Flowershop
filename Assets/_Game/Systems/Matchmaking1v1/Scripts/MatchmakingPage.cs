@@ -25,7 +25,7 @@ namespace _Game.Script
             _canvasGroup.DOFade(1, 0.2f);
             _enemyNames = userNamePool.text.Split('\n').ToList();
             gameObject.SetActive(true);
-            _playerCups = UserManager.Instance.UserModel.cups;
+            // _playerCups = UserManager.Instance.UserModel.cups;
             playerNameText.text = UserManager.Instance.UserModel.name;
             playerCupText.text = _playerCups.ToString();
             StartCoroutine(MatchmakingProgress());

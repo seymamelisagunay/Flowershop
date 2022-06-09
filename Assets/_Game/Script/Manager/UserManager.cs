@@ -3,25 +3,21 @@ using Gnarlyteam.Leaderboard;
 using Newtonsoft.Json;
 using UnityEngine;
 using Random = UnityEngine.Random;
-
+//TODO Currency Sistem için Evirile bilir .
 [Serializable]
-public class UserModel
+public class UserModel 
 {
     public string id;
     public string name;
-    public int gold = 50;
-    public int diamond = 0;
+    public int money = 50;
     public int level = 1;
     public int exp = 0;
-    public int cups = 0;
 }
 
 public class UserManager : MonoBehaviour
 {
     public static UserManager Instance { get; private set; }
     public UserModel UserModel { get; private set; }
-    public int MatchCount { get; private set; }
-    public LeaderboardManager LeaderboardManager;
     private const int ModelVersion = 4;
 
     private void Awake()
@@ -29,8 +25,6 @@ public class UserManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
         GetUserData();
-        LeaderboardManager = new LeaderboardManager(UserModel.name);
-        MatchCount = PlayerPrefs.GetInt("match_count", 0);
     }
 
     private void GetUserData()
@@ -60,8 +54,6 @@ public class UserManager : MonoBehaviour
     {
         if (UserModel != null)
         {
-            PlayerPrefs.SetInt("match_count", MatchCount);
-            PlayerPrefs.SetInt("model_version", ModelVersion);
             PlayerPrefs.SetString("user", JsonConvert.SerializeObject(UserModel));
             PlayerPrefs.Save();
         }
@@ -86,14 +78,6 @@ public class UserManager : MonoBehaviour
             UserModel.exp -= UserModel.level * 100;
             UserModel.level++;
         }
-
-        SaveUser();
-    }
-
-    public void IncrementCup(int cups)
-    {
-        UserModel.cups += cups;
-        MatchCount++;
         SaveUser();
     }
 }

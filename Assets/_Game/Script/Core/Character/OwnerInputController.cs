@@ -14,13 +14,13 @@ namespace _Game.Script.Core.Character
         private void Start()
         {
             _playerController = GetComponent<PlayerController>();
-            if (_playerController.playerSettings.isOwner)
+            if (!_playerController.playerSettings.isBot)
                 _joystick = FindObjectOfType<FloatingJoystick>();
         }
 
         private void Update()
         {
-            if (_playerController.playerSettings.isOwner)
+            if (!_playerController.playerSettings.isBot)
             {
                 SetDirection(new Vector3(_joystick.Direction.x, 0, _joystick.Direction.y));
             }

@@ -12,10 +12,10 @@ namespace _Game.Script.Character
     {
         private Animator _animator;
         public Transform hudPoint;
-        public PlayerControllerSettings playerSettings;
+        public PlayerSettings playerSettings;
         public IInput Input { get; private set; }
         public Action OnSpawn { get; set; }
-        public HudController hudController;
+        public PlayerHudController hudController;
         private Transform _spawnPoint;
         public MovementController CharacterController { get; private set; }
 
@@ -23,10 +23,12 @@ namespace _Game.Script.Character
         {
             CharacterController = GetComponent<MovementController>();
         }
-        public void Init()
+        public void Init(Transform spawnPoint)
         {
             Input = GetComponent<IInput>();
-            hudController.Init(this);
+            _spawnPoint = spawnPoint;
+            // hudController.Init(this);
+            OnOpenLevel();
         }
         private void OnDestroy()
         {
@@ -36,7 +38,7 @@ namespace _Game.Script.Character
         /// </summary>
         private void OnOpenLevel()
         {
-            if (playerSettings.isOwner)
+            if (!playerSettings.isBot)
             {
                 var camera = Camera.main.GetComponent<CustomCameraFollow>();
                 if (camera != null)

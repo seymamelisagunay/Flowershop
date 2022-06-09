@@ -10,13 +10,24 @@ namespace _Game.Script.Core.Character
     {
         [Space]
         [Header("Player Settings")]
-        public PlayerControllerSettings playerSettings;
-        public override void OnValidate()
+        public PlayerSettings playerSettings;
+        private IInput _input;
+        public override void Awake()
         {
-            base.OnValidate();
+            base.Awake();
+            _input = GetComponent<IInput>();
+        }
 
+        protected override void Move()
+        {
             speed = playerSettings.speed;
-
+            base.Move();
+        }
+        protected override void HandleInput()
+        {
+            var isRun = _input.Direction.magnitude > 0.1;
+            animator.SetBool("run", isRun);
+            moveDirection = _input.Direction;
         }
     }
 }

@@ -147,8 +147,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hudPoint: {fileID: 0}
-  playerSettings: {fileID: 11400000, guid: 4388c1a6115a5494799717b480333855, type: 2}
-  hudController: {fileID: 0}
+  playerSettings: {fileID: 11400000, guid: da46de04c7e93f8468737c1425843a78, type: 2}
+  hudController: {fileID: 7602260880067118142, guid: 65d24e71262677d40996281703b56646,
+    type: 3}
 --- !u!114 &6384849101459937532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 149c820e865d8094dbf903408397a4d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 8
+  _speed: 15
   _angularSpeed: 540
   _acceleration: 50
   _deceleration: 20
@@ -235,7 +236,7 @@ MonoBehaviour:
   _maxMidAirJumps: 1
   _useRootMotion: 0
   _rootMotionRotation: 0
-  playerSettings: {fileID: 11400000, guid: 4388c1a6115a5494799717b480333855, type: 2}
+  playerSettings: {fileID: 11400000, guid: da46de04c7e93f8468737c1425843a78, type: 2}
 --- !u!1 &481391383072871613
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,7 +1066,7 @@ Animator:
   m_GameObject: {fileID: 8594159270684378603}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 066e6efb959a9864c8f0f771b9e494d2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9bf8458c7819a2246b68048f4cc77f69, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -28,37 +28,37 @@ namespace _Game.Script.Leaderboard
 
         public async void Init(bool autoShow)
         {
-            _items.ForEach(x => Destroy(x.gameObject));
-            _items.Clear();
-            var leaderboardManager = UserManager.Instance.LeaderboardManager;
-            leaderboardManager.leaderboard
-                .users.ForEach(user =>
-                {
-                    var item = Instantiate(user.id == "self" ? selfItemPrefab : otherItemPrefab
-                        , contextPanel);
-                    item.Init(user);
-                    _items.Add(item);
-                    if (user.id == "self")
-                        _selfItem = item;
-                });
+            // _items.ForEach(x => Destroy(x.gameObject));
+            // _items.Clear();
+            // // var leaderboardManager = UserManager.Instance.LeaderboardManager;
+            // leaderboardManager.leaderboard
+            //     .users.ForEach(user =>
+            //     {
+            //         var item = Instantiate(user.id == "self" ? selfItemPrefab : otherItemPrefab
+            //             , contextPanel);
+            //         item.Init(user);
+            //         _items.Add(item);
+            //         if (user.id == "self")
+            //             _selfItem = item;
+            //     });
 
-            var user = leaderboardManager.selfUser;
-            var oldRank = user.rank;
-            //Update current cup for self users
-            leaderboardManager.SetCurrentCup(UserManager.Instance.UserModel.cups);
-            var currentRank = user.rank;
-            var hasRankJump = oldRank > currentRank;
-            if (autoShow && hasRankJump)
-            {
-                Show();
-                canvasGroup.blocksRaycasts = false;
-                await Task.Delay(TimeSpan.FromSeconds(0.5f));
-                Jump();
-            }
-            else
-            {
-                _selfItem.Init(user);
-            }
+            // var user = leaderboardManager.selfUser;
+            // var oldRank = user.rank;
+            // //Update current cup for self users
+            // leaderboardManager.SetCurrentCup(UserManager.Instance.UserModel.cups);
+            // var currentRank = user.rank;
+            // var hasRankJump = oldRank > currentRank;
+            // if (autoShow && hasRankJump)
+            // {
+            //     Show();
+            //     canvasGroup.blocksRaycasts = false;
+            //     await Task.Delay(TimeSpan.FromSeconds(0.5f));
+            //     Jump();
+            // }
+            // else
+            // {
+            //     _selfItem.Init(user);
+            // }
         }
 
         public void Show()

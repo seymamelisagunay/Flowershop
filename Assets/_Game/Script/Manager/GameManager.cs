@@ -9,7 +9,8 @@ namespace _Game.Script.Manager
         public static GameManager instance;
         public GameSettings gameSettings;
         public Transform playerSpawnPoint;
-
+        [HideInInspector]
+        public PlayerController activePlayer;
         private void Awake()
         {
             instance = this;
@@ -19,7 +20,13 @@ namespace _Game.Script.Manager
         /// </summary>
         public void Init()
         {
+            PlayerCreater();
+        }
 
+        private void PlayerCreater()
+        {
+            activePlayer = Instantiate(gameSettings.playerControllerPrefab);
+            activePlayer.Init(playerSpawnPoint);
         }
     }
 }

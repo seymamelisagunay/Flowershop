@@ -911,7 +911,7 @@ namespace ECM.Controllers
 
             rootMotionController = GetComponentInChildren<RootMotionController>();
         }
-
+      
         public virtual void FixedUpdate()
         {
             // Pause / resume character

@@ -45,26 +45,26 @@ namespace _Game.Systems.MatchResult.Scripts
 
         public void Show(MatchResultType result)
         {
-            _canvasGroup = GetComponent<CanvasGroup>();
-            _canvasGroup.blocksRaycasts = true;
-            _canvasGroup.DOFade(1, 0.2f);
+            // _canvasGroup = GetComponent<CanvasGroup>();
+            // _canvasGroup.blocksRaycasts = true;
+            // _canvasGroup.DOFade(1, 0.2f);
 
-            var user = UserManager.Instance.UserModel;
-            var oldExp = user.exp;
-            var oldLevel = user.level;
-            var oldCup = user.cups;
-            UserManager.Instance.IncrementExp(_rewardExp[result]);
-            UserManager.Instance.IncrementCup(_rewardCups[result]);
-            var nextCup = user.cups;
-            var nextExp = user.exp;
-            var nextLevel = user.level;
+            // var user = UserManager.Instance.UserModel;
+            // var oldExp = user.exp;
+            // var oldLevel = user.level;
+            // var oldCup = user.cups;
+            // UserManager.Instance.IncrementExp(_rewardExp[result]);
+            // UserManager.Instance.IncrementCup(_rewardCups[result]);
+            // var nextCup = user.cups;
+            // var nextExp = user.exp;
+            // var nextLevel = user.level;
 
-            winTitle.SetActive(result == MatchResultType.Win);
-            loseTitle.SetActive(result == MatchResultType.Lose);
-            drawTitle.SetActive(result == MatchResultType.Draw);
-            currentCupCountText.SetText((nextCup - oldCup).ToString());
-            ShowExpProgress(oldLevel, oldExp, nextLevel, nextExp);
-            TinySauce.OnGameFinished(nextCup - oldCup);
+            // winTitle.SetActive(result == MatchResultType.Win);
+            // loseTitle.SetActive(result == MatchResultType.Lose);
+            // drawTitle.SetActive(result == MatchResultType.Draw);
+            // currentCupCountText.SetText((nextCup - oldCup).ToString());
+            // ShowExpProgress(oldLevel, oldExp, nextLevel, nextExp);
+            // TinySauce.OnGameFinished(nextCup - oldCup);
         }
 
         private void ShowExpProgress(int oldLevel, int oldExp, int nextLevel, int nextExp)
