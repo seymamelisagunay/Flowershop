@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9ccbbdb54d58d645b95d03b1ec654d7, type: 3}
-  m_Name: SlotData
+  m_Script: {fileID: 11500000, guid: 29d668ca7e652924584bb2fec981ca3e, type: 3}
+  m_Name: MoneyVariable
   m_EditorClassIdentifier: 
-  slotName: Slot Test
-  Id: 
-  price: 10
+  _value: 150
+  OnChangeVariable:
+    m_PersistentCalls:
+      m_Calls: []

@@ -5,11 +5,10 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 //TODO Currency Sistem için Evirile bilir .
 [Serializable]
-public class UserModel 
+public class UserModel
 {
     public string id;
     public string name;
-    public int money = 50;
     public int level = 1;
     public int exp = 0;
 }
@@ -17,38 +16,34 @@ public class UserModel
 public class UserManager : MonoBehaviour
 {
     public static UserManager Instance { get; private set; }
-    public UserModel UserModel { get; private set; }
+    public UserModel UserModel;
+    public IntVariable money;
     private const int ModelVersion = 4;
-
     private void Awake()
     {
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+    }
+    private void Start()
+    {
         GetUserData();
     }
 
     private void GetUserData()
     {
-        if (PlayerPrefs.HasKey("model_version"))
+        if (PlayerPrefs.HasKey("user"))
         {
-            var modelVersion = PlayerPrefs.GetInt("model_version");
-            if (modelVersion == ModelVersion)
-            {
-                UserModel = JsonConvert.DeserializeObject<UserModel>(PlayerPrefs.GetString("user"));
-                if (UserModel != null) return;
-                Debug.LogError("Json convert fail");
+            UserModel = JsonConvert.DeserializeObject<UserModel>(PlayerPrefs.GetString("user"));
+            if (UserModel == null)
                 CreateUserData();
-            }
-            else
-            {
-                CreateUserData();
-            }
         }
         else
-        {
             CreateUserData();
-        }
+
+        GetMoney();
+        money.OnChangeVariable.RemoveListener(SaveMoney);
+        money.OnChangeVariable.AddListener(SaveMoney);
     }
+
 
     public void SaveUser()
     {
@@ -68,7 +63,32 @@ public class UserManager : MonoBehaviour
         };
         SaveUser();
     }
-
+    public bool CheckedMoney(int money)
+    {
+        return money <= this.money.Value;
+    }
+    public void IncrementMoney(int count)
+    {
+        this.money.Value += count;
+    }
+    public bool DecreasingMoney(int count)
+    {
+        this.money.Value -= count;
+        if (this.money.Value < 0)
+        {
+            this.money.Value += count;
+            return false;
+        }
+        return true;
+    }
+    public void SaveMoney()
+    {
+        PlayerPrefs.SetInt("UserMoney", money.Value);
+    }
+    public void GetMoney()
+    {
+        money.Value = PlayerPrefs.GetInt("UserMoney", money.Value);
+    }
 
     public void IncrementExp(int exp)
     {

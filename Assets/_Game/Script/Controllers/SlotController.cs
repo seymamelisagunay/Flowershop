@@ -1,4 +1,5 @@
 using NaughtyAttributes;
+using Newtonsoft.Json;
 using UnityEngine;
 
 /// <summary>
@@ -6,31 +7,52 @@ using UnityEngine;
 /// 
 /// </summary>
 [RequireComponent(typeof(Rigidbody))]
-public class SlotController : MonoBehaviour, ISlot
+public class SlotController : MonoBehaviour
 {
-    public SlotData slotData;
-    public void OpenSlot()
+    public Slot slot;
+    [HideInInspector]
+    public SlotHud slotHud;
+    public Transform hudPoint;
+
+    public void Init()
     {
+        GetSaveData();
+        slotHud = Instantiate(slot.slotHudPrefab,transform);
+        slotHud.transform.position = hudPoint.position;
+        if (slot.emptyData.isOpen)
+        {
+            Debug.Log("Slot is Open");
+        }
+        else
+        {
+            var emptySlot = Instantiate(slot.slotEmptyPrefab, transform);
+            emptySlot.Init(slot, slotHud);
+        }
+        slot.emptyData.OnChangeVariable.AddListener(SaveSlotData);
     }
-    public void OnTriggerEnter(Collider collider)
+
+    private void GetSaveData()
     {
+        if (PlayerPrefs.HasKey(slot.Id))
+        {
+            var jsonValue = PlayerPrefs.GetString(slot.Id);
+            slot.emptyData = JsonConvert.DeserializeObject<SlotEmptyData>(jsonValue);
+        }
     }
-    public void OnTriggerExit(Collider collider)
+    /// <summary>
+    /// Slot Datasını Kayıt ediyoruz !
+    /// </summary>
+    private void SaveSlotData(SlotEmptyData slotData)
     {
+        var jsonValue = JsonConvert.SerializeObject(slotData);
+        PlayerPrefs.SetString(slot.Id, jsonValue);
     }
+
     [Button]
     private void SlotNameSet()
     {
-        name = slotData.slotName;
+        name = slot.slotName;
     }
 }
-public interface ISlot
-{
-    /// <summary>
-    ///  Slot eğer kapalı ise satın alınması gerekir
-    /// </summary>
-    void OpenSlot();
-    void OnTriggerEnter(Collider collider);
-    void OnTriggerExit(Collider other);
-}
+
 
