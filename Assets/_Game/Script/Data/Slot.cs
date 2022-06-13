@@ -1,6 +1,5 @@
 using UnityEngine;
 using NaughtyAttributes;
-using Newtonsoft.Json;
 
 [CreateAssetMenu(fileName = "Slot", menuName = "Gnarly Team/Slot")]
 public class Slot : ScriptableObject
@@ -21,7 +20,11 @@ public class Slot : ScriptableObject
     /// <summary>
     /// boş slot Yapısı
     /// </summary>
-    public SlotEmpty slotEmptyPrefab;
+    public SlotEmptyController slotEmptyPrefab;
+    /// <summary>
+    /// 
+    /// </summary>
+    public GameObject factoryController;
     /// <summary>
     /// slot UI HUD
     /// </summary>
@@ -29,7 +32,11 @@ public class Slot : ScriptableObject
     /// <summary>
     /// Slot içerisine girildiğinde ne sürede işleme başlayacağız
     /// </summary>
-    public float firstTriggerTime;
+    public float firstTriggerCooldown;
+    /// <summary>
+    /// 
+    /// </summary>
+    public float triggerCooldown = 0.05f;
     /// <summary>
     /// Bunun Empty İçinbe alınması lazım ismi değiştirilip
     /// </summary>
@@ -37,19 +44,18 @@ public class Slot : ScriptableObject
     [Space]
     public SlotEmptyData emptyData;
 
-    public SlotFullData slotData;
     private void OnValidate()
     {
         emptyData.OnValidate();
     }
 }
 
-public class SlotFullData{
-
-}
 public enum SlotType
 {
-
+    farm = 0,
+    factory = 1,
+    stand = 2,
+    checkout = 3
 }
 
 

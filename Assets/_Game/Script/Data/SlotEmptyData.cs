@@ -11,7 +11,7 @@ public class SlotEmptyData
     /// </summary>
     [SerializeField]
     private bool _isOpen;
-    public bool isOpen
+    public bool IsOpen
     {
         get => _isOpen;
         set
@@ -25,7 +25,7 @@ public class SlotEmptyData
     /// </summary>
     [SerializeField]
     private int _price = 10;
-    public int price
+    public int Price
     {
         get => _price;
         set
@@ -39,7 +39,7 @@ public class SlotEmptyData
     /// </summary>
     [SerializeField]
     private int _currenctPrice = 0;
-    public int currenctPrice
+    public int CurrenctPrice
     {
         get => _currenctPrice;
         set
@@ -55,9 +55,9 @@ public class SlotEmptyData
 
     public void OnValidate()
     {
-        isOpen = _isOpen;
-        price = _price;
-        currenctPrice = _currenctPrice;
+        IsOpen = _isOpen;
+        Price = _price;
+        CurrenctPrice = _currenctPrice;
     }
 }
 

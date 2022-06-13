@@ -19,7 +19,8 @@ public class SlotController : MonoBehaviour
         GetSaveData();
         slotHud = Instantiate(slot.slotHudPrefab,transform);
         slotHud.transform.position = hudPoint.position;
-        if (slot.emptyData.isOpen)
+
+        if (slot.emptyData.IsOpen)
         {
             Debug.Log("Slot is Open");
         }

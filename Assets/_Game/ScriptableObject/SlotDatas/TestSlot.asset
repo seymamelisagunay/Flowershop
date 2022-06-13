@@ -14,12 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotName: Test Slot
   Id: Slot-1
-  slotType: 0
+  slotType: 2
   slotEmptyPrefab: {fileID: 2064649203199760096, guid: 2796bf85067029244b0236bd3d257ab5,
     type: 3}
+  factoryController: {fileID: 0}
   slotHudPrefab: {fileID: 4402175197117052178, guid: ac4158c95d37b404cb017104ebde6e42,
     type: 3}
-  firstTriggerTime: 1
+  firstTriggerCooldown: 1
+  triggerCooldown: 0.05
   emptyData:
     _isOpen: 0
     _price: 10

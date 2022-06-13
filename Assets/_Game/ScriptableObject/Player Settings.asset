@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBot: 0
   playerSpeed: 5
-  botSpeed: 0
+  botSpeed: 2.9
   rotateLerpFactor: 10
