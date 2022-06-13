@@ -5,19 +5,15 @@ namespace _Game.Script.UI
 {
     public class LobbyPage : MonoBehaviour
     {
-        [SerializeField] private TMP_Text userNameText;
-        [SerializeField] private TMP_Text levelText;
-
-        public void Start()
+        public TMP_Text moneyText;
+        public IntVariable moneyVariable;
+        public void Awake()
         {
-            var user = UserManager.Instance.UserModel;
-            userNameText.SetText(user.name);
-            levelText.SetText(user.level.ToString());
+            moneyVariable.OnChangeVariable.AddListener(OnChangeVariable);
         }
-
-        public void ButtonDiscord()
+        private void OnChangeVariable()
         {
-            Application.OpenURL("https://discord.gg/ZcemyfVhqf");
+            moneyText.SetText(moneyVariable.Value.ToString());
         }
     }
 }
