@@ -3,7 +3,37 @@ guid: a62186c08f4b9774e8cd725842512199
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.005
+    second: {fileID: 2100000, guid: 52015220f080ae74a9c1ff7a91d68458, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.007
+    second: {fileID: 2100000, guid: 37b2d36c624c82844bcfddab6ac98501, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.010
+    second: {fileID: 2100000, guid: 87b8dad9ad9335c47b0d74ee37449755, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: t
+    second: {fileID: 2100000, guid: 7357daeb6c72b4c4c80787c6f6ac27f3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: textrure
+    second: {fileID: 2100000, guid: 834ded42fb6a2534ea0a98ea50d192a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: texture2
+    second: {fileID: 2100000, guid: 33aefa0bc23fed24181fb0b7e65e5d93, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
