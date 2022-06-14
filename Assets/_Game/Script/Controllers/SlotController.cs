@@ -13,23 +13,41 @@ public class SlotController : MonoBehaviour
     [HideInInspector]
     public SlotHud slotHud;
     public Transform hudPoint;
+    [HideInInspector]
+    public StackController stackController;
 
     public void Init()
     {
         GetSaveData();
-        slotHud = Instantiate(slot.slotHudPrefab,transform);
+        stackController = GetComponent<StackController>();
+
+        slotHud = Instantiate(slot.slotHudPrefab, transform);
         slotHud.transform.position = hudPoint.position;
+        slotHud.Init();
 
         if (slot.emptyData.IsOpen)
         {
-            Debug.Log("Slot is Open");
+            switch (slot.slotType)
+            {
+                case SlotType.farm:
+                    var farm = Instantiate(slot.farmControllerPrefab);
+                    farm.Init(this);
+                    break;
+                case SlotType.factory:
+                    break;
+                case SlotType.stand:
+                    break;
+                case SlotType.checkout:
+                    break;
+            }
         }
         else
         {
             var emptySlot = Instantiate(slot.slotEmptyPrefab, transform);
             emptySlot.Init(slot, slotHud);
+            slot.emptyData.OnChangeVariable.AddListener(SaveSlotEmptyData);
         }
-        slot.emptyData.OnChangeVariable.AddListener(SaveSlotData);
+      
     }
 
     private void GetSaveData()
@@ -43,10 +61,10 @@ public class SlotController : MonoBehaviour
     /// <summary>
     /// Slot Datasını Kayıt ediyoruz !
     /// </summary>
-    private void SaveSlotData(SlotEmptyData slotData)
+    private void SaveSlotEmptyData(SlotEmptyData slotData)
     {
         var jsonValue = JsonConvert.SerializeObject(slotData);
-        PlayerPrefs.SetString(slot.Id, jsonValue);
+        PlayerPrefs.SetString(slot.Id+"-Empty", jsonValue);
     }
 
     [Button]

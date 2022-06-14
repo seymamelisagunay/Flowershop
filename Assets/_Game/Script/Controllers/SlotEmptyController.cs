@@ -14,12 +14,11 @@ public class SlotEmptyController : MonoBehaviour
         _slot = slot;
         _slotHud = slotHud;
         SlotOpenEffect();
-
-        _slotHud.emptyPrice.SetText(slot.emptyData.CurrenctPrice.ToString());
-
+        slotHud.Open("empty");
+        slotHud.SetPriceText(_slot.emptyData.CurrenctPrice.ToString());
         _slot.emptyData.OnChangeVariable.AddListener((data) =>
         {
-            _slotHud.emptyPrice.SetText(data.CurrenctPrice.ToString());
+            slotHud.SetPriceText(data.ToString());
         });
     }
 

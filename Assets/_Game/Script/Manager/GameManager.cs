@@ -13,12 +13,12 @@ namespace _Game.Script.Manager
         public Transform playerSpawnPoint;
         [HideInInspector]
         public PlayerController activePlayer;
-
-        public List<SlotController> slotList = new List<SlotController>();
+        public SlotManager slotManager;
         private void Awake()
         {
             instance = this;
-            GetAllSlotController();
+            //GetAllSlotController();
+            slotManager = FindObjectOfType<SlotManager>();
         }
         /// <summary>
         /// Game is start
@@ -26,9 +26,9 @@ namespace _Game.Script.Manager
         public void Init()
         {
             PlayerCreater();
-            slotList.ForEach(x=>{
-                x.Init();
-            });
+            //slotList.ForEach(x=>{
+            //    x.Init();
+            //});
         }
 
         private void PlayerCreater()
@@ -38,10 +38,10 @@ namespace _Game.Script.Manager
         }
 
 
-        public void GetAllSlotController()
-        {
-            var slots = FindObjectsOfType<SlotController>();
-            slotList = slots.ToList();
-        }
+        //public void GetAllSlotController()
+        //{
+        //    var slots = FindObjectsOfType<SlotController>();
+        //    slotList = slots.ToList();
+        //}
     }
 }

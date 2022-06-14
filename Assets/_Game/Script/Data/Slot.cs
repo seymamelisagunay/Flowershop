@@ -24,7 +24,7 @@ public class Slot : ScriptableObject
     /// <summary>
     /// 
     /// </summary>
-    public GameObject factoryController;
+    public FarmController farmControllerPrefab;
     /// <summary>
     /// slot UI HUD
     /// </summary>
@@ -43,6 +43,11 @@ public class Slot : ScriptableObject
     [InfoBox("Boş Slot Bilgilerinin Tutulduğu yer!")]
     [Space]
     public SlotEmptyData emptyData;
+    /// <summary>
+    /// 
+    /// </summary>
+    public StackData stackData;
+
 
     private void OnValidate()
     {
@@ -56,6 +61,13 @@ public enum SlotType
     factory = 1,
     stand = 2,
     checkout = 3
+}
+
+public enum ProductType
+{
+    rose,
+    perfume,
+    candy
 }
 
 
