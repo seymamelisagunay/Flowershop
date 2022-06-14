@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace _Game.Script.Manager
 {
+    [DefaultExecutionOrder(-101)]
     public class GameManager : MonoBehaviour
     {
         public static GameManager instance;
@@ -26,9 +27,12 @@ namespace _Game.Script.Manager
         public void Init()
         {
             PlayerCreater();
-            //slotList.ForEach(x=>{
-            //    x.Init();
-            //});
+            slotManager.slotStates.ForEach(x =>
+            {
+                x.slotController.Init();
+
+            });
+            slotManager.SlotOpen();
         }
 
         private void PlayerCreater()
@@ -36,12 +40,5 @@ namespace _Game.Script.Manager
             activePlayer = Instantiate(gameSettings.playerControllerPrefab);
             activePlayer.Init(playerSpawnPoint);
         }
-
-
-        //public void GetAllSlotController()
-        //{
-        //    var slots = FindObjectsOfType<SlotController>();
-        //    slotList = slots.ToList();
-        //}
     }
 }

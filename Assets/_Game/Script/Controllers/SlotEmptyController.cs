@@ -1,24 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class SlotEmptyController : MonoBehaviour
 {
-    private Slot _slot;
-    private SlotHud _slotHud;
+    private SlotController _slotController;
     private bool isInsidePlayer;
-    
-    public void Init(Slot slot, SlotHud slotHud)
+    [ReadOnly]
+    public SlotEmptyData emptyData;
+
+    public void Init(SlotController slotController)
     {
-        _slot = slot;
-        _slotHud = slotHud;
+        _slotController = slotController;
+        emptyData = _slotController.slot.emptyData;
         SlotOpenEffect();
-        slotHud.Open("empty");
-        slotHud.SetPriceText(_slot.emptyData.CurrenctPrice.ToString());
-        _slot.emptyData.OnChangeVariable.AddListener((data) =>
+        _slotController.slotHud.Open("empty");
+        var remaing = _slotController.slot.emptyData.Price - _slotController.slot.emptyData.CurrenctPrice;
+        _slotController.slotHud.SetPriceText(remaing.ToString());
+        _slotController.slot.emptyData.OnChangeVariable.AddListener((data) =>
         {
-            slotHud.SetPriceText(data.ToString());
+            var remaingCount = data.Price - data.CurrenctPrice;
+            _slotController.slotHud.SetPriceText(remaingCount.ToString());
         });
     }
 
@@ -31,7 +35,7 @@ public class SlotEmptyController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !_slot.emptyData.IsOpen)
+        if (other.CompareTag("Player") && !_slotController.slot.emptyData.IsOpen)
         {
             isInsidePlayer = true;
             StartCoroutine(StayInPlayer());
@@ -48,7 +52,7 @@ public class SlotEmptyController : MonoBehaviour
 
     private IEnumerator StayInPlayer()
     {
-        yield return new WaitForSeconds(_slot.firstTriggerCooldown);
+        yield return new WaitForSeconds(_slotController.slot.firstTriggerCooldown);
 
         while (isInsidePlayer)
         {
@@ -60,19 +64,24 @@ public class SlotEmptyController : MonoBehaviour
             }
             else
             {
-                _slot.emptyData.CurrenctPrice--;
+                emptyData.CurrenctPrice++;
                 // _slotHud.emptyPrice.SetText(moneyCounter.ToString());
-                if (_slot.emptyData.CurrenctPrice == 0)
+                if (emptyData.CurrenctPrice == emptyData.Price)
                 {
                     isInsidePlayer = false;
-                    _slot.emptyData.IsOpen = true;
-                    // Burada Slot Düzeltilcek
-                    Debug.Log("Test ! slot Aktif edilcek ");
+                    emptyData.IsOpen = true;
+                    SlotManager.instance.NextSlot();
+                    SlotClose();
+                    _slotController.OpenSlot();
                 }
             }
-
             yield return new WaitForSeconds(0.05f);
         }
+    }
+
+    public void SlotClose()
+    {
+        transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InOutBounce);
     }
 
 }
