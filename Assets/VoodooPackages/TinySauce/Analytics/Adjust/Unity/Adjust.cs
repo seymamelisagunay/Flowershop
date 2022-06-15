@@ -41,7 +41,7 @@ namespace com.adjust.sdk
 
         public void InitAdjust()
         {
-            appToken = TinySauce.getToken();
+            appToken = "";
 
             if(appToken == "")
             {

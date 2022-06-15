@@ -97,13 +97,14 @@ public static class TinySauce
 
     public static string getToken()
     {
-        TinySauceSettings sauceSettings = TinySauceSettings.Load();
+        /*TinySauceSettings sauceSettings = TinySauceSettings.Load();
 #if UNITY_ANDROID
         return sauceSettings.adjustAndroidToken.Replace(" ", string.Empty);
 #endif
 #if UNITY_IOS
         return sauceSettings.adjustIOSToken.Replace(" ", string.Empty);
-#endif
+#endif*/
+        return "";
     }
     public enum AnalyticsProvider
     {
