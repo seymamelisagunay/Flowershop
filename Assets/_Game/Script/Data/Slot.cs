@@ -1,3 +1,4 @@
+using _Game.Script.Controllers;
 using UnityEngine;
 using NaughtyAttributes;
 
@@ -46,12 +47,13 @@ public class Slot : ScriptableObject
     /// <summary>
     /// 
     /// </summary>
-    public StackData stackData;
+    public StackData stackData = new StackData();
 
 
     private void OnValidate()
     {
         emptyData.OnValidate();
+        stackData.OnValidate();
     }
 }
 

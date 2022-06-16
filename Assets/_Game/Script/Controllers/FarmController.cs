@@ -1,5 +1,7 @@
 using NaughtyAttributes;
 using System.Collections;
+using _Game.Script.Controllers;
+using DG.Tweening;
 using UnityEngine;
 
 
@@ -7,6 +9,7 @@ public class FarmController : MonoBehaviour
 {
     private SlotController _slotController;
     public ProductType productType;
+    private FarmStackController _farmStackController;
     [ReadOnly]
     public StackData stackData;
     /// <summary>
@@ -17,8 +20,15 @@ public class FarmController : MonoBehaviour
     {
         _slotController = slotController;
         stackData = _slotController.slot.stackData;
-
+        OpenFarmEffect();
+        _farmStackController = GetComponent<FarmStackController>();
+        _farmStackController.Init(_slotController);
         StartCoroutine(Creator());
+    }
+
+    private void OpenFarmEffect()
+    {
+        transform.DOScale(Vector3.one, 0.1f).SetEase(Ease.OutElastic);
     }
     /// <summary>
     /// 
@@ -29,13 +39,15 @@ public class FarmController : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(stackData.ProductionRate);
-            if (stackData.ProductTypes.Count < stackData.MaxProductCount)
-            {
-                stackData.ProductTypes.Add(productType);
-                Debug.Log("Test ! bir");
-            }
+            
+            if (!stackData.CheckMaxCount()) continue;
+            
+            _farmStackController.SetValue(productType);
+            Debug.Log("Test ! bir");
         }
     }
+    
+    
     [Button]
     public void TestRemove()
     {

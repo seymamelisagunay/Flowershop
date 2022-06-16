@@ -1,3 +1,4 @@
+using _Game.Script.Controllers;
 using NaughtyAttributes;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -29,6 +30,7 @@ public class SlotController : MonoBehaviour
             {
                 case SlotType.farm:
                     var farm = Instantiate(slot.farmControllerPrefab, transform);
+                    farm.name += slot.Id; 
                     farm.Init(this);
                     slot.stackData.OnChangeVariable.AddListener(SaveSlotStackData);
                     break;
@@ -69,11 +71,17 @@ public class SlotController : MonoBehaviour
     /// </summary>
     private void SaveSlotEmptyData(SlotEmptyData slotData)
     {
+        if (!PlayerPrefs.HasKey(slot.Id))
+            PlayerPrefs.SetInt(slot.Id, 1);
+        
         var jsonValue = JsonConvert.SerializeObject(slotData);
         PlayerPrefs.SetString(slot.Id + "-Empty", jsonValue);
     }
-    private void SaveSlotStackData(StackData stackData)
+    public void SaveSlotStackData(StackData stackData)
     {
+        if (!PlayerPrefs.HasKey(slot.Id))
+            PlayerPrefs.SetInt(slot.Id, 1);
+        
         var jsonValue = JsonConvert.SerializeObject(stackData);
         PlayerPrefs.SetString(slot.Id + "-StackData", jsonValue);
 

@@ -81,6 +81,7 @@ GameObject:
   - component: {fileID: 171249232236716549}
   - component: {fileID: 171249232236716666}
   - component: {fileID: 171249232236716667}
+  - component: {fileID: 4331471465349665932}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Player
@@ -238,6 +239,27 @@ MonoBehaviour:
   _useRootMotion: 0
   _rootMotionRotation: 0
   playerSettings: {fileID: 11400000, guid: da46de04c7e93f8468737c1425843a78, type: 2}
+--- !u!114 &4331471465349665932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171249232236716548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d60a9e74e9e3614687b65255d900a3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSettings: {fileID: 11400000, guid: da46de04c7e93f8468737c1425843a78, type: 2}
+  farmTag: Farm
+  playerStackData:
+    maxProductCount: 15
+    productionRate: 0
+    _productTypes: 
+    OnChangeVariable:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &481391383072871613
 GameObject:
   m_ObjectHideFlags: 0

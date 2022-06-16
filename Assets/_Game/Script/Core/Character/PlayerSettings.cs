@@ -17,5 +17,7 @@ namespace _Game.Script.Core.Character
         private float botSpeed;
         public float speed => !isBot ? playerSpeed : botSpeed;
         public float rotateLerpFactor = 10;
+
+        public float pickingSpeed = 0.5f;
     }
 }

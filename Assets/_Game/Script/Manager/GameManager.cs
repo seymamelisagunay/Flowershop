@@ -30,7 +30,6 @@ namespace _Game.Script.Manager
             slotManager.slotStates.ForEach(x =>
             {
                 x.slotController.Init();
-
             });
             slotManager.SlotOpen();
         }

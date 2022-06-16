@@ -17,8 +17,8 @@ public class SlotEmptyController : MonoBehaviour
         emptyData = _slotController.slot.emptyData;
         SlotOpenEffect();
         _slotController.slotHud.Open("empty");
-        var remaing = _slotController.slot.emptyData.Price - _slotController.slot.emptyData.CurrenctPrice;
-        _slotController.slotHud.SetPriceText(remaing.ToString());
+        var remaining = _slotController.slot.emptyData.Price - _slotController.slot.emptyData.CurrenctPrice;
+        _slotController.slotHud.SetPriceText(remaining.ToString());
         _slotController.slot.emptyData.OnChangeVariable.AddListener((data) =>
         {
             var remaingCount = data.Price - data.CurrenctPrice;
