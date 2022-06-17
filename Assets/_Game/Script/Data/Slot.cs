@@ -5,6 +5,8 @@ using NaughtyAttributes;
 [CreateAssetMenu(fileName = "Slot", menuName = "Gnarly Team/Slot")]
 public class Slot : ScriptableObject
 {
+    [ShowAssetPreview]
+    public Sprite logo;
     /// <summary>
     /// Slot Adı bizim tanımamzı için kullanılır.
     /// </summary>

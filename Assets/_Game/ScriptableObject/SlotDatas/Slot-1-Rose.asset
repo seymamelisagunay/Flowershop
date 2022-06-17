@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9ccbbdb54d58d645b95d03b1ec654d7, type: 3}
-  m_Name: "Slot-1-G\xFCl"
+  m_Name: Slot-1-Rose
   m_EditorClassIdentifier: 
+  logo: {fileID: 21300000, guid: c163b78d1a86fe84a96dc6506b6a2513, type: 3}
   slotName: "G\xFCl-Slot1"
   Id: Slot1
   slotType: 0
@@ -25,7 +26,7 @@ MonoBehaviour:
   triggerCooldown: 0.05
   emptyData:
     _isOpen: 0
-    _price: 50
+    _price: 30
     _currenctPrice: 0
     OnChangeVariable:
       m_PersistentCalls:
@@ -36,7 +37,7 @@ MonoBehaviour:
   stackData:
     maxProductCount: 3
     productionRate: 0.75
-    _productTypes: 
+    _productTypes: 000000000000000000000000
     OnChangeVariable:
       m_PersistentCalls:
         m_Calls: []

@@ -10,23 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9ccbbdb54d58d645b95d03b1ec654d7, type: 3}
-  m_Name: "Slot-2-G\xFCl"
+  m_Name: RosePerfumeStand
   m_EditorClassIdentifier: 
-  logo: {fileID: 21300000, guid: c163b78d1a86fe84a96dc6506b6a2513, type: 3}
-  slotName: "G\xFCl-Slot2"
-  Id: Slot2
-  slotType: 0
+  logo: {fileID: 21300000, guid: c1b972517103d304aa3153b67e2a5b02, type: 3}
+  slotName: Rose Perfume Stand
+  Id: RosePerfumeStand
+  slotType: 2
   slotEmptyPrefab: {fileID: 2064649203199760096, guid: 2796bf85067029244b0236bd3d257ab5,
     type: 3}
-  farmControllerPrefab: {fileID: 8099023379339999430, guid: aec1d31605182954c8ec32f40a1d5dae,
-    type: 3}
+  farmControllerPrefab: {fileID: 0}
   slotHudPrefab: {fileID: 4402175197117052178, guid: ac4158c95d37b404cb017104ebde6e42,
     type: 3}
-  firstTriggerCooldown: 1
+  firstTriggerCooldown: 0.5
   triggerCooldown: 0.05
   emptyData:
     _isOpen: 0
-    _price: 50
+    _price: 100
     _currenctPrice: 0
     OnChangeVariable:
       m_PersistentCalls:
@@ -35,8 +34,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   stackData:
-    maxProductCount: 3
-    productionRate: 0.75
+    maxProductCount: 4
+    productionRate: 0
     _productTypes: 
     OnChangeVariable:
       m_PersistentCalls:
