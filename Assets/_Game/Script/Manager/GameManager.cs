@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace _Game.Script.Manager
 {
+    [DefaultExecutionOrder(-101)]
     public class GameManager : MonoBehaviour
     {
         public static GameManager instance;
@@ -13,12 +14,12 @@ namespace _Game.Script.Manager
         public Transform playerSpawnPoint;
         [HideInInspector]
         public PlayerController activePlayer;
-
-        public List<SlotController> slotList = new List<SlotController>();
+        public SlotManager slotManager;
         private void Awake()
         {
             instance = this;
-            GetAllSlotController();
+            //GetAllSlotController();
+            slotManager = FindObjectOfType<SlotManager>();
         }
         /// <summary>
         /// Game is start
@@ -26,22 +27,17 @@ namespace _Game.Script.Manager
         public void Init()
         {
             PlayerCreater();
-            slotList.ForEach(x=>{
-                x.Init();
+            slotManager.slotStates.ForEach(x =>
+            {
+                x.slotController.Init();
             });
+            slotManager.SlotOpen();
         }
 
         private void PlayerCreater()
         {
             activePlayer = Instantiate(gameSettings.playerControllerPrefab);
             activePlayer.Init(playerSpawnPoint);
-        }
-
-
-        public void GetAllSlotController()
-        {
-            var slots = FindObjectsOfType<SlotController>();
-            slotList = slots.ToList();
         }
     }
 }

@@ -18,6 +18,7 @@ public class SlotEmptyData
         {
             _isOpen = value;
             OnChangeVariable?.Invoke(this);
+            OnChangeIsOpenVarible?.Invoke(this);
         }
     }
     /// <summary>
@@ -52,6 +53,8 @@ public class SlotEmptyData
     [InfoBox("Değer Değiştirildiğinde Data Döndürür")]
     [Space]
     public UnityEvent<SlotEmptyData> OnChangeVariable;
+    [HideInInspector]
+    public UnityEvent<SlotEmptyData> OnChangeIsOpenVarible;
 
     public void OnValidate()
     {
