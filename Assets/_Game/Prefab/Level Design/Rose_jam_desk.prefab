@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 596404314403205178}
   - component: {fileID: 8623936338228557484}
   - component: {fileID: 8925824212235369056}
+  - component: {fileID: 387742832}
   m_Layer: 0
   m_Name: jam_machine
   m_TagString: Untagged
@@ -132,6 +133,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5453368615393121512, guid: a62186c08f4b9774e8cd725842512199, type: 3}
+--- !u!114 &387742832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565517015197133272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef7cb8b01f706b44b082cb773657059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  machine: {fileID: 1565517015197133272}
+  strength: 5
+  vibrato: 10
 --- !u!1 &2581932123838254892
 GameObject:
   m_ObjectHideFlags: 0
