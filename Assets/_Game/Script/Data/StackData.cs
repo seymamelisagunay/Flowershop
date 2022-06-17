@@ -53,8 +53,9 @@ namespace _Game.Script.Controllers
             OnChangeVariable?.Invoke(this);
         }
 
-        public void RemoveProduct()
+        public void RemoveProduct(int index)
         {
+            _productTypes.RemoveAt(index);
             OnChangeVariable?.Invoke(this);
         }
         public bool CheckMaxCount()

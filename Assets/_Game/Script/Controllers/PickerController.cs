@@ -45,6 +45,7 @@ public class PickerController : MonoBehaviour
             Debug.Log(other.name);
             var farmController = other.GetComponent<IStackController>();
             stackControllerList.Add(farmController);
+            StartCoroutine(StayInSlotCounter());
         }
     }
 
@@ -54,10 +55,16 @@ public class PickerController : MonoBehaviour
         Debug.Log(other.name);
         var farmController = other.GetComponent<IStackController>();
         stackControllerList.Remove(farmController);
+        if (stackControllerList.Count == 0)
+        {
+            isStayFarm = false;
+            StopCoroutine(StayInSlotCounter());
+        }
     }
 
     private void Update()
     {
+        if (!isStayFarm)return;
         if (!(stackControllerList.Count > 0)) return;
         if (!playerStackData.CheckMaxCount()) return;
         
@@ -75,5 +82,11 @@ public class PickerController : MonoBehaviour
                 Destroy(stackObject);
             }
         }
+    }
+
+    private IEnumerator StayInSlotCounter()
+    {
+        yield return new WaitForSeconds(playerSettings.firstTriggerCooldown);
+        isStayFarm = true;
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d668ca7e652924584bb2fec981ca3e, type: 3}
   m_Name: MoneyVariable
   m_EditorClassIdentifier: 
-  _value: 1176
+  _value: 2000
   OnChangeVariable:
     m_PersistentCalls:
       m_Calls: []

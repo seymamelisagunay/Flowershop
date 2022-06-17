@@ -7,7 +7,7 @@ using UnityEngine;
 public class SlotEmptyController : MonoBehaviour
 {
     private SlotController _slotController;
-    private bool isInsidePlayer;
+    private bool _isInsidePlayer;
     [ReadOnly]
     public SlotEmptyData emptyData;
 
@@ -37,7 +37,7 @@ public class SlotEmptyController : MonoBehaviour
     {
         if (other.CompareTag("Player") && !_slotController.slot.emptyData.IsOpen)
         {
-            isInsidePlayer = true;
+            _isInsidePlayer = true;
             StartCoroutine(StayInPlayer());
         }
     }
@@ -45,7 +45,7 @@ public class SlotEmptyController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            isInsidePlayer = false;
+            _isInsidePlayer = false;
             StopCoroutine(StayInPlayer());
         }
     }
@@ -54,12 +54,12 @@ public class SlotEmptyController : MonoBehaviour
     {
         yield return new WaitForSeconds(_slotController.slot.firstTriggerCooldown);
 
-        while (isInsidePlayer)
+        while (_isInsidePlayer)
         {
             var result = UserManager.Instance.DecreasingMoney(1);
             if (!result)
             {
-                isInsidePlayer = false;
+                _isInsidePlayer = false;
                 yield return null;
             }
             else
@@ -68,11 +68,12 @@ public class SlotEmptyController : MonoBehaviour
                 // _slotHud.emptyPrice.SetText(moneyCounter.ToString());
                 if (emptyData.CurrenctPrice == emptyData.Price)
                 {
-                    isInsidePlayer = false;
+                    _isInsidePlayer = false;
                     emptyData.IsOpen = true;
                     SlotManager.instance.NextSlot();
                     SlotClose();
                     _slotController.OpenSlot();
+                    _slotController.slotHud.active.Close();
                 }
             }
             yield return new WaitForSeconds(0.05f);

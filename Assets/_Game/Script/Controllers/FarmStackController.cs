@@ -41,7 +41,7 @@ namespace _Game.Script.Controllers
         {
             _productCount++;
             _productCount = _productCount > finishSocketList.Count - 1 ? finishSocketList.Count - 1 : _productCount;
-            stackData.ProductTypes.Add(productType);
+            stackData.AddProduct(productType);
             PlayEffect(productType);
         }
 
@@ -65,7 +65,7 @@ namespace _Game.Script.Controllers
                 _productCount--;
                 var resultObject = objectList[0];
                 objectList.Remove(resultObject);
-                stackData.ProductTypes.RemoveAt(0);
+                stackData.RemoveProduct(0);
                 return (ProductType.rose, resultObject, true);
             }
 

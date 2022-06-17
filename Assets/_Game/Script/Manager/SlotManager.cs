@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Slot Manager Amacı slotların hangi sıra ile açılacağını 
-/// kontrol ettiğimiz yer oluyor
+/// Slot Manager AmacÄ± slotlarÄ±n hangi sÄ±ra ile aÃ§Ä±lacaÄŸÄ±nÄ± 
+/// kontrol ettiÄŸimiz yer oluyor
 /// </summary>
 public class SlotManager : MonoBehaviour
 {
