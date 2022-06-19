@@ -66,10 +66,10 @@ namespace _Game.Script.Controllers
                 var resultObject = objectList[0];
                 objectList.Remove(resultObject);
                 stackData.RemoveProduct(0);
-                return (ProductType.rose, resultObject, true);
+                return (ProductType.Rose, resultObject, true);
             }
 
-            return (ProductType.rose, gameObject, false);
+            return (ProductType.Rose, gameObject, false);
         }
     }
 

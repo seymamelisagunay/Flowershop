@@ -7,6 +7,7 @@ namespace _Game.Script
     public class StackObject
     {
         public ProductType productType;
+        public int price;
         public GameObject prefab;
     }
 }

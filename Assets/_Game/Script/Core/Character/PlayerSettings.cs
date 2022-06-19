@@ -19,5 +19,7 @@ namespace _Game.Script.Core.Character
 
         public float pickingSpeed = 0.5f;
         public float firstTriggerCooldown = 1;
+
+        public int maxPickerCount = 3;
     }
 }

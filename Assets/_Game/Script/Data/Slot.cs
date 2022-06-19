@@ -29,6 +29,10 @@ public class Slot : ScriptableObject
     /// </summary>
     public FarmController farmControllerPrefab;
     /// <summary>
+    /// 
+    /// </summary>
+    public CashDeskController cashDeskControllerPrefab;
+    /// <summary>
     /// slot UI HUD
     /// </summary>
     public SlotHud slotHudPrefab;
@@ -64,14 +68,15 @@ public enum SlotType
     farm = 0,
     factory = 1,
     stand = 2,
-    checkout = 3
+    CashDesk = 3
 }
 
 public enum ProductType
 {
-    rose,
-    perfume,
-    candy
+    Rose,
+    Perfume,
+    Candy,
+    Money
 }
 
 

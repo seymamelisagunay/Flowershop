@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa597ac0f244935817475fb415cf8c6, type: 3}
+  m_Name: ClientManagerSettings
+  m_EditorClassIdentifier: 
+  maxClientCount: {fileID: 11400000, guid: f6d84ec5cb5ecce4c8febb6f20ca7894, type: 2}
+  clientPrefab: {fileID: 5655030497427552283, guid: 4b93d51400475ef4aa7e691897f7391d,
+    type: 3}
+  clientMaxTradeCount: 5

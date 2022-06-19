@@ -20,6 +20,7 @@ MonoBehaviour:
     type: 3}
   farmControllerPrefab: {fileID: 8099023379339999430, guid: aec1d31605182954c8ec32f40a1d5dae,
     type: 3}
+  cashDeskControllerPrefab: {fileID: 0}
   slotHudPrefab: {fileID: 4402175197117052178, guid: ac4158c95d37b404cb017104ebde6e42,
     type: 3}
   firstTriggerCooldown: 1

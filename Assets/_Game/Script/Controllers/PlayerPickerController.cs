@@ -7,7 +7,7 @@ using NaughtyAttributes;
 using Newtonsoft.Json;
 using UnityEngine;
 
-public class PickerController : MonoBehaviour
+public class PlayerPickerController : MonoBehaviour
 {
     public PlayerSettings playerSettings;
     [Tag] public string farmTag;
@@ -23,6 +23,7 @@ public class PickerController : MonoBehaviour
         playerStackData.OnChangeVariable.AddListener(SaveData);
         _alarm = new Alarm();
         _alarm.Start(playerSettings.pickingSpeed);
+        playerStackData.MaxProductCount = playerSettings.maxPickerCount;
     }
 
     public void GetSaveData()

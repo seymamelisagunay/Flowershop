@@ -11,8 +11,7 @@ using UnityEngine;
 public class SlotController : MonoBehaviour
 {
     public Slot slot;
-    [HideInInspector]
-    public SlotHud slotHud;
+    [HideInInspector] public SlotHud slotHud;
     public Transform hudPoint;
 
     public void Init()
@@ -30,19 +29,27 @@ public class SlotController : MonoBehaviour
             {
                 case SlotType.farm:
                     var farm = Instantiate(slot.farmControllerPrefab, transform);
-                    farm.name += slot.Id; 
+                    farm.name += slot.Id;
                     farm.Init(this);
                     slot.stackData.OnChangeVariable.AddListener(SaveSlotStackData);
+                    //TODO Burada StackData Savelememiz gerek bir sefer 
                     break;
                 case SlotType.factory:
                     break;
                 case SlotType.stand:
                     break;
-                case SlotType.checkout:
+                case SlotType.CashDesk:
+                    var cashDesk = Instantiate(slot.cashDeskControllerPrefab, transform);
+                    cashDesk.name += slot.Id;
+                    cashDesk.Init(this);
+                    slot.stackData.OnChangeVariable.AddListener(SaveSlotStackData);
+                    //TODO Burada StackData Savelememiz gerek bir sefer 
                     break;
             }
+            SaveSlotStackData(slot.stackData);
         }
     }
+
     public void OpenEmpty()
     {
         var emptySlot = Instantiate(slot.slotEmptyPrefab, transform);
@@ -56,6 +63,7 @@ public class SlotController : MonoBehaviour
         slotHud.transform.position = hudPoint.position;
         slotHud.Init();
     }
+
     private void GetSaveData()
     {
         if (PlayerPrefs.HasKey(slot.Id))
@@ -64,8 +72,12 @@ public class SlotController : MonoBehaviour
             var jsonValueStackData = PlayerPrefs.GetString(slot.Id + "-StackData");
             slot.emptyData = JsonConvert.DeserializeObject<SlotEmptyData>(jsonValueEmptyData);
             slot.stackData = JsonConvert.DeserializeObject<StackData>(jsonValueStackData);
+            if (slot.stackData == null)
+            {
+            }
         }
     }
+
     /// <summary>
     /// Slot Datasını Kayıt ediyoruz !
     /// </summary>
@@ -73,24 +85,23 @@ public class SlotController : MonoBehaviour
     {
         if (!PlayerPrefs.HasKey(slot.Id))
             PlayerPrefs.SetInt(slot.Id, 1);
-        
+
         var jsonValue = JsonConvert.SerializeObject(slotData);
         PlayerPrefs.SetString(slot.Id + "-Empty", jsonValue);
     }
+
     public void SaveSlotStackData(StackData stackData)
     {
         if (!PlayerPrefs.HasKey(slot.Id))
             PlayerPrefs.SetInt(slot.Id, 1);
-        
+
         var jsonValue = JsonConvert.SerializeObject(stackData);
         PlayerPrefs.SetString(slot.Id + "-StackData", jsonValue);
-
     }
+
     [Button]
     private void SlotNameSet()
     {
         name = slot.slotName;
     }
 }
-
-
