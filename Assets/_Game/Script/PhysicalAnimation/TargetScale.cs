@@ -13,7 +13,8 @@ public class TargetScale : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-            transform.DOScale(new Vector3(scale,scale,scale), duration: time);
+            targetObject.transform.DOScaleX(scale, duration: time);
+            targetObject.transform.DOScaleZ(scale, duration: time);
     }
 
     private void OnTriggerExit(Collider other)
