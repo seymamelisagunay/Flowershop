@@ -12,6 +12,7 @@ namespace _Game.Script.Core.Character
         [Header("Player Settings")]
         public PlayerSettings playerSettings;
         private IInput _input;
+        public bool inMotion;
         public override void Awake()
         {
             base.Awake();
@@ -26,6 +27,7 @@ namespace _Game.Script.Core.Character
         protected override void HandleInput()
         {
             var isRun = _input.Direction.magnitude > 0.1;
+            inMotion = isRun;
             animator.SetBool("run", isRun);
             moveDirection = _input.Direction;
         }
