@@ -9,8 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6eec5d3b25c17e9439b2e8f11287c3e2, type: 3}
-  m_Name: Stack Object List
+  m_Script: {fileID: 11500000, guid: e437676e9b93dd348b0f4170bef28da5, type: 3}
+  m_Name: ClientBot
   m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 993016474154205076, guid: 50bff78919459fd4091e950e36087bc1, type: 3}
+  isBot: 1
+  playerSpeed: 5
+  botSpeed: 2.9
+  rotateLerpFactor: 10
+  pickingSpeed: 0.5
+  firstTriggerCooldown: 1
+  maxPickerCount: 3

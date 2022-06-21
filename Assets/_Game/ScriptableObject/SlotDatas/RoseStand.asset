@@ -16,9 +16,11 @@ MonoBehaviour:
   slotName: Rose Stand
   Id: RoseStand
   slotType: 2
-  slotEmptyPrefab: {fileID: 2064649203199760096, guid: 2796bf85067029244b0236bd3d257ab5,
+  slotEmptyPrefab: {fileID: 2064649203199760101, guid: 2796bf85067029244b0236bd3d257ab5,
     type: 3}
   farmControllerPrefab: {fileID: 0}
+  standControllerPrefab: {fileID: 3113568903233788944, guid: d167050f912931d4d8ac04bef21007ed,
+    type: 3}
   cashDeskControllerPrefab: {fileID: 0}
   slotHudPrefab: {fileID: 4402175197117052178, guid: ac4158c95d37b404cb017104ebde6e42,
     type: 3}
@@ -26,7 +28,7 @@ MonoBehaviour:
   triggerCooldown: 0.05
   emptyData:
     _isOpen: 0
-    _price: 40
+    _price: 30
     _currenctPrice: 0
     OnChangeVariable:
       m_PersistentCalls:

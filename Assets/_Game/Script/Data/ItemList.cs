@@ -4,13 +4,13 @@ using _Game.Script;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Stack Object List", menuName = "Gnarly Team/StackObjectData")]
-public class StackObjectList : ScriptableObject
+public class ItemList : ScriptableObject
 {
-    public List<StackObject> objects;
+    public List<Item> objects;
 
-    public StackObject GetStackObject(ProductType productType)
+    public Item GetStackObject(ItemType itemType)
     {
-        var stackObject = objects.Find(x => x.productType == productType);
+        var stackObject = objects.Find(x => x.itemType == itemType);
         return stackObject;
     }
 }

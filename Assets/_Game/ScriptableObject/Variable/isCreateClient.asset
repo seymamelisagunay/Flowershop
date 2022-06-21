@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6eec5d3b25c17e9439b2e8f11287c3e2, type: 3}
-  m_Name: Stack Object List
+  m_Script: {fileID: 11500000, guid: 6a732677ed6ff26429bba95f978a9895, type: 3}
+  m_Name: isCreateClient
   m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 993016474154205076, guid: 50bff78919459fd4091e950e36087bc1, type: 3}
+  _value: 0

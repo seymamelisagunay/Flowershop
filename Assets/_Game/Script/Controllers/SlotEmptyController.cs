@@ -4,12 +4,11 @@ using DG.Tweening;
 using NaughtyAttributes;
 using UnityEngine;
 
-public class SlotEmptyController : MonoBehaviour
+public class SlotEmptyController : MonoBehaviour, ISlotController
 {
     private SlotController _slotController;
     private bool _isInsidePlayer;
-    [ReadOnly]
-    public SlotEmptyData emptyData;
+    [ReadOnly] public SlotEmptyData emptyData;
 
     public void Init(SlotController slotController)
     {
@@ -41,6 +40,7 @@ public class SlotEmptyController : MonoBehaviour
             StartCoroutine(StayInPlayer());
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -53,7 +53,6 @@ public class SlotEmptyController : MonoBehaviour
     private IEnumerator StayInPlayer()
     {
         yield return new WaitForSeconds(_slotController.slot.firstTriggerCooldown);
-
         while (_isInsidePlayer)
         {
             var result = UserManager.Instance.DecreasingMoney(1);
@@ -76,13 +75,19 @@ public class SlotEmptyController : MonoBehaviour
                     _slotController.slotHud.active.Close();
                 }
             }
+
             yield return new WaitForSeconds(0.05f);
         }
     }
 
     public void SlotClose()
     {
+        transform.GetComponent<Collider>().enabled = false;
         transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InOutBounce);
     }
+}
 
+public interface ISlotController
+{
+    public void Init(SlotController slotController);
 }

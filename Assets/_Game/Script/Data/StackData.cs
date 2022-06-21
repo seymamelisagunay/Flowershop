@@ -35,9 +35,9 @@ namespace _Game.Script.Controllers
             }
         }
 
-        [SerializeField] private List<ProductType> _productTypes;
+        [SerializeField] private List<ItemType> _productTypes = new List<ItemType>();
 
-        public List<ProductType> ProductTypes
+        public List<ItemType> ProductTypes
         {
             get => _productTypes;
             set
@@ -47,9 +47,9 @@ namespace _Game.Script.Controllers
             }
         }
 
-        public void AddProduct(ProductType productType)
+        public void AddProduct(ItemType itemType)
         {
-            _productTypes.Add(productType);
+            _productTypes.Add(itemType);
             OnChangeVariable?.Invoke(this);
         }
 
@@ -58,10 +58,12 @@ namespace _Game.Script.Controllers
             _productTypes.RemoveAt(index);
             OnChangeVariable?.Invoke(this);
         }
+
         public bool CheckMaxCount()
         {
             return _productTypes.Count < maxProductCount;
         }
+
         /// <summary>
         /// 
         /// </summary>

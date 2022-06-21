@@ -16,9 +16,10 @@ MonoBehaviour:
   slotName: Rose Perfume Factory
   Id: RosePerfumeFactory
   slotType: 1
-  slotEmptyPrefab: {fileID: 2064649203199760096, guid: 2796bf85067029244b0236bd3d257ab5,
+  slotEmptyPrefab: {fileID: 2064649203199760101, guid: 2796bf85067029244b0236bd3d257ab5,
     type: 3}
   farmControllerPrefab: {fileID: 0}
+  standControllerPrefab: {fileID: 0}
   cashDeskControllerPrefab: {fileID: 0}
   slotHudPrefab: {fileID: 4402175197117052178, guid: ac4158c95d37b404cb017104ebde6e42,
     type: 3}

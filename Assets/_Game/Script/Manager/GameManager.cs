@@ -15,10 +15,11 @@ namespace _Game.Script.Manager
         [HideInInspector]
         public PlayerController activePlayer;
         public SlotManager slotManager;
+        public BoolVariable isClientCreate;
+
         private void Awake()
         {
             instance = this;
-            //GetAllSlotController();
             slotManager = FindObjectOfType<SlotManager>();
         }
         /// <summary>

@@ -14,11 +14,11 @@ namespace _Game.Script.Controllers
         private int _productCount;
         public float duration;
         public List<Transform> finishSocketList = new List<Transform>();
-        public List<GameObject> objectList = new List<GameObject>();
+        public List<Item> objectList = new List<Item>();
         private SlotController _slotController;
         public Transform startPoint;
 
-        public StackObjectList stackObjectList;
+        public ItemList itemList;
         [ReadOnly] public StackData stackData;
 
         public void Init(SlotController slotController)
@@ -36,20 +36,20 @@ namespace _Game.Script.Controllers
         /// <summary>
         /// Değer Ekleniyor ve Bize Doğru bir Obje Geliyor 
         /// </summary>
-        /// <param name="productType"></param>
-        public void SetValue(ProductType productType)
+        /// <param name="itemType"></param>
+        public void SetValue(ItemType itemType)
         {
             _productCount++;
             _productCount = _productCount > finishSocketList.Count - 1 ? finishSocketList.Count - 1 : _productCount;
-            stackData.AddProduct(productType);
-            PlayEffect(productType);
+            stackData.AddProduct(itemType);
+            PlayEffect(itemType);
         }
 
-        private void PlayEffect(ProductType productType)
+        private void PlayEffect(ItemType itemType)
         {
             Debug.Log(name);
-            var farm = stackObjectList.GetStackObject(productType);
-            var cloneObject = Instantiate(farm.prefab);
+            var farm = itemList.GetStackObject(itemType);
+            var cloneObject = Instantiate(farm);
             objectList.Add(cloneObject);
             var cloneMoveObject = cloneObject.GetComponent<MoveObject>();
             cloneMoveObject.Play(startPoint, finishSocketList[_productCount], duration);
@@ -58,7 +58,7 @@ namespace _Game.Script.Controllers
         /// <summary>
         /// Obje bizden çıkıp Bizden datayı isteyen Tarafa Gidiyor .
         /// </summary>
-        public (ProductType, GameObject, bool) GetValue()
+        public (ItemType, Item, bool) GetValue()
         {
             if (objectList.Count > 0)
             {
@@ -66,16 +66,16 @@ namespace _Game.Script.Controllers
                 var resultObject = objectList[0];
                 objectList.Remove(resultObject);
                 stackData.RemoveProduct(0);
-                return (ProductType.Rose, resultObject, true);
+                return (ItemType.Rose, resultObject, true);
             }
 
-            return (ProductType.Rose, gameObject, false);
+            return (ItemType.Rose, null, false);
         }
     }
 
     public interface IStackController
     {
-        (ProductType, GameObject, bool) GetValue();
-        void SetValue(ProductType productType);
+        (ItemType, Item, bool) GetValue();
+        void SetValue(ItemType itemType);
     }
 }
