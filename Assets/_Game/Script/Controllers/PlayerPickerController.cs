@@ -11,20 +11,39 @@ public class PlayerPickerController : MonoBehaviour
 {
     public PlayerSettings playerSettings;
     [Tag] public string farmTag;
+    public ItemList itemList;
     public StackData playerStackData = new StackData();
-    public List<IStackController> stackControllerList = new List<IStackController>();
-    private bool isStayFarm;
-
+    public List<IStackController> farmControllerList = new List<IStackController>();
+    private GridSlotController _gridSlotController;
+    private bool _isStayFarm;
     private Alarm _alarm;
 
-    private void Start()
+    private IEnumerator Start()
     {
         GetSaveData();
         playerStackData.OnChangeVariable.AddListener(SaveData);
+        _gridSlotController = GetComponentInChildren<GridSlotController>();
+        _gridSlotController.ReSize();
+        
         _alarm = new Alarm();
         _alarm.Start(playerSettings.pickingSpeed);
-        playerStackData.MaxProductCount = playerSettings.maxPickerCount;
+        playerStackData.MaxItemCount = playerSettings.maxPickerCount;
+
+        foreach (var type in playerStackData.ProductTypes)
+        {
+            yield return new WaitForSeconds(playerSettings.pickingSpeed);
+            var itemPrefab = itemList.GetStackObject(type);
+            _gridSlotController.sampleObject = itemPrefab.gameObject;
+            _gridSlotController.CreateObject();
+            // var clone = Instantiate(itemPrefab.gameObject, _gridSlotController.parent);
+            // clone.SetActive(true);
+            // var position = _gridSlotController.GetPosition();
+            // clone.transform.localPosition = position.position;
+            // position.isFull = true;
+            // position.slotInObject = clone;
+        }
     }
+
 
     public void GetSaveData()
     {
@@ -41,53 +60,48 @@ public class PlayerPickerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(farmTag))
-        {
-            Debug.Log(other.name);
-            var farmController = other.GetComponent<IStackController>();
-            stackControllerList.Add(farmController);
-            StartCoroutine(StayInSlotCounter());
-        }
+        if (!other.CompareTag(farmTag)) return;
+        Debug.Log(other.name);
+        var farmController = other.GetComponent<IStackController>();
+        farmControllerList.Add(farmController);
+        StartCoroutine(StayInSlotCounter());
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (!other.CompareTag(farmTag)) return; //Multi Tag Test Edilecek
+
         Debug.Log(other.name);
         var farmController = other.GetComponent<IStackController>();
-        stackControllerList.Remove(farmController);
-        if (stackControllerList.Count == 0)
-        {
-            isStayFarm = false;
-            StopCoroutine(StayInSlotCounter());
-        }
+        farmControllerList.Remove(farmController);
+        if (farmControllerList.Count != 0) return;
+
+        _isStayFarm = false;
+        StopCoroutine(StayInSlotCounter());
     }
 
     private void Update()
     {
-        if (!isStayFarm)return;
-        if (!(stackControllerList.Count > 0)) return;
+        if (!_isStayFarm) return;
+        if (!(farmControllerList.Count > 0)) return;
         if (!playerStackData.CheckMaxCount()) return;
-        
         if (!_alarm.Check()) return;
+        
         _alarm.Start(playerSettings.pickingSpeed);
         Debug.Log("Next");
-        foreach (var stackController in stackControllerList)
+        foreach (var stackController in farmControllerList)
         {
             // yield return new WaitForSeconds(playerSettings.pickingSpeed);
             if (!playerStackData.CheckMaxCount()) break;
-            var (productType, stackObject,isValueFull) = stackController.GetValue();
-            if (isValueFull)
-            {
-                playerStackData.AddProduct(productType);
-                Destroy(stackObject);
-            }
+            var (productType, stackObject, isValueFull) = stackController.GetValue();
+            if (!isValueFull) continue;
+            playerStackData.AddProduct(productType);
+            Destroy(stackObject);
         }
     }
-
     private IEnumerator StayInSlotCounter()
     {
         yield return new WaitForSeconds(playerSettings.firstTriggerCooldown);
-        isStayFarm = true;
+        _isStayFarm = true;
     }
 }

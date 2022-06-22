@@ -9,10 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d668ca7e652924584bb2fec981ca3e, type: 3}
-  m_Name: MoneyVariable
+  m_Script: {fileID: 11500000, guid: e437676e9b93dd348b0f4170bef28da5, type: 3}
+  m_Name: ClientBot
   m_EditorClassIdentifier: 
-  _value: 0
-  OnChangeVariable:
-    m_PersistentCalls:
-      m_Calls: []
+  isBot: 1
+  playerSpeed: 5
+  botSpeed: 2.9
+  rotateLerpFactor: 10
+  pickingSpeed: 0.5
+  firstTriggerCooldown: 1
+  maxPickerCount: 3
