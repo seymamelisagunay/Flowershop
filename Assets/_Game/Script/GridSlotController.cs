@@ -35,7 +35,6 @@ public class GridSlotController : MonoBehaviour
                         totalCounter++;
                         continue;
                     }
-
                     var clone = new GridSlot();
                     clone.position = new Vector3(i * lengthSize, k * heightSize, j * widthSize);
                     slotList.Add(clone);
