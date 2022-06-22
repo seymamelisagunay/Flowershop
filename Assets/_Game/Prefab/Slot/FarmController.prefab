@@ -112,7 +112,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2680524856747083351}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -160,6 +160,39 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8698594547292022587, guid: a62186c08f4b9774e8cd725842512199, type: 3}
+--- !u!1 &2699151976714424875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 4901669240969162686, guid: 50bff78919459fd4091e950e36087bc1,
+    type: 3}
+  m_PrefabInstance: {fileID: 2811471246575438863}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7696943764150054824}
+  m_Layer: 0
+  m_Name: 'rose (Missing Prefab with guid: 50bff78919459fd4091e950e36087bc1)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7696943764150054824
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 5608480862754104231, guid: 50bff78919459fd4091e950e36087bc1,
+    type: 3}
+  m_PrefabInstance: {fileID: 2811471246575438863}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2699151976714424875}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5106388143631844090}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3152837940221637304
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +244,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3152837940221637304}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -358,7 +391,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4616044812654399509}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -472,7 +505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   stackData:
-    maxProductCount: 0
+    maxItemCount: 0
     productionRate: 0
     _productTypes: 
     OnChangeVariable:
@@ -511,7 +544,7 @@ MonoBehaviour:
   startPoint: {fileID: 4189728505583978106}
   itemList: {fileID: 11400000, guid: bd3b93f6936874e449030d6c3429a49c, type: 2}
   stackData:
-    maxProductCount: 0
+    maxItemCount: 0
     productionRate: 0
     _productTypes: 
     OnChangeVariable:
@@ -587,9 +620,3 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7546814047036014767, guid: 50bff78919459fd4091e950e36087bc1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 50bff78919459fd4091e950e36087bc1, type: 3}
---- !u!4 &7696943764150054824 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5608480862754104231, guid: 50bff78919459fd4091e950e36087bc1,
-    type: 3}
-  m_PrefabInstance: {fileID: 2811471246575438863}
-  m_PrefabAsset: {fileID: 0}
