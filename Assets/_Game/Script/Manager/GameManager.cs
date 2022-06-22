@@ -27,7 +27,7 @@ namespace _Game.Script.Manager
         /// </summary>
         public void Init()
         {
-            PlayerCreater();
+            PlayerCreator();
             slotManager.slotStates.ForEach(x =>
             {
                 x.slotController.Init();
@@ -35,7 +35,7 @@ namespace _Game.Script.Manager
             slotManager.SlotOpen();
         }
 
-        private void PlayerCreater()
+        private void PlayerCreator()
         {
             activePlayer = Instantiate(gameSettings.playerControllerPrefab);
             activePlayer.Init(playerSpawnPoint);

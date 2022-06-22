@@ -14,23 +14,30 @@ public class GridSlotController : MonoBehaviour
     public float heightSize;
     public List<GridSlot> slotList = new List<GridSlot>();
     public int currentIndex;
-
+    public Transform parent;
     public GameObject sampleObject;
 
     [Button]
-    public void ReSize()
+    public void ReSize(bool isCounting = false)
     {
-        slotList.Clear();
+        var totalCounter = 0;
+        if (!isCounting)
+            slotList.Clear();
+
         for (var k = 0; k < h; k++)
         {
             for (var i = 0; i < x; i++)
             {
                 for (var j = 0; j < y; j++)
                 {
-                    var clone = new GridSlot
+                    if (currentIndex >= totalCounter && isCounting)
                     {
-                        position = transform.position + new Vector3(i * lengthSize, k * heightSize, j * widthSize)
-                    };
+                        totalCounter++;
+                        continue;
+                    }
+
+                    var clone = new GridSlot();
+                    clone.position = new Vector3(i * lengthSize, k * heightSize, j * widthSize);
                     slotList.Add(clone);
                 }
             }
@@ -40,7 +47,7 @@ public class GridSlotController : MonoBehaviour
     [Button]
     public void CreateObject()
     {
-        var clone = Instantiate(sampleObject, transform);
+        var clone = Instantiate(sampleObject, parent);
         clone.SetActive(true);
         var position = GetPosition();
         clone.transform.localPosition = position.position;
@@ -48,12 +55,16 @@ public class GridSlotController : MonoBehaviour
         position.slotInObject = clone;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public GridSlot GetPosition()
     {
         if (currentIndex >= slotList.Count - 1)
         {
             h += h;
-            ReSize();
+            ReSize(true);
         }
 
         var result = slotList[currentIndex];
@@ -67,12 +78,17 @@ public class GridSlotController : MonoBehaviour
         currentIndex = 0;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public GridSlot GetSlotObject()
     {
         if (currentIndex == 0)
         {
             return null;
         }
+
         currentIndex--;
         var result = slotList[currentIndex];
         return result;

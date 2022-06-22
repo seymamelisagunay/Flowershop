@@ -429,7 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0c3574aba188c41a6a52e0999edb8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stackObjectList: {fileID: 11400000, guid: bd3b93f6936874e449030d6c3429a49c, type: 2}
+  itemList: {fileID: 11400000, guid: bd3b93f6936874e449030d6c3429a49c, type: 2}
   clientTradeData:
     maxProductCount: 5
     productionRate: 0

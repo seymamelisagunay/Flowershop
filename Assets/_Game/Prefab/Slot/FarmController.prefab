@@ -503,12 +503,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c388915fa9f40234b8738b6e2b468767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 0.5
   finishSocketList:
   - {fileID: 1579248208685652180}
   - {fileID: 482582251661199243}
   - {fileID: 100060554361229844}
-  objectList: []
+  itemDataList: []
   startPoint: {fileID: 4189728505583978106}
   itemList: {fileID: 11400000, guid: bd3b93f6936874e449030d6c3429a49c, type: 2}
   stackData:
@@ -538,17 +537,17 @@ PrefabInstance:
     - target: {fileID: 5608480862754104231, guid: 50bff78919459fd4091e950e36087bc1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.155
+      value: 0.193
       objectReference: {fileID: 0}
     - target: {fileID: 5608480862754104231, guid: 50bff78919459fd4091e950e36087bc1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.555
+      value: -1.045
       objectReference: {fileID: 0}
     - target: {fileID: 5608480862754104231, guid: 50bff78919459fd4091e950e36087bc1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.347
+      value: -0.427
       objectReference: {fileID: 0}
     - target: {fileID: 5608480862754104231, guid: 50bff78919459fd4091e950e36087bc1,
         type: 3}
@@ -585,7 +584,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7546814047036014767, guid: 50bff78919459fd4091e950e36087bc1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 50bff78919459fd4091e950e36087bc1, type: 3}
 --- !u!4 &7696943764150054824 stripped
 Transform:

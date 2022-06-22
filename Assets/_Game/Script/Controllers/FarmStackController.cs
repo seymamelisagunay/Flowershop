@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using _Game.Script.Variable;
 using NaughtyAttributes;
@@ -12,12 +13,10 @@ namespace _Game.Script.Controllers
     public class FarmStackController : MonoBehaviour, IStackController
     {
         private int _productCount;
-        public float duration;
         public List<Transform> finishSocketList = new List<Transform>();
-        public List<Item> objectList = new List<Item>();
+        public List<Item> itemDataList = new List<Item>();
         private SlotController _slotController;
         public Transform startPoint;
-
         public ItemList itemList;
         [ReadOnly] public StackData stackData;
 
@@ -25,9 +24,14 @@ namespace _Game.Script.Controllers
         {
             _slotController = slotController;
             stackData = _slotController.slot.stackData;
+            StartCoroutine(StackDataLoad());
+        }
 
+        private IEnumerator StackDataLoad()
+        {
             for (int i = 0; i < stackData.ProductTypes.Count; i++)
             {
+                yield return new WaitForSeconds(0.5f);
                 _productCount = i;
                 PlayEffect(stackData.ProductTypes[i]);
             }
@@ -49,10 +53,10 @@ namespace _Game.Script.Controllers
         {
             Debug.Log(name);
             var farm = itemList.GetStackObject(itemType);
-            var cloneObject = Instantiate(farm);
-            objectList.Add(cloneObject);
-            var cloneMoveObject = cloneObject.GetComponent<MoveObject>();
-            cloneMoveObject.Play(startPoint, finishSocketList[_productCount], duration);
+            var cloneObject = Instantiate(farm, transform);
+            Debug.Log("cloneObject" + cloneObject.transform.position);
+            cloneObject.Play(finishSocketList[_productCount]);
+            itemDataList.Add(cloneObject);
         }
 
         /// <summary>
@@ -60,11 +64,11 @@ namespace _Game.Script.Controllers
         /// </summary>
         public (ItemType, Item, bool) GetValue()
         {
-            if (objectList.Count > 0)
+            if (itemDataList.Count > 0)
             {
                 _productCount--;
-                var resultObject = objectList[0];
-                objectList.Remove(resultObject);
+                var resultObject = itemDataList[0];
+                itemDataList.Remove(resultObject);
                 stackData.RemoveProduct(0);
                 return (ItemType.Rose, resultObject, true);
             }

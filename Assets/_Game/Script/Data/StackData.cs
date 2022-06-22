@@ -11,14 +11,14 @@ namespace _Game.Script.Controllers
         /// <summary>
         /// 
         /// </summary>
-        [SerializeField] private int maxProductCount;
+        [SerializeField] private int maxItemCount;
 
-        public int MaxProductCount
+        public int MaxItemCount
         {
-            get => maxProductCount;
+            get => maxItemCount;
             set
             {
-                maxProductCount = value;
+                maxItemCount = value;
                 OnChangeVariable?.Invoke(this);
             }
         }
@@ -61,7 +61,7 @@ namespace _Game.Script.Controllers
 
         public bool CheckMaxCount()
         {
-            return _productTypes.Count < maxProductCount;
+            return _productTypes.Count < maxItemCount;
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace _Game.Script.Controllers
 
         public void OnValidate()
         {
-            MaxProductCount = maxProductCount;
+            MaxItemCount = maxItemCount;
             ProductionRate = productionRate;
         }
     }

@@ -27,9 +27,9 @@ MonoBehaviour:
   firstTriggerCooldown: 0.5
   triggerCooldown: 0.05
   emptyData:
-    _isOpen: 0
+    _isOpen: 1
     _price: 40
-    _currenctPrice: 0
+    _currenctPrice: 40
     OnChangeVariable:
       m_PersistentCalls:
         m_Calls: []
@@ -37,7 +37,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   stackData:
-    maxProductCount: 9999
+    maxItemCount: 9000
     productionRate: 0.3
     _productTypes: 
     OnChangeVariable:

@@ -30,7 +30,7 @@ public class ClientController : MonoBehaviour
     {
         _clientManager = clientManager;
         this.shoppingCard = shoppingCard;
-        clientTradeData.MaxProductCount = maxTradeCount;
+        clientTradeData.MaxItemCount = maxTradeCount;
     }
     /// <summary>
     /// 
