@@ -8,7 +8,7 @@ public class PlayerStackController : MonoBehaviour
     public void Init(SlotController slotController)
     {
     }
-    public void SetValue(ProductType productType)
+    public void SetValue(ItemType itemType)
     {
     }
     public void GetValue()

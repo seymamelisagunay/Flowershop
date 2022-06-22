@@ -23,11 +23,15 @@ public class Slot : ScriptableObject
     /// <summary>
     /// boş slot Yapısı
     /// </summary>
-    public SlotEmptyController slotEmptyPrefab;
+    public GameObject slotEmptyPrefab;
     /// <summary>
     /// 
     /// </summary>
     public FarmController farmControllerPrefab;
+    /// <summary>
+    /// 
+    /// </summary>
+    public StandController standControllerPrefab;
     /// <summary>
     /// 
     /// </summary>
@@ -55,7 +59,6 @@ public class Slot : ScriptableObject
     /// </summary>
     public StackData stackData = new StackData();
 
-
     private void OnValidate()
     {
         emptyData.OnValidate();
@@ -65,13 +68,14 @@ public class Slot : ScriptableObject
 
 public enum SlotType
 {
-    farm = 0,
-    factory = 1,
-    stand = 2,
-    CashDesk = 3
+    Farm = 0,
+    Factory = 1,
+    Stand = 2,
+    CashDesk = 3,
+    Money = 4
 }
 
-public enum ProductType
+public enum ItemType
 {
     Rose,
     Perfume,

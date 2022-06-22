@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 240e9c65f50cc914baec0628444e0bff, type: 3}
+  m_Name: Data Restarter
+  m_EditorClassIdentifier: 
+  cashDeskEmptyDefault:
+    _isOpen: 0
+    _price: 40
+    _currenctPrice: 0
+    OnChangeVariable:
+      m_PersistentCalls:
+        m_Calls: []
+    OnChangeIsOpenVarible:
+      m_PersistentCalls:
+        m_Calls: []
+  cashDeskData: {fileID: 11400000, guid: 1b3f7b67d657b06499a32144544d5251, type: 2}
+  moneyFirstDefault:
+    _isOpen: 0
+    _price: 100
+    _currenctPrice: 0
+    OnChangeVariable:
+      m_PersistentCalls:
+        m_Calls: []
+    OnChangeIsOpenVarible:
+      m_PersistentCalls:
+        m_Calls: []
+  moneyFirst: {fileID: 11400000, guid: c67329c6fd93fed409432a1ffee98e97, type: 2}
+  roseFarmOneDefault:
+    _isOpen: 0
+    _price: 30
+    _currenctPrice: 0
+    OnChangeVariable:
+      m_PersistentCalls:
+        m_Calls: []
+    OnChangeIsOpenVarible:
+      m_PersistentCalls:
+        m_Calls: []
+  roseFarmOne: {fileID: 11400000, guid: 5136f869b553ada408f736c0c54bab31, type: 2}
+  roseFarmSecondDefault:
+    _isOpen: 0
+    _price: 100
+    _currenctPrice: 0
+    OnChangeVariable:
+      m_PersistentCalls:
+        m_Calls: []
+    OnChangeIsOpenVarible:
+      m_PersistentCalls:
+        m_Calls: []
+  roseFarmSecond: {fileID: 11400000, guid: 2065b0e70ebd2054a8a5a22e47f698c2, type: 2}
+  roseFarmThirdDefault:
+    _isOpen: 0
+    _price: 1500
+    _currenctPrice: 0
+    OnChangeVariable:
+      m_PersistentCalls:
+        m_Calls: []
+    OnChangeIsOpenVarible:
+      m_PersistentCalls:
+        m_Calls: []
+  roseFarmThird: {fileID: 11400000, guid: 0826341a31ef74f41b188a328aff2756, type: 2}
+  rosePerfumeFactoryDefault:
+    _isOpen: 0
+    _price: 200
+    _currenctPrice: 0
+    OnChangeVariable:
+      m_PersistentCalls:
+        m_Calls: []
+    OnChangeIsOpenVarible:
+      m_PersistentCalls:
+        m_Calls: []
+  rosePerfumeFactory: {fileID: 11400000, guid: 6183fff13c266aa448e991fecc0899ef, type: 2}
+  rosePerfumeStandDefault:
+    _isOpen: 0
+    _price: 100
+    _currenctPrice: 0
+    OnChangeVariable:
+      m_PersistentCalls:
+        m_Calls: []
+    OnChangeIsOpenVarible:
+      m_PersistentCalls:
+        m_Calls: []
+  rosePerfumeStand: {fileID: 11400000, guid: cf5390bbc641c7e4e844874e77d1d363, type: 2}
+  roseStandDefault:
+    _isOpen: 0
+    _price: 30
+    _currenctPrice: 0
+    OnChangeVariable:
+      m_PersistentCalls:
+        m_Calls: []
+    OnChangeIsOpenVarible:
+      m_PersistentCalls:
+        m_Calls: []
+  roseStand: {fileID: 11400000, guid: 145032698305b0142bea9024c92920b1, type: 2}
+  cashDeskMoneyCountDefault: 0
+  cashDeskMoneyCount: {fileID: 11400000, guid: 683a68aa1fb423a4387ea56adb92bbcb, type: 2}
+  currentSlotOrderCountDefault: 1
+  currentSlotOrderCount: {fileID: 11400000, guid: 08f203d71d31f6d4496efe12e713c216,
+    type: 2}
+  isCreateClientDefault: 0
+  isCreateClient: {fileID: 11400000, guid: adc741b91321f874ca3dbed4ac23318b, type: 2}
+  maxClientCountDefault: 5
+  maxClientCount: {fileID: 11400000, guid: f6d84ec5cb5ecce4c8febb6f20ca7894, type: 2}
+  moneyVariableDefault: 0
+  moneyVariable: {fileID: 11400000, guid: fbf3023bd64526940ba07cda72f17e7e, type: 2}

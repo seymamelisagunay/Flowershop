@@ -257,6 +257,7 @@ GameObject:
   - component: {fileID: 5655030497427552280}
   - component: {fileID: 1477559388705227422}
   - component: {fileID: 1477559388705227423}
+  - component: {fileID: 5806803254683600305}
   - component: {fileID: 5655030497427552283}
   m_Layer: 0
   m_Name: ClientBot
@@ -326,7 +327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hudPoint: {fileID: 0}
-  playerSettings: {fileID: 11400000, guid: da46de04c7e93f8468737c1425843a78, type: 2}
+  playerSettings: {fileID: 11400000, guid: 7fdd1d2bb3fab1e4dac7b7add2a738b6, type: 2}
   hudController: {fileID: 7602260880067118142, guid: 65d24e71262677d40996281703b56646,
     type: 3}
 --- !u!114 &5655030497427552280
@@ -404,6 +405,18 @@ MonoBehaviour:
   _useRootMotion: 0
   _rootMotionRotation: 0
   playerSettings: {fileID: 11400000, guid: da46de04c7e93f8468737c1425843a78, type: 2}
+--- !u!114 &5806803254683600305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1477559388705227488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6eec1c6a0497034399dafd4f868be88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5655030497427552283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,6 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0c3574aba188c41a6a52e0999edb8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemList: {fileID: 11400000, guid: bd3b93f6936874e449030d6c3429a49c, type: 2}
   clientTradeData:
     maxProductCount: 5
     productionRate: 0
@@ -423,7 +437,6 @@ MonoBehaviour:
     OnChangeVariable:
       m_PersistentCalls:
         m_Calls: []
-  stackController: {fileID: 0}
   shoppingCard:
     maxProductCount: 0
     productionRate: 0

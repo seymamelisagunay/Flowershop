@@ -8,7 +8,7 @@ using UnityEngine;
 public class FarmController : MonoBehaviour
 {
     private SlotController _slotController;
-    public ProductType productType;
+    public ItemType itemType;
     private FarmStackController _farmStackController;
     [ReadOnly]
     public StackData stackData;
@@ -42,7 +42,7 @@ public class FarmController : MonoBehaviour
             
             if (!stackData.CheckMaxCount()) continue;
             
-            _farmStackController.SetValue(productType);
+            _farmStackController.SetValue(itemType);
             Debug.Log("Test ! bir");
         }
     }

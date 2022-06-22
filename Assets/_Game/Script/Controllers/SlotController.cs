@@ -1,4 +1,5 @@
 using _Game.Script.Controllers;
+using _Game.Script.Manager;
 using NaughtyAttributes;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -27,33 +28,35 @@ public class SlotController : MonoBehaviour
         {
             switch (slot.slotType)
             {
-                case SlotType.farm:
+                case SlotType.Farm:
                     var farm = Instantiate(slot.farmControllerPrefab, transform);
                     farm.name += slot.Id;
                     farm.Init(this);
-                    slot.stackData.OnChangeVariable.AddListener(SaveSlotStackData);
-                    //TODO Burada StackData Savelememiz gerek bir sefer 
                     break;
-                case SlotType.factory:
+                case SlotType.Factory:
                     break;
-                case SlotType.stand:
+                case SlotType.Stand:
+                    GameManager.instance.isClientCreate.Value = true;
+                    var stand = Instantiate(slot.standControllerPrefab, transform);
+                    stand.name += slot.Id;
+                    // stand.Init(this);
                     break;
                 case SlotType.CashDesk:
                     var cashDesk = Instantiate(slot.cashDeskControllerPrefab, transform);
                     cashDesk.name += slot.Id;
                     cashDesk.Init(this);
-                    slot.stackData.OnChangeVariable.AddListener(SaveSlotStackData);
-                    //TODO Burada StackData Savelememiz gerek bir sefer 
                     break;
+                default:
+                    return;
             }
-            SaveSlotStackData(slot.stackData);
+            slot.stackData.OnChangeVariable.AddListener(SaveSlotStackData);
         }
     }
 
     public void OpenEmpty()
     {
-        var emptySlot = Instantiate(slot.slotEmptyPrefab, transform);
-        emptySlot.Init(this);
+        var emptySlot =  Instantiate(slot.slotEmptyPrefab, transform);
+        emptySlot.GetComponent<ISlotController>().Init(this);
         slot.emptyData.OnChangeVariable.AddListener(SaveSlotEmptyData);
     }
 
@@ -66,16 +69,21 @@ public class SlotController : MonoBehaviour
 
     private void GetSaveData()
     {
-        if (PlayerPrefs.HasKey(slot.Id))
+        if (PlayerPrefs.HasKey(slot.Id + "-StackData"))
         {
             var jsonValueEmptyData = PlayerPrefs.GetString(slot.Id + "-Empty");
-            var jsonValueStackData = PlayerPrefs.GetString(slot.Id + "-StackData");
             slot.emptyData = JsonConvert.DeserializeObject<SlotEmptyData>(jsonValueEmptyData);
-            slot.stackData = JsonConvert.DeserializeObject<StackData>(jsonValueStackData);
-            if (slot.stackData == null)
-            {
-            }
         }
+        else
+            SaveSlotEmptyData(slot.emptyData);
+
+        if (PlayerPrefs.HasKey(slot.Id + "-StackData"))
+        {
+            var jsonValueStackData = PlayerPrefs.GetString(slot.Id + "-StackData");
+            slot.stackData = JsonConvert.DeserializeObject<StackData>(jsonValueStackData);
+        }
+        else
+            SaveSlotStackData(slot.stackData);
     }
 
     /// <summary>

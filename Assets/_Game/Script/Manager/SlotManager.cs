@@ -12,6 +12,7 @@ public class SlotManager : MonoBehaviour
     public static SlotManager instance;
     public IntVariable currentOrderCount;
     public List<SlotState> slotStates = new List<SlotState>();
+    public BoolVariable isClientCreate;
 
     private void Awake()
     {

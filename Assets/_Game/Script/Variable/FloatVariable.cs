@@ -6,13 +6,13 @@ using UnityEngine;
 public class FloatVariable : ScriptableObject
 {
     [SerializeField]
-    private float _value;
+    private float value;
     public float Value
     {
-        get => _value;
+        get => value;
         set
         {
-            _value = value;
+            this.value = value;
             OnChangeVariable?.Invoke();
         }
     }
@@ -21,6 +21,6 @@ public class FloatVariable : ScriptableObject
 
     private void OnValidate()
     {
-        Value = _value;
+        Value = value;
     }
 }

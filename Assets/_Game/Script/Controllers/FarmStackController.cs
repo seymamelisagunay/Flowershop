@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using _Game.Script.Variable;
 using NaughtyAttributes;
@@ -12,22 +13,25 @@ namespace _Game.Script.Controllers
     public class FarmStackController : MonoBehaviour, IStackController
     {
         private int _productCount;
-        public float duration;
         public List<Transform> finishSocketList = new List<Transform>();
-        public List<GameObject> objectList = new List<GameObject>();
+        public List<Item> itemDataList = new List<Item>();
         private SlotController _slotController;
         public Transform startPoint;
-
-        public StackObjectList stackObjectList;
+        public ItemList itemList;
         [ReadOnly] public StackData stackData;
 
         public void Init(SlotController slotController)
         {
             _slotController = slotController;
             stackData = _slotController.slot.stackData;
+            StartCoroutine(StackDataLoad());
+        }
 
+        private IEnumerator StackDataLoad()
+        {
             for (int i = 0; i < stackData.ProductTypes.Count; i++)
             {
+                yield return new WaitForSeconds(0.5f);
                 _productCount = i;
                 PlayEffect(stackData.ProductTypes[i]);
             }
@@ -36,46 +40,46 @@ namespace _Game.Script.Controllers
         /// <summary>
         /// Değer Ekleniyor ve Bize Doğru bir Obje Geliyor 
         /// </summary>
-        /// <param name="productType"></param>
-        public void SetValue(ProductType productType)
+        /// <param name="itemType"></param>
+        public void SetValue(ItemType itemType)
         {
             _productCount++;
             _productCount = _productCount > finishSocketList.Count - 1 ? finishSocketList.Count - 1 : _productCount;
-            stackData.AddProduct(productType);
-            PlayEffect(productType);
+            stackData.AddProduct(itemType);
+            PlayEffect(itemType);
         }
 
-        private void PlayEffect(ProductType productType)
+        private void PlayEffect(ItemType itemType)
         {
             Debug.Log(name);
-            var farm = stackObjectList.GetStackObject(productType);
-            var cloneObject = Instantiate(farm.prefab);
-            objectList.Add(cloneObject);
-            var cloneMoveObject = cloneObject.GetComponent<MoveObject>();
-            cloneMoveObject.Play(startPoint, finishSocketList[_productCount], duration);
+            var farm = itemList.GetStackObject(itemType);
+            var cloneObject = Instantiate(farm, transform);
+            Debug.Log("cloneObject" + cloneObject.transform.position);
+            cloneObject.Play(finishSocketList[_productCount]);
+            itemDataList.Add(cloneObject);
         }
 
         /// <summary>
         /// Obje bizden çıkıp Bizden datayı isteyen Tarafa Gidiyor .
         /// </summary>
-        public (ProductType, GameObject, bool) GetValue()
+        public (ItemType, Item, bool) GetValue()
         {
-            if (objectList.Count > 0)
+            if (itemDataList.Count > 0)
             {
                 _productCount--;
-                var resultObject = objectList[0];
-                objectList.Remove(resultObject);
+                var resultObject = itemDataList[0];
+                itemDataList.Remove(resultObject);
                 stackData.RemoveProduct(0);
-                return (ProductType.Rose, resultObject, true);
+                return (ItemType.Rose, resultObject, true);
             }
 
-            return (ProductType.Rose, gameObject, false);
+            return (ItemType.Rose, null, false);
         }
     }
 
     public interface IStackController
     {
-        (ProductType, GameObject, bool) GetValue();
-        void SetValue(ProductType productType);
+        (ItemType, Item, bool) GetValue();
+        void SetValue(ItemType itemType);
     }
 }
