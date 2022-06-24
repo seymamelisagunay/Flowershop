@@ -12,7 +12,7 @@ using UnityEngine;
 public class MoneyController : MonoBehaviour, ISlotController
 {
     [Tag] public string playerTag;
-    private GridSlotController moneyGrid;
+    private GridSlotController _money;
     private bool isInPlayer;
     [HideInInspector] public PlayerController playerController;
     private SlotController _slotController;
@@ -20,10 +20,11 @@ public class MoneyController : MonoBehaviour, ISlotController
     public void Init(SlotController slotController)
     {
         _slotController = slotController;
-        moneyGrid = GetComponent<GridSlotController>();
+        _money = GetComponent<GridSlotController>();
+        _money.ReSize();
         for (int i = 0; i < 10; i++)
         {
-            moneyGrid.CreateObject();
+            _money.CreateObject();
         }
     }
 
@@ -47,7 +48,7 @@ public class MoneyController : MonoBehaviour, ISlotController
         while (isInPlayer)
         {
             yield return new WaitForSeconds(0.05f);
-            var gridSlot = moneyGrid.GetSlotObject();
+            var gridSlot = _money.GetSlotObject();
             if (gridSlot == null)
             {
                 isInPlayer = false;

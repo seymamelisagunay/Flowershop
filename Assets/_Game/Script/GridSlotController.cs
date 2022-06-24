@@ -1,10 +1,9 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using NaughtyAttributes;
 using UnityEngine;
 
-public class GridSlotController : MonoBehaviour
+public class GridSlotController : MonoBehaviour,IItemPlaceController
 {
     public int x;
     public int y;
@@ -12,18 +11,22 @@ public class GridSlotController : MonoBehaviour
     public float widthSize;
     public float lengthSize;
     public float heightSize;
+    public GridSlot prefab;
     public List<GridSlot> slotList = new List<GridSlot>();
     public int currentIndex;
     public Transform parent;
-    public GameObject sampleObject;
+    public Item sampleObject;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="isCounting"></param>
     [Button]
     public void ReSize(bool isCounting = false)
     {
         var totalCounter = 0;
         if (!isCounting)
             slotList.Clear();
-
         for (var k = 0; k < h; k++)
         {
             for (var i = 0; i < x; i++)
@@ -35,11 +38,23 @@ public class GridSlotController : MonoBehaviour
                         totalCounter++;
                         continue;
                     }
-                    var clone = new GridSlot();
-                    clone.position = new Vector3(i * lengthSize, k * heightSize, j * widthSize);
+                    var clone = Instantiate(prefab,transform);
+                    clone.slotPosition = new Vector3(i * lengthSize, k * heightSize, j * widthSize);
                     slotList.Add(clone);
                 }
             }
+        }
+    }
+
+    public void ReOrder()
+    {
+        var isFullList = slotList.FindAll(x => x.isFull);
+        currentIndex = 0;
+        foreach (var gridSlot in isFullList)
+        {
+            var item = gridSlot.slotInObject;
+            var grid = GetPosition();
+            item.Play(grid.slotPosition);
         }
     }
 
@@ -47,9 +62,9 @@ public class GridSlotController : MonoBehaviour
     public void CreateObject()
     {
         var clone = Instantiate(sampleObject, parent);
-        clone.SetActive(true);
+        clone.gameObject.SetActive(true);
         var position = GetPosition();
-        clone.transform.localPosition = position.position;
+        clone.transform.localPosition = position.slotPosition;
         position.isFull = true;
         position.slotInObject = clone;
     }
@@ -65,16 +80,19 @@ public class GridSlotController : MonoBehaviour
             h += h;
             ReSize(true);
         }
-
         var result = slotList[currentIndex];
         currentIndex++;
         return result;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     [Button]
     public void Clear()
     {
         currentIndex = 0;
+        slotList.Clear();
     }
 
     /// <summary>
@@ -87,17 +105,30 @@ public class GridSlotController : MonoBehaviour
         {
             return null;
         }
-
         currentIndex--;
         var result = slotList[currentIndex];
         return result;
     }
+
+    public GridSlot GetSlotObject(ItemType itemType)
+    {
+       var slot =  slotList.Find(x => x.isFull && x.slotInObject.itemType == itemType);
+       currentIndex--;
+       return slot;
+    }
+
+    public List<GridSlot> GetSlotObjects(ItemType itemType)
+    {
+        var result = slotList.FindAll(x => x.isFull && x.slotInObject.itemType == itemType);
+        return result;
+    }
 }
 
-[Serializable]
-public class GridSlot
+public interface IItemPlaceController
 {
-    public bool isFull;
-    public Vector3 position;
-    public GameObject slotInObject;
+    GridSlot GetSlotObject();
+    void Clear();
+    GridSlot GetPosition();
+    void CreateObject();
+    void ReSize(bool isCounting = false);
 }

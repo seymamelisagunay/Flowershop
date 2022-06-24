@@ -8,7 +8,7 @@ public class ItemList : ScriptableObject
 {
     public List<Item> objects;
 
-    public Item GetStackObject(ItemType itemType)
+    public Item GetItemPrefab(ItemType itemType)
     {
         var stackObject = objects.Find(x => x.itemType == itemType);
         return stackObject;

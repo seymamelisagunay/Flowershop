@@ -73,7 +73,7 @@ public class ClientController : MonoBehaviour
         var money = 0;
         foreach (var productType in shoppingCard.ProductTypes)
         {
-            var type = itemList.GetStackObject(productType);
+            var type = itemList.GetItemPrefab(productType);
             money += type.price;
         }
         return money;

@@ -281,10 +281,12 @@ MonoBehaviour:
   widthSize: 0.372
   lengthSize: 0.699
   heightSize: 0.172
+  prefab: {fileID: 5727884131382816522, guid: 89b1f86aeee5f0342aa792b76a18d97c, type: 3}
   slotList: []
   currentIndex: 0
   parent: {fileID: 4367233979899029825}
-  sampleObject: {fileID: 1009938691182363623}
+  sampleObject: {fileID: 4310615124841918839, guid: 9d36d6d56a5985245ab0bb162b57b4c1,
+    type: 3}
 --- !u!1 &5682917712300361955
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,12 +737,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f05111b55c35dcd45b97319d73d2c628, type: 3}
---- !u!1 &1009938691182363623 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8972345055661626418, guid: f05111b55c35dcd45b97319d73d2c628,
-    type: 3}
-  m_PrefabInstance: {fileID: 8250640326929717205}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7668661913310497943 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1795993733051194178, guid: f05111b55c35dcd45b97319d73d2c628,

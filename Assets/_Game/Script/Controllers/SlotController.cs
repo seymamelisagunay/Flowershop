@@ -39,7 +39,7 @@ public class SlotController : MonoBehaviour
                     GameManager.instance.isClientCreate.Value = true;
                     var stand = Instantiate(slot.standControllerPrefab, transform);
                     stand.name += slot.Id;
-                    // stand.Init(this);
+                    stand.Init(this);
                     break;
                 case SlotType.CashDesk:
                     var cashDesk = Instantiate(slot.cashDeskControllerPrefab, transform);

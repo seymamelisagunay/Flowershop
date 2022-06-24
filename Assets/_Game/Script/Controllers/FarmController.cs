@@ -39,14 +39,10 @@ public class FarmController : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(stackData.ProductionRate);
-            
-            if (!stackData.CheckMaxCount()) continue;
-            
+            if (!_farmStackController.CheckMaxCount()) continue;
             _farmStackController.SetValue(itemType);
-            Debug.Log("Test ! bir");
         }
     }
-    
     
     [Button]
     public void TestRemove()

@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace _Game.Script.Controllers
 {
+    //İtem Kontroller
     /// <summary>
     /// StackController kendi içinde bir save sistemi olacak
     /// Bir tane kendi altında scriptable object yapısı olacak 
@@ -16,7 +17,6 @@ namespace _Game.Script.Controllers
         public List<Transform> finishSocketList = new List<Transform>();
         public List<Item> itemDataList = new List<Item>();
         private SlotController _slotController;
-        public Transform startPoint;
         public ItemList itemList;
         [ReadOnly] public StackData stackData;
 
@@ -52,7 +52,7 @@ namespace _Game.Script.Controllers
         private void PlayEffect(ItemType itemType)
         {
             Debug.Log(name);
-            var farm = itemList.GetStackObject(itemType);
+            var farm = itemList.GetItemPrefab(itemType);
             var cloneObject = Instantiate(farm, transform);
             Debug.Log("cloneObject" + cloneObject.transform.position);
             cloneObject.Play(finishSocketList[_productCount]);
@@ -75,10 +75,16 @@ namespace _Game.Script.Controllers
 
             return (ItemType.Rose, null, false);
         }
+        
+        public bool CheckMaxCount()
+        {
+            return stackData.ProductTypes.Count < stackData.MaxItemCount;
+        }
     }
 
     public interface IStackController
     {
+        void Init(SlotController slotController);
         (ItemType, Item, bool) GetValue();
         void SetValue(ItemType itemType);
     }

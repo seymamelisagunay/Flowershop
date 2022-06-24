@@ -14,9 +14,6 @@ public class CashTradeController : MonoBehaviour
     public List<TradeWaitingPoint> clientQueueTargetPoints = new List<TradeWaitingPoint>();
     [HideInInspector]
     public GridSlotController gridSlotController;
-    /// <summary>
-    /// 
-    /// </summary>
     public bool isInPlayer;
     // Para kazanma
     public IntVariable moneyCount;
@@ -75,13 +72,8 @@ public class CashTradeController : MonoBehaviour
         {
             clientQueue[i].SetTradePoint(clientQueueTargetPoints[i]);
         }
-
         NextClientSell();
     }
-    public void MoneyEffect()
-    {
-    }
-
     private void ChangeMoneyValue()
     {
         PlayerPrefs.SetInt(playerPrefsKey, moneyCount.Value);
