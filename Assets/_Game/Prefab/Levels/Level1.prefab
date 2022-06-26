@@ -497,7 +497,7 @@ Transform:
   m_GameObject: {fileID: 27978161271131208}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -0.94, y: 0.029999971, z: 0.62}
-  m_LocalScale: {x: 0.29233402, y: 0.656064, z: 0.7264116}
+  m_LocalScale: {x: 0.26924255, y: 0.656064, z: 0.7264116}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9054531971958747082}
@@ -1537,6 +1537,53 @@ Transform:
   m_Father: {fileID: 4821707185656194016}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4578715333335924096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7485364953413866198}
+  - component: {fileID: 9218126409380957281}
+  m_Layer: 0
+  m_Name: CustomerArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7485364953413866198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4578715333335924096}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.82, y: 1.24, z: 23.96}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4821707185656194016}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9218126409380957281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4578715333335924096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d88f3229a818eb49938e64f2be887d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shape: 0
+  radius: 4
+  scale: {x: 0, y: 0, z: 0}
 --- !u!1 &4687276783702767196
 GameObject:
   m_ObjectHideFlags: 0
@@ -2331,6 +2378,7 @@ Transform:
   - {fileID: 4900882807314352819}
   - {fileID: 2150060715675160133}
   - {fileID: 6242444147481830541}
+  - {fileID: 7485364953413866198}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4969,6 +5017,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rose_delight_desk
       objectReference: {fileID: 0}
+    - target: {fileID: 3340460085216626383, guid: 54afe16c6c6a8744cbb649937ee0f3f8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6469812936107659175, guid: 54afe16c6c6a8744cbb649937ee0f3f8,
         type: 3}
       propertyPath: m_CastShadows
@@ -5101,6 +5154,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rose_Perfume_desk
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107316053269952061, guid: d094c4bcfb06713468255ab88ff8feef,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1107316053269952062, guid: d094c4bcfb06713468255ab88ff8feef,
         type: 3}
@@ -5301,6 +5359,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 3677040563400034370, guid: d787cac6c48565b47a2bd5482ed21c5d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4794352487928954354, guid: d787cac6c48565b47a2bd5482ed21c5d,
         type: 3}
@@ -5853,6 +5916,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trash_box
       objectReference: {fileID: 0}
+    - target: {fileID: 8039487643565317289, guid: b714f230fe3caec41887e643fca5f571,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b714f230fe3caec41887e643fca5f571, type: 3}
 --- !u!1 &299731569137730219 stripped
@@ -6348,6 +6416,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stand_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6965160019197915573, guid: 367f751fad8d9274f9a1ddf7dec435bb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8476361103838138846, guid: 367f751fad8d9274f9a1ddf7dec435bb,
         type: 3}
