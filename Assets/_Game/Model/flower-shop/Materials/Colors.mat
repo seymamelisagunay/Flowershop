@@ -118,7 +118,7 @@ Material:
     - _UseMobileMode: 0
     - _UseNormalMap: 0
     - _UseOcclusion: 0
-    - _UseOutline: 0
+    - _UseOutline: 1
     - _UseReflections: 0
     - _UseRim: 0
     - _UseRimLightMask: 1
