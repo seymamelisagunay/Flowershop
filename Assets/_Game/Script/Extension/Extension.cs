@@ -2,7 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Extension : MonoBehaviour
+public static class Extension
 {
-    
+    public static T RandomSelectObject<T>(this List<T> variable)
+    {
+        if (variable.Count <= 0)
+            Debug.LogError("variable is below 0");
+
+        var randomIndex = Random.Range(0, variable.Count - 1);
+        return variable[randomIndex];
+    }
 }

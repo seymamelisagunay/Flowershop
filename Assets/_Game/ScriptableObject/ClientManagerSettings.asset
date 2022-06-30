@@ -13,6 +13,13 @@ MonoBehaviour:
   m_Name: ClientManagerSettings
   m_EditorClassIdentifier: 
   maxClientCount: {fileID: 11400000, guid: f6d84ec5cb5ecce4c8febb6f20ca7894, type: 2}
-  clientPrefab: {fileID: 5655030497427552283, guid: 4b93d51400475ef4aa7e691897f7391d,
-    type: 3}
+  customersPrefab:
+  - {fileID: 5655030497427552283, guid: 33f59e903ba47354681eb250d9ed8fc9, type: 3}
+  - {fileID: 5655030497427552283, guid: 8eab60475a96c7c48ac4056ee58eaac8, type: 3}
+  - {fileID: 5655030497427552283, guid: 6772ca82f0bb6784d90157572bb89724, type: 3}
+  - {fileID: 5655030497427552283, guid: 8f690cc9c64117844b20f710a4b0d4a9, type: 3}
+  - {fileID: 5655030497427552283, guid: 4b93d51400475ef4aa7e691897f7391d, type: 3}
+  - {fileID: 5655030497427552283, guid: 8f4592940f310f245a011f343a2cc3a0, type: 3}
+  - {fileID: 5655030497427552283, guid: 04e0d25c2c22ab94cbcce347a94d293c, type: 3}
+  - {fileID: 5655030497427552283, guid: 4d102fb6b5523bd4c816301f7702c346, type: 3}
   clientMaxTradeCount: 5

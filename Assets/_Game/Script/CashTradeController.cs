@@ -10,8 +10,8 @@ public class CashTradeController : MonoBehaviour
 {
     public string playerPrefsKey = "CashTradeDesk";
     [Tag] public string playerTag;
-    public List<ClientController> clientQueue = new List<ClientController>();
-    public List<TradeWaitingPoint> clientQueueTargetPoints = new List<TradeWaitingPoint>();
+    public List<CustomerController> customerQueue = new List<CustomerController>();
+    public List<TradeWaitingPoint> customerQueueTargetPoints = new List<TradeWaitingPoint>();
     [HideInInspector]
     public GridSlotController gridSlotController;
     public bool isInPlayer;
@@ -36,43 +36,43 @@ public class CashTradeController : MonoBehaviour
     /// Clientlar buraya kendilerini sıraya sokmak için istekte bulunacaklar
     /// Burada Sıraya girmek isteyen clienta Girmesi gerekn sıra yeri verilecek.
     /// </summary>
-    public void SetClientQueue(ClientController clientController)
+    public void SetCustomerQueue(CustomerController customerController)
     {
-        foreach (var point in clientQueueTargetPoints)
+        foreach (var point in customerQueueTargetPoints)
         {
             if (point.isFull) continue;
-            clientQueue.Add(clientController);
-            clientController.SetTradePoint(point);
+            customerQueue.Add(customerController);
+            customerController.SetTradePoint(point);
             break;
         }
     }
     /// <summary>
     /// 
     /// </summary>
-    public void NextClientSell()
+    public void NextCustomerSell()
     {
-        if (clientQueue.Count <= 0) return;
+        if (customerQueue.Count <= 0) return;
         if (!isInPlayer) return;
 
-        var currentClient = clientQueue[0];
+        var currentClient = customerQueue[0];
         moneyCount.Value += currentClient.SellingProducts(NextClientCallback);
     }
 
     private void NextClientCallback()
     {
-        clientQueue.RemoveAt(0);
+        customerQueue.RemoveAt(0);
         // Burda Bekleyen Müşteriler Tekrar Yerleştirilmeli 
         ReSize();
     }
 
     private void ReSize()
     {
-        clientQueueTargetPoints.ForEach((point) => { point.isFull = false; });
-        for (var i = 0; i < clientQueue.Count; i++)
+        customerQueueTargetPoints.ForEach((point) => { point.isFull = false; });
+        for (var i = 0; i < customerQueue.Count; i++)
         {
-            clientQueue[i].SetTradePoint(clientQueueTargetPoints[i]);
+            customerQueue[i].SetTradePoint(customerQueueTargetPoints[i]);
         }
-        NextClientSell();
+        NextCustomerSell();
     }
     private void ChangeMoneyValue()
     {
@@ -84,7 +84,7 @@ public class CashTradeController : MonoBehaviour
         if (other.CompareTag(playerTag))
         {
             isInPlayer = true;
-            NextClientSell();
+            NextCustomerSell();
         }
     }
 
@@ -92,7 +92,7 @@ public class CashTradeController : MonoBehaviour
     public void TestNextClient()
     {
         isInPlayer = true;
-        NextClientSell();
+        NextCustomerSell();
     }
 
     [Button]

@@ -107,12 +107,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefsKey: CashTradeDesk
   playerTag: Player
-  clientQueue: []
-  clientQueueTargetPoints:
-  - {fileID: 8484714410597996886}
-  - {fileID: 8484714408880175447}
-  - {fileID: 8484714409300100180}
-  - {fileID: 8484714410040804372}
+  customerQueue: []
+  customerQueueTargetPoints: []
   gridSlotController: {fileID: 0}
   isInPlayer: 0
   moneyCount: {fileID: 11400000, guid: 683a68aa1fb423a4387ea56adb92bbcb, type: 2}
@@ -379,6 +375,7 @@ GameObject:
   - component: {fileID: 1485749764696400030}
   - component: {fileID: 2150719606322554887}
   - component: {fileID: 1173489267741781478}
+  - component: {fileID: 5677964128904763894}
   m_Layer: 0
   m_Name: desk
   m_TagString: Untagged
@@ -465,6 +462,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8936622394817868014, guid: a62186c08f4b9774e8cd725842512199, type: 3}
+--- !u!114 &5677964128904763894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7639299280674595770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e038bf700cfa444fb16c6ef963be9f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8484714408880175441
 GameObject:
   m_ObjectHideFlags: 0

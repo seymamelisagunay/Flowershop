@@ -8,11 +8,11 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 //
-public class ClientManager : MonoBehaviour
+public class CustomerManager : MonoBehaviour
 {
     public ClientManagerSettings settings;
     [ReadOnly] public CashTradeController cashTradeController;
-    public List<ClientController> clientList = new List<ClientController>();
+    public List<CustomerController> clientList = new List<CustomerController>();
 
     public List<AreaPositionSelector> spawnPoint;
     public BoolVariable isClientCreate;
@@ -46,10 +46,10 @@ public class ClientManager : MonoBehaviour
             //Burada Random Verilecek aktif olan Ürünlere göre ;
             shoppingCard.ProductTypes.Add(ItemType.Rose);
         }
-
-        var cloneClient = Instantiate(settings.clientPrefab);
+        var selectCustomerPrefab = settings.customersPrefab.RandomSelectObject();
+        var cloneClient = Instantiate(selectCustomerPrefab);
         cloneClient.Init(this, settings.clientMaxTradeCount, shoppingCard);
-        cloneClient.transform.position = spawnPoint[0].GetPosition();
+        cloneClient.transform.position = spawnPoint.RandomSelectObject().GetPosition();
         clientList.Add(cloneClient);
     }
 }

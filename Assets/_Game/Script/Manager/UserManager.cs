@@ -16,7 +16,7 @@ public class UserModel
 public class UserManager : MonoBehaviour
 {
     public static UserManager Instance { get; private set; }
-    public UserModel UserModel;
+    public UserModel userModel;
     public IntVariable money;
     private const int ModelVersion = 4;
     private void Awake()
@@ -32,8 +32,8 @@ public class UserManager : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("user"))
         {
-            UserModel = JsonConvert.DeserializeObject<UserModel>(PlayerPrefs.GetString("user"));
-            if (UserModel == null)
+            userModel = JsonConvert.DeserializeObject<UserModel>(PlayerPrefs.GetString("user"));
+            if (userModel == null)
                 CreateUserData();
         }
         else
@@ -47,16 +47,16 @@ public class UserManager : MonoBehaviour
 
     public void SaveUser()
     {
-        if (UserModel != null)
+        if (userModel != null)
         {
-            PlayerPrefs.SetString("user", JsonConvert.SerializeObject(UserModel));
+            PlayerPrefs.SetString("user", JsonConvert.SerializeObject(userModel));
             PlayerPrefs.Save();
         }
     }
 
     private void CreateUserData()
     {
-        UserModel = new UserModel
+        userModel = new UserModel
         {
             name = $"Player{1000 + Random.Range(15, 500)}",
             id = SystemInfo.deviceUniqueIdentifier,
@@ -90,13 +90,17 @@ public class UserManager : MonoBehaviour
         money.Value = PlayerPrefs.GetInt("UserMoney", money.Value);
     }
 
+    public void SavePlayerLevel()
+    {
+        
+    }
     public void IncrementExp(int exp)
     {
-        UserModel.exp += exp;
-        while (UserModel.exp >= UserModel.level * 100)
+        userModel.exp += exp;
+        while (userModel.exp >= userModel.level * 100)
         {
-            UserModel.exp -= UserModel.level * 100;
-            UserModel.level++;
+            userModel.exp -= userModel.level * 100;
+            userModel.level++;
         }
         SaveUser();
     }

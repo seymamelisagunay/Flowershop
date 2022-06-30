@@ -10,12 +10,10 @@ namespace _Game.Script.Character
 {
     public class PlayerController : MonoBehaviour
     {
-        private Animator _animator;
         public Transform hudPoint;
         public PlayerSettings playerSettings;
         public IInput Input { get; private set; }
         public Action OnSpawn { get; set; }
-        public PlayerHudController hudController;
         private Transform _spawnPoint;
         public MovementController CharacterController { get; private set; }
 

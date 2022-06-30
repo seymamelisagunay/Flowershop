@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using _Game.Script.Bot;
 using _Game.Script.Controllers;
 using NaughtyAttributes;
 using UnityEngine;
 
-public class ClientController : MonoBehaviour
+public class CustomerController : MonoBehaviour
 {
     /// <summary>
     /// 
@@ -13,25 +15,28 @@ public class ClientController : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
-    public StackData clientTradeData;
+    public StackData customerTradeData;
     /// <summary>
     /// Satın Alınacaklar
     /// </summary>
-    public StackData shoppingCard;
+    public StackData shoppingData;
     [ReadOnly] public TradeWaitingPoint waitingPoint;
-    private ClientManager _clientManager;
+    private CustomerManager _customerManager;
+    private IInput _input;
+
     /// <summary>
     /// 
     /// </summary>
-    /// <param name="clientManager"></param>
+    /// <param name="customerManager"></param>
     /// <param name="maxTradeCount"></param>
     /// <param name="shoppingCard"></param>
-    public void Init(ClientManager clientManager, int maxTradeCount, StackData shoppingCard)
+    public void Init(CustomerManager customerManager, int maxTradeCount, StackData shoppingData)
     {
-        _clientManager = clientManager;
-        this.shoppingCard = shoppingCard;
-        clientTradeData.MaxItemCount = maxTradeCount;
+        _customerManager = customerManager;
+        this.shoppingData = shoppingData;
+        customerTradeData.MaxItemCount = maxTradeCount;
     }
+
     /// <summary>
     /// 
     /// </summary>
@@ -39,7 +44,8 @@ public class ClientController : MonoBehaviour
     public void SetTradePoint(TradeWaitingPoint point)
     {
         point.isFull = true;
-        transform.position = point.transform.position;
+        var direction = transform.position - point.transform.position;
+        _input.SetDirection(direction.normalized);
         waitingPoint = point;
     }
     /// <summary>
@@ -54,6 +60,7 @@ public class ClientController : MonoBehaviour
         StartCoroutine(SellEffect(callback));
         return priceCount;
     }
+
     /// <summary>
     /// 
     /// </summary>
@@ -71,26 +78,17 @@ public class ClientController : MonoBehaviour
     private int MoneyCalculator()
     {
         var money = 0;
-        foreach (var productType in shoppingCard.ProductTypes)
+        foreach (var productType in shoppingData.ProductTypes)
         {
             var type = itemList.GetItemPrefab(productType);
             money += type.price;
         }
         return money;
     }
+
     [Button]
     public void SetCheck()
     {
-        _clientManager.cashTradeController.SetClientQueue(this);
-    }
-}
-
-/// <summary>
-/// Müşterinin toplayacağı ürünler burada barınacak 
-/// </summary>
-public class ClientHarvestPicker : MonoBehaviour
-{
-    public void Init(StackData shoppingCard)
-    {
+        _customerManager.cashTradeController.SetCustomerQueue(this);
     }
 }
