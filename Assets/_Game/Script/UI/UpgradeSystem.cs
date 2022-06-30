@@ -15,6 +15,7 @@ public class UpgradeSystem : MonoBehaviour
     enum ShelverUpgradeMoney { Lvl1 = 1500, Lvl2 = 3000, Lvl3 = 6000, Lvl4 = 12000};
     enum PerfumeUpgradeMoney { Lvl1 = 200, Lvl2 = 600, Lvl3 = 1500};
     enum DelightUpgradeMoney { Lvl1 = 300, Lvl2 = 900, Lvl3 = 2100};
+    
     private string _upgradeLevelName = "Upgrade Lvl. ";
 
     private int playerUpgradeLevel = 0;
