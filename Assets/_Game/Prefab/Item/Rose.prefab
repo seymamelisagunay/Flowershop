@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55346f564a411f0459257366bebd304e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 1
   price: 10
   moveDuration: {fileID: 11400000, guid: ff2227076e2c084429de3373e67660e1, type: 2}
   curve:

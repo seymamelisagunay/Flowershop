@@ -3,7 +3,7 @@ using _Game.Script.Controllers;
 using NaughtyAttributes;
 using UnityEngine;
 
-public class StandPlaceController : MonoBehaviour
+public class StandPlaceController : MonoBehaviour, IItemPlaceController
 {
     private StackData _stackData;
     private ItemList _itemList;
@@ -100,7 +100,6 @@ public class StandPlaceController : MonoBehaviour
     [Button]
     public void ReSize(bool isCounting = false)
     {
-        var totalCounter = 0;
         if (!isCounting)
             slotList.Clear();
 

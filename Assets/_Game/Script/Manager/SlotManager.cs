@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -13,6 +14,8 @@ public class SlotManager : MonoBehaviour
     public IntVariable currentOrderCount;
     public List<SlotState> slotStates = new List<SlotState>();
     public BoolVariable isClientCreate;
+    [HideInInspector]
+    public List<SlotController> slots = new List<SlotController>();
 
     private void Awake()
     {
@@ -20,6 +23,7 @@ public class SlotManager : MonoBehaviour
         currentOrderCount.Value = PlayerPrefs.GetInt("orderCount", 1);
         currentOrderCount.OnChangeVariable.AddListener(SaveOrderCount);
         currentOrderCount.OnChangeVariable.AddListener(SlotOpen);
+        slots = Transform.FindObjectsOfType<SlotController>().ToList();
     }
 
     public void NextSlot()
@@ -39,7 +43,12 @@ public class SlotManager : MonoBehaviour
                 }
             });
     }
+    public SlotController GetActiveStand(ItemType itemType)
+    {
+        var result = slots.Find(x => x.slot.emptyData.IsOpen && x.slot.itemType == itemType);
 
+        return result;
+    }
     private void SaveOrderCount()
     {
         PlayerPrefs.SetInt("orderCount", currentOrderCount.Value);

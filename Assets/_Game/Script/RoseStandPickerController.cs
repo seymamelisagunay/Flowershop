@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// Düzeltilecek
 /// </summary>
-public class StandPickerController : MonoBehaviour, IPickerController
+public class RoseStandPickerController : MonoBehaviour, IPickerController
 {
     public ItemList itemList;
     private StandPlaceController _standPlaceController;
@@ -17,10 +17,10 @@ public class StandPickerController : MonoBehaviour, IPickerController
 
     private bool _isStayPlayer;
 
-    public void Init(SlotController slotController)
+    public void Start()
     {
         _standPlaceController = GetComponent<StandPlaceController>();
-        _slotController = slotController;
+        _slotController = GetComponentInParent<SlotController>();
         _stackData = _slotController.slot.stackData;
         _standPlaceController.Init(itemList, _stackData);
         _itemController = GetComponent<IItemController>();

@@ -41,9 +41,9 @@ public class SlotController : MonoBehaviour
                     break;
                 case SlotType.Stand:
                     GameManager.instance.isClientCreate.Value = true;
-                    var stand = slot.itemControllerPrefab.GetComponent<StandController>();
+                    var stand = slot.itemControllerPrefab.GetComponent<StandItemController>();
                     activeItemController = Instantiate(stand, transform);
-                    var standController = (StandController) activeItemController;
+                    var standController = (StandItemController) activeItemController;
                     standController.name += slot.Id;
                     break;
                 case SlotType.CashDesk:

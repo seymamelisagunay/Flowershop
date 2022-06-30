@@ -8,6 +8,7 @@ TagManager:
   - Slot
   - CashDesk
   - Stand
+  - Customer
   layers:
   - Default
   - TransparentFX

@@ -21019,7 +21019,7 @@ GameObject:
   - component: {fileID: 921311630}
   m_Layer: 0
   m_Name: RoseStand
-  m_TagString: Slot
+  m_TagString: Stand
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40245,6 +40245,7 @@ MonoBehaviour:
   spawnPoint:
   - {fileID: 1796056364}
   isClientCreate: {fileID: 11400000, guid: adc741b91321f874ca3dbed4ac23318b, type: 2}
+  standList: []
 --- !u!4 &1816569678
 Transform:
   m_ObjectHideFlags: 0

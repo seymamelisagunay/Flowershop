@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using _Game.Script.Character;
+using Sources.Utility;
 using UnityEngine;
 
 namespace _Game.Script.Manager
@@ -17,6 +18,8 @@ namespace _Game.Script.Manager
         public SlotManager slotManager;
         public BoolVariable isClientCreate;
 
+        public NavMeshUtility navMesh;
+
         private void Awake()
         {
             instance = this;
@@ -27,6 +30,7 @@ namespace _Game.Script.Manager
         /// </summary>
         public void Init()
         {
+            navMesh = new NavMeshUtility(null, Vector3.zero);
             PlayerCreator();
             slotManager.slotStates.ForEach(x =>
             {

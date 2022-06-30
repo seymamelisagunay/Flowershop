@@ -28,6 +28,7 @@ public class CustomerPickerController : MonoBehaviour, IPickerController
     public void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag(standTag)) return;
+        Debug.Log("Topluyorum :D");
         var itemController = other.GetComponent<IItemController>();
         StartCoroutine(GetItem(itemController));
         _isStayStand = true;
@@ -55,6 +56,7 @@ public class CustomerPickerController : MonoBehaviour, IPickerController
                 var (productType, item, isItemFinish) = slotItemController.GetValue();
                 if (!isItemFinish) continue;
 
+                Debug.Log("Ver item Ver ");
                 _customerItemController.SetValue(productType);
                 var gridSlot = _gridSlotController.GetPosition();
                 item.transform.parent = gridSlot.transform;

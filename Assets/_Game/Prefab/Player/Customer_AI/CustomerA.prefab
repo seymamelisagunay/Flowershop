@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 88335482195737402}
   m_Layer: 0
   m_Name: CustomerA
-  m_TagString: Player
+  m_TagString: Customer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -288,6 +288,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   waitingPoint: {fileID: 0}
+  customerSettings: {fileID: 11400000, guid: 7fdd1d2bb3fab1e4dac7b7add2a738b6, type: 2}
 --- !u!114 &76248307041298645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,6 +308,13 @@ MonoBehaviour:
     OnChangeVariable:
       m_PersistentCalls:
         m_Calls: []
+  shoppingData:
+    maxItemCount: 0
+    productionRate: 0
+    _productTypes: 
+    OnChangeVariable:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!114 &88335482195737402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,6 +328,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standTag: Stand
+  customerSettings: {fileID: 11400000, guid: 7fdd1d2bb3fab1e4dac7b7add2a738b6, type: 2}
+  customerTradeData:
+    maxItemCount: 0
+    productionRate: 0
+    _productTypes: 
+    OnChangeVariable:
+      m_PersistentCalls:
+        m_Calls: []
+  shoppingData:
+    maxItemCount: 0
+    productionRate: 0
+    _productTypes: 
+    OnChangeVariable:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &3453326640391612087
 GameObject:
   m_ObjectHideFlags: 0

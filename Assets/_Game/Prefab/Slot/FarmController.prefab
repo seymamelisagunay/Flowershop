@@ -516,7 +516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc51a4f2d6dbfe943b6ec2943ec61603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 1
   itemList: {fileID: 11400000, guid: bd3b93f6936874e449030d6c3429a49c, type: 2}
   gridSlots:
   - {fileID: 342061962717252263}

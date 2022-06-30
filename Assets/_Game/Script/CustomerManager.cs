@@ -16,10 +16,12 @@ public class CustomerManager : MonoBehaviour
 
     public List<AreaPositionSelector> spawnPoint;
     public BoolVariable isClientCreate;
+    public List<GameObject> standList = new List<GameObject>();
 
     private void Start()
     {
         cashTradeController = FindObjectOfType<CashTradeController>();
+
         StartCoroutine(BotCreator());
     }
 

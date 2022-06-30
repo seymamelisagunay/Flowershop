@@ -15,4 +15,4 @@ MonoBehaviour:
   maxClientCount: {fileID: 11400000, guid: f6d84ec5cb5ecce4c8febb6f20ca7894, type: 2}
   customersPrefab:
   - {fileID: 5655030497427552283, guid: 33f59e903ba47354681eb250d9ed8fc9, type: 3}
-  clientMaxTradeCount: 5
+  clientMaxTradeCount: 1

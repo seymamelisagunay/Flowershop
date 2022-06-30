@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 5655030497427552283}
   m_Layer: 0
   m_Name: CustomerE
-  m_TagString: Player
+  m_TagString: Customer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -286,6 +286,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   waitingPoint: {fileID: 0}
+  customerSettings: {fileID: 0}
 --- !u!1 &2607790092409587723
 GameObject:
   m_ObjectHideFlags: 0
