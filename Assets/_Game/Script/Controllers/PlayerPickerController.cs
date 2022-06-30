@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using _Game.Script.Controllers;
 using _Game.Script.Core.Character;
 using NaughtyAttributes;
@@ -8,7 +9,7 @@ using UnityEngine;
 public class PlayerPickerController : MonoBehaviour, IPickerController
 {
     public PlayerSettings playerSettings;
-    [Tag] public string slotTag;
+    [Tag] public List<string> slotsTag;
     public ItemList itemList;
     public StackData playerStackData = new StackData();
     private GridSlotController _gridSlotController;
@@ -54,7 +55,8 @@ public class PlayerPickerController : MonoBehaviour, IPickerController
 
     public void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag(slotTag)) return;
+        
+        if (!slotsTag.Contains(other.tag)) return;
         var slotController = other.GetComponent<IItemController>();
         SelectSlot(slotController);
         _isStayFarm = true;
@@ -67,7 +69,7 @@ public class PlayerPickerController : MonoBehaviour, IPickerController
 
     public void OnTriggerExit(Collider other)
     {
-        if (!other.CompareTag(slotTag)) return; //Multi Tag Test Edilecek
+        if (!slotsTag.Contains(other.tag)) return; //Multi Tag Test Edilecek
         var slotController = other.GetComponent<IItemController>();
         _isStayFarm = false;
         StopCoroutine(GetItem(slotController));

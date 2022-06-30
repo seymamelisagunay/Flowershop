@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Farm
   - Slot
+  - CashDesk
+  - Stand
   layers:
   - Default
   - TransparentFX

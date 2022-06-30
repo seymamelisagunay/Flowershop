@@ -110,10 +110,11 @@ public class FarmController : MonoBehaviour, IItemController
 /// <summary>
 /// Item Controller
 /// Picker ulaşıp birikmiş olan itemleri aldığı yer oluyor;
+/// İtemlerin Dizildiği yerde burada Bulunuyor 
 /// </summary>
 public interface IItemController
 {
-    void Init(StackData slotController);
+    void Init(StackData stackData);
     (ItemType, Item, bool) GetValue();
     (ItemType, Item, bool) GetValue(ItemType itemType);
     void SetValue(ItemType itemType);
