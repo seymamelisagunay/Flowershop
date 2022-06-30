@@ -15,6 +15,11 @@ public class PlayerItemController : MonoBehaviour, IItemController
         _gridSlotController = GetComponentInChildren<GridSlotController>();
     }
 
+    public ItemType GetItemType()
+    {
+        return ItemType.none;
+    }
+
     public (ItemType, Item, bool) GetValue()
     {
         return GetValue(stackData.ProductTypes[0]);
@@ -31,6 +36,7 @@ public class PlayerItemController : MonoBehaviour, IItemController
             stackData.RemoveProduct(0);
             return (resultData.itemType, resultData, true);
         }
+
         return (ItemType.Rose, null, false);
     }
 

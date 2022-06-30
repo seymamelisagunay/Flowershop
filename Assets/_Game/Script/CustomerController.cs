@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using _Game.Script.Bot;
 using _Game.Script.Controllers;
+using _Game.Script.Core.Character;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -12,17 +13,24 @@ public class CustomerController : MonoBehaviour
     /// 
     /// </summary>
     public ItemList itemList;
+
     /// <summary>
     /// 
     /// </summary>
     public StackData customerTradeData;
+
     /// <summary>
     /// Satın Alınacaklar
     /// </summary>
     public StackData shoppingData;
+
     [ReadOnly] public TradeWaitingPoint waitingPoint;
     private CustomerManager _customerManager;
     private IInput _input;
+    public PlayerSettings customerSettings;
+    private CustomerPickerController _customerPickerController;
+    private CustomerItemController _customerItemController;
+
     /// <summary>
     /// 
     /// </summary>
@@ -34,6 +42,9 @@ public class CustomerController : MonoBehaviour
         _customerManager = customerManager;
         this.shoppingData = shoppingData;
         customerTradeData.MaxItemCount = maxTradeCount;
+        _customerPickerController = GetComponent<CustomerPickerController>();
+        _customerItemController = GetComponent<CustomerItemController>();
+        _customerPickerController.Init(customerTradeData, this.shoppingData, customerSettings);
     }
 
     /// <summary>
@@ -47,6 +58,7 @@ public class CustomerController : MonoBehaviour
         _input.SetDirection(direction.normalized);
         waitingPoint = point;
     }
+
     /// <summary>
     /// 
     /// </summary>
@@ -70,6 +82,7 @@ public class CustomerController : MonoBehaviour
         yield return new WaitForSeconds(3f);
         callback.Invoke();
     }
+
     /// <summary>
     /// 
     /// </summary>
@@ -82,6 +95,7 @@ public class CustomerController : MonoBehaviour
             var type = itemList.GetItemPrefab(productType);
             money += type.price;
         }
+
         return money;
     }
 

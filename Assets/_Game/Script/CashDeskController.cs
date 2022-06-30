@@ -15,6 +15,11 @@ public class CashDeskController : MonoBehaviour, IItemController
         // Burada Client 
     }
 
+    public ItemType GetItemType()
+    {
+        return ItemType.Money;
+    }
+
     public (ItemType, Item, bool) GetValue()
     {
         throw new System.NotImplementedException();

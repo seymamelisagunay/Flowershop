@@ -26,6 +26,11 @@ public class FarmController : MonoBehaviour, IItemController
         StartCoroutine(Creator());
     }
 
+    public ItemType GetItemType()
+    {
+        return itemType;
+    }
+
     public (ItemType, Item, bool) GetValue()
     {
         return GetValue(itemType);
@@ -115,6 +120,7 @@ public class FarmController : MonoBehaviour, IItemController
 public interface IItemController
 {
     void Init(StackData stackData);
+    ItemType GetItemType();
     (ItemType, Item, bool) GetValue();
     (ItemType, Item, bool) GetValue(ItemType itemType);
     void SetValue(ItemType itemType);

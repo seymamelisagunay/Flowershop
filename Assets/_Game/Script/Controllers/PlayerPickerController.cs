@@ -60,11 +60,7 @@ public class PlayerPickerController : MonoBehaviour, IPickerController
         var slotController = other.GetComponent<IItemController>();
         SelectSlot(slotController);
         _isStayFarm = true;
-
-        // Debug.Log(other.name);
-        // var farmController = other.GetComponent<IStackController>();
-        // farmControllerList.Add(farmController);
-        // StartCoroutine(StayInSlotCounter());
+      
     }
 
     public void OnTriggerExit(Collider other)

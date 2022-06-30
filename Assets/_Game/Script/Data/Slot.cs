@@ -78,6 +78,7 @@ public enum SlotType
 
 public enum ItemType
 {
+    none,
     Rose,
     Perfume,
     Candy,

@@ -7,14 +7,21 @@ using UnityEngine;
 /// <summary>
 /// 
 /// </summary>
-public class CustomerItemController : MonoBehaviour,IItemController
+public class CustomerItemController : MonoBehaviour, IItemController
 {
     [ReadOnly] public StackData tradeData;
+    public StackData shoppingData;
     private GridSlotController gridSlotController;
+
     public void Init(StackData stackData)
     {
         tradeData = stackData;
         gridSlotController = GetComponentInChildren<GridSlotController>();
+    }
+
+    public ItemType GetItemType()
+    {
+        return ItemType.none;
     }
 
     public (ItemType, Item, bool) GetValue()
@@ -29,6 +36,7 @@ public class CustomerItemController : MonoBehaviour,IItemController
 
     public void SetValue(ItemType itemType)
     {
-        throw new System.NotImplementedException();
+        tradeData.ProductTypes.Add(itemType);
+        shoppingData.ProductTypes.Remove(itemType);
     }
 }
