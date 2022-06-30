@@ -10426,7 +10426,7 @@ GameObject:
   - component: {fileID: 457439895}
   m_Layer: 0
   m_Name: CashDesk-Slot
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19440,7 +19440,7 @@ GameObject:
   - component: {fileID: 835296820}
   m_Layer: 0
   m_Name: "G\xFCl-Slot3"
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20875,7 +20875,7 @@ GameObject:
   - component: {fileID: 921311630}
   m_Layer: 0
   m_Name: RoseStand
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21164,7 +21164,7 @@ GameObject:
   - component: {fileID: 937008852}
   m_Layer: 0
   m_Name: "G\xFCl-Slot2"
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31136,7 +31136,7 @@ GameObject:
   - component: {fileID: 1424125684}
   m_Layer: 0
   m_Name: "G\xFCl-Slot1"
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31374,7 +31374,7 @@ GameObject:
   - component: {fileID: 1430144984}
   m_Layer: 0
   m_Name: RosePerfumeFactory
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35760,7 +35760,7 @@ GameObject:
   - component: {fileID: 1638395301}
   m_Layer: 0
   m_Name: RosePerfumeStand
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

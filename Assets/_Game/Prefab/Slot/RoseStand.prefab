@@ -820,7 +820,7 @@ GameObject:
   - component: {fileID: 5290540765180972170}
   - component: {fileID: 7248501323998568896}
   m_Layer: 0
-  m_Name: RoseStand_orgin
+  m_Name: RoseStand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -897,6 +897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemList: {fileID: 11400000, guid: bd3b93f6936874e449030d6c3429a49c, type: 2}
+  playerTag: Player
 --- !u!114 &7248501323998568896
 MonoBehaviour:
   m_ObjectHideFlags: 0

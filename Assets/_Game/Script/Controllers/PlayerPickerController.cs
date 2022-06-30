@@ -1,34 +1,31 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using _Game.Script.Controllers;
 using _Game.Script.Core.Character;
 using NaughtyAttributes;
 using Newtonsoft.Json;
 using UnityEngine;
 
-public class PlayerPickerController : MonoBehaviour
+public class PlayerPickerController : MonoBehaviour, IPickerController
 {
     public PlayerSettings playerSettings;
-    [Tag] public string farmTag;
+    [Tag] public string slotTag;
     public ItemList itemList;
     public StackData playerStackData = new StackData();
-    public List<IStackController> farmControllerList = new List<IStackController>();
     private GridSlotController _gridSlotController;
     private bool _isStayFarm;
-    private Alarm _alarm;
+    private PlayerItemController _playerItemController;
 
     private IEnumerator Start()
     {
         GetSaveData();
         playerStackData.OnChangeVariable.AddListener(SaveData);
         _gridSlotController = GetComponentInChildren<GridSlotController>();
+        _gridSlotController.h = playerSettings.maxPickerCount;
         _gridSlotController.ReSize();
 
-        _alarm = new Alarm();
-        _alarm.Start(playerSettings.pickingSpeed);
         playerStackData.MaxItemCount = playerSettings.maxPickerCount;
         playerStackData.ProductionRate = playerSettings.pickingSpeed;
+        // playerStackData.OnChangeVariable.AddListener();
         foreach (var type in playerStackData.ProductTypes)
         {
             yield return new WaitForSeconds(playerSettings.pickingSpeed);
@@ -36,6 +33,9 @@ public class PlayerPickerController : MonoBehaviour
             _gridSlotController.sampleObject = itemPrefab;
             _gridSlotController.CreateObject();
         }
+
+        _playerItemController = GetComponent<PlayerItemController>();
+        _playerItemController.Init(playerStackData);
     }
 
 
@@ -52,86 +52,68 @@ public class PlayerPickerController : MonoBehaviour
         PlayerPrefs.SetString("Player-StackData", jsonValue);
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag(farmTag)) return;
-        Debug.Log(other.name);
-        var farmController = other.GetComponent<IStackController>();
-        farmControllerList.Add(farmController);
-        StartCoroutine(StayInSlotCounter());
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (!other.CompareTag(farmTag)) return; //Multi Tag Test Edilecek
-
-        Debug.Log(other.name);
-        var farmController = other.GetComponent<IStackController>();
-        farmControllerList.Remove(farmController);
-        if (farmControllerList.Count != 0) return;
-
-        _isStayFarm = false;
-        StopCoroutine(StayInSlotCounter());
-    }
-
-    private void Update()
-    {
-        if (!_isStayFarm) return;
-        if (!(farmControllerList.Count > 0)) return;
-        if (!playerStackData.CheckMaxCount()) return;
-        if (!_alarm.Check()) return;
-        _alarm.Start(playerSettings.pickingSpeed);
-        Debug.Log("Next");
-        foreach (var stackController in farmControllerList)
-        {
-            // yield return new WaitForSeconds(playerSettings.pickingSpeed);
-            if (!playerStackData.CheckMaxCount()) break;
-            var (productType, stackObject, isValueFull) = stackController.GetValue();
-            if (!isValueFull) continue;
-
-            playerStackData.AddProduct(productType);
-            var itemPrefab = itemList.GetItemPrefab(productType);
-            _gridSlotController.sampleObject = itemPrefab;
-            /// Yol alma burdan eklene bilri !
-            _gridSlotController.CreateObject();
-            Destroy(stackObject);
-        }
-    }
-
-    // public List<GridSlot> GetItems(ItemType itemType, int count)
-    // {
-    //     var itemList = _gridSlotController.GetSlotObjects(itemType);
-    //     var result = new List<GridSlot>();
-    //     for (int i = 0; i < itemList.Count; i++)
-    //     {
-    //         if ((i + 1) > count)
-    //         {
-    //             break;
-    //         }
-    //         result.Add(itemList[i]);
-    //     }
-    //     return result;
-    // }
-    public GridSlot GetItem(ItemType itemType)
-    {
-        if (playerStackData.ProductTypes.Count == 0)
-        {
-            return null;
-        }
-        var slot = _gridSlotController.GetSlotObject(itemType);
-        if (slot != null)
-        {
-            var index = playerStackData.ProductTypes.FindIndex(x => x == itemType);
-            playerStackData.RemoveProduct(index);
-        }
-
-        return slot;
-    }
-
-
-    private IEnumerator StayInSlotCounter()
-    {
-        yield return new WaitForSeconds(playerSettings.firstTriggerCooldown);
+        if (!other.CompareTag(slotTag)) return;
+        var slotController = other.GetComponent<IItemController>();
+        SelectSlot(slotController);
         _isStayFarm = true;
+
+        // Debug.Log(other.name);
+        // var farmController = other.GetComponent<IStackController>();
+        // farmControllerList.Add(farmController);
+        // StartCoroutine(StayInSlotCounter());
     }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (!other.CompareTag(slotTag)) return; //Multi Tag Test Edilecek
+        var slotController = other.GetComponent<IItemController>();
+        _isStayFarm = false;
+        StopCoroutine(GetItem(slotController));
+
+        // Debug.Log(other.name);
+        // var farmController = other.GetComponent<IStackController>();
+        // farmControllerList.Remove(farmController);
+        // if (farmControllerList.Count != 0) return;
+        //
+    }
+
+
+    private void SelectSlot(IItemController slotController)
+    {
+        StartCoroutine(GetItem(slotController));
+    }
+
+    public IEnumerator GetItem(IItemController itemController)
+    {
+        var slotItemController = itemController;
+        yield return new WaitForSeconds(playerSettings.firstTriggerCooldown);
+        while (_isStayFarm)
+        {
+            if (playerStackData.CheckMaxCount())
+            {
+                yield return new WaitForSeconds(playerSettings.pickingSpeed);
+                //Toplama yapılacak 
+                var (productType, item, isItemFinish) = slotItemController.GetValue();
+                if (!isItemFinish) continue;
+                
+                _playerItemController.SetValue(productType);
+                var gridSlot = _gridSlotController.GetPosition();
+                item.transform.parent = gridSlot.transform;
+                gridSlot.isFull = true;
+                gridSlot.slotInObject = item;
+                item.Play(Vector3.zero);
+            }
+            else
+                yield break;
+        }
+    }
+}
+
+public interface IPickerController
+{
+    IEnumerator GetItem(IItemController itemController);
+    void OnTriggerEnter(Collider other);
+    void OnTriggerExit(Collider other);
 }

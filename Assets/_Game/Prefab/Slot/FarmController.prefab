@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 100060554361229844}
+  - component: {fileID: 417656151391934562}
   m_Layer: 0
-  m_Name: ProductSocket (2)
+  m_Name: GridSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,6 +32,21 @@ Transform:
   m_Father: {fileID: 5106388143631844090}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &417656151391934562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508668807980245953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5eb7684109c4b79b88f51398ae7fa3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFull: 0
+  slotPosition: {x: 0, y: 0, z: 0}
+  slotInObject: {fileID: 0}
 --- !u!1 &1766651196090196010
 GameObject:
   m_ObjectHideFlags: 0
@@ -40,8 +56,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1579248208685652180}
+  - component: {fileID: 342061962717252263}
   m_Layer: 0
-  m_Name: ProductSocket
+  m_Name: GridSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,6 +79,21 @@ Transform:
   m_Father: {fileID: 5106388143631844090}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &342061962717252263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766651196090196010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5eb7684109c4b79b88f51398ae7fa3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFull: 0
+  slotPosition: {x: 0, y: 0, z: 0}
+  slotInObject: {fileID: 0}
 --- !u!1 &2680524856747083351
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,8 +432,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 482582251661199243}
+  - component: {fileID: 112368327295624165}
   m_Layer: 0
-  m_Name: ProductSocket (1)
+  m_Name: GridSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -422,6 +455,21 @@ Transform:
   m_Father: {fileID: 5106388143631844090}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &112368327295624165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4905894306141453861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5eb7684109c4b79b88f51398ae7fa3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFull: 0
+  slotPosition: {x: 0, y: 0, z: 0}
+  slotInObject: {fileID: 0}
 --- !u!1 &8099023379339999429
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,10 +481,9 @@ GameObject:
   - component: {fileID: 8099023379339999431}
   - component: {fileID: 8099023379339999430}
   - component: {fileID: 8099023379339999424}
-  - component: {fileID: 154138323582885423}
   m_Layer: 0
   m_Name: FarmController
-  m_TagString: Farm
+  m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -470,6 +517,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 0
+  itemList: {fileID: 11400000, guid: bd3b93f6936874e449030d6c3429a49c, type: 2}
+  gridSlots:
+  - {fileID: 342061962717252263}
+  - {fileID: 112368327295624165}
+  - {fileID: 417656151391934562}
   stackData:
     maxItemCount: 0
     productionRate: 0
@@ -488,30 +540,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.5483117, y: 1.7550256, z: 2.6950264}
-  m_Center: {x: 0.13600278, y: 0, z: 0}
---- !u!114 &154138323582885423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8099023379339999429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c388915fa9f40234b8738b6e2b468767, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  finishSocketList:
-  - {fileID: 1579248208685652180}
-  - {fileID: 482582251661199243}
-  - {fileID: 100060554361229844}
-  itemDataList: []
-  itemList: {fileID: 11400000, guid: bd3b93f6936874e449030d6c3429a49c, type: 2}
-  stackData:
-    maxItemCount: 0
-    productionRate: 0
-    _productTypes: 
-    OnChangeVariable:
-      m_PersistentCalls:
-        m_Calls: []
+  m_Size: {x: 3.9397147, y: 1.7550256, z: 3.941703}
+  m_Center: {x: 0.12122524, y: 0, z: 0.07424104}

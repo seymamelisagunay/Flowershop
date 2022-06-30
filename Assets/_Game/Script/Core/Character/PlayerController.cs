@@ -63,11 +63,5 @@ namespace _Game.Script.Character
             CharacterController.pause = false;
             OnSpawn?.Invoke();
         }
-        public void OnTriggerEnter(Collider other)
-        {
-        }
-        private void OnCollisionEnter(Collision collision)
-        {
-        }
     }
 }

@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using NaughtyAttributes;
 using UnityEngine;
 
-public class GridSlotController : MonoBehaviour,IItemPlaceController
+public class GridSlotController : MonoBehaviour, IItemPlaceController
 {
     public int x;
     public int y;
@@ -38,12 +39,20 @@ public class GridSlotController : MonoBehaviour,IItemPlaceController
                         totalCounter++;
                         continue;
                     }
-                    var clone = Instantiate(prefab,transform);
+
+                    var clone = Instantiate(prefab, parent);
                     clone.slotPosition = new Vector3(i * lengthSize, k * heightSize, j * widthSize);
+                    clone.transform.localPosition = clone.slotPosition;
                     slotList.Add(clone);
                 }
             }
         }
+    }
+
+    public void Increase()
+    {
+        h += h;
+        ReSize(true);
     }
 
     public void ReOrder()
@@ -75,14 +84,7 @@ public class GridSlotController : MonoBehaviour,IItemPlaceController
     /// <returns></returns>
     public GridSlot GetPosition()
     {
-        if (currentIndex >= slotList.Count - 1)
-        {
-            h += h;
-            ReSize(true);
-        }
-        var result = slotList[currentIndex];
-        currentIndex++;
-        return result;
+        return slotList.Find(x => !x.isFull);
     }
 
     /// <summary>
@@ -101,20 +103,13 @@ public class GridSlotController : MonoBehaviour,IItemPlaceController
     /// <returns></returns>
     public GridSlot GetSlotObject()
     {
-        if (currentIndex == 0)
-        {
-            return null;
-        }
-        currentIndex--;
-        var result = slotList[currentIndex];
-        return result;
+        return slotList.Find(x => x.isFull);
     }
 
     public GridSlot GetSlotObject(ItemType itemType)
     {
-       var slot =  slotList.Find(x => x.isFull && x.slotInObject.itemType == itemType);
-       currentIndex--;
-       return slot;
+        var index = slotList.FindIndex(x => x.isFull && x.slotInObject.itemType == itemType);
+        return slotList[index];
     }
 
     public List<GridSlot> GetSlotObjects(ItemType itemType)

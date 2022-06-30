@@ -54,12 +54,11 @@ public class StandPlaceController : MonoBehaviour
         {
             return null;
         }
-
         currentIndex--;
         var result = slotList[currentIndex];
         return result;
     }
-
+    
     [Button]
     public void Clear()
     {
@@ -93,7 +92,7 @@ public class StandPlaceController : MonoBehaviour
 
         var clone = Instantiate(sampleObject, parent);
         clone.transform.parent = position.transform;
-        clone.Play(position.transform);
+        clone.Play(Vector3.zero);
         position.isFull = true;
         position.slotInObject = clone;
     }

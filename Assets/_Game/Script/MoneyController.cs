@@ -45,9 +45,10 @@ public class MoneyController : MonoBehaviour, ISlotController
 
     private IEnumerator GetMoney()
     {
+        yield return new WaitForSeconds(playerController.playerSettings.firstTriggerCooldown);
         while (isInPlayer)
         {
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(playerController.playerSettings.pickingSpeed);
             var gridSlot = _money.GetSlotObject();
             if (gridSlot == null)
             {
@@ -62,8 +63,9 @@ public class MoneyController : MonoBehaviour, ISlotController
             {
                 UserManager.Instance.IncrementMoney(10);
                 gridSlot.isFull = false;
-                var item = gridSlot.slotInObject.GetComponent<Item>();
-                item.Play(playerController.transform, true);
+                var item = gridSlot.slotInObject;
+                item.transform.parent = playerController.transform;
+                item.Play(Vector3.zero, true);
             }
         }
     }

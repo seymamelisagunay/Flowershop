@@ -14,6 +14,7 @@ public class SlotController : MonoBehaviour
     public Slot slot;
     [HideInInspector] public SlotHud slotHud;
     public Transform hudPoint;
+    public IItemController activeItemController;
 
     public void Init()
     {
@@ -26,36 +27,43 @@ public class SlotController : MonoBehaviour
     {
         if (slot.emptyData.IsOpen)
         {
+            // farm.name += slot.Id;
+            // farm.Init(this);
             switch (slot.slotType)
             {
                 case SlotType.Farm:
-                    var farm = Instantiate(slot.farmControllerPrefab, transform);
-                    farm.name += slot.Id;
-                    farm.Init(this);
+                    var cloneFarm = slot.itemControllerPrefab.GetComponent<FarmController>();
+                    activeItemController = Instantiate(cloneFarm, transform);
+                    var cloneFarmItemController = (FarmController) activeItemController;
+                    cloneFarmItemController.name += slot.Id;
                     break;
                 case SlotType.Factory:
                     break;
                 case SlotType.Stand:
                     GameManager.instance.isClientCreate.Value = true;
-                    var stand = Instantiate(slot.standControllerPrefab, transform);
-                    stand.name += slot.Id;
-                    stand.Init(this);
+                    var stand = slot.itemControllerPrefab.GetComponent<StandController>();
+                    activeItemController = Instantiate(stand, transform);
+                    var standController = (StandController) activeItemController;
+                    standController.name += slot.Id;
                     break;
                 case SlotType.CashDesk:
-                    var cashDesk = Instantiate(slot.cashDeskControllerPrefab, transform);
-                    cashDesk.name += slot.Id;
-                    cashDesk.Init(this);
+                    var cashDeskPrefab = slot.itemControllerPrefab.GetComponent<CashDeskController>();
+                    var cloneCashDesk = Instantiate(cashDeskPrefab, transform);
+                    cloneCashDesk.name += slot.Id;
+                    activeItemController = cloneCashDesk;
                     break;
                 default:
                     return;
             }
+
+            activeItemController.Init(slot.stackData);
             slot.stackData.OnChangeVariable.AddListener(SaveSlotStackData);
         }
     }
 
     public void OpenEmpty()
     {
-        var emptySlot =  Instantiate(slot.slotEmptyPrefab, transform);
+        var emptySlot = Instantiate(slot.slotEmptyPrefab, transform);
         emptySlot.GetComponent<ISlotController>().Init(this);
         slot.emptyData.OnChangeVariable.AddListener(SaveSlotEmptyData);
     }

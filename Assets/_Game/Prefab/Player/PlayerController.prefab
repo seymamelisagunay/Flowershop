@@ -83,6 +83,7 @@ GameObject:
   - component: {fileID: 171249232236716667}
   - component: {fileID: 4331471465349665932}
   - component: {fileID: 7579631767987793856}
+  - component: {fileID: 3364432784878086204}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Player
@@ -257,7 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSettings: {fileID: 11400000, guid: da46de04c7e93f8468737c1425843a78, type: 2}
-  farmTag: Farm
+  slotTag: Slot
   itemList: {fileID: 11400000, guid: bd3b93f6936874e449030d6c3429a49c, type: 2}
   playerStackData:
     maxItemCount: 0
@@ -280,6 +281,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walk: {fileID: 8318357723534321095}
   movementController: {fileID: 171249232236716667}
+--- !u!114 &3364432784878086204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171249232236716548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2706dba44b57bb94da7a82df694e2355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &481391383072871613
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,7 +1047,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 1
   y: 1
-  h: 12
+  h: 3
   widthSize: 0
   lengthSize: 0
   heightSize: 0.4999999

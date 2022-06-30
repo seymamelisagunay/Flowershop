@@ -27,7 +27,7 @@ public class SlotManager : MonoBehaviour
         currentOrderCount.Value++;
     }
     public void SlotOpen()
-    {
+    {       
         var nextSlot = slotStates.FindAll(x => x.orderCount == currentOrderCount.Value);
 
         if (nextSlot.Count > 0)

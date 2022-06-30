@@ -15,12 +15,22 @@ public class Item : MonoBehaviour
 
     public Item Play(Vector3 endPoint, bool isDelete = false)
     {
-        transform.DOMove(endPoint,moveDuration.Value).SetEase(Ease.Linear).SetLink(gameObject).OnComplete(() =>
+        DOVirtual.Float(0, 1, moveDuration.Value, (value) =>
+        {
+            transform.localPosition = Vector3.Lerp(transform.localPosition,
+                endPoint + (Vector3.up * curve.Evaluate(value)), value);
+        }).SetEase(Ease.Linear).SetLink(gameObject).OnComplete(() =>
         {
             onComplete?.Invoke();
             if (isDelete)
                 Destroy(gameObject);
         });
+        // transform.DOLocalMove(endPoint,moveDuration.Value).SetEase(Ease.Linear).SetLink(gameObject).OnComplete(() =>
+        // {
+        //     onComplete?.Invoke();
+        //     if (isDelete)
+        //         Destroy(gameObject);
+        // });
         return this;
     }
 
@@ -28,10 +38,8 @@ public class Item : MonoBehaviour
     {
         DOVirtual.Float(0, 1, moveDuration.Value, (value) =>
         {
-            transform.position = Vector3.Lerp(transform.position,
-                endPoint.position + (Vector3.up * curve.Evaluate(value)), value);
-            // var currentPos = Vector3.Lerp(transform.position, endPoint.position, value);
-            // transform.position = currentPos;
+            transform.localPosition = Vector3.Lerp(transform.localPosition,
+                endPoint.localPosition + (Vector3.up * curve.Evaluate(value)), value);
         }).SetEase(Ease.Linear).SetLink(gameObject).OnComplete(() =>
         {
             onComplete?.Invoke();
@@ -40,7 +48,6 @@ public class Item : MonoBehaviour
         });
 
         return this;
-        // StartCoroutine(LerpToPosition(finishPoint, curved));
     }
 
     public void AddOnComplete(Action callback)
