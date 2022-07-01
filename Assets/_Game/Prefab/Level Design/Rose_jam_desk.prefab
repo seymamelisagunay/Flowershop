@@ -45,7 +45,6 @@ GameObject:
   - component: {fileID: 1041648517541187356}
   - component: {fileID: 596404314403205178}
   - component: {fileID: 8623936338228557484}
-  - component: {fileID: 8925824212235369056}
   - component: {fileID: 387742832}
   m_Layer: 0
   m_Name: jam_machine
@@ -119,20 +118,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8925824212235369056
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1565517015197133272}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5453368615393121512, guid: a62186c08f4b9774e8cd725842512199, type: 3}
 --- !u!114 &387742832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,7 +242,6 @@ GameObject:
   - component: {fileID: 8101631819478961151}
   - component: {fileID: 8149863540084419229}
   - component: {fileID: 3199789150583177625}
-  - component: {fileID: 1695749398396807616}
   m_Layer: 0
   m_Name: tray
   m_TagString: Untagged
@@ -330,17 +314,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1695749398396807616
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8893982566198186401}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5266563423701852545, guid: a62186c08f4b9774e8cd725842512199, type: 3}

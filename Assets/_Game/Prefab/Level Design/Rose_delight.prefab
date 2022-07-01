@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 1803482869999065711}
   - component: {fileID: 8595077241555814342}
   - component: {fileID: 7145668042062745242}
-  - component: {fileID: 5841667872296740506}
   m_Layer: 0
   m_Name: rose_delight
   m_TagString: Untagged
@@ -118,17 +117,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5841667872296740506
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8568707257004295589}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2670583706153098753, guid: a62186c08f4b9774e8cd725842512199, type: 3}

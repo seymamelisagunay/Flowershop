@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 3203587481273086939}
   - component: {fileID: 5002781261745924472}
   - component: {fileID: 8723158773326034998}
-  - component: {fileID: 307749749317978750}
   m_Layer: 0
   m_Name: rose_bunch
   m_TagString: Untagged
@@ -117,17 +116,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &307749749317978750
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7843282451525437380}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -6857689473578963052, guid: a62186c08f4b9774e8cd725842512199, type: 3}
