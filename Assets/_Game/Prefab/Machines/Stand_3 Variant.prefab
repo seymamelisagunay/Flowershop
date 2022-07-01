@@ -201,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2881557974088138828}
   m_LocalRotation: {x: -0, y: -0, z: -0.0805518, w: 0.9967505}
-  m_LocalPosition: {x: -0.369, y: -0.428, z: -0.72}
+  m_LocalPosition: {x: -0.369, y: -0.428, z: -0.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -312,13 +312,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   x: 1
-  y: 3
+  y: 4
   h: 3
-  widthSize: 0.7
+  widthSize: 0.5
   lengthSize: 0.3
   heightSize: 0.86
   prefab: {fileID: 5727884131382816522, guid: 89b1f86aeee5f0342aa792b76a18d97c, type: 3}
-  slotList: []
+  slotList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   currentIndex: 0
   parent: {fileID: 816501333958900220}
   sampleObject: {fileID: 4365423710062093608, guid: e26aed5e0bbee9748b73c434729fcc27,
