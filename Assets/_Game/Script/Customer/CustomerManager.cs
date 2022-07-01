@@ -20,8 +20,6 @@ public class CustomerManager : MonoBehaviour
 
     private void Start()
     {
-        cashTradeController = FindObjectOfType<CashTradeController>();
-
         StartCoroutine(BotCreator());
     }
 
@@ -32,7 +30,8 @@ public class CustomerManager : MonoBehaviour
             // Burada Game manager içerisinde Üretilmiş bir tane stand var mı diye bakacağız ve ona göre Client Üretim arasına gireceğiz
             yield return new WaitUntil(() => isClientCreate.Value);
             yield return new WaitUntil(() => clientList.Count < settings.maxClientCount.Value);
-            yield return new WaitForSeconds(0.5f);
+            var randomDuration = Random.Range(settings.botCreateDuration / 2, settings.botCreateDuration);
+            yield return new WaitForSeconds(settings.botCreateDuration);
             // Bot Oluşturulacak 
             CreateClient();
         }
@@ -48,10 +47,12 @@ public class CustomerManager : MonoBehaviour
             //Burada Random Verilecek aktif olan Ürünlere göre ;
             shoppingCard.ProductTypes.Add(ItemType.Rose);
         }
+
         var selectCustomerPrefab = settings.customersPrefab.RandomSelectObject();
-        var cloneClient = Instantiate(selectCustomerPrefab);
-        cloneClient.Init(this, settings.clientMaxTradeCount, shoppingCard);
-        cloneClient.transform.position = spawnPoint.RandomSelectObject().GetPosition();
-        clientList.Add(cloneClient);
+        var cloneCustomer = Instantiate(selectCustomerPrefab);
+        var customerFirstPosition = spawnPoint.RandomSelectObject().GetPosition();
+        cloneCustomer.Init(this, settings.clientMaxTradeCount, shoppingCard, customerFirstPosition);
+
+        clientList.Add(cloneCustomer);
     }
 }

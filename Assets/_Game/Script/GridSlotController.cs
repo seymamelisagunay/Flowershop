@@ -96,6 +96,15 @@ public class GridSlotController : MonoBehaviour, IItemPlaceController
         currentIndex = 0;
         slotList.Clear();
     }
+    public void ClearAll()
+    {
+        foreach (var grid in slotList)
+        {
+            DestroyImmediate(grid.gameObject);
+        }
+        currentIndex = 0;
+        slotList.Clear();
+    }
 
     /// <summary>
     /// 

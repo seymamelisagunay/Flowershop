@@ -46,13 +46,24 @@ public class Item : MonoBehaviour
             if (isDelete)
                 Destroy(gameObject);
         });
-
         return this;
     }
 
     public void AddOnComplete(Action callback)
     {
         onComplete = callback;
+    }
+
+    public void PlayScaleEffect(float duration, bool isDelete = false)
+    {
+        var originScale = transform.localScale;
+        transform.localScale = Vector3.zero;
+        transform.DOScale(originScale, duration).OnComplete(() =>
+        {
+            onComplete?.Invoke();
+            if (isDelete)
+                Destroy(gameObject);
+        });
     }
 
     public IEnumerator LerpToPosition(Vector3 pos, bool curved = false)

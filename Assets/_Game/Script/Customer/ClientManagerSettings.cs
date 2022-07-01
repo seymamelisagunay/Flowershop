@@ -10,5 +10,6 @@ public class ClientManagerSettings : ScriptableObject
     public IntVariable maxClientCount;
     public List<CustomerController> customersPrefab;
     public int clientMaxTradeCount;
+    public float botCreateDuration;
 
 }

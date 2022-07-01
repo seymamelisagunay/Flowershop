@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Collections;
+using _Game.Script.Character;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -10,28 +12,35 @@ public class CashTradeController : MonoBehaviour
 {
     public string playerPrefsKey = "CashTradeDesk";
     [Tag] public string playerTag;
-    public List<CustomerController> customerQueue = new List<CustomerController>();
+    [ReadOnly] public List<CustomerController> customerQueue = new List<CustomerController>();
     public List<TradeWaitingPoint> customerQueueTargetPoints = new List<TradeWaitingPoint>();
-    [HideInInspector]
-    public GridSlotController gridSlotController;
+    [HideInInspector] public GridSlotController gridSlotController;
+
     public bool isInPlayer;
+
     // Para kazanma
-    public IntVariable moneyCount;
+    public IntVariable tradeMoneyCount;
+
     private void Start()
     {
         gridSlotController = GetComponentInChildren<GridSlotController>();
         gridSlotController.ReSize();
-        moneyCount.Value = PlayerPrefs.GetInt(playerPrefsKey, 0);
-        moneyCount.OnChangeVariable.AddListener(ChangeMoneyValue);
+        tradeMoneyCount.Value = PlayerPrefs.GetInt(playerPrefsKey, 0);
+        tradeMoneyCount.OnChangeVariable.AddListener(ChangeMoneyValue);
+        var customerManager = FindObjectOfType<CustomerManager>();
+        customerManager.cashTradeController = this;
+        LoadMoney();
     }
 
     private void LoadMoney()
     {
-        for (int i = 0; i < moneyCount.Value; i++)
+        var loadMoneyCount = tradeMoneyCount.Value / 10;
+        for (int i = 0; i < loadMoneyCount; i++)
         {
             gridSlotController.CreateObject();
         }
     }
+
     /// <summary>
     /// Clientlar buraya kendilerini sıraya sokmak için istekte bulunacaklar
     /// Burada Sıraya girmek isteyen clienta Girmesi gerekn sıra yeri verilecek.
@@ -46,6 +55,7 @@ public class CashTradeController : MonoBehaviour
             break;
         }
     }
+
     /// <summary>
     /// 
     /// </summary>
@@ -53,9 +63,8 @@ public class CashTradeController : MonoBehaviour
     {
         if (customerQueue.Count <= 0) return;
         if (!isInPlayer) return;
-
         var currentClient = customerQueue[0];
-        moneyCount.Value += currentClient.SellingProducts(NextClientCallback);
+        tradeMoneyCount.Value += currentClient.SellingProducts(NextClientCallback);
     }
 
     private void NextClientCallback()
@@ -69,21 +78,28 @@ public class CashTradeController : MonoBehaviour
     {
         customerQueueTargetPoints.ForEach((point) => { point.isFull = false; });
         for (var i = 0; i < customerQueue.Count; i++)
-        {
             customerQueue[i].SetTradePoint(customerQueueTargetPoints[i]);
-        }
         NextCustomerSell();
     }
+
     private void ChangeMoneyValue()
     {
-        PlayerPrefs.SetInt(playerPrefsKey, moneyCount.Value);
+        PlayerPrefs.SetInt(playerPrefsKey, tradeMoneyCount.Value);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(playerTag))
+        if (!other.CompareTag(playerTag)) return;
+        var player = other.GetComponent<PlayerController>();
+        isInPlayer = true;
+        StartCoroutine(StartCustomerSell(player.playerSettings.firstTriggerCooldown));
+    }
+
+    private IEnumerator StartCustomerSell(float firstTriggerDuration)
+    {
+        yield return new WaitForSeconds(firstTriggerDuration);
+        if (isInPlayer)
         {
-            isInPlayer = true;
             NextCustomerSell();
         }
     }

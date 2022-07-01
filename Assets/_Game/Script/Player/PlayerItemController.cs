@@ -42,6 +42,8 @@ public class PlayerItemController : MonoBehaviour, IItemController
 
     public void SetValue(ItemType itemType)
     {
-        stackData.AddProduct(itemType);
+        if(stackData.CheckMaxCount())
+            stackData.AddProduct(itemType);
+
     }
 }

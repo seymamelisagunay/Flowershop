@@ -20,6 +20,7 @@ public class CustomerController : MonoBehaviour
     /// 
     /// </summary>
     public StackData customerTradeData;
+
     /// <summary>
     /// Satın Alınacaklar
     /// </summary>
@@ -33,8 +34,10 @@ public class CustomerController : MonoBehaviour
     private CustomerItemController _customerItemController;
     private NavMeshPath _path;
     private int _pathIndex;
-
-
+    private StandController _activeStandController;
+    public Item shoppingBox;
+    public GameObject shoppingCar;
+    private Vector3 _firstPosition;
 
     /// <summary>
     /// 
@@ -42,30 +45,38 @@ public class CustomerController : MonoBehaviour
     /// <param name="customerManager"></param>
     /// <param name="maxTradeCount"></param>
     /// <param name="shoppingCard"></param>
-    public void Init(CustomerManager customerManager, int maxTradeCount, StackData shoppingData)
+    public void Init(CustomerManager customerManager, int maxTradeCount, StackData shoppingData, Vector3 firstPosition)
     {
+        _firstPosition = firstPosition;
+        transform.position = _firstPosition;
         _customerManager = customerManager;
         this.shoppingData = shoppingData;
         customerTradeData.MaxItemCount = maxTradeCount;
         _customerPickerController = GetComponent<CustomerPickerController>();
         _customerItemController = GetComponent<CustomerItemController>();
         _customerPickerController.Init(customerTradeData, this.shoppingData, customerSettings);
+        _customerItemController.Init(customerTradeData);
+        _customerItemController.shoppingData = this.shoppingData;
         _input = GetComponent<IInput>();
         _input.StartListen();
-        StartCoroutine(CustomerStateProgress());
+        StartCoroutine(CustomerShoppingProgress());
     }
 
     /// <summary>
-    /// 
+    /// Burada Bütün satın almalarımız bitti ve bekliyoruz oluyor 
     /// </summary>
     /// <param name="point"></param>
     public void SetTradePoint(TradeWaitingPoint point)
     {
         point.isFull = true;
-        var direction = transform.position - point.transform.position;
-        _input.SetDirection(direction.normalized);
+        _path = new NavMeshPath();
+        _pathIndex = 1;
+        GameManager.instance.navMesh.CalculatePath(transform.position, point.transform.position, _path);
+        StartCoroutine(MoveToPoint(_path));
+
         waitingPoint = point;
     }
+
     /// <summary>
     /// 
     /// </summary>
@@ -78,6 +89,7 @@ public class CustomerController : MonoBehaviour
         StartCoroutine(SellEffect(callback));
         return priceCount;
     }
+
     /// <summary>
     /// 
     /// </summary>
@@ -86,8 +98,18 @@ public class CustomerController : MonoBehaviour
     private IEnumerator SellEffect(Action callback)
     {
         yield return new WaitForSeconds(3f);
+        Debug.Log("Alışveriş Arabasını yok et !");
+        shoppingCar.SetActive(false);
+        shoppingBox.gameObject.SetActive(true);
+        shoppingBox.PlayScaleEffect(0.5f);
+        // Client Çıktığı noktaya doğru gidiyor 
+        _path = new NavMeshPath();
+        _pathIndex = 1;
+        GameManager.instance.navMesh.CalculatePath(transform.position, _firstPosition, _path);
+        StartCoroutine(MoveToPoint(_path));
         callback.Invoke();
     }
+
     /// <summary>
     /// 
     /// </summary>
@@ -95,7 +117,7 @@ public class CustomerController : MonoBehaviour
     private int MoneyCalculator()
     {
         var money = 0;
-        foreach (var productType in shoppingData.ProductTypes)
+        foreach (var productType in customerTradeData.ProductTypes)
         {
             var type = itemList.GetItemPrefab(productType);
             money += type.price;
@@ -103,46 +125,56 @@ public class CustomerController : MonoBehaviour
 
         return money;
     }
+
     [Button]
     public void SetCheck()
     {
         _customerManager.cashTradeController.SetCustomerQueue(this);
     }
 
-    private IEnumerator CustomerStateProgress()
+    private IEnumerator CustomerShoppingProgress()
     {
-        while (true)
+        while (shoppingData.ProductTypes.Count > 0)
         {
             yield return new WaitForSeconds(0.5f);
             // Gidilecek olan stand Bulunacak Sıradaki Ürüne
             if (shoppingData.ProductTypes.Count <= 0) continue;
             var queuenItemType = shoppingData.ProductTypes[0];
-            //Sırada Gidilecek olan Standı bulmajk var
+            //Sırada Gidilecek olan Standı bulmak var
             var activeSlot = SlotManager.instance.GetActiveStand(queuenItemType);
             if (activeSlot.slot.slotType != SlotType.Stand) continue;
-            var standController = activeSlot.GetComponentInChildren<StandController>();
-            var grid = standController.GetCustomerSlot();
+            _activeStandController = activeSlot.GetComponentInChildren<StandController>();
+            var grid = _activeStandController.GetCustomerSlot();
             grid.isFull = true;
             _path = new NavMeshPath();
             _pathIndex = 1;
             GameManager.instance.navMesh.CalculatePath(transform.position, grid.transform.position, _path);
-            yield return MoveToPoint(_path);
-            //Toplama Yapılıyor onu çekliyoruz
-            //yield return new WaitUntil
-            //yield break;
+            yield return MoveToPoint(_path); //Toplama yerine vardık 
+            yield return new WaitForSeconds(1);
+            yield return PickItem();
         }
 
+        // Burada Döngü bitiyor ve next step olan Kasaya gitmeye başlıyoruz
+        _customerManager.cashTradeController.SetCustomerQueue(this);
+    }
+
+    private IEnumerator PickItem()
+    {
+        var standItemController = _activeStandController.GetComponent<IItemController>();
+        yield return _customerPickerController.GetItem(standItemController);
     }
 
     private IEnumerator MoveToPoint(NavMeshPath path)
     {
-        Debug.Log("path : "+ path.corners.Length);
-        while (_path.corners.Length != _pathIndex)
+        Debug.Log("path : " + path.corners.Length);
+        Debug.Log("path : " + _pathIndex);
+
+        while (path.corners.Length != _pathIndex)
         {
             yield return new WaitForSeconds(0.1f);
-            if (_path.corners.Length == 0) break;
+            if (path.corners.Length == 0) break;
             Debug.Log("Gidiyoruz Evet !");
-            var direction = _path.corners[_pathIndex] - transform.position;
+            var direction = path.corners[_pathIndex] - transform.position;
             _input.SetDirection(direction.normalized);
             if (direction.magnitude < 0.5f)
             {
@@ -150,6 +182,7 @@ public class CustomerController : MonoBehaviour
                 Debug.Log("next Point !!!");
             }
         }
+
         Debug.Log("Vardık be Sonunda !");
         _input.ClearDirection();
     }

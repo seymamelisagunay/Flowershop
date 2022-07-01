@@ -33,7 +33,6 @@ public class SlotManager : MonoBehaviour
     public void SlotOpen()
     {       
         var nextSlot = slotStates.FindAll(x => x.orderCount == currentOrderCount.Value);
-
         if (nextSlot.Count > 0)
             nextSlot.ForEach(x =>
             {

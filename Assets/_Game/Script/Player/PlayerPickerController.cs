@@ -95,9 +95,18 @@ public class PlayerPickerController : MonoBehaviour, IPickerController
                 //Toplama yapılacak 
                 var (productType, item, isItemFinish) = slotItemController.GetValue();
                 if (!isItemFinish) continue;
-                
+                Debug.Log("Product Count : "+_playerItemController.stackData.ProductTypes.Count);
                 _playerItemController.SetValue(productType);
                 var gridSlot = _gridSlotController.GetPosition();
+                if(gridSlot == null)
+                {
+                    Debug.Log("null");
+                }
+
+                if(item == null)
+                {
+                    Debug.Log("null");
+                }
                 item.transform.parent = gridSlot.transform;
                 gridSlot.isFull = true;
                 gridSlot.slotInObject = item;

@@ -13,6 +13,7 @@ public class StandItemController : MonoBehaviour, IItemController
     public void Init(StackData stackData)
     {
         this.stackData = stackData;
+        _standPlaceController = GetComponent<IItemPlaceController>();
     }
 
     public ItemType GetItemType()
