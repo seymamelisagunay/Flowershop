@@ -26,7 +26,6 @@ public class UpgradeSystem : MonoBehaviour
     
     public void PlayerUpgrade()
     {
-        
         UserManager.Instance.DecreasingMoney(20);
         playerUpgrade.text = _upgradeLevelName ;
     }
