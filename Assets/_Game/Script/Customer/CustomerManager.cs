@@ -31,8 +31,7 @@ public class CustomerManager : MonoBehaviour
             yield return new WaitUntil(() => isClientCreate.Value);
             yield return new WaitUntil(() => clientList.Count < settings.maxClientCount.Value);
             var randomDuration = Random.Range(settings.botCreateDuration / 2, settings.botCreateDuration);
-            yield return new WaitForSeconds(settings.botCreateDuration);
-            // Bot Oluşturulacak 
+            yield return new WaitForSeconds(randomDuration);
             CreateClient();
         }
     }
@@ -47,12 +46,15 @@ public class CustomerManager : MonoBehaviour
             //Burada Random Verilecek aktif olan Ürünlere göre ;
             shoppingCard.ProductTypes.Add(ItemType.Rose);
         }
-
         var selectCustomerPrefab = settings.customersPrefab.RandomSelectObject();
         var cloneCustomer = Instantiate(selectCustomerPrefab);
         var customerFirstPosition = spawnPoint.RandomSelectObject().GetPosition();
         cloneCustomer.Init(this, settings.clientMaxTradeCount, shoppingCard, customerFirstPosition);
 
         clientList.Add(cloneCustomer);
+    }
+    public void RemoveCustomer(CustomerController customer)
+    {
+        clientList.Remove(customer);
     }
 }

@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using _Game.Script.Bot;
 using _Game.Script.Controllers;
 using _Game.Script.Core.Character;
@@ -15,12 +14,10 @@ public class CustomerController : MonoBehaviour
     /// 
     /// </summary>
     public ItemList itemList;
-
     /// <summary>
     /// 
     /// </summary>
     public StackData customerTradeData;
-
     /// <summary>
     /// Satın Alınacaklar
     /// </summary>
@@ -35,6 +32,7 @@ public class CustomerController : MonoBehaviour
     private NavMeshPath _path;
     private int _pathIndex;
     private StandController _activeStandController;
+    private GridSlot _activeGrid;
     public Item shoppingBox;
     public GameObject shoppingCar;
     private Vector3 _firstPosition;
@@ -71,9 +69,9 @@ public class CustomerController : MonoBehaviour
         point.isFull = true;
         _path = new NavMeshPath();
         _pathIndex = 1;
+        _activeGrid.isFull = false;
         GameManager.instance.navMesh.CalculatePath(transform.position, point.transform.position, _path);
         StartCoroutine(MoveToPoint(_path));
-
         waitingPoint = point;
     }
 
@@ -106,8 +104,12 @@ public class CustomerController : MonoBehaviour
         _path = new NavMeshPath();
         _pathIndex = 1;
         GameManager.instance.navMesh.CalculatePath(transform.position, _firstPosition, _path);
-        StartCoroutine(MoveToPoint(_path));
         callback.Invoke();
+        yield return MoveToPoint(_path);
+        _customerManager.RemoveCustomer(this);
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
+        Debug.Log("Customer Puf !");
     }
 
     /// <summary>
@@ -144,11 +146,11 @@ public class CustomerController : MonoBehaviour
             var activeSlot = SlotManager.instance.GetActiveStand(queuenItemType);
             if (activeSlot.slot.slotType != SlotType.Stand) continue;
             _activeStandController = activeSlot.GetComponentInChildren<StandController>();
-            var grid = _activeStandController.GetCustomerSlot();
-            grid.isFull = true;
+            _activeGrid = _activeStandController.GetCustomerSlot();
+            _activeGrid.isFull = true;
             _path = new NavMeshPath();
             _pathIndex = 1;
-            GameManager.instance.navMesh.CalculatePath(transform.position, grid.transform.position, _path);
+            GameManager.instance.navMesh.CalculatePath(transform.position, _activeGrid.transform.position, _path);
             yield return MoveToPoint(_path); //Toplama yerine vardık 
             yield return new WaitForSeconds(1);
             yield return PickItem();
@@ -166,24 +168,18 @@ public class CustomerController : MonoBehaviour
 
     private IEnumerator MoveToPoint(NavMeshPath path)
     {
-        Debug.Log("path : " + path.corners.Length);
-        Debug.Log("path : " + _pathIndex);
-
         while (path.corners.Length != _pathIndex)
         {
             yield return new WaitForSeconds(0.1f);
-            if (path.corners.Length == 0) break;
-            Debug.Log("Gidiyoruz Evet !");
-            var direction = path.corners[_pathIndex] - transform.position;
-            _input.SetDirection(direction.normalized);
-            if (direction.magnitude < 0.5f)
+            if (path.corners.Length > 0)
             {
-                _pathIndex++;
-                Debug.Log("next Point !!!");
+                var direction = path.corners[_pathIndex] - transform.position;
+                _input.SetDirection(direction.normalized);
+                if (direction.magnitude < 0.5f)
+                    _pathIndex++;
             }
         }
 
-        Debug.Log("Vardık be Sonunda !");
         _input.ClearDirection();
     }
 }

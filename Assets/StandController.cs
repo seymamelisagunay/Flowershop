@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// StandController Görevi Müþteriye ve Gelen Bot çalýþana etrafýndan bir yer vermek 
+/// StandController GÃ¶revi MÃ¼ÅŸteriye ve Gelen Bot Ã§alÄ±ÅŸana etrafÄ±ndan bir yer vermek 
 /// </summary>
 public class StandController : MonoBehaviour
 {

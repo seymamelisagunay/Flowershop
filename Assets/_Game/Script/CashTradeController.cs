@@ -15,7 +15,6 @@ public class CashTradeController : MonoBehaviour
     [ReadOnly] public List<CustomerController> customerQueue = new List<CustomerController>();
     public List<TradeWaitingPoint> customerQueueTargetPoints = new List<TradeWaitingPoint>();
     [HideInInspector] public GridSlotController gridSlotController;
-
     public bool isInPlayer;
 
     // Para kazanma
@@ -31,14 +30,30 @@ public class CashTradeController : MonoBehaviour
         customerManager.cashTradeController = this;
         LoadMoney();
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void LoadMoney()
     {
         var loadMoneyCount = tradeMoneyCount.Value / 10;
         for (int i = 0; i < loadMoneyCount; i++)
         {
-            gridSlotController.CreateObject();
+            CreateMoney();
         }
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    private void CreateMoney()
+    {
+        var grid = gridSlotController.GetPosition();
+        if (grid == null) return;
+        var clone = Instantiate(gridSlotController.sampleObject, gridSlotController.parent);
+        clone.transform.localPosition = grid.slotPosition;
+        grid.isFull = true;
+        grid.slotInObject = clone;
+        clone.gameObject.SetActive(true);
+        clone.PlayScaleEffect(0.5f);
     }
 
     /// <summary>
@@ -64,16 +79,27 @@ public class CashTradeController : MonoBehaviour
         if (customerQueue.Count <= 0) return;
         if (!isInPlayer) return;
         var currentClient = customerQueue[0];
-        tradeMoneyCount.Value += currentClient.SellingProducts(NextClientCallback);
-    }
+        var currency = currentClient.SellingProducts(NextClientCallback);
+        var moneyObjectCount = currency / 10;
+        tradeMoneyCount.Value += currency;
 
+        for (int i = 0; i < moneyObjectCount; i++)
+        {
+            CreateMoney();
+        }
+    }
+    /// <summary>
+    /// 
+    /// </summary>
     private void NextClientCallback()
     {
         customerQueue.RemoveAt(0);
         // Burda Bekleyen Müşteriler Tekrar Yerleştirilmeli 
         ReSize();
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void ReSize()
     {
         customerQueueTargetPoints.ForEach((point) => { point.isFull = false; });
@@ -81,12 +107,17 @@ public class CashTradeController : MonoBehaviour
             customerQueue[i].SetTradePoint(customerQueueTargetPoints[i]);
         NextCustomerSell();
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     private void ChangeMoneyValue()
     {
         PlayerPrefs.SetInt(playerPrefsKey, tradeMoneyCount.Value);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag(playerTag)) return;
@@ -94,7 +125,11 @@ public class CashTradeController : MonoBehaviour
         isInPlayer = true;
         StartCoroutine(StartCustomerSell(player.playerSettings.firstTriggerCooldown));
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="firstTriggerDuration"></param>
+    /// <returns></returns>
     private IEnumerator StartCustomerSell(float firstTriggerDuration)
     {
         yield return new WaitForSeconds(firstTriggerDuration);
