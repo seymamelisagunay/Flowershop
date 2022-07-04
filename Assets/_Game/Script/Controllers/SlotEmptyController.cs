@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using _Game.Script.Character;
 using DG.Tweening;
 using NaughtyAttributes;
 using UnityEngine;
@@ -37,7 +38,8 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
         if (other.CompareTag("Player") && !_slotController.slot.emptyData.IsOpen)
         {
             _isInsidePlayer = true;
-            StartCoroutine(StayInPlayer());
+            var player = other.GetComponent<PlayerController>();
+            StartCoroutine(StayInPlayer(player));
         }
     }
 
@@ -46,15 +48,19 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
         if (other.CompareTag("Player"))
         {
             _isInsidePlayer = false;
-            StopCoroutine(StayInPlayer());
+            var player = other.GetComponent<PlayerController>();
+            StopCoroutine(StayInPlayer(player));
         }
     }
 
-    private IEnumerator StayInPlayer()
+    private IEnumerator StayInPlayer(PlayerController player)
     {
+        yield return new WaitUntil(() => !player.characterController.inMotion && _isInsidePlayer);
+        Debug.Log("Test Geçtik !");
         yield return new WaitForSeconds(_slotController.slot.firstTriggerCooldown);
         while (_isInsidePlayer)
         {
+            yield return new WaitForSeconds(_slotController.slot.triggerCooldown);
             var result = UserManager.Instance.DecreasingMoney(1);
             if (!result)
             {
@@ -76,7 +82,7 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
                 }
             }
 
-            yield return new WaitForSeconds(0.05f);
+            
         }
     }
 

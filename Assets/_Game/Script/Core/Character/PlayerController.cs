@@ -15,11 +15,11 @@ namespace _Game.Script.Character
         public IInput Input { get; private set; }
         public Action OnSpawn { get; set; }
         private Transform _spawnPoint;
-        public MovementController CharacterController { get; private set; }
+        public MovementController characterController { get; private set; }
 
         private void Awake()
         {
-            CharacterController = GetComponent<MovementController>();
+            characterController = GetComponent<MovementController>();
         }
         public void Init(Transform spawnPoint)
         {
@@ -58,7 +58,7 @@ namespace _Game.Script.Character
             var position = spawnPoint + (Vector3.up * 5f);
             transform.position = position;
             transform.rotation = spawnRotation;
-            CharacterController.pause = false;
+            characterController.pause = false;
             OnSpawn?.Invoke();
         }
     }

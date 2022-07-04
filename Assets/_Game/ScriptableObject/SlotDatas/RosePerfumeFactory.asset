@@ -22,8 +22,8 @@ MonoBehaviour:
   itemControllerPrefab: {fileID: 0}
   slotHudPrefab: {fileID: 4402175197117052178, guid: ac4158c95d37b404cb017104ebde6e42,
     type: 3}
-  firstTriggerCooldown: 0.5
-  triggerCooldown: 0.05
+  firstTriggerCooldown: 1.2
+  triggerCooldown: 0.1
   emptyData:
     _isOpen: 0
     _price: 200

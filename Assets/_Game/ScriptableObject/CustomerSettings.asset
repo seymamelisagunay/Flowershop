@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBot: 1
   playerSpeed: 5
-  botSpeed: 3.5
+  botSpeed: 2.5
   rotateLerpFactor: 10
-  pickingSpeed: 0.5
+  pickingSpeed: 0.7
   firstTriggerCooldown: 1
   maxPickerCount: 3
