@@ -26,9 +26,9 @@ MonoBehaviour:
   firstTriggerCooldown: 1.2
   triggerCooldown: 0.1
   emptyData:
-    _isOpen: 1
+    _isOpen: 0
     _price: 30
-    _currenctPrice: 30
+    _currenctPrice: 0
     OnChangeVariable:
       m_PersistentCalls:
         m_Calls: []
