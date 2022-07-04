@@ -173,6 +173,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rose_jam_bottle
       objectReference: {fileID: 0}
+    - target: {fileID: 6377325995118116635, guid: 0170927d8e7f37e47b9e8bafb27f10cc,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0170927d8e7f37e47b9e8bafb27f10cc, type: 3}
 --- !u!4 &8236246977883720471 stripped

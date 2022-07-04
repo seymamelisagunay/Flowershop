@@ -4460,7 +4460,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &175448467
 PrefabInstance:
@@ -5426,7 +5426,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &235580657
 PrefabInstance:
@@ -5878,7 +5878,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &277237786
 PrefabInstance:
@@ -9791,7 +9791,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 55, y: -27, z: 0}
 --- !u!114 &426928133
 MonoBehaviour:
@@ -10476,7 +10476,7 @@ Transform:
   m_Children:
   - {fileID: 363311130}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &460158437
 PrefabInstance:
@@ -12766,7 +12766,7 @@ RectTransform:
   m_Children:
   - {fileID: 69667481}
   m_Father: {fileID: 7998799572618388131}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -12955,7 +12955,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &558266997
 PrefabInstance:
@@ -13721,7 +13721,7 @@ Transform:
   m_Children:
   - {fileID: 1327054785}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &578843630
 PrefabInstance:
@@ -17538,7 +17538,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 40, y: 240, z: 0}
 --- !u!4 &738741636 stripped
 Transform:
@@ -19797,7 +19797,7 @@ Transform:
   m_Children:
   - {fileID: 572823941}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &836148729
 PrefabInstance:
@@ -20303,7 +20303,7 @@ Transform:
   - {fileID: 1128450449}
   - {fileID: 223530850}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &874237702
 PrefabInstance:
@@ -21232,7 +21232,7 @@ Transform:
   m_Children:
   - {fileID: 1173502836}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &922374148
 PrefabInstance:
@@ -21521,7 +21521,7 @@ Transform:
   m_Children:
   - {fileID: 633227596}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &944798684
 PrefabInstance:
@@ -21786,7 +21786,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &956518911 stripped
 Transform:
@@ -22636,7 +22636,7 @@ RectTransform:
   m_Children:
   - {fileID: 2062345912}
   m_Father: {fileID: 7998799572618388131}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -23576,7 +23576,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1030793651
 PrefabInstance:
@@ -27735,7 +27735,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 60, y: 30, z: 0}
 --- !u!1001 &1224144189
 PrefabInstance:
@@ -27955,7 +27955,7 @@ Transform:
   - {fileID: 1653880118}
   - {fileID: 1676352080}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1229796599
 MonoBehaviour:
@@ -29501,7 +29501,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1324671657
 PrefabInstance:
@@ -30598,7 +30598,7 @@ Transform:
   - {fileID: 1272742897}
   - {fileID: 738741636}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1376810491
 PrefabInstance:
@@ -31456,7 +31456,7 @@ Transform:
   m_Children:
   - {fileID: 1612868392}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1424125684
 MonoBehaviour:
@@ -31725,7 +31725,7 @@ Transform:
   m_Children:
   - {fileID: 1177923192}
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1431107582
 PrefabInstance:
@@ -32224,7 +32224,7 @@ RectTransform:
   m_Children:
   - {fileID: 452698510}
   m_Father: {fileID: 7998799572618388131}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -33588,7 +33588,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1526280450
 PrefabInstance:
@@ -35330,6 +35330,75 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1583702654}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1593862701
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5424444826799156617, guid: 0862944f53649bf42982ede265af41ef,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424444826799156617, guid: 0862944f53649bf42982ede265af41ef,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424444826799156617, guid: 0862944f53649bf42982ede265af41ef,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424444826799156617, guid: 0862944f53649bf42982ede265af41ef,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 16.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424444826799156617, guid: 0862944f53649bf42982ede265af41ef,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424444826799156617, guid: 0862944f53649bf42982ede265af41ef,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424444826799156617, guid: 0862944f53649bf42982ede265af41ef,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424444826799156617, guid: 0862944f53649bf42982ede265af41ef,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424444826799156617, guid: 0862944f53649bf42982ede265af41ef,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424444826799156617, guid: 0862944f53649bf42982ede265af41ef,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424444826799156617, guid: 0862944f53649bf42982ede265af41ef,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424444826799156619, guid: 0862944f53649bf42982ede265af41ef,
+        type: 3}
+      propertyPath: m_Name
+      value: AutomaticDoor
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0862944f53649bf42982ede265af41ef, type: 3}
 --- !u!1001 &1594359295
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36112,7 +36181,7 @@ Transform:
   m_Children:
   - {fileID: 1855310124}
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1638612322
 PrefabInstance:
@@ -39072,7 +39141,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1769759985
 PrefabInstance:
@@ -39777,6 +39846,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6242444146891410453, guid: 4a35d24c58b73e145affc31c75706534,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.463504
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242444146891410453, guid: 4a35d24c58b73e145affc31c75706534,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.3793
+      objectReference: {fileID: 0}
     - target: {fileID: 8135813355815466517, guid: 4a35d24c58b73e145affc31c75706534,
         type: 3}
       propertyPath: m_Name
@@ -40264,7 +40343,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1824009010
 PrefabInstance:
@@ -42288,7 +42367,7 @@ PrefabInstance:
     - target: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18,
         type: 3}
@@ -45513,7 +45592,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2067155716
 PrefabInstance:
@@ -46741,7 +46820,7 @@ RectTransform:
   - {fileID: 6959500224651587457}
   - {fileID: 6959500223539343124}
   m_Father: {fileID: 7998799572618388131}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -63669,7 +63748,7 @@ Transform:
   - {fileID: 5124418506947027480}
   - {fileID: 8616562852588449805}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &547282166431923700
 MeshFilter:
@@ -66627,17 +66706,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38055a5a6c12bd242a03588e52afd909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyBox: {fileID: 0}
-  playerUpgradeLevelName: {fileID: 0}
-  playerUpgradeMoney: {fileID: 0}
-  shelverUpgradeLevelName: {fileID: 0}
-  shelverUpgradeMoney: {fileID: 0}
-  carryUpgradeLevelName: {fileID: 0}
-  carryUpgradeMoney: {fileID: 0}
-  perfumeUpgradeLevelName: {fileID: 0}
-  perfumeUpgradeMoney: {fileID: 0}
-  delightUpgradeLevelName: {fileID: 0}
-  delightUpgradeMoney: {fileID: 0}
+  moneyBox: {fileID: 5734213909893173569}
+  playerUpgradeLevelName: {fileID: 5541929703946874939}
+  playerUpgradeMoney: {fileID: 5541929704483221056}
+  shelverUpgradeLevelName: {fileID: 5541929703824179364}
+  shelverUpgradeMoney: {fileID: 5541929704854723018}
+  carryUpgradeLevelName: {fileID: 5541929704758602661}
+  carryUpgradeMoney: {fileID: 5541929705266707960}
+  perfumeUpgradeLevelName: {fileID: 5541929705463493656}
+  perfumeUpgradeMoney: {fileID: 5541929703796403368}
+  delightUpgradeLevelName: {fileID: 5541929705494044098}
+  delightUpgradeMoney: {fileID: 5541929704780159902}
   PlayerUpgradeMoneyArray: 640000002c010000f4010000e803000010270000
   ShelverUpgradeMoneyArray: c800000058020000dc050000b80b0000
   CarryUpgradeMoneyArray: dc050000b80b000070170000e02e0000
@@ -66656,7 +66735,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2579939288137403666
 GameObject:
@@ -66702,14 +66781,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daf61b4af4c630f4599c44fc5e235a1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradesPopup: {fileID: 0}
-  settingsPopup: {fileID: 0}
-  workersPart: {fileID: 0}
-  machinesPart: {fileID: 0}
-  carryPopupLocked: {fileID: 0}
-  shelverPopupLocked: {fileID: 0}
-  perfumePopupLocked: {fileID: 0}
-  delightPopupLocked: {fileID: 0}
+  upgradesPopup: {fileID: 5541929704822053191}
+  settingsPopup: {fileID: 5541929704526028656}
+  workersPart: {fileID: 5541929703942267680}
+  machinesPart: {fileID: 5541929705456062592}
+  carryPopupLocked: {fileID: 5541929704529017805}
+  shelverPopupLocked: {fileID: 5541929703802128465}
+  perfumePopupLocked: {fileID: 5541929704375425519}
+  delightPopupLocked: {fileID: 5541929705661587550}
 --- !u!1 &2622646376639045025
 GameObject:
   m_ObjectHideFlags: 0
@@ -66740,7 +66819,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2633456698726449568
 Transform:
@@ -68159,7 +68238,7 @@ RectTransform:
   m_Children:
   - {fileID: 1025581154}
   m_Father: {fileID: 7998799572618388131}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -71360,7 +71439,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2579939288137403664}
         m_TargetAssemblyTypeName: UpgradeSystem, Assembly-CSharp
         m_MethodName: PerfumeUpgrade
         m_Mode: 1
@@ -71883,7 +71962,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2622646376639045024}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: UpgradesCloseButton
         m_Mode: 1
@@ -72943,9 +73022,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2579939288137403664}
         m_TargetAssemblyTypeName: UpgradeSystem, Assembly-CSharp
-        m_MethodName: CarryUpgrade
+        m_MethodName: ShelverUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -78742,7 +78821,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2579939288137403664}
         m_TargetAssemblyTypeName: UpgradeSystem, Assembly-CSharp
         m_MethodName: DelightUpgrade
         m_Mode: 1
@@ -78875,7 +78954,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2622646376639045024}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: SettingsCloseButton
         m_Mode: 1
@@ -90367,7 +90446,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &5541929704822053194
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -90479,7 +90558,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2622646376639045024}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: MachinesButton
         m_Mode: 1
@@ -91875,7 +91954,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2579939288137403664}
         m_TargetAssemblyTypeName: UpgradeSystem, Assembly-CSharp
         m_MethodName: ShelverUpgrade
         m_Mode: 1
@@ -92802,7 +92881,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2622646376639045024}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: WorkersButton
         m_Mode: 1
@@ -92829,7 +92908,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5541929705456062593
 RectTransform:
   m_ObjectHideFlags: 0
@@ -93035,7 +93114,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2622646376639045024}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: UpgradeButton
         m_Mode: 1
@@ -93566,7 +93645,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2622646376639045024}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: SettingsButton
         m_Mode: 1
@@ -93887,7 +93966,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2579939288137403664}
         m_TargetAssemblyTypeName: UpgradeSystem, Assembly-CSharp
         m_MethodName: PlayerUpgrade
         m_Mode: 1
@@ -120278,7 +120357,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 410, y: 883}
+  m_AnchoredPosition: {x: -49, y: 11}
   m_SizeDelta: {x: 323.36, y: 116.3}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!1 &5734213909893173569
@@ -123970,15 +124049,15 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8419843746664813174}
   - {fileID: 4049203303344477828}
   - {fileID: 1446419739}
   - {fileID: 555775133}
   - {fileID: 993330159}
   - {fileID: 2142055867}
   - {fileID: 1929269480}
+  - {fileID: 8419843746664813174}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -124456,7 +124535,7 @@ RectTransform:
   m_Children:
   - {fileID: 5541929705228117136}
   m_Father: {fileID: 7998799572618388131}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
