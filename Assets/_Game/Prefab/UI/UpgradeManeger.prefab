@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7875810887009196371
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7875810887009196368}
+  - component: {fileID: 7875810887009196369}
+  m_Layer: 0
+  m_Name: UpgradeManeger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7875810887009196368
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7875810887009196371}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.9956236, y: -2.4334898, z: 5.5847416}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7875810887009196369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7875810887009196371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38055a5a6c12bd242a03588e52afd909, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyBox: {fileID: 0}
+  playerUpgradeLevelName: {fileID: 0}
+  playerUpgradeMoney: {fileID: 0}
+  shelverUpgradeLevelName: {fileID: 0}
+  shelverUpgradeMoney: {fileID: 0}
+  carryUpgradeLevelName: {fileID: 0}
+  carryUpgradeMoney: {fileID: 0}
+  perfumeUpgradeLevelName: {fileID: 0}
+  perfumeUpgradeMoney: {fileID: 0}
+  delightUpgradeLevelName: {fileID: 0}
+  delightUpgradeMoney: {fileID: 0}
+  PlayerUpgradeMoneyArray: 640000002c010000f4010000e803000010270000
+  ShelverUpgradeMoneyArray: c800000058020000dc050000b80b0000
+  CarryUpgradeMoneyArray: dc050000b80b000070170000e02e0000
+  PerfumeUpgradeMoneyArray: c800000058020000dc050000
+  DelightUpgradeMoneyArray: 2c0100008403000034080000

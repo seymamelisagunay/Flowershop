@@ -742,7 +742,6 @@ GameObject:
   - component: {fileID: 2968410993685497778}
   - component: {fileID: 1512904256399723332}
   - component: {fileID: 7721080234879456209}
-  - component: {fileID: 2993192998485995698}
   m_Layer: 0
   m_Name: garage_wall (1)
   m_TagString: Untagged
@@ -815,20 +814,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2993192998485995698
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1731839459653598665}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5859505246589164098, guid: a62186c08f4b9774e8cd725842512199, type: 3}
 --- !u!1 &1838096522231547254
 GameObject:
   m_ObjectHideFlags: 0
@@ -3584,7 +3569,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 54d760b8936d0374e9b228952649906c, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1266246164584732794, guid: d0da2c0766dd6354f8484394a1446253, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d0da2c0766dd6354f8484394a1446253, type: 3}
 --- !u!4 &441131510745626961 stripped
 Transform:
