@@ -55,12 +55,10 @@ public class PlayerPickerController : MonoBehaviour, IPickerController
 
     public void OnTriggerEnter(Collider other)
     {
-        
         if (!slotsTag.Contains(other.tag)) return;
         var slotController = other.GetComponent<IItemController>();
         SelectSlot(slotController);
         _isStayFarm = true;
-      
     }
 
     public void OnTriggerExit(Collider other)
@@ -95,18 +93,20 @@ public class PlayerPickerController : MonoBehaviour, IPickerController
                 //Toplama yapılacak 
                 var (productType, item, isItemFinish) = slotItemController.GetValue();
                 if (!isItemFinish) continue;
-                Debug.Log("Product Count : "+_playerItemController.stackData.ProductTypes.Count);
-                _playerItemController.SetValue(productType);
+                Debug.Log("Product Count : " + _playerItemController.stackData.ProductTypes.Count);
+                if (item == null)
+                {
+                    Debug.Log("item + null");
+                    continue;
+                }
                 var gridSlot = _gridSlotController.GetPosition();
-                if(gridSlot == null)
+                if (gridSlot == null)
                 {
                     Debug.Log("null");
+                    continue;
                 }
 
-                if(item == null)
-                {
-                    Debug.Log("null");
-                }
+                _playerItemController.SetValue(productType);
                 item.transform.parent = gridSlot.transform;
                 gridSlot.isFull = true;
                 gridSlot.slotInObject = item;

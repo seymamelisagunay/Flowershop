@@ -1,13 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ClientManagerSettings",menuName = "Gnarly Team/ClientManagerSettings")]
-public class ClientManagerSettings : ScriptableObject
+[Serializable]
+public class CustomerManagerSettings : ScriptableObject
 {
     /// <summary>
     /// Sahnede max kaç tane client Olacak 
     /// </summary>
-    public IntVariable maxClientCount;
+    public int maxClientCount;
+    public int firstCustomer = 20;
     public List<CustomerController> customersPrefab;
     public int clientMaxTradeCount;
     public float botCreateDuration;

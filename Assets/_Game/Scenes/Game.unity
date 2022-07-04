@@ -40243,6 +40243,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: c3a5d34e40600784f87ecfcd632ed50a, type: 2}
+  maxClientCount: 4
+  firstCustomer: 0
   cashTradeController: {fileID: 0}
   clientList: []
   spawnPoint:

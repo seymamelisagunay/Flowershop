@@ -14,10 +14,12 @@ public class CustomerController : MonoBehaviour
     /// 
     /// </summary>
     public ItemList itemList;
+
     /// <summary>
     /// 
     /// </summary>
     public StackData customerTradeData;
+
     /// <summary>
     /// Satın Alınacaklar
     /// </summary>
@@ -95,7 +97,7 @@ public class CustomerController : MonoBehaviour
     /// <returns></returns>
     private IEnumerator SellEffect(Action callback)
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         Debug.Log("Alışveriş Arabasını yok et !");
         shoppingCar.SetActive(false);
         shoppingBox.gameObject.SetActive(true);
@@ -108,6 +110,8 @@ public class CustomerController : MonoBehaviour
         yield return MoveToPoint(_path);
         _customerManager.RemoveCustomer(this);
         yield return new WaitForSeconds(1f);
+        _customerManager.firstCustomer++;
+        _customerManager.SaveFirstCustomerCount();
         Destroy(gameObject);
         Debug.Log("Customer Puf !");
     }
@@ -156,6 +160,7 @@ public class CustomerController : MonoBehaviour
             yield return PickItem();
         }
 
+        // TODO KAsada gidecek yer bulunmayınca Patlıyor bakılacak
         // Burada Döngü bitiyor ve next step olan Kasaya gitmeye başlıyoruz
         _customerManager.cashTradeController.SetCustomerQueue(this);
     }
@@ -173,6 +178,15 @@ public class CustomerController : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
             if (path.corners.Length > 0)
             {
+                if (_pathIndex < 0)
+                {
+                    Debug.Log("_pathIndex 0");
+                }
+                if (_pathIndex > path.corners.Length - 1)
+                {
+                    Debug.Log(_pathIndex + " ? " + path.corners.Length);
+                }
+
                 var direction = path.corners[_pathIndex] - transform.position;
                 _input.SetDirection(direction.normalized);
                 if (direction.magnitude < 0.5f)

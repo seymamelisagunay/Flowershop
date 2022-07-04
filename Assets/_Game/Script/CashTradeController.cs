@@ -16,6 +16,7 @@ public class CashTradeController : MonoBehaviour
     public List<TradeWaitingPoint> customerQueueTargetPoints = new List<TradeWaitingPoint>();
     [HideInInspector] public GridSlotController gridSlotController;
     public bool isInPlayer;
+    public int currentCurrency;
 
     // Para kazanma
     public IntVariable tradeMoneyCount;
@@ -79,14 +80,8 @@ public class CashTradeController : MonoBehaviour
         if (customerQueue.Count <= 0) return;
         if (!isInPlayer) return;
         var currentClient = customerQueue[0];
-        var currency = currentClient.SellingProducts(NextClientCallback);
-        var moneyObjectCount = currency / 10;
-        tradeMoneyCount.Value += currency;
-
-        for (int i = 0; i < moneyObjectCount; i++)
-        {
-            CreateMoney();
-        }
+        currentCurrency = currentClient.SellingProducts(NextClientCallback);
+        
     }
     /// <summary>
     /// 
@@ -94,6 +89,13 @@ public class CashTradeController : MonoBehaviour
     private void NextClientCallback()
     {
         customerQueue.RemoveAt(0);
+        var moneyObjectCount = currentCurrency / 10;
+        tradeMoneyCount.Value += currentCurrency;
+
+        for (int i = 0; i < moneyObjectCount; i++)
+        {
+            CreateMoney();
+        }
         // Burda Bekleyen Müşteriler Tekrar Yerleştirilmeli 
         ReSize();
     }

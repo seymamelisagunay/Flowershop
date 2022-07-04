@@ -23,12 +23,12 @@ MonoBehaviour:
     type: 3}
   slotHudPrefab: {fileID: 4402175197117052178, guid: ac4158c95d37b404cb017104ebde6e42,
     type: 3}
-  firstTriggerCooldown: 1.2
-  triggerCooldown: 0.1
+  firstTriggerCooldown: 0.1
+  triggerCooldown: 0.2
   emptyData:
-    _isOpen: 0
+    _isOpen: 1
     _price: 30
-    _currenctPrice: 0
+    _currenctPrice: 30
     OnChangeVariable:
       m_PersistentCalls:
         m_Calls: []
@@ -38,7 +38,7 @@ MonoBehaviour:
   stackData:
     maxItemCount: 14
     productionRate: 0.75
-    _productTypes: 
+    _productTypes: 01000000010000000100000001000000010000000100000001000000010000000100000001000000
     OnChangeVariable:
       m_PersistentCalls:
         m_Calls: []
