@@ -373,11 +373,7 @@ MonoBehaviour:
   lengthSize: 0.6
   heightSize: 0.4
   prefab: {fileID: 5727884131382816522, guid: 89b1f86aeee5f0342aa792b76a18d97c, type: 3}
-  slotList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  slotList: []
   currentIndex: 0
   parent: {fileID: 734440310223992387}
   sampleObject: {fileID: 4365423710062093608, guid: 2a775431003af854092c433bfd83425a,
@@ -401,11 +397,7 @@ MonoBehaviour:
   lengthSize: 0.6
   heightSize: 0.45
   prefab: {fileID: 5727884131382816522, guid: 89b1f86aeee5f0342aa792b76a18d97c, type: 3}
-  slotList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  slotList: []
   currentIndex: 0
   parent: {fileID: 4078647783877180535}
   sampleObject: {fileID: 4365423710062093608, guid: e26aed5e0bbee9748b73c434729fcc27,
