@@ -84,10 +84,7 @@ public class SlotController : MonoBehaviour
             slot.emptyData = JsonConvert.DeserializeObject<SlotEmptyData>(jsonValueEmptyData);
         }
         else
-        {
-            Debug.Log("First Empty");
             SaveSlotEmptyData(slot.emptyData);
-        }
 
         if (PlayerPrefs.HasKey(slot.Id + "-StackData"))
         {
@@ -95,10 +92,7 @@ public class SlotController : MonoBehaviour
             slot.stackData = JsonConvert.DeserializeObject<StackData>(jsonValueStackData);
         }
         else
-        {
-            Debug.Log("First stack");
             SaveSlotStackData(slot.stackData);
-        }
     }
 
     /// <summary>
@@ -110,7 +104,6 @@ public class SlotController : MonoBehaviour
             PlayerPrefs.SetInt(slot.Id, 1);
 
         var jsonValue = JsonConvert.SerializeObject(slotData);
-        Debug.Log(jsonValue);
         PlayerPrefs.SetString(slot.Id + "-Empty", jsonValue);
     }
 
@@ -120,7 +113,6 @@ public class SlotController : MonoBehaviour
             PlayerPrefs.SetInt(slot.Id, 1);
 
         var jsonValue = JsonConvert.SerializeObject(stackData);
-        Debug.Log(jsonValue);
         PlayerPrefs.SetString(slot.Id + "-StackData", jsonValue);
     }
 

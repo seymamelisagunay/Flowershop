@@ -15,19 +15,20 @@ MonoBehaviour:
   logo: {fileID: 21300000, guid: c1b972517103d304aa3153b67e2a5b02, type: 3}
   slotName: Rose Perfume Stand
   Id: RosePerfumeStand
-  itemType: 1
+  itemType: 2
   slotType: 2
   slotEmptyPrefab: {fileID: 2064649203199760101, guid: 2796bf85067029244b0236bd3d257ab5,
     type: 3}
-  itemControllerPrefab: {fileID: 0}
+  itemControllerPrefab: {fileID: 7551332985858698371, guid: 9213cc718ec19044c9a82d85d672ab68,
+    type: 3}
   slotHudPrefab: {fileID: 4402175197117052178, guid: ac4158c95d37b404cb017104ebde6e42,
     type: 3}
-  firstTriggerCooldown: 1.2
-  triggerCooldown: 0.1
+  firstTriggerCooldown: 1
+  triggerCooldown: 0.05
   emptyData:
-    _isOpen: 0
-    _price: 100
-    _currenctPrice: 0
+    _isOpen: 1
+    _price: 300
+    _currenctPrice: 100
     OnChangeVariable:
       m_PersistentCalls:
         m_Calls: []
@@ -35,7 +36,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   stackData:
-    maxItemCount: 5
+    maxItemCount: 12
     productionRate: 0.75
     _productTypes: 
     OnChangeVariable:

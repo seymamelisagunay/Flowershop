@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using _Game.Script;
 using _Game.Script.Controllers;
-using _Game.Script.Manager;
 using NaughtyAttributes;
-using Newtonsoft.Json;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -16,10 +14,10 @@ public class CustomerManager : MonoBehaviour
     public int firstCustomer = 0;
     [ReadOnly] public CashTradeController cashTradeController;
     public List<CustomerController> clientList = new List<CustomerController>();
-
+    public List<ItemType> itemTypes = new List<ItemType>();
     public List<AreaPositionSelector> spawnPoint;
     public BoolVariable isClientCreate;
-    public List<GameObject> standList = new List<GameObject>();
+    public List<SlotController> standList = new List<SlotController>();
 
     private void Start()
     {
@@ -53,6 +51,7 @@ public class CustomerManager : MonoBehaviour
     [Button]
     private void CreateClient()
     {
+        // var standList 
         var randomShoppingCardCount = Random.Range(1, 5);
         var shoppingCard = new StackData();
         for (var i = 0; i < randomShoppingCardCount; i++)

@@ -4,6 +4,7 @@ using _Game.Script.Bot;
 using _Game.Script.Controllers;
 using _Game.Script.Core.Character;
 using _Game.Script.Manager;
+using DG.Tweening;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.AI;
@@ -72,7 +73,7 @@ public class CustomerController : MonoBehaviour
         _path = new NavMeshPath();
         _pathIndex = 1;
         _activeGrid.isFull = false;
-        GameManager.instance.navMesh.CalculatePath(transform.position, point.transform.position, _path);
+        GameManager.instance.NavMesh.CalculatePath(transform.position, point.transform.position, _path);
         StartCoroutine(MoveToPoint(_path));
         waitingPoint = point;
     }
@@ -105,7 +106,7 @@ public class CustomerController : MonoBehaviour
         // Client Çıktığı noktaya doğru gidiyor 
         _path = new NavMeshPath();
         _pathIndex = 1;
-        GameManager.instance.navMesh.CalculatePath(transform.position, _firstPosition, _path);
+        GameManager.instance.NavMesh.CalculatePath(transform.position, _firstPosition, _path);
         callback.Invoke();
         yield return MoveToPoint(_path);
         _customerManager.RemoveCustomer(this);
@@ -147,15 +148,16 @@ public class CustomerController : MonoBehaviour
             if (shoppingData.ProductTypes.Count <= 0) continue;
             var queuenItemType = shoppingData.ProductTypes[0];
             //Sırada Gidilecek olan Standı bulmak var
-            var activeSlot = SlotManager.instance.GetActiveStand(queuenItemType);
+            var activeSlot = SlotManager.instance.GetActiveSlot(queuenItemType);
             if (activeSlot.slot.slotType != SlotType.Stand) continue;
             _activeStandController = activeSlot.GetComponentInChildren<StandController>();
             _activeGrid = _activeStandController.GetCustomerSlot();
             _activeGrid.isFull = true;
             _path = new NavMeshPath();
             _pathIndex = 1;
-            GameManager.instance.navMesh.CalculatePath(transform.position, _activeGrid.transform.position, _path);
+            GameManager.instance.NavMesh.CalculatePath(transform.position, _activeGrid.transform.position, _path);
             yield return MoveToPoint(_path); //Toplama yerine vardık 
+            transform.DOLookAt(_activeStandController.transform.position, 0.5f);
             yield return new WaitForSeconds(1);
             yield return PickItem();
         }
@@ -182,6 +184,7 @@ public class CustomerController : MonoBehaviour
                 {
                     Debug.Log("_pathIndex 0");
                 }
+
                 if (_pathIndex > path.corners.Length - 1)
                 {
                     Debug.Log(_pathIndex + " ? " + path.corners.Length);

@@ -29,9 +29,12 @@ public class CashDeskMoneyController : MonoBehaviour
     private IEnumerator GetMoney(PlayerController playerController)
     {
         yield return new WaitForSeconds(playerController.playerSettings.firstTriggerCooldown);
-        while (isInPlayer && cashDeskMoney.Value > 0)
+        while (isInPlayer)
         {
             yield return new WaitForSeconds(playerController.playerSettings.pickingSpeed);
+            if (cashDeskMoney.Value <= 0)
+                continue;
+
             var gridSlot = moneyGrid.GetSlotObject();
             //Para Artırılacak 
             if (gridSlot != null)

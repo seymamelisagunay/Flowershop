@@ -47,7 +47,7 @@ MonoBehaviour:
   roseFarmOne: {fileID: 11400000, guid: 5136f869b553ada408f736c0c54bab31, type: 2}
   roseFarmSecondDefault:
     _isOpen: 0
-    _price: 100
+    _price: 300
     _currenctPrice: 0
     OnChangeVariable:
       m_PersistentCalls:
@@ -69,7 +69,7 @@ MonoBehaviour:
   roseFarmThird: {fileID: 11400000, guid: 0826341a31ef74f41b188a328aff2756, type: 2}
   rosePerfumeFactoryDefault:
     _isOpen: 0
-    _price: 200
+    _price: 400
     _currenctPrice: 0
     OnChangeVariable:
       m_PersistentCalls:
@@ -80,7 +80,7 @@ MonoBehaviour:
   rosePerfumeFactory: {fileID: 11400000, guid: 6183fff13c266aa448e991fecc0899ef, type: 2}
   rosePerfumeStandDefault:
     _isOpen: 0
-    _price: 100
+    _price: 300
     _currenctPrice: 0
     OnChangeVariable:
       m_PersistentCalls:

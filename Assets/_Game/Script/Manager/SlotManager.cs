@@ -14,8 +14,7 @@ public class SlotManager : MonoBehaviour
     public IntVariable currentOrderCount;
     public List<SlotState> slotStates = new List<SlotState>();
     public BoolVariable isClientCreate;
-    [HideInInspector]
-    public List<SlotController> slots = new List<SlotController>();
+    [HideInInspector] public List<SlotController> slots = new List<SlotController>();
 
     private void Awake()
     {
@@ -30,8 +29,9 @@ public class SlotManager : MonoBehaviour
     {
         currentOrderCount.Value++;
     }
+
     public void SlotOpen()
-    {       
+    {
         var nextSlot = slotStates.FindAll(x => x.orderCount == currentOrderCount.Value);
         if (nextSlot.Count > 0)
             nextSlot.ForEach(x =>
@@ -42,12 +42,20 @@ public class SlotManager : MonoBehaviour
                 }
             });
     }
-    public SlotController GetActiveStand(ItemType itemType)
+
+    public SlotController GetActiveSlot(ItemType itemType)
     {
         var result = slots.Find(x => x.slot.emptyData.IsOpen && x.slot.itemType == itemType);
-
         return result;
     }
+
+    public SlotController GetSlotController(SlotType slotType, ItemType itemType)
+    {
+        var result = slots.Find(x => x.slot.slotType == slotType && x
+            .slot.itemType == itemType);
+        return result;
+    }
+
     private void SaveOrderCount()
     {
         PlayerPrefs.SetInt("orderCount", currentOrderCount.Value);
@@ -60,7 +68,3 @@ public class SlotState
     public int orderCount;
     public SlotController slotController;
 }
-
-
-
-

@@ -18,7 +18,7 @@ namespace _Game.Script.Manager
         public SlotManager slotManager;
         public BoolVariable isClientCreate;
 
-        public NavMeshUtility navMesh;
+        public NavMeshUtility NavMesh;
 
         private void Awake()
         {
@@ -30,7 +30,7 @@ namespace _Game.Script.Manager
         /// </summary>
         public void Init()
         {
-            navMesh = new NavMeshUtility(null, Vector3.zero);
+            NavMesh = new NavMeshUtility(null, Vector3.zero);
             PlayerCreator();
             slotManager.slotStates.ForEach(x =>
             {
