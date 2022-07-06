@@ -30,7 +30,6 @@ public class CustomerPickerController : MonoBehaviour, IPickerController
 
     public void OnTriggerExit(Collider other)
     {
-
     }
 
     public IEnumerator GetItem(IItemController itemController)
@@ -45,13 +44,14 @@ public class CustomerPickerController : MonoBehaviour, IPickerController
             {
                 var isItemFinish = false;
                 var productType = ItemType.none;
-                var item = new Item();
+                Item item = null;
 
                 while (!isItemFinish)
                 {
                     yield return new WaitForSeconds(customerSettings.pickingSpeed);
                     (productType, item, isItemFinish) = slotItemController.GetValue();
                 }
+
                 //Toplama yapılacak 
                 Debug.Log("Ver item Ver ");
                 _customerItemController.SetValue(productType);

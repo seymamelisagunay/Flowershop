@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using _Game.Script;
 using _Game.Script.Controllers;
 using NaughtyAttributes;
@@ -14,10 +15,9 @@ public class CustomerManager : MonoBehaviour
     public int firstCustomer = 0;
     [ReadOnly] public CashTradeController cashTradeController;
     public List<CustomerController> clientList = new List<CustomerController>();
-    public List<ItemType> itemTypes = new List<ItemType>();
+    public ItemTypeList itemTypes;
     public List<AreaPositionSelector> spawnPoint;
     public BoolVariable isClientCreate;
-    public List<SlotController> standList = new List<SlotController>();
 
     private void Start()
     {
@@ -51,14 +51,16 @@ public class CustomerManager : MonoBehaviour
     [Button]
     private void CreateClient()
     {
-        // var standList 
         var randomShoppingCardCount = Random.Range(1, 5);
         var shoppingCard = new StackData();
+        Debug.LogError(itemTypes.value.Count + "Count !");
         for (var i = 0; i < randomShoppingCardCount; i++)
         {
+            var randomItemType = itemTypes.value.RandomSelectObject();
             //Burada Random Verilecek aktif olan Ürünlere göre ;
-            shoppingCard.ProductTypes.Add(ItemType.Rose);
+            shoppingCard.ProductTypes.Add(randomItemType);
         }
+        shoppingCard.ProductTypes.Sort();
 
         var selectCustomerPrefab = settings.customersPrefab.RandomSelectObject();
         var cloneCustomer = Instantiate(selectCustomerPrefab);

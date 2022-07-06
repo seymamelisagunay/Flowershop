@@ -18,11 +18,13 @@ namespace _Game.Script.Manager
         public SlotManager slotManager;
         public BoolVariable isClientCreate;
         public CustomCameraFollow customCamera;
+        public ItemTypeList ItemTypeList;
 
         public NavMeshUtility NavMesh;
 
         private void Awake()
         {
+            ItemTypeList.value.Clear();
             instance = this;
             slotManager = FindObjectOfType<SlotManager>();
         }

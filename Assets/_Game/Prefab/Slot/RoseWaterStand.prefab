@@ -553,7 +553,7 @@ GameObject:
   - component: {fileID: 7551332985858698368}
   - component: {fileID: 650519463133018424}
   m_Layer: 0
-  m_Name: RosePerfumeStand
+  m_Name: RoseWaterStand
   m_TagString: Stand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -642,7 +642,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   playerTag: Player
-  itemType: 1
+  itemType: 2
 --- !u!65 &1666636975873821233
 BoxCollider:
   m_ObjectHideFlags: 0

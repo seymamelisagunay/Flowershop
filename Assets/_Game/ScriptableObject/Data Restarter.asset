@@ -80,7 +80,7 @@ MonoBehaviour:
   rosePerfumeFactory: {fileID: 11400000, guid: 6183fff13c266aa448e991fecc0899ef, type: 2}
   rosePerfumeStandDefault:
     _isOpen: 0
-    _price: 300
+    _price: 250
     _currenctPrice: 0
     OnChangeVariable:
       m_PersistentCalls:

@@ -9,7 +9,7 @@ public static class Extension
         if (variable.Count <= 0)
             Debug.LogError("variable is below 0");
 
-        var randomIndex = Random.Range(0, variable.Count - 1);
+        var randomIndex = Random.Range(0, variable.Count);
         return variable[randomIndex];
     }
 }

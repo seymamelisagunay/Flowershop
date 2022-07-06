@@ -148,7 +148,7 @@ public class CustomerController : MonoBehaviour
             if (shoppingData.ProductTypes.Count <= 0) continue;
             var queuenItemType = shoppingData.ProductTypes[0];
             //Sırada Gidilecek olan Standı bulmak var
-            var activeSlot = SlotManager.instance.GetActiveSlot(queuenItemType);
+            var activeSlot = SlotManager.instance.GetActiveStand(queuenItemType);
             if (activeSlot.slot.slotType != SlotType.Stand) continue;
             _activeStandController = activeSlot.GetComponentInChildren<StandController>();
             _activeGrid = _activeStandController.GetCustomerSlot();
@@ -161,7 +161,6 @@ public class CustomerController : MonoBehaviour
             yield return new WaitForSeconds(1);
             yield return PickItem();
         }
-
         // TODO KAsada gidecek yer bulunmayınca Patlıyor bakılacak
         // Burada Döngü bitiyor ve next step olan Kasaya gitmeye başlıyoruz
         _customerManager.cashTradeController.SetCustomerQueue(this);
@@ -178,27 +177,16 @@ public class CustomerController : MonoBehaviour
         while (path.corners.Length != _pathIndex)
         {
             yield return new WaitForSeconds(0.1f);
-            if (_pathIndex == path.corners.Length) continue;
+            if (_pathIndex >= path.corners.Length) continue;
 
             if (path.corners.Length > 0)
             {
-                if (_pathIndex < 0)
-                {
-                    Debug.Log("_pathIndex 0");
-                }
-
-                if (_pathIndex > path.corners.Length - 1)
-                {
-                    Debug.Log(_pathIndex + " ? " + path.corners.Length);
-                }
-
                 var direction = path.corners[_pathIndex] - transform.position;
                 _input.SetDirection(direction.normalized);
                 if (direction.magnitude < 0.5f)
                     _pathIndex++;
             }
         }
-
         _input.ClearDirection();
     }
 }

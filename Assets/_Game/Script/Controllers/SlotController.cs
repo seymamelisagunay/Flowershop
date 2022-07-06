@@ -28,53 +28,50 @@ public class SlotController : MonoBehaviour
 
     public void OpenSlot()
     {
-        Debug.Log("Open  ?");
-        if (slot.emptyData.IsOpen)
-        {
-            // farm.name += slot.Id;
-            // farm.Init(this);
-            switch (slot.slotType)
-            {
-                case SlotType.Farm:
-                    var cloneFarm = slot.itemControllerPrefab.GetComponent<FarmController>();
-                    activeItemController = Instantiate(cloneFarm, transform);
-                    var cloneFarmItemController = (FarmController) activeItemController;
-                    cloneFarmItemController.name += slot.Id;
-                    break;
-                case SlotType.Factory:
-                    Debug.Log("Factory");
-                    var factory = slot.itemControllerPrefab.GetComponent<FactoryController>();
-                    var cloneFactory = Instantiate(factory, transform);
-                    //Clone Factory Burada Atanması gerek Elle yapılaacak
-                    cloneFactory.Init(this);
-                    activeItemController = cloneFactory.itemController;
-                    cloneFactory.name += slot.Id;
-                    break;
-                case SlotType.Stand:
-                    GameManager.instance.isClientCreate.Value = true;
-                    var stand = slot.itemControllerPrefab.GetComponent<StandItemController>();
-                    activeItemController = Instantiate(stand, transform);
-                    var standController = (StandItemController) activeItemController;
-                    standController.name += slot.Id;
-                    break;
-                case SlotType.CashDesk:
-                    var cashDeskPrefab = slot.itemControllerPrefab.GetComponent<CashDeskController>();
-                    var cloneCashDesk = Instantiate(cashDeskPrefab, transform);
-                    cloneCashDesk.name += slot.Id;
-                    activeItemController = cloneCashDesk;
-                    break;
-                default:
-                    return;
-            }
+        if (!slot.emptyData.IsOpen) return;
 
-            activeItemController.Init(slot.stackData);
-            slot.stackData.OnChangeVariable.AddListener(SaveSlotStackData);
+        switch (slot.slotType)
+        {
+            case SlotType.Farm:
+                var cloneFarm = slot.itemControllerPrefab.GetComponent<FarmController>();
+                activeItemController = Instantiate(cloneFarm, transform);
+                var cloneFarmItemController = (FarmController) activeItemController;
+                cloneFarmItemController.name += slot.Id;
+                break;
+            case SlotType.Factory:
+                Debug.Log("Factory");
+                var factory = slot.itemControllerPrefab.GetComponent<FactoryController>();
+                var cloneFactory = Instantiate(factory, transform);
+                //Clone Factory Burada Atanması gerek Elle yapılaacak
+                cloneFactory.Init(this);
+                activeItemController = cloneFactory.itemController;
+                cloneFactory.name += slot.Id;
+                break;
+            case SlotType.Stand:
+                GameManager.instance.isClientCreate.Value = true;
+                var stand = slot.itemControllerPrefab.GetComponent<StandItemController>();
+                activeItemController = Instantiate(stand, transform);
+                var standController = (StandItemController) activeItemController;
+                standController.name += slot.Id;
+                GameManager.instance.ItemTypeList.Add(slot.itemType);
+                break;
+            case SlotType.CashDesk:
+                var cashDeskPrefab = slot.itemControllerPrefab.GetComponent<CashDeskController>();
+                var cloneCashDesk = Instantiate(cashDeskPrefab, transform);
+                cloneCashDesk.name += slot.Id;
+                activeItemController = cloneCashDesk;
+                break;
+            default:
+                return;
         }
+
+        activeItemController.Init(slot.stackData);
+        slot.stackData.OnChangeVariable.AddListener(SaveSlotStackData);
     }
 
     public void OpenEmpty()
     {
-        cameraFocus.Focus();
+        cameraFocus?.Focus();
         var emptySlot = Instantiate(slot.slotEmptyPrefab, transform);
         emptySlot.GetComponent<ISlotController>().Init(this);
         slot.emptyData.OnChangeVariable.AddListener(SaveSlotEmptyData);

@@ -30,7 +30,7 @@ public class SlotManager : MonoBehaviour
         var slots = slotStates.FindAll(x => x.orderCount == currentOrderCount.Value);
         foreach (var state in slots)
         {
-            if (state.slotController.slot.emptyData.IsOpen&&state.isNewSlotOpen)
+            if (state.slotController.slot.emptyData.IsOpen && state.isNewSlotOpen)
             {
                 currentOrderCount.Value++;
                 return;
@@ -51,16 +51,16 @@ public class SlotManager : MonoBehaviour
             });
     }
 
-    public SlotController GetActiveSlot(ItemType itemType)
+    public SlotController GetActiveStand(ItemType itemType)
     {
-        var result = slots.Find(x => x.slot.emptyData.IsOpen && x.slot.itemType == itemType);
+        var result = slots.Find(x => x.slot.emptyData.IsOpen && x.slot.itemType == itemType&&x
+            .slot.slotType == SlotType.Stand);
         return result;
     }
 
-    public SlotController GetSlotController(SlotType slotType, ItemType itemType)
+    public List<SlotController> GetSlotController(SlotType slotType)
     {
-        var result = slots.Find(x => x.slot.slotType == slotType && x
-            .slot.itemType == itemType);
+        var result = slots.FindAll(x => x.slot.slotType == slotType && x.slot.emptyData.IsOpen);
         return result;
     }
 
