@@ -9786,7 +9786,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426928129}
   m_LocalRotation: {x: 0.44899046, y: -0.20706856, z: 0.10779307, w: 0.8625027}
-  m_LocalPosition: {x: 2.97, y: 10.94, z: -0.43}
+  m_LocalPosition: {x: 2.97, y: 10.94, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9805,9 +9805,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8401758259bb4e5aac76f5ede48aa77a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 250
+  speed: 250
   offset: {x: 4.78, y: 14, z: -8}
   isSetYReset: 0
+  target: {fileID: 0}
 --- !u!1001 &432611896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10424,6 +10425,7 @@ GameObject:
   - component: {fileID: 457439897}
   - component: {fileID: 457439896}
   - component: {fileID: 457439895}
+  - component: {fileID: 457439898}
   m_Layer: 0
   m_Name: CashDesk-Slot
   m_TagString: Slot
@@ -10446,6 +10448,7 @@ MonoBehaviour:
   slot: {fileID: 11400000, guid: 1b3f7b67d657b06499a32144544d5251, type: 2}
   slotHud: {fileID: 0}
   hudPoint: {fileID: 363311130}
+  cameraFocus: {fileID: 0}
 --- !u!54 &457439896
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10478,6 +10481,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &457439898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457439894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ec34ef4bc9a73498603ed500c29fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  getBackDuration: 0.5
+  duration: 0.5
+  zoomInOut: 55
+  zoomInOutDuration: 0.75
 --- !u!1001 &460158437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13669,6 +13688,7 @@ GameObject:
   - component: {fileID: 576479496}
   - component: {fileID: 576479495}
   - component: {fileID: 576479494}
+  - component: {fileID: 576479497}
   m_Layer: 0
   m_Name: Money
   m_TagString: Untagged
@@ -13691,6 +13711,7 @@ MonoBehaviour:
   slot: {fileID: 11400000, guid: c67329c6fd93fed409432a1ffee98e97, type: 2}
   slotHud: {fileID: 0}
   hudPoint: {fileID: 1327054785}
+  cameraFocus: {fileID: 0}
 --- !u!54 &576479495
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13723,6 +13744,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &576479497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576479493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ec34ef4bc9a73498603ed500c29fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  getBackDuration: 0.5
+  duration: 0.5
+  zoomInOut: 55
+  zoomInOutDuration: 0.75
 --- !u!1001 &578843630
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19745,6 +19782,7 @@ GameObject:
   - component: {fileID: 835296822}
   - component: {fileID: 835296821}
   - component: {fileID: 835296820}
+  - component: {fileID: 835296823}
   m_Layer: 0
   m_Name: Rose-Slot3
   m_TagString: Slot
@@ -19767,6 +19805,7 @@ MonoBehaviour:
   slot: {fileID: 11400000, guid: 0826341a31ef74f41b188a328aff2756, type: 2}
   slotHud: {fileID: 0}
   hudPoint: {fileID: 572823941}
+  cameraFocus: {fileID: 0}
 --- !u!54 &835296821
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19799,6 +19838,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &835296823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835296818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ec34ef4bc9a73498603ed500c29fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  getBackDuration: 0.5
+  duration: 0.5
+  zoomInOut: 55
+  zoomInOutDuration: 0.75
 --- !u!1001 &836148729
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21180,6 +21235,7 @@ GameObject:
   - component: {fileID: 921311632}
   - component: {fileID: 921311631}
   - component: {fileID: 921311630}
+  - component: {fileID: 921311633}
   m_Layer: 0
   m_Name: RoseStand
   m_TagString: Stand
@@ -21202,6 +21258,7 @@ MonoBehaviour:
   slot: {fileID: 11400000, guid: 145032698305b0142bea9024c92920b1, type: 2}
   slotHud: {fileID: 0}
   hudPoint: {fileID: 1173502836}
+  cameraFocus: {fileID: 0}
 --- !u!54 &921311631
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21234,6 +21291,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &921311633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921311629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ec34ef4bc9a73498603ed500c29fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  getBackDuration: 0.5
+  duration: 0.5
+  zoomInOut: 55
+  zoomInOutDuration: 0.75
 --- !u!1001 &922374148
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21469,6 +21542,7 @@ GameObject:
   - component: {fileID: 937008854}
   - component: {fileID: 937008853}
   - component: {fileID: 937008852}
+  - component: {fileID: 937008855}
   m_Layer: 0
   m_Name: Rose-Slot2
   m_TagString: Slot
@@ -21491,6 +21565,7 @@ MonoBehaviour:
   slot: {fileID: 11400000, guid: 2065b0e70ebd2054a8a5a22e47f698c2, type: 2}
   slotHud: {fileID: 0}
   hudPoint: {fileID: 633227596}
+  cameraFocus: {fileID: 0}
 --- !u!54 &937008853
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21523,6 +21598,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &937008855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937008850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ec34ef4bc9a73498603ed500c29fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  getBackDuration: 0.5
+  duration: 0.5
+  zoomInOut: 55
+  zoomInOutDuration: 0.75
 --- !u!1001 &944798684
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21773,6 +21864,7 @@ MonoBehaviour:
   activePlayer: {fileID: 0}
   slotManager: {fileID: 1524180894}
   isClientCreate: {fileID: 11400000, guid: adc741b91321f874ca3dbed4ac23318b, type: 2}
+  customCamera: {fileID: 426928133}
 --- !u!4 &954957369
 Transform:
   m_ObjectHideFlags: 0
@@ -31435,6 +31527,7 @@ GameObject:
   - component: {fileID: 1424125683}
   - component: {fileID: 1424125685}
   - component: {fileID: 1424125684}
+  - component: {fileID: 1424125686}
   m_Layer: 0
   m_Name: Rose-Slot1
   m_TagString: Slot
@@ -31473,6 +31566,7 @@ MonoBehaviour:
   slot: {fileID: 11400000, guid: 5136f869b553ada408f736c0c54bab31, type: 2}
   slotHud: {fileID: 0}
   hudPoint: {fileID: 1612868392}
+  cameraFocus: {fileID: 0}
 --- !u!54 &1424125685
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -31489,6 +31583,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &1424125686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424125682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ec34ef4bc9a73498603ed500c29fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  getBackDuration: 0.5
+  duration: 0.5
+  zoomInOut: 55
+  zoomInOutDuration: 0.75
 --- !u!1001 &1427079762
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31673,6 +31783,7 @@ GameObject:
   - component: {fileID: 1430144986}
   - component: {fileID: 1430144985}
   - component: {fileID: 1430144984}
+  - component: {fileID: 1430144987}
   m_Layer: 0
   m_Name: RosePerfumeFactory
   m_TagString: Slot
@@ -31695,6 +31806,7 @@ MonoBehaviour:
   slot: {fileID: 11400000, guid: 6183fff13c266aa448e991fecc0899ef, type: 2}
   slotHud: {fileID: 0}
   hudPoint: {fileID: 1177923192}
+  cameraFocus: {fileID: 0}
 --- !u!54 &1430144985
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -31727,6 +31839,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1430144987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430144983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ec34ef4bc9a73498603ed500c29fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  getBackDuration: 0.5
+  duration: 0.5
+  zoomInOut: 55
+  zoomInOutDuration: 0.75
 --- !u!1001 &1431107582
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33561,19 +33689,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentOrderCount: {fileID: 11400000, guid: 08f203d71d31f6d4496efe12e713c216, type: 2}
   slotStates:
-  - orderCount: 1
+  - isNewSlotOpen: 1
+    orderCount: 1
     slotController: {fileID: 576479494}
-  - orderCount: 2
+  - isNewSlotOpen: 1
+    orderCount: 2
     slotController: {fileID: 457439895}
-  - orderCount: 3
+  - isNewSlotOpen: 1
+    orderCount: 3
     slotController: {fileID: 921311630}
-  - orderCount: 4
+  - isNewSlotOpen: 1
+    orderCount: 4
     slotController: {fileID: 1424125684}
-  - orderCount: 5
+  - isNewSlotOpen: 1
+    orderCount: 5
     slotController: {fileID: 1638395301}
-  - orderCount: 5
+  - isNewSlotOpen: 0
+    orderCount: 5
     slotController: {fileID: 937008852}
-  - orderCount: 6
+  - isNewSlotOpen: 1
+    orderCount: 6
     slotController: {fileID: 1430144984}
   isClientCreate: {fileID: 11400000, guid: adc741b91321f874ca3dbed4ac23318b, type: 2}
   slots: []
@@ -36131,6 +36266,7 @@ GameObject:
   - component: {fileID: 1638395303}
   - component: {fileID: 1638395302}
   - component: {fileID: 1638395301}
+  - component: {fileID: 1638395304}
   m_Layer: 0
   m_Name: RosePerfumeStand
   m_TagString: Slot
@@ -36153,6 +36289,7 @@ MonoBehaviour:
   slot: {fileID: 11400000, guid: cf5390bbc641c7e4e844874e77d1d363, type: 2}
   slotHud: {fileID: 0}
   hudPoint: {fileID: 1855310124}
+  cameraFocus: {fileID: 0}
 --- !u!54 &1638395302
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -36185,6 +36322,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1638395304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638395300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ec34ef4bc9a73498603ed500c29fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  getBackDuration: 0.5
+  duration: 0.5
+  zoomInOut: 55
+  zoomInOutDuration: 0.75
 --- !u!1001 &1638612322
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39793,6 +39946,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4460939434824237874, guid: 4a35d24c58b73e145affc31c75706534,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4460939434824237874, guid: 4a35d24c58b73e145affc31c75706534,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4821707185656194016, guid: 4a35d24c58b73e145affc31c75706534,
         type: 3}
       propertyPath: m_RootOrder
@@ -39848,22 +40011,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6242444146891410453, guid: 4a35d24c58b73e145affc31c75706534,
+    - target: {fileID: 7927284199476864270, guid: 4a35d24c58b73e145affc31c75706534,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.463504
+      propertyPath: playerTag
+      value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6242444146891410453, guid: 4a35d24c58b73e145affc31c75706534,
+    - target: {fileID: 7927284199476864270, guid: 4a35d24c58b73e145affc31c75706534,
         type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.3793
+      propertyPath: targetPosition
+      value: 
+      objectReference: {fileID: 1796056367}
+    - target: {fileID: 7927284199476864270, guid: 4a35d24c58b73e145affc31c75706534,
+        type: 3}
+      propertyPath: triggerCooldown
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7927284199476864270, guid: 4a35d24c58b73e145affc31c75706534,
+        type: 3}
+      propertyPath: firstTriggerCooldown
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8135813355815466517, guid: 4a35d24c58b73e145affc31c75706534,
         type: 3}
       propertyPath: m_Name
       value: Level1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8135813355815466517, guid: 4a35d24c58b73e145affc31c75706534,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1074550346501108463, guid: 4a35d24c58b73e145affc31c75706534, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4a35d24c58b73e145affc31c75706534, type: 3}
 --- !u!114 &1796056364 stripped
 MonoBehaviour:
@@ -39877,6 +40056,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d88f3229a818eb49938e64f2be887d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1796056365 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4125408982445826359, guid: 4a35d24c58b73e145affc31c75706534,
+    type: 3}
+  m_PrefabInstance: {fileID: 1796056363}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1796056366
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796056365}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.029386848, y: 0.02715709, z: 0.024491897}
+  m_Center: {x: -0.0012005722, y: 0.0005134901, z: 0.0014138725}
+--- !u!4 &1796056367 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6689537863815264166, guid: 4a35d24c58b73e145affc31c75706534,
+    type: 3}
+  m_PrefabInstance: {fileID: 1796056363}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1801280664
 PrefabInstance:
   m_ObjectHideFlags: 0

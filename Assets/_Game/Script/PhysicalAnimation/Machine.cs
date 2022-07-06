@@ -14,12 +14,11 @@ public class Machine : MonoBehaviour
     [Button()]
     public void Test()
     {
-        MachineShake(machine,strength, vibrato);
+        Play(2,strength, vibrato);
     }
 
-    private void MachineShake(GameObject _machine,float _strength, int _vibrato)
+    public void Play(float duration, float _strength, int _vibrato)
     {
-        _machine.transform.DOShakeScale(2f, _strength, _vibrato, 3f, false).SetLoops(-1, LoopType.Restart);
+        transform.DOShakeScale(duration, _strength, _vibrato, 3f, false);
     }
-
 }

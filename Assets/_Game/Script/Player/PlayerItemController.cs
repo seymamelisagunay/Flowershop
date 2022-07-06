@@ -22,13 +22,23 @@ public class PlayerItemController : MonoBehaviour, IItemController
 
     public (ItemType, Item, bool) GetValue()
     {
-        return GetValue(stackData.ProductTypes[0]);
+        if (stackData.ProductTypes.Count > 0)
+        {
+            return GetValue(stackData.ProductTypes[0]);
+        }
+
+        return (ItemType.Rose, null, false);
     }
 
     public (ItemType, Item, bool) GetValue(ItemType itemType)
     {
         if (stackData.ProductTypes.Count > 0)
         {
+            if (itemType != stackData.ProductTypes[0])
+            {
+                return (ItemType.Rose, null, false);
+            }
+
             var gridSlot = _gridSlotController.GetSlotObject(stackData.ProductTypes[0]);
             gridSlot.isFull = false;
             var resultData = gridSlot.slotInObject;
@@ -42,8 +52,7 @@ public class PlayerItemController : MonoBehaviour, IItemController
 
     public void SetValue(ItemType itemType)
     {
-        if(stackData.CheckMaxCount())
+        if (stackData.CheckMaxCount())
             stackData.AddProduct(itemType);
-
     }
 }

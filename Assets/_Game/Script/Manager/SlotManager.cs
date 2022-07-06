@@ -27,7 +27,15 @@ public class SlotManager : MonoBehaviour
 
     public void NextSlot()
     {
-        currentOrderCount.Value++;
+        var slots = slotStates.FindAll(x => x.orderCount == currentOrderCount.Value);
+        foreach (var state in slots)
+        {
+            if (state.slotController.slot.emptyData.IsOpen&&state.isNewSlotOpen)
+            {
+                currentOrderCount.Value++;
+                return;
+            }
+        }
     }
 
     public void SlotOpen()
@@ -65,6 +73,7 @@ public class SlotManager : MonoBehaviour
 [Serializable]
 public class SlotState
 {
+    public bool isNewSlotOpen;
     public int orderCount;
     public SlotController slotController;
 }

@@ -178,6 +178,8 @@ public class CustomerController : MonoBehaviour
         while (path.corners.Length != _pathIndex)
         {
             yield return new WaitForSeconds(0.1f);
+            if (_pathIndex == path.corners.Length) continue;
+
             if (path.corners.Length > 0)
             {
                 if (_pathIndex < 0)

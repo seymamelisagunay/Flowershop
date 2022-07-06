@@ -67,12 +67,6 @@ public class PlayerPickerController : MonoBehaviour, IPickerController
         var slotController = other.GetComponent<IItemController>();
         _isStayFarm = false;
         StopCoroutine(GetItem(slotController));
-
-        // Debug.Log(other.name);
-        // var farmController = other.GetComponent<IStackController>();
-        // farmControllerList.Remove(farmController);
-        // if (farmControllerList.Count != 0) return;
-        //
     }
 
 

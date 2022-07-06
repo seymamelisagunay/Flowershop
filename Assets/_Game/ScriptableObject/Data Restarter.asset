@@ -107,7 +107,5 @@ MonoBehaviour:
     type: 2}
   isCreateClientDefault: 0
   isCreateClient: {fileID: 11400000, guid: adc741b91321f874ca3dbed4ac23318b, type: 2}
-  maxClientCountDefault: 5
-  maxClientCount: {fileID: 11400000, guid: f6d84ec5cb5ecce4c8febb6f20ca7894, type: 2}
   moneyVariableDefault: 0
   moneyVariable: {fileID: 11400000, guid: fbf3023bd64526940ba07cda72f17e7e, type: 2}

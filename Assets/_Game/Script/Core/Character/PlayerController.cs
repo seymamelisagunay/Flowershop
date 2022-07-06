@@ -21,6 +21,7 @@ namespace _Game.Script.Character
         {
             characterController = GetComponent<MovementController>();
         }
+
         public void Init(Transform spawnPoint)
         {
             Input = GetComponent<IInput>();
@@ -28,9 +29,11 @@ namespace _Game.Script.Character
             // hudController.Init(this);
             OnOpenLevel();
         }
+
         private void OnDestroy()
         {
         }
+
         /// <summary>
         ///  Oyun Açıldığında Burası tetiklencek Playerda.
         /// </summary>
@@ -38,14 +41,15 @@ namespace _Game.Script.Character
         {
             if (!playerSettings.isBot)
             {
-                var camera = Camera.main.GetComponent<CustomCameraFollow>();
+                var camera = GameManager.instance.customCamera;
                 if (camera != null)
-                    camera.SetTarget(this);
+                    camera.SetTarget(transform);
             }
+
             Input.StartListen();
-            
-            Spawn(_spawnPoint.position,_spawnPoint.rotation);
+            Spawn(_spawnPoint.position, _spawnPoint.rotation);
         }
+
         /// <summary>
         /// Player Controllerı spawn yaptığımız yer oluyor .
         /// </summary>
@@ -53,7 +57,7 @@ namespace _Game.Script.Character
         /// Spawn noktasının yukarı yönde 5 ile çarpıyoruz yukarıdan düşme etkisi
         /// yapıyor .</param>
         /// <param name="spawnRotation"></param>
-        public void Spawn(Vector3 spawnPoint,Quaternion spawnRotation)
+        public void Spawn(Vector3 spawnPoint, Quaternion spawnRotation)
         {
             var position = spawnPoint + (Vector3.up * 5f);
             transform.position = position;

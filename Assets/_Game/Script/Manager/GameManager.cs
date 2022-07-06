@@ -17,6 +17,7 @@ namespace _Game.Script.Manager
         public PlayerController activePlayer;
         public SlotManager slotManager;
         public BoolVariable isClientCreate;
+        public CustomCameraFollow customCamera;
 
         public NavMeshUtility NavMesh;
 

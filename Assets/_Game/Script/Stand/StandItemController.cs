@@ -14,6 +14,16 @@ public class StandItemController : MonoBehaviour, IItemController
     {
         this.stackData = stackData;
         _standPlaceController = GetComponent<IItemPlaceController>();
+        _standPlaceController.ReSize();
+        LoadData();
+    }
+
+    private void LoadData()
+    {
+        foreach (var itemType in stackData.ProductTypes)
+        {
+            _standPlaceController.CreateObject();
+        }
     }
 
     public ItemType GetItemType()

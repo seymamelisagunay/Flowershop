@@ -1,3 +1,4 @@
+using _Game.Script;
 using _Game.Script.Controllers;
 using _Game.Script.Manager;
 using NaughtyAttributes;
@@ -15,9 +16,11 @@ public class SlotController : MonoBehaviour
     [HideInInspector] public SlotHud slotHud;
     public Transform hudPoint;
     public IItemController activeItemController;
+    [ReadOnly] public CameraFocus cameraFocus;
 
     public void Init()
     {
+        cameraFocus = GetComponent<CameraFocus>();
         GetSaveData();
         CreateHud();
         OpenSlot();
@@ -39,6 +42,13 @@ public class SlotController : MonoBehaviour
                     cloneFarmItemController.name += slot.Id;
                     break;
                 case SlotType.Factory:
+                    Debug.Log("Factory");
+                    var factory = slot.itemControllerPrefab.GetComponent<FactoryController>();
+                    var cloneFactory = Instantiate(factory, transform);
+                    //Clone Factory Burada Atanması gerek Elle yapılaacak
+                    cloneFactory.Init(this);
+                    activeItemController = cloneFactory.itemController;
+                    cloneFactory.name += slot.Id;
                     break;
                 case SlotType.Stand:
                     GameManager.instance.isClientCreate.Value = true;
@@ -64,6 +74,7 @@ public class SlotController : MonoBehaviour
 
     public void OpenEmpty()
     {
+        cameraFocus.Focus();
         var emptySlot = Instantiate(slot.slotEmptyPrefab, transform);
         emptySlot.GetComponent<ISlotController>().Init(this);
         slot.emptyData.OnChangeVariable.AddListener(SaveSlotEmptyData);

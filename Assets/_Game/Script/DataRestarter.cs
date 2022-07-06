@@ -29,8 +29,6 @@ public class DataRestarter : ScriptableObject
     [BoxGroup("Mini Settings")] public IntVariable currentSlotOrderCount;
     [BoxGroup("Mini Settings")] public bool isCreateClientDefault;
     [BoxGroup("Mini Settings")] public BoolVariable isCreateClient;
-    [BoxGroup("Mini Settings")] public int maxClientCountDefault;
-    [BoxGroup("Mini Settings")] public IntVariable maxClientCount;
     [BoxGroup("Mini Settings")] public int moneyVariableDefault;
     [BoxGroup("Mini Settings")] public IntVariable moneyVariable;
 
@@ -49,7 +47,6 @@ public class DataRestarter : ScriptableObject
         cashDeskMoneyCount.Value = cashDeskMoneyCountDefault;
         currentSlotOrderCount.Value = currentSlotOrderCountDefault;
         isCreateClient.Value = isCreateClientDefault;
-        maxClientCount.Value = maxClientCountDefault;
         moneyVariable.Value = moneyVariableDefault;
         PlayerPrefs.DeleteAll();
     }
