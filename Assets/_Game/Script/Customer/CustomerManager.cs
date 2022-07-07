@@ -53,7 +53,6 @@ public class CustomerManager : MonoBehaviour
     {
         var randomShoppingCardCount = Random.Range(1, 5);
         var shoppingCard = new StackData();
-        Debug.LogError(itemTypes.value.Count + "Count !");
         for (var i = 0; i < randomShoppingCardCount; i++)
         {
             var randomItemType = itemTypes.value.RandomSelectObject();

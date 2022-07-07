@@ -61,6 +61,10 @@ public class SlotController : MonoBehaviour
                 cloneCashDesk.name += slot.Id;
                 activeItemController = cloneCashDesk;
                 break;
+            case SlotType.Shelver://Shelver Bölümü oluyor Burası Shelver Üretiliyor ve devam ediyor
+                Debug.Log("Burada Her İçin Kim varsa Onu üretiyoruz ");
+                // Botu yazıyoruz şuan 
+                break;
             default:
                 return;
         }

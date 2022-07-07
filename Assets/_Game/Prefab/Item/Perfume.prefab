@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 2
-  price: 10
+  price: 20
   moveDuration: {fileID: 11400000, guid: ff2227076e2c084429de3373e67660e1, type: 2}
   curve:
     serializedVersion: 2

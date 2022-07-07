@@ -19,6 +19,7 @@ public class Slot : ScriptableObject
     public string Id;
 
     public ItemType itemType;
+
     /// <summary>
     /// Slotun ne olduğunu belirtiğimiz yer oluyor .
     /// </summary>
@@ -73,7 +74,8 @@ public enum SlotType
     Factory = 1,
     Stand = 2,
     CashDesk = 3,
-    Money = 4
+    Money = 4,
+    Shelver = 5
 }
 
 public enum ItemType

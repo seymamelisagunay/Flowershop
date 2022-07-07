@@ -25,7 +25,6 @@ public class CustomerController : MonoBehaviour
     /// Satın Alınacaklar
     /// </summary>
     public StackData shoppingData;
-
     [ReadOnly] public TradeWaitingPoint waitingPoint;
     private CustomerManager _customerManager;
     private IInput _input;
