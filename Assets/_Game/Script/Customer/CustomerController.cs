@@ -25,6 +25,7 @@ public class CustomerController : MonoBehaviour
     /// Satın Alınacaklar
     /// </summary>
     public StackData shoppingData;
+
     [ReadOnly] public TradeWaitingPoint waitingPoint;
     private CustomerManager _customerManager;
     private IInput _input;
@@ -97,7 +98,7 @@ public class CustomerController : MonoBehaviour
     /// <returns></returns>
     private IEnumerator SellEffect(Action callback)
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         Debug.Log("Alışveriş Arabasını yok et !");
         shoppingCar.SetActive(false);
         shoppingBox.gameObject.SetActive(true);
@@ -109,7 +110,7 @@ public class CustomerController : MonoBehaviour
         callback.Invoke();
         yield return MoveToPoint(_path);
         _customerManager.RemoveCustomer(this);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         _customerManager.firstCustomer++;
         _customerManager.SaveFirstCustomerCount();
         Destroy(gameObject);
@@ -160,6 +161,7 @@ public class CustomerController : MonoBehaviour
             yield return new WaitForSeconds(1);
             yield return PickItem();
         }
+
         // TODO KAsada gidecek yer bulunmayınca Patlıyor bakılacak
         // Burada Döngü bitiyor ve next step olan Kasaya gitmeye başlıyoruz
         _customerManager.cashTradeController.SetCustomerQueue(this);
@@ -186,6 +188,7 @@ public class CustomerController : MonoBehaviour
                     _pathIndex++;
             }
         }
+
         _input.ClearDirection();
     }
 }

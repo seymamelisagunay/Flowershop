@@ -19,7 +19,7 @@ namespace _Game.Script.Manager
         public BoolVariable isClientCreate;
         public CustomCameraFollow customCamera;
         public ItemTypeList ItemTypeList;
-
+        public ItemList itemList;
         public NavMeshUtility NavMesh;
 
         private void Awake()

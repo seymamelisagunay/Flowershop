@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61e0c5323b549da45b8c4cf9aa770dd0, type: 3}
   m_Name: ItemMoveDuration
   m_EditorClassIdentifier: 
-  value: 1
+  value: 0.15

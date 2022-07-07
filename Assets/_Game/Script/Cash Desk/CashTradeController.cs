@@ -12,6 +12,7 @@ public class CashTradeController : MonoBehaviour
 {
     public string playerPrefsKey = "CashTradeDesk";
     [Tag] public string playerTag;
+    public float customerTradeTime;
     [ReadOnly] public List<CustomerController> customerQueue = new List<CustomerController>();
     public List<TradeWaitingPoint> customerQueueTargetPoints = new List<TradeWaitingPoint>();
     [HideInInspector] public GridSlotController gridSlotController;

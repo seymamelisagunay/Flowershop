@@ -15,22 +15,23 @@ public class Item : MonoBehaviour
 
     public Item Play(Vector3 endPoint, bool isDelete = false)
     {
-        DOVirtual.Float(0, 1, moveDuration.Value, (value) =>
-        {
-            transform.localPosition = Vector3.Lerp(transform.localPosition,
-                endPoint + (Vector3.up * curve.Evaluate(value)), value);
-        }).SetEase(Ease.Linear).SetLink(gameObject).OnComplete(() =>
+        transform.DOLocalJump(endPoint, 0.5f, 1, moveDuration.Value).OnComplete(() =>
         {
             onComplete?.Invoke();
             if (isDelete)
                 Destroy(gameObject);
         });
-        // transform.DOLocalMove(endPoint,moveDuration.Value).SetEase(Ease.Linear).SetLink(gameObject).OnComplete(() =>
+        // DOVirtual.Float(0, 1, moveDuration.Value, (value) =>
+        // {
+        //     transform.localPosition = Vector3.Lerp(transform.localPosition,
+        //         endPoint + (Vector3.up * curve.Evaluate(value)), value);
+        // }).SetEase(Ease.Linear).SetLink(gameObject).OnComplete(() =>
         // {
         //     onComplete?.Invoke();
         //     if (isDelete)
         //         Destroy(gameObject);
         // });
+
         return this;
     }
 

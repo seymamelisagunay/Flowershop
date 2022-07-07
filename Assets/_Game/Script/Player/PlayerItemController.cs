@@ -34,17 +34,19 @@ public class PlayerItemController : MonoBehaviour, IItemController
     {
         if (stackData.ProductTypes.Count > 0)
         {
-            if (itemType != stackData.ProductTypes[0])
-            {
+            var item = stackData.ProductTypes.Find(x => x == itemType);
+            if (item == ItemType.none)
                 return (ItemType.Rose, null, false);
+            var gridSlot = _gridSlotController.GetSlotObject(itemType);
+            Item resultData = null;
+            if (gridSlot != null)
+            {
+                gridSlot.isFull = false;
+                resultData = gridSlot.slotInObject;
+                gridSlot.slotInObject = null;
             }
-
-            var gridSlot = _gridSlotController.GetSlotObject(stackData.ProductTypes[0]);
-            gridSlot.isFull = false;
-            var resultData = gridSlot.slotInObject;
-            gridSlot.slotInObject = null;
-            stackData.RemoveProduct(0);
-            return (resultData.itemType, resultData, true);
+            stackData.RemoveProduct(itemType);
+            return (item, resultData, true);
         }
 
         return (ItemType.Rose, null, false);

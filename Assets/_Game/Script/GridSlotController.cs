@@ -72,10 +72,10 @@ public class GridSlotController : MonoBehaviour, IItemPlaceController
     {
         var clone = Instantiate(sampleObject, parent);
         clone.gameObject.SetActive(true);
-        var position = GetPosition();
-        clone.transform.localPosition = position.slotPosition;
-        position.isFull = true;
-        position.slotInObject = clone;
+        var gridSlot = GetPosition();
+        clone.transform.localPosition = gridSlot.slotPosition;
+        gridSlot.isFull = true;
+        gridSlot.slotInObject = clone;
     }
 
     /// <summary>
@@ -96,12 +96,14 @@ public class GridSlotController : MonoBehaviour, IItemPlaceController
         currentIndex = 0;
         slotList.Clear();
     }
+
     public void ClearAll()
     {
         foreach (var grid in slotList)
         {
             DestroyImmediate(grid.gameObject);
         }
+
         currentIndex = 0;
         slotList.Clear();
     }

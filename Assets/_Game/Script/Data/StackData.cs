@@ -52,7 +52,11 @@ namespace _Game.Script.Controllers
             _productTypes.Add(itemType);
             OnChangeVariable?.Invoke(this);
         }
-
+        public void RemoveProduct(ItemType type)
+        {
+            _productTypes.Remove(type);
+            OnChangeVariable?.Invoke(this);
+        }
         public void RemoveProduct(int index)
         {
             _productTypes.RemoveAt(index);

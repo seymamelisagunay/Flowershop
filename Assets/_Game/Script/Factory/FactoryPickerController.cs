@@ -1,5 +1,6 @@
 using System.Collections;
 using _Game.Script.Controllers;
+using _Game.Script.Manager;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -17,6 +18,7 @@ public class FactoryPickerController : MonoBehaviour, IPickerController
     {
         _slotController = slotController;
     }
+
     private void Start()
     {
         gridSlotController.ReSize();
@@ -51,6 +53,11 @@ public class FactoryPickerController : MonoBehaviour, IPickerController
                 var (productType, item, isItemFinish) = playerItemController.GetValue(pickerItemType);
                 if (!isItemFinish) continue;
                 var gridSlot = gridSlotController.GetPosition();
+                if (item == null)
+                {
+                    var prefab = GameManager.instance.itemList.GetItemPrefab(productType);
+                    item = Instantiate(prefab, gridSlot.transform);
+                }
                 gridSlot.isFull = true;
                 gridSlot.slotInObject = item;
                 item.transform.parent = gridSlot.transform;

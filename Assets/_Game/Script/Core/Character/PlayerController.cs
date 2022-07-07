@@ -5,6 +5,7 @@ using _Game.Script.Manager;
 using DG.Tweening;
 using ECM.Controllers;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 namespace _Game.Script.Character
 {
@@ -16,10 +17,15 @@ namespace _Game.Script.Character
         public Action OnSpawn { get; set; }
         private Transform _spawnPoint;
         public MovementController characterController { get; private set; }
+        public Rig rig;
+        private PlayerItemController _playerItemController;
+        private Tweener _virtualTweener;
+        private bool _isRigActive;
 
         private void Awake()
         {
             characterController = GetComponent<MovementController>();
+            _playerItemController = GetComponent<PlayerItemController>();
         }
 
         public void Init(Transform spawnPoint)
@@ -32,6 +38,32 @@ namespace _Game.Script.Character
 
         private void OnDestroy()
         {
+        }
+
+        private void Update()
+        {
+            if (playerSettings.isBot) return;
+
+            if (_playerItemController.stackData.ProductTypes.Count > 0)
+            {
+                if (!_isRigActive)
+                {
+                    _virtualTweener?.Kill();
+                    _virtualTweener = DOVirtual.Float(0f, 1f, 0.5f, (value) => { rig.weight = value; });
+                }
+
+                _isRigActive = true;
+            }
+            else
+            {
+                if (_isRigActive)
+                {
+                    _virtualTweener?.Kill();
+                    _virtualTweener = DOVirtual.Float(1f, 0f, 0.5f, (value) => { rig.weight = value; });
+                }
+
+                _isRigActive = false;
+            }
         }
 
         /// <summary>

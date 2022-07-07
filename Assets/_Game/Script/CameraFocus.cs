@@ -7,6 +7,7 @@ namespace _Game.Script
 {
     public class CameraFocus : MonoBehaviour
     {
+        public bool isActive;
         public float getBackDuration;
         public float duration;
         public float zoomInOut;
@@ -16,6 +17,8 @@ namespace _Game.Script
         [Button()]
         public void Focus()
         {
+            if (!isActive) return;
+           
             var customCamera = GameManager.instance.customCamera;
             customCamera.StopFollow();
             var customTransform = customCamera.transform;

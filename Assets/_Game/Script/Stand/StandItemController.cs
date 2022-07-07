@@ -39,6 +39,7 @@ public class StandItemController : MonoBehaviour, IItemController
     public (ItemType, Item, bool) GetValue(ItemType itemType)
     {
         if (stackData.ProductTypes.Count <= 0) return (ItemType.none, null, false);
+        
         var gridSlot = _standPlaceController.GetSlotObject();
         gridSlot.isFull = false;
         var resultData = gridSlot.slotInObject;
