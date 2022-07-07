@@ -16,5 +16,12 @@ MonoBehaviour:
   firstCustomer: 20
   customersPrefab:
   - {fileID: 5655030497427552283, guid: 33f59e903ba47354681eb250d9ed8fc9, type: 3}
+  - {fileID: 5655030497427552283, guid: a5b45ae07bd090947b270f4fef571044, type: 3}
+  - {fileID: 5655030497427552283, guid: fd32cf80dab1d3444a9afc76d239a862, type: 3}
+  - {fileID: 5655030497427552283, guid: 0be0956520d278d439543c276ec41968, type: 3}
+  - {fileID: 5655030497427552283, guid: 96a7282698dfbe94bbf527691d6fb3c5, type: 3}
+  - {fileID: 5655030497427552283, guid: add98c6d7a895824f98f786e6bb3d36a, type: 3}
+  - {fileID: 5655030497427552283, guid: eef1f5dd497a9de43b77686d5aadacf4, type: 3}
+  - {fileID: 5655030497427552283, guid: c2cef0028b776b34383b67f7468d1db6, type: 3}
   clientMaxTradeCount: 5
   botCreateDuration: 10

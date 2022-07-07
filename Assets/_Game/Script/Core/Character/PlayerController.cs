@@ -26,6 +26,8 @@ namespace _Game.Script.Character
         {
             characterController = GetComponent<MovementController>();
             _playerItemController = GetComponent<PlayerItemController>();
+            if (playerSettings.isBot) return;
+            rig.weight = 0;
         }
 
         public void Init(Transform spawnPoint)
@@ -43,7 +45,11 @@ namespace _Game.Script.Character
         private void Update()
         {
             if (playerSettings.isBot) return;
+            CharacterMoveEffect();
+        }
 
+        private void CharacterMoveEffect()
+        {
             if (_playerItemController.stackData.ProductTypes.Count > 0)
             {
                 if (!_isRigActive)

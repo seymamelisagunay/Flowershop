@@ -89,7 +89,9 @@ public class CashTradeController : MonoBehaviour
     /// </summary>
     private void NextClientCallback()
     {
-        customerQueue.RemoveAt(0);
+        if (customerQueue.Count >0)
+            customerQueue.RemoveAt(0);
+
         var moneyObjectCount = currentCurrency / 10;
         tradeMoneyCount.Value += currentCurrency;
 

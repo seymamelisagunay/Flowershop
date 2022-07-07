@@ -98,7 +98,7 @@ public class CustomerController : MonoBehaviour
     /// <returns></returns>
     private IEnumerator SellEffect(Action callback)
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.75f);
         Debug.Log("Alışveriş Arabasını yok et !");
         shoppingCar.SetActive(false);
         shoppingBox.gameObject.SetActive(true);
@@ -110,7 +110,7 @@ public class CustomerController : MonoBehaviour
         callback.Invoke();
         yield return MoveToPoint(_path);
         _customerManager.RemoveCustomer(this);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.75f);
         _customerManager.firstCustomer++;
         _customerManager.SaveFirstCustomerCount();
         Destroy(gameObject);

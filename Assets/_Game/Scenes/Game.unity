@@ -4621,7 +4621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: c3a5d34e40600784f87ecfcd632ed50a, type: 2}
-  maxClientCount: 4
+  maxClientCount: 5
   firstCustomer: 0
   cashTradeController: {fileID: 0}
   clientList: []
@@ -4629,6 +4629,7 @@ MonoBehaviour:
   spawnPoint:
   - {fileID: 1796056364}
   isClientCreate: {fileID: 11400000, guid: adc741b91321f874ca3dbed4ac23318b, type: 2}
+  selectItem: 
 --- !u!4 &1816569678
 Transform:
   m_ObjectHideFlags: 0

@@ -17347,11 +17347,7 @@ MonoBehaviour:
   lengthSize: 1
   heightSize: 1
   prefab: {fileID: 5727884131382816522, guid: 89b1f86aeee5f0342aa792b76a18d97c, type: 3}
-  slotList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  slotList: []
   currentIndex: 0
   parent: {fileID: 7850826689894270223}
   sampleObject: {fileID: 4365423710062093608, guid: 3b302aff14566754f9ff1909c60d39e1,
@@ -17383,8 +17379,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.534083, y: 1, z: 2.7623096}
-  m_Center: {x: 0.16637921, y: 0, z: 2.436622}
+  m_Size: {x: 3.534083, y: 1, z: 2.734749}
+  m_Center: {x: 0.16637921, y: 0, z: 1.2027553}
 --- !u!114 &6082667424561663018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17520,8 +17516,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.7529984, y: 1, z: 3.4945953}
-  m_Center: {x: 0.026524723, y: 0, z: 0.06653297}
+  m_Size: {x: 2.7176642, y: 0.8725003, z: 3.4945953}
+  m_Center: {x: 0.53142357, y: -0.49648196, z: 0.06653304}
 --- !u!1 &6598033951365432988
 GameObject:
   m_ObjectHideFlags: 0

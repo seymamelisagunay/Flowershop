@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ public class CustomerManager : MonoBehaviour
     public ItemTypeList itemTypes;
     public List<AreaPositionSelector> spawnPoint;
     public BoolVariable isClientCreate;
+    public List<ItemType> selectItem;
 
     private void Start()
     {
@@ -55,10 +57,11 @@ public class CustomerManager : MonoBehaviour
         var shoppingCard = new StackData();
         for (var i = 0; i < randomShoppingCardCount; i++)
         {
-            var randomItemType = itemTypes.value.RandomSelectObject();
+            var randomItemType = SelectRandomItemType();
             //Burada Random Verilecek aktif olan Ürünlere göre ;
             shoppingCard.ProductTypes.Add(randomItemType);
         }
+
         shoppingCard.ProductTypes.Sort();
 
         var selectCustomerPrefab = settings.customersPrefab.RandomSelectObject();
@@ -66,6 +69,34 @@ public class CustomerManager : MonoBehaviour
         var customerFirstPosition = spawnPoint.RandomSelectObject().GetPosition();
         cloneCustomer.Init(this, settings.clientMaxTradeCount, shoppingCard, customerFirstPosition);
         clientList.Add(cloneCustomer);
+    }
+
+    /// <summary>
+    /// Koşullara göre Random item Type Döndürecek
+    /// </summary>
+    private ItemType SelectRandomItemType()
+    {
+        var randomItemType = itemTypes.value.RandomSelectObject();
+        switch (randomItemType)
+        {
+            case ItemType.Perfume:
+                // Factory Üretildimi diye bakacağız 
+                var factorys = SlotManager.instance.GetSlotController(SlotType.Factory);
+                var factory = factorys.Find(x => x.slot.itemType == randomItemType);
+                if (factory == null)
+                {
+                    var itemType = selectItem.Find(x => x == randomItemType);
+                    if (itemType == randomItemType)
+                        randomItemType = ItemType.Rose;
+                    else
+                        selectItem.Add(randomItemType);
+                }
+                break;
+            case ItemType.Candy:
+                break;
+        }
+
+        return randomItemType;
     }
 
     public void RemoveCustomer(CustomerController customer)
