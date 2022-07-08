@@ -4142,6 +4142,9 @@ MonoBehaviour:
   - isNewSlotOpen: 1
     orderCount: 6
     slotController: {fileID: 1430144984}
+  - isNewSlotOpen: 1
+    orderCount: 7
+    slotController: {fileID: 1698955654}
   isClientCreate: {fileID: 11400000, guid: adc741b91321f874ca3dbed4ac23318b, type: 2}
   slots: []
 --- !u!4 &1524180895
@@ -4287,7 +4290,7 @@ GameObject:
   - component: {fileID: 1698955654}
   - component: {fileID: 1698955653}
   m_Layer: 0
-  m_Name: HrSHELVER
+  m_Name: HrShelver
   m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
