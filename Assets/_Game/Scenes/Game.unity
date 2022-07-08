@@ -259,6 +259,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69667480}
   m_CullTransparentMesh: 1
+--- !u!114 &93761462 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 93761462, guid: 4a35d24c58b73e145affc31c75706534,
+    type: 3}
+  m_PrefabInstance: {fileID: 1796056363}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d88f3229a818eb49938e64f2be887d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &110499943
 GameObject:
   m_ObjectHideFlags: 0
@@ -2961,6 +2973,14 @@ MonoBehaviour:
   customCamera: {fileID: 426928133}
   ItemTypeList: {fileID: 11400000, guid: d85f60e775ece8543bb1d9eb64a3f78f, type: 2}
   itemList: {fileID: 11400000, guid: bd3b93f6936874e449030d6c3429a49c, type: 2}
+  itemIcons:
+  - {fileID: 11400000, guid: fbd74eadd2fabe64b8933b7c5c6faa1c, type: 2}
+  - {fileID: 11400000, guid: 19a7c3eb453ed1c43801ea8e05249d25, type: 2}
+  - {fileID: 11400000, guid: f8d3d7dda22eb9b41a484172daeab12f, type: 2}
+  emojiIcons:
+  - {fileID: 11400000, guid: be11a9d192b1a3745a69dd55bd0b104c, type: 2}
+  - {fileID: 11400000, guid: 85eba4f88d0319c48b80643e92ce4816, type: 2}
+  cashDeskIcon: {fileID: 11400000, guid: 709a50815cb276c43bc6dccc45ff75fb, type: 2}
 --- !u!4 &954957369
 Transform:
   m_ObjectHideFlags: 0
@@ -4575,6 +4595,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5424444825934019080, guid: 4a35d24c58b73e145affc31c75706534,
+        type: 3}
+      propertyPath: detectTag.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424444825934019080, guid: 4a35d24c58b73e145affc31c75706534,
+        type: 3}
+      propertyPath: detectTag.Array.data[0]
+      value: Customer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424444825934019080, guid: 4a35d24c58b73e145affc31c75706534,
+        type: 3}
+      propertyPath: detectTag.Array.data[1]
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 8135813355815466517, guid: 4a35d24c58b73e145affc31c75706534,
         type: 3}
       propertyPath: m_Name
@@ -4630,6 +4665,7 @@ MonoBehaviour:
   clientList: []
   itemTypes: {fileID: 11400000, guid: d85f60e775ece8543bb1d9eb64a3f78f, type: 2}
   spawnPoint:
+  - {fileID: 93761462}
   - {fileID: 1796056364}
   isClientCreate: {fileID: 11400000, guid: adc741b91321f874ca3dbed4ac23318b, type: 2}
   selectItem: 

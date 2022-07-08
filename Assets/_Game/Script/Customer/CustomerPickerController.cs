@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using _Game.Script.Controllers;
 using _Game.Script.Core.Character;
+using _Game.Script.Manager;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ public class CustomerPickerController : MonoBehaviour, IPickerController
     public StackData shoppingData;
     private GridSlotController _gridSlotController;
     private CustomerItemController _customerItemController;
+    [HideInInspector] public UIEmojiController emojiController;
 
     public void Init(StackData customerTradeData, StackData shoppingData, PlayerSettings customerSettings)
     {
@@ -22,7 +24,27 @@ public class CustomerPickerController : MonoBehaviour, IPickerController
         this.shoppingData = shoppingData;
         _gridSlotController = GetComponentInChildren<GridSlotController>();
         _gridSlotController.ReSize();
+        emojiController = GetComponentInChildren<UIEmojiController>();
+        EmojiInit();
     }
+
+    private void EmojiInit()
+    {
+        var firstItemList = shoppingData.ProductTypes.FindAll(x => x == shoppingData.ProductTypes[0]);
+        var itemListText = "0 / " + firstItemList.Count;
+        emojiController.SetItemText(itemListText);
+        var itemSprite = GameManager.instance.itemIcons.Find(x => x.id == (int) shoppingData.ProductTypes[0]);
+        emojiController.SetItemIcon(itemSprite.Value);
+    }
+
+    private void SetItemUI(int maxItemCount, int itemCount, ItemType itemType)
+    {
+        var itemListText = itemCount + " / " + maxItemCount;
+        emojiController.SetItemText(itemListText);
+        var itemSprite = GameManager.instance.itemIcons.Find(x => x.id == (int) itemType);
+        emojiController.SetItemIcon(itemSprite.Value);
+    }
+
 
     public void OnTriggerEnter(Collider other)
     {
@@ -34,9 +56,12 @@ public class CustomerPickerController : MonoBehaviour, IPickerController
 
     public IEnumerator GetItem(IItemController itemController)
     {
+        // Buraya kuracağız Item UI sistemi
         var slotItemController = itemController;
-        var pickerItemList = shoppingData.ProductTypes.FindAll(x => x == slotItemController.GetItemType());
+        var itemType = slotItemController.GetItemType();
+        var pickerItemList = shoppingData.ProductTypes.FindAll(x => x == itemType);
         var pickerItemCount = 0;
+        SetItemUI(pickerItemList.Count,pickerItemCount ,itemType);
         yield return new WaitForSeconds(customerSettings.firstTriggerCooldown);
         while (pickerItemCount <= pickerItemList.Count - 1)
         {
@@ -61,6 +86,7 @@ public class CustomerPickerController : MonoBehaviour, IPickerController
                 gridSlot.slotInObject = item;
                 pickerItemCount++;
                 item.Play(Vector3.zero);
+                SetItemUI(pickerItemList.Count,pickerItemCount ,itemType);
             }
         }
     }

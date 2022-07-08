@@ -87,7 +87,6 @@ public class PlayerPickerController : MonoBehaviour, IPickerController
                 //Toplama yapılacak 
                 var (productType, item, isItemFinish) = slotItemController.GetValue();
                 if (!isItemFinish) continue;
-                Debug.Log("Product Count : " + _playerItemController.stackData.ProductTypes.Count);
                 if (item == null)
                 {
                     Debug.Log("item + null");

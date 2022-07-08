@@ -66,6 +66,14 @@ public class Slot : ScriptableObject
         emptyData.OnValidate();
         stackData.OnValidate();
     }
+
+    [Button]
+    public void RestartData()
+    {
+        stackData.ProductTypes.Clear();
+        emptyData.IsOpen = false;
+        emptyData.CurrenctPrice = 0;
+    }
 }
 
 public enum SlotType
@@ -80,9 +88,9 @@ public enum SlotType
 
 public enum ItemType
 {
-    none,
-    Rose,
-    Perfume,
-    Candy,
-    Money
+    none = 0,
+    Rose = 1,
+    Water = 2,
+    Delight = 3,
+    Money = 4
 }

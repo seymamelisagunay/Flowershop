@@ -63,7 +63,6 @@ public class CustomerManager : MonoBehaviour
         }
 
         shoppingCard.ProductTypes.Sort();
-
         var selectCustomerPrefab = settings.customersPrefab.RandomSelectObject();
         var cloneCustomer = Instantiate(selectCustomerPrefab);
         var customerFirstPosition = spawnPoint.RandomSelectObject().GetPosition();
@@ -79,7 +78,7 @@ public class CustomerManager : MonoBehaviour
         var randomItemType = itemTypes.value.RandomSelectObject();
         switch (randomItemType)
         {
-            case ItemType.Perfume:
+            case ItemType.Water:
                 // Factory Üretildimi diye bakacağız 
                 var factorys = SlotManager.instance.GetSlotController(SlotType.Factory);
                 var factory = factorys.Find(x => x.slot.itemType == randomItemType);
@@ -92,7 +91,7 @@ public class CustomerManager : MonoBehaviour
                         selectItem.Add(randomItemType);
                 }
                 break;
-            case ItemType.Candy:
+            case ItemType.Delight:
                 break;
         }
 

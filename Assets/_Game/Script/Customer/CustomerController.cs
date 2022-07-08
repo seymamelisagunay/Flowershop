@@ -39,6 +39,8 @@ public class CustomerController : MonoBehaviour
     public Item shoppingBox;
     public GameObject shoppingCar;
     private Vector3 _firstPosition;
+    [HideInInspector] public UIEmojiController emojiController;
+
 
     /// <summary>
     /// 
@@ -58,10 +60,12 @@ public class CustomerController : MonoBehaviour
         _customerPickerController.Init(customerTradeData, this.shoppingData, customerSettings);
         _customerItemController.Init(customerTradeData);
         _customerItemController.shoppingData = this.shoppingData;
+        emojiController = GetComponentInChildren<UIEmojiController>();
         _input = GetComponent<IInput>();
         _input.StartListen();
         StartCoroutine(CustomerShoppingProgress());
     }
+
 
     /// <summary>
     /// Burada Bütün satın almalarımız bitti ve bekliyoruz oluyor 
@@ -69,6 +73,7 @@ public class CustomerController : MonoBehaviour
     /// <param name="point"></param>
     public void SetTradePoint(TradeWaitingPoint point)
     {
+        emojiController.ShowCashDeskIcon();
         point.isFull = true;
         _path = new NavMeshPath();
         _pathIndex = 1;
@@ -103,6 +108,8 @@ public class CustomerController : MonoBehaviour
         shoppingCar.SetActive(false);
         shoppingBox.gameObject.SetActive(true);
         shoppingBox.PlayScaleEffect(0.5f);
+        emojiController.ShowSmile();
+
         // Client Çıktığı noktaya doğru gidiyor 
         _path = new NavMeshPath();
         _pathIndex = 1;

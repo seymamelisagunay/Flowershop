@@ -1,7 +1,6 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using _Game.Script.Character;
+using Assets._Game.Script.Variable;
 using Sources.Utility;
 using UnityEngine;
 
@@ -21,6 +20,9 @@ namespace _Game.Script.Manager
         public ItemTypeList ItemTypeList;
         public ItemList itemList;
         public NavMeshUtility NavMesh;
+        public List<SpriteVariable> itemIcons;
+        public List<SpriteVariable> emojiIcons;
+        public SpriteVariable cashDeskIcon;
 
         private void Awake()
         {
