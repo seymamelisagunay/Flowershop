@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Item : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class Item : MonoBehaviour
     public FloatVariable moveDuration;
     public AnimationCurve curve;
 
-    private Action onComplete;
+    public UnityEvent onComplete;
 
     public Item Play(Vector3 endPoint, bool isDelete = false)
     {
@@ -50,9 +51,9 @@ public class Item : MonoBehaviour
         return this;
     }
 
-    public void AddOnComplete(Action callback)
+    public void AddOnComplete(UnityAction callback)
     {
-        onComplete = callback;
+        onComplete.AddListener(callback);
     }
 
     public void PlayScaleEffect(float duration, bool isDelete = false)
