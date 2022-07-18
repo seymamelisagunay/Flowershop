@@ -249,7 +249,7 @@ MonoBehaviour:
   _maxMidAirJumps: 1
   _useRootMotion: 0
   _rootMotionRotation: 0
-  playerSettings: {fileID: 11400000, guid: da46de04c7e93f8468737c1425843a78, type: 2}
+  playerSettings: {fileID: 11400000, guid: 7fdd1d2bb3fab1e4dac7b7add2a738b6, type: 2}
   inMotion: 0
 --- !u!114 &3370428371220194160
 MonoBehaviour:

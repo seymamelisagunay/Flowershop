@@ -919,6 +919,7 @@ GameObject:
   - component: {fileID: 8750340568545245053}
   - component: {fileID: 2054121850361548922}
   - component: {fileID: 2476244727625407461}
+  - component: {fileID: 3965329277356146316}
   m_Layer: 0
   m_Name: desk
   m_TagString: Untagged
@@ -1029,6 +1030,18 @@ MonoBehaviour:
   parent: {fileID: 7850826689894270223}
   sampleObject: {fileID: 4365423710062093608, guid: e26aed5e0bbee9748b73c434729fcc27,
     type: 3}
+--- !u!114 &3965329277356146316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7235026959038949797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e038bf700cfa444fb16c6ef963be9f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8073477447242715241
 GameObject:
   m_ObjectHideFlags: 0
