@@ -66,10 +66,21 @@ public class RoseStandPickerController : MonoBehaviour, IPickerController
                 gridSlot.slotInObject = item;
                 item.transform.parent = gridSlot.transform;
                 _itemController.SetValue(productType);
+                item.AddOnComplete(() =>
+                {
+                    item.GetComponent<ItemChanger>().openRoseBasket();
+                });
                 item.Play(Vector3.zero);
+                
             }
             else
                 yield break;
         }
     }
+
+    private void ChangeItem()
+    {
+        
+    }
+    
 }
