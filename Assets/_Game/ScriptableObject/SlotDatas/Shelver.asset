@@ -19,16 +19,16 @@ MonoBehaviour:
   slotType: 5
   slotEmptyPrefab: {fileID: 2064649203199760101, guid: 2796bf85067029244b0236bd3d257ab5,
     type: 3}
-  itemControllerPrefab: {fileID: 7551332985858698371, guid: 9213cc718ec19044c9a82d85d672ab68,
+  itemControllerPrefab: {fileID: 7551332985858698371, guid: 6fe7fb66383bb234d92bd6be5aa1aced,
     type: 3}
   slotHudPrefab: {fileID: 4402175197117052178, guid: ac4158c95d37b404cb017104ebde6e42,
     type: 3}
   firstTriggerCooldown: 1
   triggerCooldown: 0.05
   emptyData:
-    _isOpen: 0
+    _isOpen: 1
     _price: 250
-    _currenctPrice: 0
+    _currenctPrice: 250
     OnChangeVariable:
       m_PersistentCalls:
         m_Calls: []

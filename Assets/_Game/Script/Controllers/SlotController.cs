@@ -61,15 +61,15 @@ public class SlotController : MonoBehaviour
                 cloneCashDesk.name += slot.Id;
                 activeItemController = cloneCashDesk;
                 break;
-            case SlotType.Shelver://Shelver Bölümü oluyor Burası Shelver Üretiliyor ve devam ediyor
-                Debug.Log("Burada Her İçin Kim varsa Onu üretiyoruz ");
-                // Botu yazıyoruz şuan 
+            case SlotType.Shelver: //Shelver Bölümü oluyor Burası Shelver Üretiliyor ve devam ediyor
+                var shelverController = slot.itemControllerPrefab.GetComponent<ShelverHrController>();
+                shelverController.Init();
                 break;
             default:
                 return;
         }
 
-        activeItemController.Init(slot.stackData);
+        activeItemController?.Init(slot.stackData);
         slot.stackData.OnChangeVariable.AddListener(SaveSlotStackData);
     }
 
