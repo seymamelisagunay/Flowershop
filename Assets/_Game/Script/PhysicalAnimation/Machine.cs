@@ -12,12 +12,12 @@ public class Machine : MonoBehaviour
     public int vibrato;
 
     [Button()]
-    public void Test()
+    public virtual void Test()
     {
         Play(2,strength, vibrato);
     }
 
-    public void Play(float duration, float _strength, int _vibrato)
+    public virtual void Play(float duration, float _strength, int _vibrato)
     {
         transform.DOShakeScale(duration, _strength, _vibrato, 3f, false);
     }

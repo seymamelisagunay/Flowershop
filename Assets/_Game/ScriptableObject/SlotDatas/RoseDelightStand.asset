@@ -16,10 +16,10 @@ MonoBehaviour:
   slotName: Delight Perfume Factory
   Id: DelightPerfumeFactory
   itemType: 3
-  slotType: 1
+  slotType: 2
   slotEmptyPrefab: {fileID: 2064649203199760101, guid: 2796bf85067029244b0236bd3d257ab5,
     type: 3}
-  itemControllerPrefab: {fileID: 5255380998708170932, guid: 0e9b6ac32cc308e41ae3ceff37281ab7,
+  itemControllerPrefab: {fileID: 7551332985858698371, guid: f16d33dfb40d67048b3ab7ed2bd7f7a5,
     type: 3}
   slotHudPrefab: {fileID: 4402175197117052178, guid: ac4158c95d37b404cb017104ebde6e42,
     type: 3}

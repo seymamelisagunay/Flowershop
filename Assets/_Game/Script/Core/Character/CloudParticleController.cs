@@ -7,7 +7,6 @@ using NaughtyAttributes;
 public class CloudParticleController : MonoBehaviour
 {
     public ParticleSystem cloud;
-    public bool cloudWork;
 
     private void Awake()
     {
@@ -15,13 +14,13 @@ public class CloudParticleController : MonoBehaviour
     }
 
     [Button()]
-    public void test()
+    public void Play(bool isStart)
     {
-        MakeCloud();
+        MakeCloud(isStart);
     }
-    private void MakeCloud()
+    private void MakeCloud(bool isStart)
     {
-        if (cloudWork)
+        if (isStart)
         {
             cloud.Play();
         }

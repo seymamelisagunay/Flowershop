@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GridSlotController : MonoBehaviour, IItemPlaceController
 {
@@ -73,7 +75,7 @@ public class GridSlotController : MonoBehaviour, IItemPlaceController
         var clone = Instantiate(sampleObject, parent);
         clone.gameObject.SetActive(true);
         var gridSlot = GetPosition();
-        clone.transform.localPosition = gridSlot.slotPosition;
+        clone.Play(gridSlot.slotPosition);
         gridSlot.isFull = true;
         gridSlot.slotInObject = clone;
     }

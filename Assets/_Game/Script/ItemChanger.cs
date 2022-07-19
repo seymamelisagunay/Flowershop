@@ -13,14 +13,14 @@ public class ItemChanger : MonoBehaviour
     public float time;
 
     [Button()]
-    public void openRose()
+    public void OpenRose()
     {
         rose.SetActive(true);
         roseBasket.SetActive(false);
     }
 
     [Button()]
-    public void openRoseBasket()
+    public void OpenRoseBasket()
     {
         roseBasket.transform.localScale = new Vector3(0,0,0);
         roseBasket.SetActive(true);

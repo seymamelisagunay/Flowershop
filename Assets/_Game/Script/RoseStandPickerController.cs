@@ -25,6 +25,12 @@ public class RoseStandPickerController : MonoBehaviour, IPickerController
         _stackData = _slotController.slot.stackData;
         _standPlaceController.Init(itemList, _stackData);
         _itemController = GetComponent<IItemController>();
+        foreach (var gridSlot in _standPlaceController.slotList)
+        {
+            if (!gridSlot.isFull)
+                break;
+            gridSlot.slotInObject.GetComponent<ItemChanger>().OpenRoseBasket();
+        }
     }
 
     public void OnTriggerEnter(Collider other)
@@ -82,7 +88,7 @@ public class RoseStandPickerController : MonoBehaviour, IPickerController
                 gridSlot.slotInObject = item;
                 item.transform.parent = gridSlot.transform;
                 _itemController.SetValue(productType);
-                item.AddOnComplete(() => { item.GetComponent<ItemChanger>().openRoseBasket(); });
+                item.AddOnComplete(() => { item.GetComponent<ItemChanger>().OpenRoseBasket(); });
                 item.Play(Vector3.zero);
             }
             else

@@ -8,7 +8,7 @@ public class StandItemController : MonoBehaviour, IItemController
     public StackData stackData;
     [Tag] public string playerTag;
     private IItemPlaceController _standPlaceController;
-    public ItemType itemType;
+    public ItemType itemType;   
 
     public void Init(StackData stackData)
     {

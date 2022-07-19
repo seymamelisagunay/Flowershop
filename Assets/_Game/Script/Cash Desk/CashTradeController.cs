@@ -32,6 +32,7 @@ public class CashTradeController : MonoBehaviour
         customerManager.cashTradeController = this;
         LoadMoney();
     }
+
     /// <summary>
     /// 
     /// </summary>
@@ -43,6 +44,7 @@ public class CashTradeController : MonoBehaviour
             CreateMoney();
         }
     }
+
     /// <summary>
     /// 
     /// </summary>
@@ -82,14 +84,14 @@ public class CashTradeController : MonoBehaviour
         if (!isInPlayer) return;
         var currentClient = customerQueue[0];
         currentCurrency = currentClient.SellingProducts(NextClientCallback);
-        
     }
+
     /// <summary>
     /// 
     /// </summary>
     private void NextClientCallback()
     {
-        if (customerQueue.Count >0)
+        if (customerQueue.Count > 0)
             customerQueue.RemoveAt(0);
 
         var moneyObjectCount = currentCurrency / 10;
@@ -99,9 +101,11 @@ public class CashTradeController : MonoBehaviour
         {
             CreateMoney();
         }
+
         // Burda Bekleyen Müşteriler Tekrar Yerleştirilmeli 
         ReSize();
     }
+
     /// <summary>
     /// 
     /// </summary>
@@ -112,6 +116,7 @@ public class CashTradeController : MonoBehaviour
             customerQueue[i].SetTradePoint(customerQueueTargetPoints[i]);
         NextCustomerSell();
     }
+
     /// <summary>
     /// 
     /// </summary>
@@ -119,6 +124,7 @@ public class CashTradeController : MonoBehaviour
     {
         PlayerPrefs.SetInt(playerPrefsKey, tradeMoneyCount.Value);
     }
+
     /// <summary>
     /// 
     /// </summary>
@@ -130,6 +136,7 @@ public class CashTradeController : MonoBehaviour
         isInPlayer = true;
         StartCoroutine(StartCustomerSell(player.playerSettings.firstTriggerCooldown));
     }
+
     /// <summary>
     /// 
     /// </summary>
@@ -137,11 +144,13 @@ public class CashTradeController : MonoBehaviour
     /// <returns></returns>
     private IEnumerator StartCustomerSell(float firstTriggerDuration)
     {
-        
-        yield return new WaitForSeconds(firstTriggerDuration);
-        if (isInPlayer)
+        while (isInPlayer)
         {
-            NextCustomerSell();
+            yield return new WaitForSeconds(firstTriggerDuration);
+            if (isInPlayer)
+            {
+                NextCustomerSell();
+            }
         }
     }
 

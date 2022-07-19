@@ -2,6 +2,7 @@
 using _Game.Script.Controllers;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class StandPlaceController : MonoBehaviour, IItemPlaceController
 {

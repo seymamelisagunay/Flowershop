@@ -16,7 +16,7 @@ public class Item : MonoBehaviour
 
     public Item Play(Vector3 endPoint, bool isDelete = false)
     {
-        transform.DOLocalJump(endPoint, 0.5f, 1, moveDuration.Value).OnComplete(() =>
+        transform.DOLocalJump(endPoint, 0.7f, 2, moveDuration.Value).OnComplete(() =>
         {
             onComplete?.Invoke();
             if (isDelete)
@@ -24,8 +24,9 @@ public class Item : MonoBehaviour
         });
         // DOVirtual.Float(0, 1, moveDuration.Value, (value) =>
         // {
-        //     transform.localPosition = Vector3.Lerp(transform.localPosition,
-        //         endPoint + (Vector3.up * curve.Evaluate(value)), value);
+        //     endPoint = transform.TransformPoint(transform.localPosition + endPoint);
+        //     transform.position = Vector3.Lerp(transform.localPosition, endPoint, value) +
+        //                          new Vector3(0, curve.Evaluate(value), 0);
         // }).SetEase(Ease.Linear).SetLink(gameObject).OnComplete(() =>
         // {
         //     onComplete?.Invoke();
