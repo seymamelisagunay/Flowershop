@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using _Game.Script.Character;
 using _Game.Script.Controllers;
 using NaughtyAttributes;
 using UnityEngine;
@@ -50,7 +51,7 @@ public class RosePerfumeStandPickerController : MonoBehaviour, IPickerController
 
     public IEnumerator GetItem(IItemController itemController)
     {
-        var playerItemController = itemController;
+        var playerItemController =(PlayerItemController) itemController;
         var standStackData = _slotController.slot.stackData;
         yield return new WaitForSeconds(_slotController.slot.firstTriggerCooldown);
 
@@ -59,6 +60,7 @@ public class RosePerfumeStandPickerController : MonoBehaviour, IPickerController
             if (standStackData.CheckMaxCount())
             {
                 yield return new WaitForSeconds(_slotController.slot.triggerCooldown);
+                if (playerItemController.stackData.ProductTypes.Count <= 0) break;
                 var (productType, item, isItemFinish) = playerItemController.GetValue(_slotController.slot.itemType);
                 if (!isItemFinish) continue;
 
@@ -70,7 +72,14 @@ public class RosePerfumeStandPickerController : MonoBehaviour, IPickerController
                 item.Play(Vector3.zero);
             }
             else
-                yield break;
+            {
+                var playerController = playerItemController.GetComponent<PlayerController>();
+                if (!playerController.playerSettings.isBot)
+                    yield break;
+                if (playerItemController.stackData.ProductTypes.Count <= 0) break;
+                yield return new WaitForSeconds(0.5f);
+                
+            }
         }
     }
 }
