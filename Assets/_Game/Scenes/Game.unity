@@ -1206,7 +1206,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &328920999
 GameObject:
@@ -2623,7 +2623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22457152, guid: 67117722a812a2e46ab8cb8eafbf5f5e, type: 3}
       propertyPath: m_RootOrder
-      value: 30
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 22457152, guid: 67117722a812a2e46ab8cb8eafbf5f5e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3795,7 +3795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74ad4b31a325ed34eb9479090cbfad1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slot: {fileID: 11400000, guid: 5e71b62e13a23934594d5db5d156bfab, type: 2}
+  slot: {fileID: 11400000, guid: 4965f0f46bff28c44920d9805e767ad6, type: 2}
   slotHud: {fileID: 0}
   hudPoint: {fileID: 207462802}
   cameraFocus: {fileID: 0}
@@ -3829,7 +3829,7 @@ Transform:
   m_Children:
   - {fileID: 207462802}
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1324065417
 GameObject:
@@ -3860,7 +3860,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1327054784
 GameObject:
@@ -4418,6 +4418,12 @@ MonoBehaviour:
   - isNewSlotOpen: 1
     orderCount: 7
     slotController: {fileID: 1698955654}
+  - isNewSlotOpen: 1
+    orderCount: 8
+    slotController: {fileID: 1281584139}
+  - isNewSlotOpen: 1
+    orderCount: 9
+    slotController: {fileID: 765007789}
   isClientCreate: {fileID: 11400000, guid: adc741b91321f874ca3dbed4ac23318b, type: 2}
   slots: []
 --- !u!4 &1524180895

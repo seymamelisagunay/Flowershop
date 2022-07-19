@@ -75,10 +75,10 @@ public class SlotController : MonoBehaviour
 
     public void OpenEmpty()
     {
-        cameraFocus?.Focus();
         var emptySlot = Instantiate(slot.slotEmptyPrefab, transform);
         emptySlot.GetComponent<ISlotController>().Init(this);
         slot.emptyData.OnChangeVariable.AddListener(SaveSlotEmptyData);
+        cameraFocus?.Focus(0.2f);
     }
 
     private void CreateHud()

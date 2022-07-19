@@ -137,6 +137,7 @@ public class CashTradeController : MonoBehaviour
     /// <returns></returns>
     private IEnumerator StartCustomerSell(float firstTriggerDuration)
     {
+        
         yield return new WaitForSeconds(firstTriggerDuration);
         if (isInPlayer)
         {

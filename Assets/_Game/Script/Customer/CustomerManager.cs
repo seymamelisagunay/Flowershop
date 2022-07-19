@@ -35,6 +35,10 @@ public class CustomerManager : MonoBehaviour
     public void SaveFirstCustomerCount()
     {
         PlayerPrefs.SetInt("CustomerCount", firstCustomer);
+        if (firstCustomer >= settings.firstCustomer)
+        {
+            settings.maxClientCount = maxClientCount;
+        }
     }
 
     private IEnumerator BotCreator()

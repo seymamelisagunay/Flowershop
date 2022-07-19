@@ -1400,9 +1400,9 @@ MonoBehaviour:
   firstFloorCount: 10
   secondFloorCount: 4
   firstFloorCircleRadius: 2.25
-  firstFloorHeight: 1.33
+  firstFloorHeight: 0.93
   secondFloorCircleRadius: 1.01
-  secondFloorHeight: 2.22
+  secondFloorHeight: 1.76
   parent: {fileID: 1005802911481468277}
   prefab: {fileID: 5727884131382816522, guid: 89b1f86aeee5f0342aa792b76a18d97c, type: 3}
   sampleObject: {fileID: 4365423710062093608, guid: 2a775431003af854092c433bfd83425a,
