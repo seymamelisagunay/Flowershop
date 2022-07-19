@@ -51,6 +51,13 @@ public class SlotManager : MonoBehaviour
             });
     }
 
+    public List<SlotController> GetActiveFarmAndFactory()
+    {
+        var result = slots.FindAll(x => (x.slot.slotType == SlotType.Farm || x.slot.slotType == SlotType.Factory) &&
+                                        x.slot.emptyData.IsOpen);
+        return result;
+    }
+    
     public SlotController GetActiveStand(ItemType itemType)
     {
         var result = slots.Find(x => x.slot.emptyData.IsOpen && x.slot.itemType == itemType&&x

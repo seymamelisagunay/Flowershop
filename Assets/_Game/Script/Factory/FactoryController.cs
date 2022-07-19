@@ -8,6 +8,8 @@ public class FactoryController : MonoBehaviour
     public IPickerController pickerController;
     public IItemController itemController;
     [HideInInspector] public SlotController slotController;
+    public List<GridSlot> botSlot = new List<GridSlot>();
+
     public Machine machine;
     public float machineStrength;
     public int machineVibration;
@@ -52,5 +54,11 @@ public class FactoryController : MonoBehaviour
             itemController.SetValue(itemController.GetItemType());
             picker.pickerData.RemoveProduct(0);
         }
+    }
+
+    public GridSlot GetCustomerSlot()
+    {
+        var resultObject = botSlot.RandomSelectObject();
+        return resultObject;
     }
 }

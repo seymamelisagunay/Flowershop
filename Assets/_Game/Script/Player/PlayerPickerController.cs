@@ -75,6 +75,11 @@ public class PlayerPickerController : MonoBehaviour, IPickerController
         StartCoroutine(GetItem(slotController));
     }
 
+    public void SetStay(bool isStay)
+    {
+        _isStayFarm = isStay;
+    }
+
     public IEnumerator GetItem(IItemController itemController)
     {
         var slotItemController = itemController;

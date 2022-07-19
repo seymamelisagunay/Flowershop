@@ -11,6 +11,8 @@ public class FarmController : MonoBehaviour, IItemController
     public ItemType itemType;
     public ItemList itemList;
     public List<GridSlot> gridSlots = new List<GridSlot>();
+    public List<GridSlot> botSlot = new List<GridSlot>();
+
     [ReadOnly] public StackData stackData;
     private int _currentGridSlotCount;
 
@@ -103,6 +105,11 @@ public class FarmController : MonoBehaviour, IItemController
             _currentGridSlotCount > gridSlots.Count - 1 ? gridSlots.Count - 1 : _currentGridSlotCount;
         stackData.AddProduct(itemType);
         ItemMoveEffect(itemType);
+    }
+    public GridSlot GetCustomerSlot()
+    {
+        var resultObject = botSlot.RandomSelectObject();
+        return resultObject;
     }
 
     [Button]

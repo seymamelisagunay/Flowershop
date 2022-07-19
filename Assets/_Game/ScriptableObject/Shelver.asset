@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e437676e9b93dd348b0f4170bef28da5, type: 3}
   m_Name: Shelver
   m_EditorClassIdentifier: 
-  isBot: 0
+  isBot: 1
   playerSpeed: 5.5
-  botSpeed: 2.9
+  botSpeed: 3
   rotateLerpFactor: 10
   pickingSpeed: 0.05
   firstTriggerCooldown: 1
