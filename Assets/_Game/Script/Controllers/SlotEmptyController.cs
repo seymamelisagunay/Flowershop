@@ -60,7 +60,23 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
         yield return new WaitForSeconds(_slotController.slot.firstTriggerCooldown);
         while (_isInsidePlayer)
         {
-            yield return new WaitForSeconds(_slotController.slot.triggerCooldown);
+            if (emptyData.CurrenctPrice < 40)
+            {
+                yield return new WaitForSeconds(_slotController.slot.triggerCooldown*1f);
+            }
+            else if (emptyData.CurrenctPrice >= 40 & emptyData.CurrenctPrice < 100)
+            {
+                yield return new WaitForSeconds(_slotController.slot.triggerCooldown*0.7f);
+            }
+            else if(emptyData.CurrenctPrice >= 100 & emptyData.CurrenctPrice < 300)
+            {
+                yield return new WaitForSeconds(_slotController.slot.triggerCooldown*0.3f);
+            }
+            else
+            {
+                yield return new WaitForSeconds(_slotController.slot.triggerCooldown*0.1f);
+            }
+            
             var result = UserManager.Instance.DecreasingMoney(1);
             if (!result)
             {
