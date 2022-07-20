@@ -25,7 +25,7 @@ public class RosePerfumeStandPickerController : MonoBehaviour, IPickerController
         _slotController = GetComponentInParent<SlotController>();
         _stackData = _slotController.slot.stackData;
         _itemController = GetComponent<IItemController>();
-        _itemController.Init(_stackData);
+        // _itemController.Init(_stackData);
     }
 
     public void OnTriggerEnter(Collider other)

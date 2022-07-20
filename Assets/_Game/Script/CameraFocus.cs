@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using _Game.Script.Manager;
 using DG.Tweening;
@@ -15,7 +16,6 @@ namespace _Game.Script
         public float zoomInOutDuration;
 
 
-        [Button()]
         public void Focus(float wait)
         {
             StartCoroutine(FocusWait(wait));
