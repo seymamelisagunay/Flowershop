@@ -74,7 +74,7 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
             }
             else
             {
-                yield return new WaitForSeconds(_slotController.slot.triggerCooldown*0.1f);
+                yield return new WaitForSeconds(_slotController.slot.triggerCooldown*0.000001f);
             }
             
             var result = UserManager.Instance.DecreasingMoney(1);
