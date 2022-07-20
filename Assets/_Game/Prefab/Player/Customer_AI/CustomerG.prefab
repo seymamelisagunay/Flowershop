@@ -243,7 +243,6 @@ Transform:
   - {fileID: 8368946888989213521}
   - {fileID: 4834452408150545591}
   - {fileID: 1186966814028362400}
-  - {fileID: 6683639845726368905}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -529,8 +528,8 @@ Transform:
   m_Children:
   - {fileID: 3702998280176866887}
   - {fileID: 8844672859085734335}
-  m_Father: {fileID: 1477559388705227491}
-  m_RootOrder: 5
+  m_Father: {fileID: 4680518370721296560}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1349248466122755933
 MonoBehaviour:
@@ -637,6 +636,7 @@ Transform:
   m_Children:
   - {fileID: 4680518370721371220}
   - {fileID: 4680518370721300294}
+  - {fileID: 6683639845726368905}
   m_Father: {fileID: 1477559388705227491}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2134,7 +2134,7 @@ PrefabInstance:
     - target: {fileID: 1282733777372879531, guid: f7e1b76ae1b258a44aab68f9938cdc75,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2
+      value: 2.19
       objectReference: {fileID: 0}
     - target: {fileID: 1282733777372879531, guid: f7e1b76ae1b258a44aab68f9938cdc75,
         type: 3}
@@ -2150,6 +2150,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282733777372879533, guid: f7e1b76ae1b258a44aab68f9938cdc75,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1282733777518840928, guid: f7e1b76ae1b258a44aab68f9938cdc75,
         type: 3}

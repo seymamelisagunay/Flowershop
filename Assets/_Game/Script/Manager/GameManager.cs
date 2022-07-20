@@ -12,8 +12,7 @@ namespace _Game.Script.Manager
         public static GameManager instance;
         public GameSettings gameSettings;
         public Transform playerSpawnPoint;
-        [HideInInspector]
-        public PlayerController activePlayer;
+        [HideInInspector] public PlayerController activePlayer;
         public SlotManager slotManager;
         public BoolVariable isClientCreate;
         public CustomCameraFollow customCamera;
@@ -26,11 +25,12 @@ namespace _Game.Script.Manager
 
         private void Awake()
         {
+            Application.targetFrameRate = gameSettings.fpsCount;
             ItemTypeList.value.Clear();
             instance = this;
             slotManager = FindObjectOfType<SlotManager>();
-            Application.targetFrameRate = gameSettings.fpsCount;
         }
+
         /// <summary>
         /// Game is start
         /// </summary>
@@ -38,10 +38,7 @@ namespace _Game.Script.Manager
         {
             NavMesh = new NavMeshUtility(null, Vector3.zero);
             PlayerCreator();
-            slotManager.slotStates.ForEach(x =>
-            {
-                x.slotController.Init();
-            });
+            slotManager.slotStates.ForEach(x => { x.slotController.Init(); });
             slotManager.SlotOpen();
         }
 
