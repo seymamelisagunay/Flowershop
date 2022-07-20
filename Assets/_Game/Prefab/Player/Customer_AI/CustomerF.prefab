@@ -132,9 +132,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Weight: 1
   m_Data:
-    m_Root: {fileID: 0}
-    m_Mid: {fileID: 0}
-    m_Tip: {fileID: 0}
+    m_Root: {fileID: 4680518370721360918}
+    m_Mid: {fileID: 4680518370721316912}
+    m_Tip: {fileID: 4680518370721270324}
     m_Target: {fileID: 6196455925349579692}
     m_Hint: {fileID: 1906734341356716606}
     m_TargetPositionWeight: 1
@@ -1908,9 +1908,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Weight: 1
   m_Data:
-    m_Root: {fileID: 0}
-    m_Mid: {fileID: 0}
-    m_Tip: {fileID: 0}
+    m_Root: {fileID: 4680518370721379482}
+    m_Mid: {fileID: 4680518370721297892}
+    m_Tip: {fileID: 4680518370721363388}
     m_Target: {fileID: 4640649377370585097}
     m_Hint: {fileID: 7882938651302604965}
     m_TargetPositionWeight: 1
