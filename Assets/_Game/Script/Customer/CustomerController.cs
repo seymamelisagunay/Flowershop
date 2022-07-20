@@ -15,7 +15,6 @@ public class CustomerController : MonoBehaviour
     /// 
     /// </summary>
     public ItemList itemList;
-
     /// <summary>
     /// 
     /// </summary>

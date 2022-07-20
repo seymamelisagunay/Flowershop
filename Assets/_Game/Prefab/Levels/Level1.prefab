@@ -1483,6 +1483,7 @@ Transform:
   - {fileID: 7485364953413866198}
   - {fileID: 976623180886921366}
   - {fileID: 93761461}
+  - {fileID: 3773189339103658782}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2046,6 +2047,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: AutomaticDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 5424444826807268622, guid: 0862944f53649bf42982ede265af41ef,
+        type: 3}
+      propertyPath: detectTag.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424444826807268622, guid: 0862944f53649bf42982ede265af41ef,
+        type: 3}
+      propertyPath: detectTag.Array.data[0]
+      value: Customer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424444826807268622, guid: 0862944f53649bf42982ede265af41ef,
+        type: 3}
+      propertyPath: detectTag.Array.data[1]
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0862944f53649bf42982ede265af41ef, type: 3}
 --- !u!4 &5424444825927443087 stripped
@@ -2368,6 +2384,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8571270695700675183, guid: 8e627c67d54519b428fb857826129d3a,
     type: 3}
   m_PrefabInstance: {fileID: 1194225126}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1252014436
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4821707185656194016}
+    m_Modifications:
+    - target: {fileID: 3773189338124302970, guid: 64197f92c6a6f5e41912628e1f1135af,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3773189338124302970, guid: 64197f92c6a6f5e41912628e1f1135af,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 3773189338124302970, guid: 64197f92c6a6f5e41912628e1f1135af,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 3773189338124302970, guid: 64197f92c6a6f5e41912628e1f1135af,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 30.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 3773189338124302970, guid: 64197f92c6a6f5e41912628e1f1135af,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.38268143
+      objectReference: {fileID: 0}
+    - target: {fileID: 3773189338124302970, guid: 64197f92c6a6f5e41912628e1f1135af,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3773189338124302970, guid: 64197f92c6a6f5e41912628e1f1135af,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.92388034
+      objectReference: {fileID: 0}
+    - target: {fileID: 3773189338124302970, guid: 64197f92c6a6f5e41912628e1f1135af,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3773189338124302970, guid: 64197f92c6a6f5e41912628e1f1135af,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3773189338124302970, guid: 64197f92c6a6f5e41912628e1f1135af,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3773189338124302970, guid: 64197f92c6a6f5e41912628e1f1135af,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156447419027759491, guid: 64197f92c6a6f5e41912628e1f1135af,
+        type: 3}
+      propertyPath: m_Name
+      value: Gnarly_Sign_Board
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 64197f92c6a6f5e41912628e1f1135af, type: 3}
+--- !u!4 &3773189339103658782 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3773189338124302970, guid: 64197f92c6a6f5e41912628e1f1135af,
+    type: 3}
+  m_PrefabInstance: {fileID: 1252014436}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1390269935
 PrefabInstance:

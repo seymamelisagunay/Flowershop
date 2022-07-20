@@ -3994,11 +3994,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3711514824049718708, guid: d8d3ad9bfb4f05f42bf8d59a2855f31b,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6396318993313018797, guid: d8d3ad9bfb4f05f42bf8d59a2855f31b,
         type: 3}
       propertyPath: m_RootOrder
@@ -4061,24 +4056,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8d3ad9bfb4f05f42bf8d59a2855f31b, type: 3}
---- !u!1 &1369169613 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3711514824049718708, guid: d8d3ad9bfb4f05f42bf8d59a2855f31b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1369169612}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1369169614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1369169613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e038bf700cfa444fb16c6ef963be9f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1424125682
 GameObject:
   m_ObjectHideFlags: 0
@@ -4871,21 +4848,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5424444825934019080, guid: 4a35d24c58b73e145affc31c75706534,
-        type: 3}
-      propertyPath: detectTag.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5424444825934019080, guid: 4a35d24c58b73e145affc31c75706534,
-        type: 3}
-      propertyPath: detectTag.Array.data[0]
-      value: Customer
-      objectReference: {fileID: 0}
-    - target: {fileID: 5424444825934019080, guid: 4a35d24c58b73e145affc31c75706534,
-        type: 3}
-      propertyPath: detectTag.Array.data[1]
-      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8135813355815466517, guid: 4a35d24c58b73e145affc31c75706534,
         type: 3}
