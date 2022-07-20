@@ -62,21 +62,21 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
         {
             if (emptyData.CurrenctPrice < 40)
             {
-                yield return new WaitForSeconds(_slotController.slot.triggerCooldown*1f);
+                yield return new WaitForSeconds(0.1f);
             }
             else if (emptyData.CurrenctPrice >= 40 & emptyData.CurrenctPrice < 100)
             {
-                yield return new WaitForSeconds(_slotController.slot.triggerCooldown*0.7f);
+                yield return new WaitForSeconds(0.01f);
             }
-            else if(emptyData.CurrenctPrice >= 100 & emptyData.CurrenctPrice < 300)
+            else if (emptyData.CurrenctPrice >= 100 & emptyData.CurrenctPrice < 300)
             {
-                yield return new WaitForSeconds(_slotController.slot.triggerCooldown*0.3f);
+                yield return new WaitForSeconds(0.002f);
             }
             else
             {
-                yield return new WaitForSeconds(_slotController.slot.triggerCooldown*0.000001f);
+                yield return new WaitForSeconds(0.0001f);
             }
-            
+
             var result = UserManager.Instance.DecreasingMoney(1);
             if (!result)
             {
@@ -97,8 +97,6 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
                     _slotController.slotHud.active.Close();
                 }
             }
-
-            
         }
     }
 
