@@ -7,7 +7,6 @@ using UnityEngine;
 
 /// <summary>
 /// Slot Yapısı bunun üzerine kurulacak
-/// 
 /// </summary>
 [RequireComponent(typeof(Rigidbody))]
 public class SlotController : MonoBehaviour

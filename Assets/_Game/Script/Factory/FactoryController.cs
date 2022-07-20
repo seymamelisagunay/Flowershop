@@ -24,6 +24,12 @@ public class FactoryController : MonoBehaviour
         this.slotController = slotController;
         var factoryPicker = (FactoryPickerController) pickerController;
         factoryPicker.Init(this.slotController);
+        if (this.slotController.slot.stackData.ProductTypes.Count <= 0)
+        {
+            this.slotController.slot.stackData.ProductTypes = new List<ItemType>()
+                {ItemType.Water, ItemType.Water, ItemType.Water};
+        }
+
         StartCoroutine(ItemCreator(factoryPicker));
     }
 

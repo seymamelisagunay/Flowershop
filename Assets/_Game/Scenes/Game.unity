@@ -22929,6 +22929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyBox: {fileID: 5734213909893173569}
+  money: {fileID: 11400000, guid: fbf3023bd64526940ba07cda72f17e7e, type: 2}
   playerUpgradeLevelName: {fileID: 5541929703946874939}
   playerUpgradeMoney: {fileID: 5541929704483221056}
   shelverUpgradeLevelName: {fileID: 5541929703824179364}
