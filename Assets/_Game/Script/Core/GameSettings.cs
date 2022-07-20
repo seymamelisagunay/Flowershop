@@ -5,4 +5,5 @@ using UnityEngine;
 public class GameSettings : ScriptableObject
 {
     public PlayerController playerControllerPrefab;
+    public int fpsCount = 60;
 }

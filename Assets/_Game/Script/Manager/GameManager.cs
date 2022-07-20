@@ -29,6 +29,7 @@ namespace _Game.Script.Manager
             ItemTypeList.value.Clear();
             instance = this;
             slotManager = FindObjectOfType<SlotManager>();
+            Application.targetFrameRate = gameSettings.fpsCount;
         }
         /// <summary>
         /// Game is start
