@@ -4119,6 +4119,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 40861279, guid: d8d3ad9bfb4f05f42bf8d59a2855f31b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 138868375, guid: d8d3ad9bfb4f05f42bf8d59a2855f31b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.65
@@ -4688,7 +4692,7 @@ PrefabInstance:
     - target: {fileID: 1912991284477093860, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 171.98
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1912991284477093860, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
@@ -4713,7 +4717,7 @@ PrefabInstance:
     - target: {fileID: 1912991284628932557, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 293.84
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1912991284628932557, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
@@ -4738,7 +4742,7 @@ PrefabInstance:
     - target: {fileID: 1912991284672584419, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 168.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1912991284672584419, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
@@ -4913,7 +4917,7 @@ PrefabInstance:
     - target: {fileID: 1912991285795290757, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 81.515
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1912991285795290757, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
@@ -4958,7 +4962,7 @@ PrefabInstance:
     - target: {fileID: 1912991285871496657, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 166.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1912991285871496657, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
@@ -5023,7 +5027,7 @@ PrefabInstance:
     - target: {fileID: 1912991286199189496, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 74.885
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1912991286199189496, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
@@ -23502,7 +23506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyBox: {fileID: 5734213909893173569}
-  money: {fileID: 11400000, guid: fbf3023bd64526940ba07cda72f17e7e, type: 2}
+  money: {fileID: 0}
   playerUpgradeLevelName: {fileID: 5541929703946874939}
   playerUpgradeMoney: {fileID: 5541929704483221056}
   shelverUpgradeLevelName: {fileID: 5541929703824179364}
