@@ -82,14 +82,19 @@ public class RoseStandPickerController : MonoBehaviour, IPickerController
                 var gridSlot = _standPlaceController.GetPosition();
                 if (gridSlot == null)
                 {
+                    Destroy(item.gameObject);
+                }
+                else
+                {
+                    gridSlot.isFull = true;
+                    gridSlot.slotInObject = item;
+                    item.transform.parent = gridSlot.transform;
+                    _itemController.SetValue(productType);
+                    item.AddOnComplete(() => { item.GetComponent<ItemChanger>().OpenRoseBasket(); });
+                    item.Play(Vector3.zero);
                 }
 
-                gridSlot.isFull = true;
-                gridSlot.slotInObject = item;
-                item.transform.parent = gridSlot.transform;
-                _itemController.SetValue(productType);
-                item.AddOnComplete(() => { item.GetComponent<ItemChanger>().OpenRoseBasket(); });
-                item.Play(Vector3.zero);
+               
             }
             else
             {
