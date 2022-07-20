@@ -28,7 +28,7 @@ public class ShelverController : MonoBehaviour
         pickerController = GetComponent<PlayerPickerController>();
         itemController = GetComponent<PlayerItemController>();
         itemController.stackData = pickerController.playerStackData;
-        
+
         StartCoroutine(BotProgress());
     }
 
@@ -83,7 +83,7 @@ public class ShelverController : MonoBehaviour
                 case ItemType.Rose:
                     picker = _activeStand.GetComponent<RoseStandPickerController>();
                     break;
-                case ItemType.Water:
+                default:
                     picker = _activeStand.GetComponent<RosePerfumeStandPickerController>();
                     break;
             }
