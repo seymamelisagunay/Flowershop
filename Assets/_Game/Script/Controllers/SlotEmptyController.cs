@@ -79,7 +79,6 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
 
             if (!_isInsidePlayer) break;
             if (emptyData.CurrenctPrice == emptyData.Price) break;
-
             var result = UserManager.Instance.DecreasingMoney(1);
             if (!result)
             {
@@ -89,7 +88,6 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
             else
             {
                 emptyData.CurrenctPrice++;
-                // _slotHud.emptyPrice.SetText(moneyCounter.ToString());
                 if (emptyData.CurrenctPrice == emptyData.Price)
                 {
                     _isInsidePlayer = false;

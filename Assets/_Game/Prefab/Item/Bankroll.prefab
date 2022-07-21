@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55346f564a411f0459257366bebd304e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 3
+  itemType: 4
   price: 10
   moveDuration: {fileID: 11400000, guid: ff2227076e2c084429de3373e67660e1, type: 2}
   curve:
@@ -81,6 +81,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  onComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6519489992110840318
 GameObject:
   m_ObjectHideFlags: 0
