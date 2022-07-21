@@ -77,6 +77,9 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
                 yield return new WaitForSeconds(0.0001f);
             }
 
+            if (!_isInsidePlayer) break;
+            if (emptyData.CurrenctPrice == emptyData.Price) break;
+
             var result = UserManager.Instance.DecreasingMoney(1);
             if (!result)
             {

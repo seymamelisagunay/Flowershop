@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerSettings
   m_EditorClassIdentifier: 
   isBot: 0
-  playerSpeed: 5.5
+  playerSpeed: 7
   botSpeed: 2.9
   rotateLerpFactor: 10
   pickingSpeed: 0.05

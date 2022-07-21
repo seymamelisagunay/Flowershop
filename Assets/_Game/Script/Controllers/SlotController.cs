@@ -38,10 +38,8 @@ public class SlotController : MonoBehaviour
                 cloneFarmItemController.name += slot.Id;
                 break;
             case SlotType.Factory:
-                Debug.Log("Factory");
                 var factory = slot.itemControllerPrefab.GetComponent<FactoryController>();
                 var cloneFactory = Instantiate(factory, transform);
-                //Clone Factory Burada Atanması gerek Elle yapılaacak
                 cloneFactory.Init(this);
                 activeItemController = cloneFactory.itemController;
                 cloneFactory.name += slot.Id;

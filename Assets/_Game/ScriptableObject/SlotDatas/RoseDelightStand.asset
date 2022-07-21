@@ -36,7 +36,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   stackData:
-    maxItemCount: 4
+    maxItemCount: 12
     productionRate: 0.75
     _productTypes: 
     OnChangeVariable:

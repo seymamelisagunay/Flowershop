@@ -165,8 +165,9 @@ MonoBehaviour:
   _maxMidAirJumps: 1
   _useRootMotion: 0
   _rootMotionRotation: 0
-  playerSettings: {fileID: 11400000, guid: da46de04c7e93f8468737c1425843a78, type: 2}
+  playerSettings: {fileID: 11400000, guid: 71ff05bb84504994695e6d04ff8913cd, type: 2}
   inMotion: 0
+  cameraFollow: {fileID: 0}
 --- !u!114 &7579631767987793856
 MonoBehaviour:
   m_ObjectHideFlags: 0

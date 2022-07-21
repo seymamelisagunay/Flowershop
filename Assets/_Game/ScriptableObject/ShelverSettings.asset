@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e437676e9b93dd348b0f4170bef28da5, type: 3}
-  m_Name: Shelver
+  m_Name: ShelverSettings
   m_EditorClassIdentifier: 
   isBot: 1
   playerSpeed: 5.5

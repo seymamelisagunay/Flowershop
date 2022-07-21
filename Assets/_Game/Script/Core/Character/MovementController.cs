@@ -13,6 +13,8 @@ namespace _Game.Script.Core.Character
         public PlayerSettings playerSettings;
         private IInput _input;
         public bool inMotion;
+        public CustomCameraFollow cameraFollow;
+
         public override void Awake()
         {
             base.Awake();
@@ -26,6 +28,14 @@ namespace _Game.Script.Core.Character
         }
         protected override void HandleInput()
         {
+            if (!playerSettings.isBot)
+            {
+                if (!cameraFollow.isFollow)
+                {
+                    moveDirection = Vector3.zero;
+                    return;
+                }
+            }
             var isRun = _input.Direction.magnitude > 0.1;
             inMotion = isRun;
             animator.SetBool("run", isRun);

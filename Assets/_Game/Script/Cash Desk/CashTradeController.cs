@@ -96,7 +96,6 @@ public class CashTradeController : MonoBehaviour
 
         var moneyObjectCount = currentCurrency / 10;
         tradeMoneyCount.Value += currentCurrency;
-
         for (int i = 0; i < moneyObjectCount; i++)
         {
             CreateMoney();
@@ -144,14 +143,14 @@ public class CashTradeController : MonoBehaviour
     /// <returns></returns>
     private IEnumerator StartCustomerSell(float firstTriggerDuration)
     {
-        while (isInPlayer)
+        // while (isInPlayer)
+        // {
+        yield return new WaitForSeconds(firstTriggerDuration);
+        if (isInPlayer)
         {
-            yield return new WaitForSeconds(firstTriggerDuration);
-            if (isInPlayer)
-            {
-                NextCustomerSell();
-            }
+            NextCustomerSell();
         }
+        // }
     }
 
     [Button]

@@ -21,6 +21,7 @@ namespace _Game.Script.Character
         private PlayerItemController _playerItemController;
         private Tweener _virtualTweener;
         private bool _isRigActive;
+        private CustomCameraFollow _cameraFollow;
 
         private void Awake()
         {
@@ -36,6 +37,7 @@ namespace _Game.Script.Character
             _spawnPoint = spawnPoint;
             // hudController.Init(this);
             OnOpenLevel();
+            characterController.cameraFollow = _cameraFollow;
         }
 
         private void OnDestroy()
@@ -79,9 +81,9 @@ namespace _Game.Script.Character
         {
             if (!playerSettings.isBot)
             {
-                var camera = GameManager.instance.customCamera;
-                if (camera != null)
-                    camera.SetTarget(transform);
+                _cameraFollow = GameManager.instance.customCamera;
+                if (_cameraFollow != null)
+                    _cameraFollow.SetTarget(transform);
             }
 
             Input.StartListen();

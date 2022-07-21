@@ -11,7 +11,7 @@ namespace _Game.Script
         public Vector3 offset;
         public bool isSetYReset;
         public Transform target;
-        private bool _isFollow;
+        public bool isFollow;
 
         private void Start()
         {
@@ -28,22 +28,22 @@ namespace _Game.Script
             if (isSlowGetBack)
             {
                 var targetPos = target.transform.position + offset;
-                transform.DOMove(targetPos, duration).OnComplete(() => { _isFollow = true; });
+                transform.DOMove(targetPos, duration).OnComplete(() => { isFollow = true; });
             }
             else
             {
-                _isFollow = true;
+                isFollow = true;
             }
         }
 
         public void StopFollow()
         {
-            _isFollow = false;
+            isFollow = false;
         }
 
         private void LateUpdate()
         {
-            if (!_isFollow) return;
+            if (!isFollow) return;
             if (target == null) return;
             var targetPos = target.transform.position + offset;
             targetPos.y = isSetYReset ? 0 : targetPos.y;

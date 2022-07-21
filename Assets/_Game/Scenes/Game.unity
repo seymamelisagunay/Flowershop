@@ -1449,8 +1449,8 @@ Camera:
   near clip plane: 0.1
   far clip plane: 5000
   field of view: 70
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1497,6 +1497,7 @@ MonoBehaviour:
   offset: {x: 4.78, y: 14, z: -8}
   isSetYReset: 0
   target: {fileID: 0}
+  isFollow: 0
 --- !u!1 &452698509
 GameObject:
   m_ObjectHideFlags: 0
@@ -4692,7 +4693,7 @@ PrefabInstance:
     - target: {fileID: 1912991284477093860, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 171.98
       objectReference: {fileID: 0}
     - target: {fileID: 1912991284477093860, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
@@ -4717,7 +4718,7 @@ PrefabInstance:
     - target: {fileID: 1912991284628932557, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 293.84
       objectReference: {fileID: 0}
     - target: {fileID: 1912991284628932557, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
@@ -4742,7 +4743,7 @@ PrefabInstance:
     - target: {fileID: 1912991284672584419, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 168.01
       objectReference: {fileID: 0}
     - target: {fileID: 1912991284672584419, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
@@ -4917,7 +4918,7 @@ PrefabInstance:
     - target: {fileID: 1912991285795290757, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 81.515
       objectReference: {fileID: 0}
     - target: {fileID: 1912991285795290757, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
@@ -4962,7 +4963,7 @@ PrefabInstance:
     - target: {fileID: 1912991285871496657, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 166.4
       objectReference: {fileID: 0}
     - target: {fileID: 1912991285871496657, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
@@ -5027,7 +5028,7 @@ PrefabInstance:
     - target: {fileID: 1912991286199189496, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 74.885
       objectReference: {fileID: 0}
     - target: {fileID: 1912991286199189496, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
@@ -23506,7 +23507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyBox: {fileID: 5734213909893173569}
-  money: {fileID: 0}
+  money: {fileID: 11400000, guid: fbf3023bd64526940ba07cda72f17e7e, type: 2}
   playerUpgradeLevelName: {fileID: 5541929703946874939}
   playerUpgradeMoney: {fileID: 5541929704483221056}
   shelverUpgradeLevelName: {fileID: 5541929703824179364}
