@@ -1,15 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using _Game.Script.Character;
+using _Game.Script.Manager;
 using DG.Tweening;
 using NaughtyAttributes;
 using UnityEngine;
 
 public class SlotEmptyController : MonoBehaviour, ISlotController
 {
+    [SerializeField] private float baseUnlockDuration = 0.01f; // for every unit of cost that smaller than threshold, use this value for duration calculation. 
+    [SerializeField] private float additionalUnlockDuration = 0.01f; // for every unit of cost that bigger than threshold, use this value for duration calculation.
+    [SerializeField] private int slowerUnlockDurationThreshold = 100; // every unity bigger than this one will be marked ass additional.
+    
+    [SerializeField] private float moneyTransferSpeed;
+    [SerializeField] private float moneyTransferInterval;
+    [SerializeField] private AnimationCurve moneyMovementCurve;
+
+    [SerializeField] private int moneyStackSize;
+
     private SlotController _slotController;
     private bool _isInsidePlayer;
     [ReadOnly] public SlotEmptyData emptyData;
+    
+    private PlayerController _playerController;
+    private List<GameObject> _moneyStack = new();
 
     public void Init(SlotController slotController)
     {
@@ -24,6 +38,15 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
             var remaingCount = data.Price - data.CurrenctPrice;
             _slotController.slotHud.SetPriceText(remaingCount.ToString());
         });
+
+        // Create money pool
+        var moneyPrefab = GameManager.instance.itemList.GetItemPrefab(ItemType.Money);
+        for (var i = 0; i < moneyStackSize; i++)
+        {
+            var money = Instantiate(moneyPrefab).gameObject;
+            money.SetActive(false);
+            _moneyStack.Add(money);
+        }
     }
 
     private void SlotOpenEffect()
@@ -38,8 +61,9 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
         if (other.CompareTag("Player") && !_slotController.slot.emptyData.IsOpen)
         {
             _isInsidePlayer = true;
-            var player = other.GetComponent<PlayerController>();
-            StartCoroutine(StayInPlayer(player));
+            
+            if (_playerController == null) _playerController = other.GetComponent<PlayerController>();
+            StartCoroutine(StayInPlayer(_playerController));
         }
     }
 
@@ -48,8 +72,9 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
         if (other.CompareTag("Player"))
         {
             _isInsidePlayer = false;
-            var player = other.GetComponent<PlayerController>();
-            StopCoroutine(StayInPlayer(player));
+            
+            if (_playerController == null) _playerController = other.GetComponent<PlayerController>();
+            StopCoroutine(StayInPlayer(_playerController));
         }
     }
 
@@ -58,52 +83,111 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
         yield return new WaitUntil(() => !player.characterController.inMotion && _isInsidePlayer);
         Debug.Log("Test Geçtik !");
         yield return new WaitForSeconds(_slotController.slot.firstTriggerCooldown);
-        while (_isInsidePlayer)
+        
+        // Calculate unlock duration
+        var remainingCost = emptyData.Price - emptyData.CurrenctPrice;
+        var duration = remainingCost * baseUnlockDuration;
+        if (remainingCost > slowerUnlockDurationThreshold)
         {
-            if (emptyData.CurrenctPrice < 40)
+            var additionalCost = remainingCost - 100;
+            duration += additionalCost * additionalUnlockDuration;
+        }
+
+        DOVirtual.Int(remainingCost, 0, duration, value =>
+        {
+            if (!_isInsidePlayer) return;
+            if (UserManager.Instance.money.Value == 0)
             {
-                yield return new WaitForSeconds(0.1f);
-            }
-            else if (emptyData.CurrenctPrice >= 40 & emptyData.CurrenctPrice < 100)
-            {
-                yield return new WaitForSeconds(0.01f);
-            }
-            else if (emptyData.CurrenctPrice >= 100 & emptyData.CurrenctPrice < 300)
-            {
-                yield return new WaitForSeconds(0.002f);
-            }
-            else
-            {
-                yield return new WaitForSeconds(0.0001f);
+                _isInsidePlayer = false;
+                return;
             }
 
+            var moneyAmountToDecrease = GetDecreaseAmount(remainingCost, value);
+            
+            var result = UserManager.Instance.DecreasingMoney(moneyAmountToDecrease);
+            if (!result)
+            { 
+                _isInsidePlayer = false;
+                return;
+            }
+
+            emptyData.CurrenctPrice += moneyAmountToDecrease;
+            // _slotHud.emptyPrice.SetText(moneyCounter.ToString());
+            if (emptyData.CurrenctPrice < emptyData.Price) return;
+            ActivateSlot();
+        });
+
+        while (_isInsidePlayer)
+        {
             if (!_isInsidePlayer) break;
             if (emptyData.CurrenctPrice == emptyData.Price) break;
 
-            var result = UserManager.Instance.DecreasingMoney(1);
-            if (!result)
-            {
-                _isInsidePlayer = false;
-                yield return null;
-            }
-            else
-            {
-                emptyData.CurrenctPrice++;
-                // _slotHud.emptyPrice.SetText(moneyCounter.ToString());
-                if (emptyData.CurrenctPrice == emptyData.Price)
-                {
-                    _isInsidePlayer = false;
-                    emptyData.IsOpen = true;
-                    SlotManager.instance.NextSlot();
-                    SlotClose();
-                    _slotController.OpenSlot();
-                    _slotController.slotHud.active.Close();
-                }
-            }
+            yield return new WaitForSeconds(moneyTransferInterval);
+            TransferMoney();
         }
     }
 
-    public void SlotClose()
+    private void TransferMoney()
+    {
+        var money = GetMoney();
+        money.SetActive(true);
+        money.transform.position = _playerController.transform.position;
+
+        DOVirtual.Float(0, 1, moneyTransferSpeed, value =>
+            {
+                money.transform.position = Vector3.Lerp(money.transform.position, transform.position, value)
+                                            + new Vector3(0, moneyMovementCurve.Evaluate(value), 0f);
+            }).OnComplete(() => money.SetActive(false))
+             .SetLink(gameObject, LinkBehaviour.KillOnDestroy);
+    }
+
+    private void ActivateSlot()
+    {
+        _isInsidePlayer = false;
+        emptyData.IsOpen = true;
+        SlotManager.instance.NextSlot();
+        SlotClose();
+        _slotController.OpenSlot();
+        _slotController.slotHud.active.Close();
+
+        // Clear created money stack
+        foreach (var money in _moneyStack)
+        {
+            Destroy(money);
+        }
+        
+        _moneyStack.Clear();
+    }
+
+    private int GetDecreaseAmount(int previousLeftCost, int value)
+    {
+        var moneyAmountToDecrease = previousLeftCost - value;
+        var userMoney = UserManager.Instance.money.Value;
+        
+        if (moneyAmountToDecrease > userMoney) moneyAmountToDecrease = userMoney;
+
+        var paidAmountAfterCalculation = emptyData.CurrenctPrice + moneyAmountToDecrease;
+        var remainingCost = emptyData.Price - emptyData.CurrenctPrice;
+        
+        if (paidAmountAfterCalculation > emptyData.Price) moneyAmountToDecrease = remainingCost;
+
+        return moneyAmountToDecrease;
+    }
+
+    private GameObject GetMoney()
+    {
+        foreach (var money in _moneyStack)
+        {
+            if (!money.activeSelf) return money;
+        }
+
+        var newMoney = Instantiate(GameManager.instance.itemList.GetItemPrefab(ItemType.Money)).gameObject;
+        _moneyStack.Add(newMoney);
+        
+        return newMoney;
+    }
+    
+    private void SlotClose()
     {
         transform.GetComponent<Collider>().enabled = false;
         transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InOutBounce);

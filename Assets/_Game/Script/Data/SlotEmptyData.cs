@@ -17,7 +17,7 @@ public class SlotEmptyData
         set
         {
             _isOpen = value;
-            OnChangeVariable?.Invoke(this);
+                OnChangeVariable?.Invoke(this);
             OnChangeIsOpenVarible?.Invoke(this);
         }
     }
