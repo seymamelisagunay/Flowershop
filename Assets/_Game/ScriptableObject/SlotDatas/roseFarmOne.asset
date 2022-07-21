@@ -37,7 +37,7 @@ MonoBehaviour:
         m_Calls: []
   stackData:
     maxItemCount: 3
-    productionRate: 0.75
+    productionRate: 1.5
     _productTypes: 010000000100000001000000
     OnChangeVariable:
       m_PersistentCalls:
