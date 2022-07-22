@@ -8,16 +8,20 @@ using UnityEngine;
 
 public class SlotEmptyController : MonoBehaviour, ISlotController
 {
+    // Unlock duration related values
     [SerializeField] private float baseUnlockDuration = 0.01f; // for every unit of cost that smaller than threshold, use this value for duration calculation. 
     [SerializeField] private float additionalUnlockDuration = 0.01f; // for every unit of cost that bigger than threshold, use this value for duration calculation.
     [SerializeField] private int slowerUnlockDurationThreshold = 100; // every unity bigger than this one will be marked ass additional.
     
+    // Money related values
     [SerializeField] private float moneyTransferSpeed;
     [SerializeField] private float moneyTransferInterval;
     [SerializeField] private AnimationCurve moneyMovementCurve;
 
     [SerializeField] private int moneyStackSize;
-
+    
+    private const float FirstTimeCooldown = 0.1f;
+    
     private SlotController _slotController;
     private bool _isInsidePlayer;
     [ReadOnly] public SlotEmptyData emptyData;
@@ -82,7 +86,7 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
     {
         yield return new WaitUntil(() => !player.characterController.inMotion && _isInsidePlayer);
         Debug.Log("Test Geçtik !");
-        yield return new WaitForSeconds(_slotController.slot.firstTriggerCooldown);
+        yield return new WaitForSeconds(FirstTimeCooldown);
         
         // Calculate unlock duration
         var remainingCost = emptyData.Price - emptyData.CurrenctPrice;
