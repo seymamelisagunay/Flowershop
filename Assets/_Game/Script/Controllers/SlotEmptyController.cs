@@ -8,12 +8,13 @@ using UnityEngine;
 
 public class SlotEmptyController : MonoBehaviour, ISlotController
 {
-    // Unlock duration related values
+    [Header("Unlock Duration Related")]
     [SerializeField] private float baseUnlockDuration = 0.01f; // for every unit of cost that smaller than threshold, use this value for duration calculation. 
     [SerializeField] private float additionalUnlockDuration = 0.01f; // for every unit of cost that bigger than threshold, use this value for duration calculation.
     [SerializeField] private int slowerUnlockDurationThreshold = 100; // every unity bigger than this one will be marked ass additional.
     
-    // Money related values
+    [Space]
+    [Header("Money Transfer Related")]
     [SerializeField] private float moneyTransferSpeed;
     [SerializeField] private float moneyTransferInterval;
     [SerializeField] private AnimationCurve moneyMovementCurve;

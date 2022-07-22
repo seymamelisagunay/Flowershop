@@ -14,6 +14,7 @@ namespace _Game.Script.Manager
         public Transform playerSpawnPoint;
         [HideInInspector] public PlayerController activePlayer;
         public SlotManager slotManager;
+        public CustomerManager customerManager;
         public BoolVariable isClientCreate;
         public CustomCameraFollow customCamera;
         public ItemTypeList ItemTypeList;

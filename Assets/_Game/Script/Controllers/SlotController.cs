@@ -1,3 +1,4 @@
+using System;
 using _Game.Script;
 using _Game.Script.Controllers;
 using _Game.Script.Manager;
@@ -17,6 +18,9 @@ public class SlotController : MonoBehaviour
     public IItemController activeItemController;
     [ReadOnly] public CameraFocus cameraFocus;
 
+    [NonSerialized]
+    public int CustomerLimitIncreaseValue;
+
     public void Init()
     {
         cameraFocus = GetComponent<CameraFocus>();
@@ -28,7 +32,8 @@ public class SlotController : MonoBehaviour
     public void OpenSlot()
     {
         if (!slot.emptyData.IsOpen) return;
-
+        GameManager.instance.customerManager.IncreaseCustomerLimit(CustomerLimitIncreaseValue);
+        
         switch (slot.slotType)
         {
             case SlotType.Farm:

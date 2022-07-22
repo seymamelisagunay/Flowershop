@@ -118,8 +118,6 @@ public class CustomerController : MonoBehaviour
         yield return MoveToPoint(_path);
         _customerManager.RemoveCustomer(this);
         yield return new WaitForSeconds(0.75f);
-        _customerManager.firstCustomer++;
-        _customerManager.SaveFirstCustomerCount();
         Destroy(gameObject);
         Debug.Log("Customer Puf !");
     }

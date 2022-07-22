@@ -12,8 +12,6 @@ using Random = UnityEngine.Random;
 public class CustomerManager : MonoBehaviour
 {
     public CustomerManagerSettings settings;
-    public int maxClientCount = 4;
-    public int firstCustomer = 0;
     [ReadOnly] public CashTradeController cashTradeController;
     public List<CustomerController> clientList = new List<CustomerController>();
     public ItemTypeList itemTypes;
@@ -21,24 +19,11 @@ public class CustomerManager : MonoBehaviour
     public BoolVariable isClientCreate;
     public List<ItemType> selectItem;
 
+    private int _maxCustomerCount;
+
     private void Start()
     {
-        firstCustomer = PlayerPrefs.GetInt("CustomerCount", 0);
-        if (firstCustomer >= settings.firstCustomer)
-        {
-            settings.maxClientCount = maxClientCount;
-        }
-
         StartCoroutine(BotCreator());
-    }
-
-    public void SaveFirstCustomerCount()
-    {
-        PlayerPrefs.SetInt("CustomerCount", firstCustomer);
-        if (firstCustomer >= settings.firstCustomer)
-        {
-            settings.maxClientCount = maxClientCount;
-        }
     }
 
     private IEnumerator BotCreator()
@@ -47,7 +32,7 @@ public class CustomerManager : MonoBehaviour
         {
             // Burada Game manager içerisinde Üretilmiş bir tane stand var mı diye bakacağız ve ona göre Client Üretim arasına gireceğiz
             yield return new WaitUntil(() => isClientCreate.Value);
-            yield return new WaitUntil(() => clientList.Count < settings.maxClientCount);
+            yield return new WaitUntil(() => clientList.Count < _maxCustomerCount);
             var randomDuration = Random.Range(settings.botCreateDuration / 2, settings.botCreateDuration);
             yield return new WaitForSeconds(randomDuration);
             CreateClient();
@@ -100,6 +85,12 @@ public class CustomerManager : MonoBehaviour
         }
 
         return randomItemType;
+    }
+
+    public void IncreaseCustomerLimit(int increaseValue)
+    {
+        _maxCustomerCount += increaseValue;
+        Debug.Log($"Customer Limit Changed: {_maxCustomerCount}");
     }
 
     public void RemoveCustomer(CustomerController customer)

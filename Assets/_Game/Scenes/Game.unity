@@ -3134,6 +3134,7 @@ MonoBehaviour:
   playerSpawnPoint: {fileID: 558070699}
   activePlayer: {fileID: 0}
   slotManager: {fileID: 1524180894}
+  customerManager: {fileID: 1816569677}
   isClientCreate: {fileID: 11400000, guid: adc741b91321f874ca3dbed4ac23318b, type: 2}
   customCamera: {fileID: 426928133}
   ItemTypeList: {fileID: 11400000, guid: d85f60e775ece8543bb1d9eb64a3f78f, type: 2}
@@ -4817,34 +4818,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentOrderCount: {fileID: 11400000, guid: 08f203d71d31f6d4496efe12e713c216, type: 2}
   slotStates:
-  - isNewSlotOpen: 1
+  - customerLimitIncreaseValue: 0
+    isNewSlotOpen: 1
     orderCount: 1
     slotController: {fileID: 576479494}
-  - isNewSlotOpen: 1
+  - customerLimitIncreaseValue: 0
+    isNewSlotOpen: 1
     orderCount: 2
     slotController: {fileID: 457439895}
-  - isNewSlotOpen: 1
+  - customerLimitIncreaseValue: 1
+    isNewSlotOpen: 1
     orderCount: 3
     slotController: {fileID: 921311630}
-  - isNewSlotOpen: 1
+  - customerLimitIncreaseValue: 1
+    isNewSlotOpen: 1
     orderCount: 4
     slotController: {fileID: 1424125684}
-  - isNewSlotOpen: 1
+  - customerLimitIncreaseValue: 0
+    isNewSlotOpen: 1
     orderCount: 5
     slotController: {fileID: 1638395301}
-  - isNewSlotOpen: 0
+  - customerLimitIncreaseValue: 1
+    isNewSlotOpen: 0
     orderCount: 5
     slotController: {fileID: 937008852}
-  - isNewSlotOpen: 1
+  - customerLimitIncreaseValue: 1
+    isNewSlotOpen: 1
     orderCount: 6
     slotController: {fileID: 1430144984}
-  - isNewSlotOpen: 1
+  - customerLimitIncreaseValue: 0
+    isNewSlotOpen: 1
     orderCount: 7
     slotController: {fileID: 1698955654}
-  - isNewSlotOpen: 1
+  - customerLimitIncreaseValue: 0
+    isNewSlotOpen: 1
     orderCount: 8
     slotController: {fileID: 1281584139}
-  - isNewSlotOpen: 1
+  - customerLimitIncreaseValue: 0
+    isNewSlotOpen: 1
     orderCount: 9
     slotController: {fileID: 765007789}
   isClientCreate: {fileID: 11400000, guid: adc741b91321f874ca3dbed4ac23318b, type: 2}
@@ -5326,8 +5337,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: c3a5d34e40600784f87ecfcd632ed50a, type: 2}
-  maxClientCount: 7
-  firstCustomer: 0
   cashTradeController: {fileID: 0}
   clientList: []
   itemTypes: {fileID: 11400000, guid: d85f60e775ece8543bb1d9eb64a3f78f, type: 2}

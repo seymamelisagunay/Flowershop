@@ -9,10 +9,7 @@ public class CustomerManagerSettings : ScriptableObject
     /// <summary>
     /// Sahnede max kaç tane client Olacak 
     /// </summary>
-    public int maxClientCount;
-    public int firstCustomer = 20;
     public List<CustomerController> customersPrefab;
     public int clientMaxTradeCount;
     public float botCreateDuration;
-
 }
