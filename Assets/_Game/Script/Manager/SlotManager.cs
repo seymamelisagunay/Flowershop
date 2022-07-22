@@ -44,8 +44,6 @@ public class SlotManager : MonoBehaviour
         if (nextSlot.Count > 0)
             nextSlot.ForEach(x =>
             {
-                x.slotController.CustomerLimitIncreaseValue = x.customerLimitIncreaseValue;
-                
                 if (!x.slotController.slot.emptyData.IsOpen)
                 {
                     x.slotController.OpenEmpty();
@@ -82,8 +80,6 @@ public class SlotManager : MonoBehaviour
 [Serializable]
 public class SlotState
 {
-    public int customerLimitIncreaseValue;
-    
     public bool isNewSlotOpen;
     public int orderCount;
     public SlotController slotController;

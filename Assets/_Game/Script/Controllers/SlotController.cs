@@ -17,9 +17,8 @@ public class SlotController : MonoBehaviour
     public Transform hudPoint;
     public IItemController activeItemController;
     [ReadOnly] public CameraFocus cameraFocus;
-
-    [NonSerialized]
-    public int CustomerLimitIncreaseValue;
+    
+    public int customerLimitIncreaseValue;
 
     public void Init()
     {
@@ -32,7 +31,7 @@ public class SlotController : MonoBehaviour
     public void OpenSlot()
     {
         if (!slot.emptyData.IsOpen) return;
-        GameManager.instance.customerManager.IncreaseCustomerLimit(CustomerLimitIncreaseValue);
+        GameManager.instance.customerManager.IncreaseCustomerLimit(customerLimitIncreaseValue);
         
         switch (slot.slotType)
         {

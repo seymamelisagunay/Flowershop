@@ -1668,6 +1668,7 @@ MonoBehaviour:
   slotHud: {fileID: 0}
   hudPoint: {fileID: 363311130}
   cameraFocus: {fileID: 0}
+  customerLimitIncreaseValue: 0
 --- !u!54 &457439896
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1948,6 +1949,7 @@ MonoBehaviour:
   slotHud: {fileID: 0}
   hudPoint: {fileID: 1327054785}
   cameraFocus: {fileID: 0}
+  customerLimitIncreaseValue: 0
 --- !u!54 &576479495
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2498,6 +2500,7 @@ MonoBehaviour:
   slotHud: {fileID: 0}
   hudPoint: {fileID: 772741514}
   cameraFocus: {fileID: 0}
+  customerLimitIncreaseValue: 0
 --- !u!54 &765007790
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2884,6 +2887,7 @@ MonoBehaviour:
   slotHud: {fileID: 0}
   hudPoint: {fileID: 572823941}
   cameraFocus: {fileID: 0}
+  customerLimitIncreaseValue: 0
 --- !u!54 &835296821
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2986,6 +2990,7 @@ MonoBehaviour:
   slotHud: {fileID: 0}
   hudPoint: {fileID: 1173502836}
   cameraFocus: {fileID: 0}
+  customerLimitIncreaseValue: 1
 --- !u!54 &921311631
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3069,6 +3074,7 @@ MonoBehaviour:
   slotHud: {fileID: 0}
   hudPoint: {fileID: 633227596}
   cameraFocus: {fileID: 0}
+  customerLimitIncreaseValue: 1
 --- !u!54 &937008853
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3819,6 +3825,7 @@ MonoBehaviour:
   slotHud: {fileID: 0}
   hudPoint: {fileID: 207462802}
   cameraFocus: {fileID: 0}
+  customerLimitIncreaseValue: 0
 --- !u!54 &1281584140
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4121,6 +4128,7 @@ MonoBehaviour:
   slotHud: {fileID: 0}
   hudPoint: {fileID: 1612868392}
   cameraFocus: {fileID: 0}
+  customerLimitIncreaseValue: 1
 --- !u!54 &1424125685
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4189,6 +4197,7 @@ MonoBehaviour:
   slotHud: {fileID: 0}
   hudPoint: {fileID: 1177923192}
   cameraFocus: {fileID: 0}
+  customerLimitIncreaseValue: 1
 --- !u!54 &1430144985
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4427,7 +4436,7 @@ PrefabInstance:
     - target: {fileID: 1912991284477093860, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 171.98
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1912991284477093860, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
@@ -4452,7 +4461,7 @@ PrefabInstance:
     - target: {fileID: 1912991284628932557, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 293.84
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1912991284628932557, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
@@ -4477,7 +4486,7 @@ PrefabInstance:
     - target: {fileID: 1912991284672584419, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 168.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1912991284672584419, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
@@ -4652,7 +4661,7 @@ PrefabInstance:
     - target: {fileID: 1912991285795290757, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 81.515
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1912991285795290757, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
@@ -4697,7 +4706,7 @@ PrefabInstance:
     - target: {fileID: 1912991285871496657, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 166.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1912991285871496657, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
@@ -4762,7 +4771,7 @@ PrefabInstance:
     - target: {fileID: 1912991286199189496, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 74.885
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1912991286199189496, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
@@ -4818,44 +4827,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentOrderCount: {fileID: 11400000, guid: 08f203d71d31f6d4496efe12e713c216, type: 2}
   slotStates:
-  - customerLimitIncreaseValue: 0
-    isNewSlotOpen: 1
+  - isNewSlotOpen: 1
     orderCount: 1
     slotController: {fileID: 576479494}
-  - customerLimitIncreaseValue: 0
-    isNewSlotOpen: 1
+  - isNewSlotOpen: 1
     orderCount: 2
     slotController: {fileID: 457439895}
-  - customerLimitIncreaseValue: 1
-    isNewSlotOpen: 1
+  - isNewSlotOpen: 1
     orderCount: 3
     slotController: {fileID: 921311630}
-  - customerLimitIncreaseValue: 1
-    isNewSlotOpen: 1
+  - isNewSlotOpen: 1
     orderCount: 4
     slotController: {fileID: 1424125684}
-  - customerLimitIncreaseValue: 0
-    isNewSlotOpen: 1
+  - isNewSlotOpen: 1
     orderCount: 5
     slotController: {fileID: 1638395301}
-  - customerLimitIncreaseValue: 1
-    isNewSlotOpen: 0
+  - isNewSlotOpen: 0
     orderCount: 5
     slotController: {fileID: 937008852}
-  - customerLimitIncreaseValue: 1
-    isNewSlotOpen: 1
+  - isNewSlotOpen: 1
     orderCount: 6
     slotController: {fileID: 1430144984}
-  - customerLimitIncreaseValue: 0
-    isNewSlotOpen: 1
+  - isNewSlotOpen: 1
     orderCount: 7
     slotController: {fileID: 1698955654}
-  - customerLimitIncreaseValue: 0
-    isNewSlotOpen: 1
+  - isNewSlotOpen: 1
     orderCount: 8
     slotController: {fileID: 1281584139}
-  - customerLimitIncreaseValue: 0
-    isNewSlotOpen: 1
+  - isNewSlotOpen: 1
     orderCount: 9
     slotController: {fileID: 765007789}
   isClientCreate: {fileID: 11400000, guid: adc741b91321f874ca3dbed4ac23318b, type: 2}
@@ -4941,6 +4940,7 @@ MonoBehaviour:
   slotHud: {fileID: 0}
   hudPoint: {fileID: 1855310124}
   cameraFocus: {fileID: 0}
+  customerLimitIncreaseValue: 0
 --- !u!54 &1638395302
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5042,6 +5042,7 @@ MonoBehaviour:
   slotHud: {fileID: 0}
   hudPoint: {fileID: 1169672289}
   cameraFocus: {fileID: 0}
+  customerLimitIncreaseValue: 0
 --- !u!54 &1698955655
 Rigidbody:
   m_ObjectHideFlags: 0
