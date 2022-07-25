@@ -65,7 +65,6 @@ public class CustomerManager : MonoBehaviour
             //Burada Random Verilecek aktif olan Ürünlere göre ;
             shoppingCard.ProductTypes.Add(randomItemType);
         }
-
         shoppingCard.ProductTypes.Sort();
         var selectCustomerPrefab = settings.customersPrefab.RandomSelectObject();
         var cloneCustomer = Instantiate(selectCustomerPrefab);

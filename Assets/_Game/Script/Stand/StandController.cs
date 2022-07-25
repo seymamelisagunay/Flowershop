@@ -11,6 +11,10 @@ public class StandController : MonoBehaviour
     public GridSlot GetCustomerSlot()
     {
         var resultObject = customerSlot.RandomSelectObject();
+        if (resultObject==null)
+        {
+            
+        }
         return resultObject;
     }
 }
