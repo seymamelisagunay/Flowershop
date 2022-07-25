@@ -92,7 +92,7 @@ public class CustomerController : MonoBehaviour
     {
         waitingPoint = null;
         var priceCount = MoneyCalculator();
-        customerHUD.hudDotIdle.ThreeDotAnim();
+        Debug.Log("Customer Money : "+priceCount);
         StartCoroutine(SellEffect(callback));
         return priceCount;
     }
