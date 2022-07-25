@@ -125,8 +125,8 @@ Material:
     - _RampBandsSmoothing: 0.1
     - _RampOffset: 0
     - _RampScale: 1
-    - _RampSmoothing: 0.1
-    - _RampThreshold: 0.75
+    - _RampSmoothing: 1
+    - _RampThreshold: 1
     - _RampType: 0
     - _ReceiveShadowsOff: 1
     - _ReflectionMapType: 0
@@ -161,7 +161,7 @@ Material:
     - _UseSpecular: 0
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.22298945, g: 0.5943396, b: 0.22091489, a: 1}
+    - _BaseColor: {r: 0.7372549, g: 0.91372555, b: 0.41176474, a: 1}
     - _Color: {r: 0.8584906, g: 0.8399659, b: 0.4729797, a: 0.89411765}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HColor: {r: 1, g: 1, b: 1, a: 1}

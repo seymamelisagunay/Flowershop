@@ -157,7 +157,7 @@ public class CustomerController : MonoBehaviour
             if (activeSlot.slot.slotType != SlotType.Stand) continue;
             _activeStandController = activeSlot.GetComponentInChildren<StandController>();
             _activeGrid = _activeStandController.GetCustomerSlot();
-            _activeGrid.isFull = true;
+            
             _path = new NavMeshPath();
             _pathIndex = 1;
             GameManager.instance.NavMesh.CalculatePath(transform.position, _activeGrid.transform.position, _path);
@@ -193,7 +193,7 @@ public class CustomerController : MonoBehaviour
                     _pathIndex++;
             }
         }
-
         _input.ClearDirection();
     }
+    
 }

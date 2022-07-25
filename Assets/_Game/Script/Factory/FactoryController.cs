@@ -41,6 +41,7 @@ public class FactoryController : MonoBehaviour
         {
             yield return new WaitUntil(() => picker.pickerData.ProductTypes.Count > 0);
             yield return new WaitUntil(() => slotController.slot.stackData.CheckMaxCount());
+            yield return new WaitUntil(() => factoryItemController.itemData.CheckMaxCount());
             machine?.Play(itemCreateDuration, machineStrength, machineVibration);
             yield return new WaitForSeconds(itemCreateDuration);
             // Item Üretilecek
@@ -57,6 +58,7 @@ public class FactoryController : MonoBehaviour
             }
 
             factoryItemController.gridSlotController.CreateObject();
+
             itemController.SetValue(itemController.GetItemType());
             picker.pickerData.RemoveProduct(0);
         }

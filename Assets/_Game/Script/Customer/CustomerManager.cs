@@ -50,7 +50,6 @@ public class CustomerManager : MonoBehaviour
             //Burada Random Verilecek aktif olan Ürünlere göre ;
             shoppingCard.ProductTypes.Add(randomItemType);
         }
-
         shoppingCard.ProductTypes.Sort();
         var selectCustomerPrefab = settings.customersPrefab.RandomSelectObject();
         var cloneCustomer = Instantiate(selectCustomerPrefab);
@@ -65,11 +64,11 @@ public class CustomerManager : MonoBehaviour
     private ItemType SelectRandomItemType()
     {
         var randomItemType = itemTypes.value.RandomSelectObject();
+        var factorys = SlotManager.instance.GetSlotController(SlotType.Factory);
         switch (randomItemType)
         {
             case ItemType.Water:
                 // Factory Üretildimi diye bakacağız 
-                var factorys = SlotManager.instance.GetSlotController(SlotType.Factory);
                 var factory = factorys.Find(x => x.slot.itemType == randomItemType);
                 if (factory == null)
                 {
@@ -81,6 +80,16 @@ public class CustomerManager : MonoBehaviour
                 }
                 break;
             case ItemType.Delight:
+                // bURAYA YAzıcağız 
+                var delightFactory = factorys.Find(x => x.slot.itemType == randomItemType);
+                if (delightFactory == null)
+                {
+                    var itemType = selectItem.Find(x => x == randomItemType);
+                    if (itemType == randomItemType)
+                        randomItemType = ItemType.Rose;
+                    else
+                        selectItem.Add(randomItemType);
+                }
                 break;
         }
 
