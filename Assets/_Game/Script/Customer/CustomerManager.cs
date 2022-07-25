@@ -34,8 +34,8 @@ public class CustomerManager : MonoBehaviour
             yield return new WaitUntil(() => isClientCreate.Value);
             yield return new WaitUntil(() => clientList.Count < _maxCustomerCount);
             // var randomDuration = Random.Range(settings.botCreateDuration / 2, settings.botCreateDuration);
-            yield return new WaitForSeconds(settings.botCreateDuration);
             CreateClient();
+            yield return new WaitForSeconds(settings.botCreateDuration);
         }
     }
 

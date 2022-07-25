@@ -22,4 +22,4 @@ MonoBehaviour:
   - {fileID: 5655030497427552283, guid: eef1f5dd497a9de43b77686d5aadacf4, type: 3}
   - {fileID: 5655030497427552283, guid: c2cef0028b776b34383b67f7468d1db6, type: 3}
   clientMaxTradeCount: 5
-  botCreateDuration: 0
+  botCreateDuration: 1
