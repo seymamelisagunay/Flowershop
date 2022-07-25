@@ -1,26 +1,45 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using _Game.Script;
+using _Game.Script.Manager;
 using TMPro;
 using UnityEngine;
 using NaughtyAttributes;
 
 public class HudDotIdle : MonoBehaviour
 {
-    public GameObject[] closeObjects;
+    private Transform _camera;
     public TMP_Text threeDot;
-    
-    public void ThreeDotAnim()
+    public bool playEffect;
+
+    public void Start()
+    {
+        _camera = GameManager.instance.customCamera.transform;
+    }
+
+    public void Play()
     {
         threeDot.text = "";
-        foreach (var closeObject in closeObjects)
-        {
-            closeObject.SetActive(false);
-        }
-        StartCoroutine(Enumerator());
+        playEffect = true;
+        StartCoroutine(Effect());
     }
-    IEnumerator Enumerator()
+
+    public void Update()
     {
-        for (int i = 1; i < 10; i++)
+        transform.LookAt(_camera);
+    }
+
+    public void Stop()
+    {
+        threeDot.text = "";
+        playEffect = false;
+        StopCoroutine(Effect());
+    }
+    IEnumerator Effect()
+    {
+        int i=1;
+        while (playEffect)
         {
             threeDot.text += '.';
             yield return new WaitForSeconds(0.3f);
@@ -29,7 +48,17 @@ public class HudDotIdle : MonoBehaviour
                 threeDot.text = "";
                 yield return new WaitForSeconds(0.3f);
             }
-                
+            i++;
         }
+       /* for (int i = 1; i < 10; i++)
+        {
+            threeDot.text += '.';
+            yield return new WaitForSeconds(0.3f);
+            if (i % 3 == 0)
+            {
+                threeDot.text = "";
+                yield return new WaitForSeconds(0.3f);
+            }
+        }*/
     }
 }

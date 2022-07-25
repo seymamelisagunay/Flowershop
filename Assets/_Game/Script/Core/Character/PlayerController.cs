@@ -22,6 +22,7 @@ namespace _Game.Script.Character
         private Tweener _virtualTweener;
         private bool _isRigActive;
         private CustomCameraFollow _cameraFollow;
+        public HudDotIdle hudDotIdle;
 
         private void Awake()
         {
@@ -29,6 +30,7 @@ namespace _Game.Script.Character
             _playerItemController = GetComponent<PlayerItemController>();
             if (playerSettings.isBot) return;
             rig.weight = 0;
+            hudDotIdle.gameObject.SetActive(false);
         }
 
         public void Init(Transform spawnPoint)
