@@ -8,27 +8,37 @@ using UnityEngine;
 
 public class SlotEmptyController : MonoBehaviour, ISlotController
 {
-    [Header("Unlock Duration Related")]
-    [SerializeField] private float baseUnlockDuration = 0.01f; // for every unit of cost that smaller than threshold, use this value for duration calculation. 
-    [SerializeField] private float additionalUnlockDuration = 0.01f; // for every unit of cost that bigger than threshold, use this value for duration calculation.
-    [SerializeField] private int slowerUnlockDurationThreshold = 100; // every unity bigger than this one will be marked ass additional.
-    
-    [Space]
-    [Header("Money Transfer Related")]
-    [SerializeField] private float moneyTransferSpeed;
+    [Header("Unlock Duration Related")] [SerializeField]
+    private float
+        baseUnlockDuration =
+            0.01f; // for every unit of cost that smaller than threshold, use this value for duration calculation. 
+
+    [SerializeField]
+    private float
+        additionalUnlockDuration =
+            0.01f; // for every unit of cost that bigger than threshold, use this value for duration calculation.
+
+    [SerializeField]
+    private int slowerUnlockDurationThreshold = 100; // every unity bigger than this one will be marked ass additional.
+
+    [Space] [Header("Money Transfer Related")] [SerializeField]
+    private float moneyTransferSpeed;
+
     [SerializeField] private float moneyTransferInterval;
     [SerializeField] private AnimationCurve moneyMovementCurve;
 
     [SerializeField] private int moneyStackSize;
-    
+
     private const float FirstTimeCooldown = 0.1f;
-    
+
     private SlotController _slotController;
     private bool _isInsidePlayer;
     [ReadOnly] public SlotEmptyData emptyData;
-    
+
     private PlayerController _playerController;
     private List<GameObject> _moneyStack = new();
+    private Tweener _moneyTweener;
+
 
     public void Init(SlotController slotController)
     {
@@ -66,7 +76,7 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
         if (other.CompareTag("Player") && !_slotController.slot.emptyData.IsOpen)
         {
             _isInsidePlayer = true;
-            
+
             if (_playerController == null) _playerController = other.GetComponent<PlayerController>();
             StartCoroutine(StayInPlayer(_playerController));
         }
@@ -77,7 +87,7 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
         if (other.CompareTag("Player"))
         {
             _isInsidePlayer = false;
-            
+
             if (_playerController == null) _playerController = other.GetComponent<PlayerController>();
             StopCoroutine(StayInPlayer(_playerController));
         }
@@ -88,7 +98,7 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
         yield return new WaitUntil(() => !player.characterController.inMotion && _isInsidePlayer);
         Debug.Log("Test Geçtik !");
         yield return new WaitForSeconds(FirstTimeCooldown);
-        
+
         // Calculate unlock duration
         var remainingCost = emptyData.Price - emptyData.CurrenctPrice;
         var duration = remainingCost * baseUnlockDuration;
@@ -98,7 +108,7 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
             duration += additionalCost * additionalUnlockDuration;
         }
 
-        DOVirtual.Int(remainingCost, 0, duration, value =>
+        _moneyTweener = DOVirtual.Int(remainingCost, 0, duration, value =>
         {
             if (!_isInsidePlayer) return;
             if (UserManager.Instance.money.Value == 0)
@@ -108,10 +118,10 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
             }
 
             var moneyAmountToDecrease = GetDecreaseAmount(remainingCost, value);
-            
+
             var result = UserManager.Instance.DecreasingMoney(moneyAmountToDecrease);
             if (!result)
-            { 
+            {
                 _isInsidePlayer = false;
                 return;
             }
@@ -121,8 +131,8 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
             if (emptyData.CurrenctPrice < emptyData.Price) return;
             ActivateSlot();
         });
-
-        while (_isInsidePlayer)
+        
+        while (_isInsidePlayer )
         {
             if (!_isInsidePlayer) break;
             if (emptyData.CurrenctPrice == emptyData.Price) break;
@@ -130,6 +140,9 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
             yield return new WaitForSeconds(moneyTransferInterval);
             TransferMoney();
         }
+
+        _moneyTweener.Kill();
+        //
     }
 
     private void TransferMoney()
@@ -141,9 +154,9 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
         DOVirtual.Float(0, 1, moneyTransferSpeed, value =>
             {
                 money.transform.position = Vector3.Lerp(money.transform.position, transform.position, value)
-                                            + new Vector3(0, moneyMovementCurve.Evaluate(value), 0f);
+                                           + new Vector3(0, moneyMovementCurve.Evaluate(value), 0f);
             }).OnComplete(() => money.SetActive(false))
-             .SetLink(money, LinkBehaviour.KillOnDestroy);
+            .SetLink(money, LinkBehaviour.KillOnDestroy);
     }
 
     private void ActivateSlot()
@@ -160,7 +173,7 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
         {
             Destroy(money);
         }
-        
+
         _moneyStack.Clear();
     }
 
@@ -168,12 +181,12 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
     {
         var moneyAmountToDecrease = previousLeftCost - value;
         var userMoney = UserManager.Instance.money.Value;
-        
+
         if (moneyAmountToDecrease > userMoney) moneyAmountToDecrease = userMoney;
 
         var paidAmountAfterCalculation = emptyData.CurrenctPrice + moneyAmountToDecrease;
         var remainingCost = emptyData.Price - emptyData.CurrenctPrice;
-        
+
         if (paidAmountAfterCalculation > emptyData.Price) moneyAmountToDecrease = remainingCost;
 
         return moneyAmountToDecrease;
@@ -185,13 +198,11 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
         {
             if (!money.activeSelf) return money;
         }
-
         var newMoney = Instantiate(GameManager.instance.itemList.GetItemPrefab(ItemType.Money)).gameObject;
         _moneyStack.Add(newMoney);
-        
         return newMoney;
     }
-    
+
     private void SlotClose()
     {
         transform.GetComponent<Collider>().enabled = false;
