@@ -37,7 +37,6 @@ namespace _Game.Script.Character
         {
             Input = GetComponent<IInput>();
             _spawnPoint = spawnPoint;
-            // hudController.Init(this);
             OnOpenLevel();
             characterController.cameraFollow = _cameraFollow;
         }

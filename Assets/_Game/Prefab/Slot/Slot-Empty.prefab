@@ -65,7 +65,7 @@ MonoBehaviour:
   additionalUnlockDuration: 0.5
   slowerUnlockDurationThreshold: 100
   moneyTransferSpeed: 0.1
-  moneyTransferInterval: 0.01
+  moneyTransferInterval: 0.001
   moneyMovementCurve:
     serializedVersion: 2
     m_Curve:
