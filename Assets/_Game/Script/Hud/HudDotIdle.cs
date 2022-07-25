@@ -8,15 +8,13 @@ public class HudDotIdle : MonoBehaviour
 {
     public GameObject[] closeObjects;
     public TMP_Text threeDot;
-
-    [Button()]
+    
     public void ThreeDotAnim()
     {
         threeDot.text = "";
         foreach (var closeObject in closeObjects)
         {
             closeObject.SetActive(false);
-            
         }
         StartCoroutine(Enumerator());
     }

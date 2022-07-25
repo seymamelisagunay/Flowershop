@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 1282733777372879532}
   - component: {fileID: 1282733777372879533}
   - component: {fileID: 1282733777372879530}
-  - component: {fileID: 1282733777372879535}
+  - component: {fileID: 341085793666652782}
   - component: {fileID: 6125619564658926386}
   - component: {fileID: 445102147428295289}
   m_Layer: 7
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1282733777372879535
+--- !u!114 &341085793666652782
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,9 +189,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1282733777372879528}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2241899a258d09a4c93e1facb724e6ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 31e5ee4d29375c04086c21d0bb3015e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiEmojiController: {fileID: 6125619564658926386}
+  hudDotIdle: {fileID: 445102147428295289}
 --- !u!114 &6125619564658926386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,6 +209,8 @@ MonoBehaviour:
   item: {fileID: 1282733777878117478}
   itemIcon: {fileID: 6095662865300237550}
   finishIcon: {fileID: 3234210852090143929}
+  threeDot: {fileID: 2069858446585901585}
+  smile: {fileID: 2761735885081298369}
 --- !u!114 &445102147428295289
 MonoBehaviour:
   m_ObjectHideFlags: 0
