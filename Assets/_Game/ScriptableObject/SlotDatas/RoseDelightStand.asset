@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: RoseDelightStand
   m_EditorClassIdentifier: 
   logo: {fileID: 21300000, guid: 8ba46a52ca3e94a44ac0cf18659deef6, type: 3}
-  slotName: Delight Perfume Factory
-  Id: DelightPerfumeFactory
+  slotName: Delight Perfume Stand
+  Id: DelightPerfumeStand
   itemType: 3
   slotType: 2
   slotEmptyPrefab: {fileID: 2064649203199760101, guid: 2796bf85067029244b0236bd3d257ab5,

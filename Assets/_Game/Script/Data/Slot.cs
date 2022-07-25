@@ -73,6 +73,8 @@ public class Slot : ScriptableObject
         stackData.ProductTypes.Clear();
         emptyData.IsOpen = false;
         emptyData.CurrenctPrice = 0;
+        PlayerPrefs.DeleteKey(Id + "-Empty");
+        PlayerPrefs.DeleteKey(Id + "-StackData");
     }
 }
 
