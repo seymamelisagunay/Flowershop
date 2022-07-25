@@ -39,8 +39,7 @@ public class CustomerController : MonoBehaviour
     public Item shoppingBox;
     public GameObject shoppingCar;
     private Vector3 _firstPosition;
-    [HideInInspector] public UIEmojiController emojiController;
-
+    public CustomerHUD customerHUD;
 
     /// <summary>
     /// 
@@ -60,7 +59,8 @@ public class CustomerController : MonoBehaviour
         _customerPickerController.Init(customerTradeData, this.shoppingData, customerSettings);
         _customerItemController.Init(customerTradeData);
         _customerItemController.shoppingData = this.shoppingData;
-        emojiController = GetComponentInChildren<UIEmojiController>();
+        
+  
         _input = GetComponent<IInput>();
         _input.StartListen();
         StartCoroutine(CustomerShoppingProgress());
@@ -73,7 +73,7 @@ public class CustomerController : MonoBehaviour
     /// <param name="point"></param>
     public void SetTradePoint(TradeWaitingPoint point)
     {
-        emojiController.ShowCashDeskIcon();
+        customerHUD.uiEmojiController.ShowCashDeskIcon();
         point.isFull = true;
         _path = new NavMeshPath();
         _pathIndex = 1;
@@ -92,7 +92,7 @@ public class CustomerController : MonoBehaviour
     {
         waitingPoint = null;
         var priceCount = MoneyCalculator();
-        Debug.Log("Customer Money : " + priceCount);
+        customerHUD.hudDotIdle.ThreeDotAnim();
         StartCoroutine(SellEffect(callback));
         return priceCount;
     }
@@ -104,12 +104,12 @@ public class CustomerController : MonoBehaviour
     /// <returns></returns>
     private IEnumerator SellEffect(Action callback)
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
         Debug.Log("Alışveriş Arabasını yok et !");
         shoppingCar.SetActive(false);
         shoppingBox.gameObject.SetActive(true);
         shoppingBox.PlayScaleEffect(0.5f);
-        emojiController.ShowSmile();
+        customerHUD.uiEmojiController.ShowSmile();
 
         // Client Çıktığı noktaya doğru gidiyor 
         _path = new NavMeshPath();

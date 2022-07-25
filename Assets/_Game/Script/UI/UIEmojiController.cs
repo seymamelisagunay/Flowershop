@@ -14,6 +14,8 @@ public class UIEmojiController : MonoBehaviour
     public TMP_Text item;
     public Image itemIcon;
     public Image finishIcon;
+    public GameObject threeDot;
+    public GameObject smile;
 
     private void Start()
     {
@@ -54,6 +56,8 @@ public class UIEmojiController : MonoBehaviour
     }
     public void ShowSmile()
     {
+        threeDot.SetActive(false);
+        smile.SetActive(true);
         CloseItemPanel();
         var emoji = GameManager.instance.emojiIcons.RandomSelectObject();
         finishIcon.sprite = emoji.Value;

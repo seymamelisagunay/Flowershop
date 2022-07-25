@@ -340,6 +340,7 @@ MonoBehaviour:
   _rootMotionRotation: 0
   playerSettings: {fileID: 11400000, guid: 7fdd1d2bb3fab1e4dac7b7add2a738b6, type: 2}
   inMotion: 0
+  cameraFollow: {fileID: 0}
 --- !u!114 &3370428371220194160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,7 +384,7 @@ MonoBehaviour:
   customerSettings: {fileID: 11400000, guid: 7fdd1d2bb3fab1e4dac7b7add2a738b6, type: 2}
   shoppingBox: {fileID: 3117701894415738734}
   shoppingCar: {fileID: 3453326640391612087}
-  emojiController: {fileID: 0}
+  customerHUD: {fileID: 6275245108753152320}
 --- !u!114 &76248307041298645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2132,20 +2133,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1477559388705227491}
     m_Modifications:
-    - target: {fileID: 1005789758497994537, guid: f7e1b76ae1b258a44aab68f9938cdc75,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 1282733777372879528, guid: f7e1b76ae1b258a44aab68f9938cdc75,
         type: 3}
       propertyPath: m_Name
       value: ItemEmojiHud
-      objectReference: {fileID: 0}
-    - target: {fileID: 1282733777372879528, guid: f7e1b76ae1b258a44aab68f9938cdc75,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1282733777372879531, guid: f7e1b76ae1b258a44aab68f9938cdc75,
         type: 3}
@@ -2252,26 +2243,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1282733777372879533, guid: f7e1b76ae1b258a44aab68f9938cdc75,
-        type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1282733777518840928, guid: f7e1b76ae1b258a44aab68f9938cdc75,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1282733777878117476, guid: f7e1b76ae1b258a44aab68f9938cdc75,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2761735885081298369, guid: f7e1b76ae1b258a44aab68f9938cdc75,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7e1b76ae1b258a44aab68f9938cdc75, type: 3}
 --- !u!114 &481730262745366556 stripped
@@ -2292,3 +2263,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 6029723506736096046}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6275245108753152320 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 341085793666652782, guid: f7e1b76ae1b258a44aab68f9938cdc75,
+    type: 3}
+  m_PrefabInstance: {fileID: 6029723506736096046}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e5ee4d29375c04086c21d0bb3015e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

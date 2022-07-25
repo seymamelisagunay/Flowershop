@@ -282,6 +282,7 @@ MonoBehaviour:
   _rootMotionRotation: 0
   playerSettings: {fileID: 11400000, guid: 7fdd1d2bb3fab1e4dac7b7add2a738b6, type: 2}
   inMotion: 0
+  cameraFollow: {fileID: 0}
 --- !u!114 &3370428371220194160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,7 +326,7 @@ MonoBehaviour:
   customerSettings: {fileID: 11400000, guid: 7fdd1d2bb3fab1e4dac7b7add2a738b6, type: 2}
   shoppingBox: {fileID: 3117701894415738734}
   shoppingCar: {fileID: 3453326640391612087}
-  emojiController: {fileID: 0}
+  customerHUD: {fileID: 7338078099292009815}
 --- !u!114 &76248307041298645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2274,6 +2275,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7e1b76ae1b258a44aab68f9938cdc75, type: 3}
+--- !u!114 &7338078099292009815 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 341085793666652782, guid: f7e1b76ae1b258a44aab68f9938cdc75,
+    type: 3}
+  m_PrefabInstance: {fileID: 7020496779404734265}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e5ee4d29375c04086c21d0bb3015e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8115766959528080786 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1282733777372879531, guid: f7e1b76ae1b258a44aab68f9938cdc75,
