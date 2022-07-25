@@ -4436,7 +4436,7 @@ PrefabInstance:
     - target: {fileID: 1912991284477093860, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 171.98
       objectReference: {fileID: 0}
     - target: {fileID: 1912991284477093860, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
@@ -4461,7 +4461,7 @@ PrefabInstance:
     - target: {fileID: 1912991284628932557, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 293.84
       objectReference: {fileID: 0}
     - target: {fileID: 1912991284628932557, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
@@ -4486,7 +4486,7 @@ PrefabInstance:
     - target: {fileID: 1912991284672584419, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 168.01
       objectReference: {fileID: 0}
     - target: {fileID: 1912991284672584419, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
@@ -4661,7 +4661,7 @@ PrefabInstance:
     - target: {fileID: 1912991285795290757, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 81.515
       objectReference: {fileID: 0}
     - target: {fileID: 1912991285795290757, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
@@ -4706,7 +4706,7 @@ PrefabInstance:
     - target: {fileID: 1912991285871496657, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 166.4
       objectReference: {fileID: 0}
     - target: {fileID: 1912991285871496657, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
@@ -4771,7 +4771,7 @@ PrefabInstance:
     - target: {fileID: 1912991286199189496, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 74.885
       objectReference: {fileID: 0}
     - target: {fileID: 1912991286199189496, guid: 5cc124f854de9544eb9e008d089b69df,
         type: 3}
@@ -4841,21 +4841,21 @@ MonoBehaviour:
     slotController: {fileID: 1424125684}
   - isNewSlotOpen: 1
     orderCount: 5
-    slotController: {fileID: 1638395301}
-  - isNewSlotOpen: 0
-    orderCount: 5
     slotController: {fileID: 937008852}
   - isNewSlotOpen: 1
     orderCount: 6
-    slotController: {fileID: 1430144984}
+    slotController: {fileID: 1638395301}
   - isNewSlotOpen: 1
     orderCount: 7
-    slotController: {fileID: 1698955654}
+    slotController: {fileID: 1430144984}
   - isNewSlotOpen: 1
     orderCount: 8
-    slotController: {fileID: 1281584139}
+    slotController: {fileID: 1698955654}
   - isNewSlotOpen: 1
     orderCount: 9
+    slotController: {fileID: 1281584139}
+  - isNewSlotOpen: 1
+    orderCount: 10
     slotController: {fileID: 765007789}
   isClientCreate: {fileID: 11400000, guid: adc741b91321f874ca3dbed4ac23318b, type: 2}
   slots: []

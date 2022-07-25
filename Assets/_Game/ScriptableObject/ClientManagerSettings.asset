@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa597ac0f244935817475fb415cf8c6, type: 3}
   m_Name: ClientManagerSettings
   m_EditorClassIdentifier: 
-  maxClientCount: 6
-  firstCustomer: 15
   customersPrefab:
   - {fileID: 5655030497427552283, guid: 33f59e903ba47354681eb250d9ed8fc9, type: 3}
   - {fileID: 5655030497427552283, guid: a5b45ae07bd090947b270f4fef571044, type: 3}
@@ -24,4 +22,4 @@ MonoBehaviour:
   - {fileID: 5655030497427552283, guid: eef1f5dd497a9de43b77686d5aadacf4, type: 3}
   - {fileID: 5655030497427552283, guid: c2cef0028b776b34383b67f7468d1db6, type: 3}
   clientMaxTradeCount: 5
-  botCreateDuration: 6
+  botCreateDuration: 0

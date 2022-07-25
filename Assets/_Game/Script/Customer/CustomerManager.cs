@@ -33,8 +33,8 @@ public class CustomerManager : MonoBehaviour
             // Burada Game manager içerisinde Üretilmiş bir tane stand var mı diye bakacağız ve ona göre Client Üretim arasına gireceğiz
             yield return new WaitUntil(() => isClientCreate.Value);
             yield return new WaitUntil(() => clientList.Count < _maxCustomerCount);
-            var randomDuration = Random.Range(settings.botCreateDuration / 2, settings.botCreateDuration);
-            yield return new WaitForSeconds(randomDuration);
+            // var randomDuration = Random.Range(settings.botCreateDuration / 2, settings.botCreateDuration);
+            yield return new WaitForSeconds(settings.botCreateDuration);
             CreateClient();
         }
     }

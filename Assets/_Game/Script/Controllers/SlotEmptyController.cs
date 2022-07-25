@@ -143,7 +143,7 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
                 money.transform.position = Vector3.Lerp(money.transform.position, transform.position, value)
                                             + new Vector3(0, moneyMovementCurve.Evaluate(value), 0f);
             }).OnComplete(() => money.SetActive(false))
-             .SetLink(gameObject, LinkBehaviour.KillOnDestroy);
+             .SetLink(money, LinkBehaviour.KillOnDestroy);
     }
 
     private void ActivateSlot()
