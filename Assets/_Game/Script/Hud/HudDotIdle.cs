@@ -50,15 +50,6 @@ public class HudDotIdle : MonoBehaviour
             }
             i++;
         }
-       /* for (int i = 1; i < 10; i++)
-        {
-            threeDot.text += '.';
-            yield return new WaitForSeconds(0.3f);
-            if (i % 3 == 0)
-            {
-                threeDot.text = "";
-                yield return new WaitForSeconds(0.3f);
-            }
-        }*/
     }
+
 }

@@ -132,12 +132,29 @@ public class CashTradeController : MonoBehaviour
     {
         if (!other.CompareTag(playerTag)) return;
         var player = other.GetComponent<PlayerController>();
-        player?.hudDotIdle.gameObject.SetActive(true);
-        player?.hudDotIdle.Play();
         isInPlayer = true;
+        if (customerQueue.Count > 0)
+        {
+            player?.hudDotIdle.gameObject.SetActive(true);
+            player?.hudDotIdle.Play();
+            StartCoroutine(PlayThreeDotEffect(player));
+        }
+        
         StartCoroutine(StartCustomerSell(player.playerSettings.firstTriggerCooldown));
     }
-
+    
+    private IEnumerator PlayThreeDotEffect(PlayerController player)
+    {
+        while (isInPlayer)
+        {
+            yield return new WaitUntil(()=>customerQueue.Count <=0);
+            Debug.Log("akfjskdzfjsdkfjsdfjskdef");
+           
+            player?.hudDotIdle.Stop();
+            player?.hudDotIdle.gameObject.SetActive(false);
+        }
+    
+    }
     /// <summary>
     /// 
     /// </summary>
