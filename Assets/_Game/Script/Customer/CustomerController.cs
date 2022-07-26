@@ -59,7 +59,6 @@ public class CustomerController : MonoBehaviour
         _customerPickerController.Init(customerTradeData, this.shoppingData, customerSettings);
         _customerItemController.Init(customerTradeData);
         _customerItemController.shoppingData = this.shoppingData;
-        
   
         _input = GetComponent<IInput>();
         _input.StartListen();
@@ -104,21 +103,20 @@ public class CustomerController : MonoBehaviour
     /// <returns></returns>
     private IEnumerator SellEffect(Action callback)
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         Debug.Log("Alışveriş Arabasını yok et !");
         shoppingCar.SetActive(false);
         shoppingBox.gameObject.SetActive(true);
         shoppingBox.PlayScaleEffect(0.5f);
         customerHUD.uiEmojiController.ShowSmile();
-
+        callback.Invoke();
         // Client Çıktığı noktaya doğru gidiyor 
         _path = new NavMeshPath();
         _pathIndex = 1;
         GameManager.instance.NavMesh.CalculatePath(transform.position, _firstPosition, _path);
-        callback.Invoke();
         _customerManager.RemoveCustomer(this);
         yield return MoveToPoint(_path);
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
         Debug.Log("Customer Puf !");
     }
@@ -164,7 +162,7 @@ public class CustomerController : MonoBehaviour
             GameManager.instance.NavMesh.CalculatePath(transform.position, _activeGrid.transform.position, _path);
             yield return MoveToPoint(_path); //Toplama yerine vardık 
             transform.DOLookAt(_activeStandController.transform.position, 0.5f);
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.5f);
             yield return PickItem();
         }
 

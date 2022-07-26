@@ -51,7 +51,7 @@ public class RosePerfumeStandPickerController : MonoBehaviour, IPickerController
 
     public IEnumerator GetItem(IItemController itemController)
     {
-        var playerItemController =(PlayerItemController) itemController;
+        var playerItemController = (PlayerItemController) itemController;
         var standStackData = _slotController.slot.stackData;
         yield return new WaitForSeconds(_slotController.slot.firstTriggerCooldown);
 
@@ -65,6 +65,8 @@ public class RosePerfumeStandPickerController : MonoBehaviour, IPickerController
                 if (!isItemFinish) continue;
 
                 var gridSlot = _standPlaceController.GetPosition();
+                if (gridSlot == null) continue;
+
                 gridSlot.isFull = true;
                 gridSlot.slotInObject = item;
                 item.transform.parent = gridSlot.transform;
@@ -78,7 +80,6 @@ public class RosePerfumeStandPickerController : MonoBehaviour, IPickerController
                     yield break;
                 if (playerItemController.stackData.ProductTypes.Count <= 0) break;
                 yield return new WaitForSeconds(0.5f);
-                
             }
         }
     }

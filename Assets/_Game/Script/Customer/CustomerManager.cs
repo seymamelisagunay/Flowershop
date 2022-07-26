@@ -99,7 +99,6 @@ public class CustomerManager : MonoBehaviour
     public void IncreaseCustomerLimit(int increaseValue)
     {
         _maxCustomerCount += increaseValue;
-        Debug.Log($"Customer Limit Changed: {_maxCustomerCount}");
     }
 
     public void RemoveCustomer(CustomerController customer)

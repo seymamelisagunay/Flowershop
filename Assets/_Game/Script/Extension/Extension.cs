@@ -12,7 +12,6 @@ public static class Extension
             Debug.LogError("variable is below 0");
 
         var randomIndex = _random.Next(variable.Count);
-        Debug.Log(randomIndex + " Random : " + variable.Count);
         return variable[randomIndex];
     }
 }

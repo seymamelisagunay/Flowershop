@@ -70,15 +70,12 @@ public class CustomerPickerController : MonoBehaviour, IPickerController
                 var isItemFinish = false;
                 var productType = ItemType.none;
                 Item item = null;
-
                 while (!isItemFinish)
                 {
                     yield return new WaitForSeconds(customerSettings.pickingSpeed);
                     (productType, item, isItemFinish) = slotItemController.GetValue();
                 }
-
                 //Toplama yapılacak 
-                Debug.Log("Ver item Ver ");
                 _customerItemController.SetValue(productType);
                 var gridSlot = _gridSlotController.GetPosition();
                 item.transform.parent = gridSlot.transform;

@@ -132,8 +132,8 @@ public class CashTradeController : MonoBehaviour
     {
         if (!other.CompareTag(playerTag)) return;
         var player = other.GetComponent<PlayerController>();
-        player?.hudDotIdle.gameObject.SetActive(true);
-        player?.hudDotIdle.Play();
+        player?.hudDotIdle?.gameObject.SetActive(true);
+        player?.hudDotIdle?.Play();
         isInPlayer = true;
         StartCoroutine(StartCustomerSell(player.playerSettings.firstTriggerCooldown));
     }
@@ -174,8 +174,8 @@ public class CashTradeController : MonoBehaviour
         {
             isInPlayer = false;
             var player = other.GetComponent<PlayerController>();
-            player?.hudDotIdle.Stop();
-            player?.hudDotIdle.gameObject.SetActive(false);
+            player?.hudDotIdle?.Stop();
+            player?.hudDotIdle?.gameObject.SetActive(false);
         }
     }
 }

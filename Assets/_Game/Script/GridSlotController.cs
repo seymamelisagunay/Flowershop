@@ -116,12 +116,12 @@ public class GridSlotController : MonoBehaviour, IItemPlaceController
     /// <returns></returns>
     public GridSlot GetSlotObject()
     {
-        return slotList.Find(x => x.isFull);
+        return slotList.FindLast(x => x.isFull);
     }
 
     public GridSlot GetSlotObject(ItemType itemType)
     {
-        var index = slotList.FindIndex(x => x.isFull && x.slotInObject.itemType == itemType);
+        var index = slotList.FindLastIndex(x => x.isFull && x.slotInObject.itemType == itemType);
         return slotList[index];
     }
 

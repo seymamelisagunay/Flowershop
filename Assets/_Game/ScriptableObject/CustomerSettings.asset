@@ -16,6 +16,6 @@ MonoBehaviour:
   playerSpeed: 5
   botSpeed: 4
   rotateLerpFactor: 10
-  pickingSpeed: 0.7
-  firstTriggerCooldown: 1
+  pickingSpeed: 0.3
+  firstTriggerCooldown: 0.5
   maxPickerCount: 3
