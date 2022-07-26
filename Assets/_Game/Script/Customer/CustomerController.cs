@@ -40,6 +40,8 @@ public class CustomerController : MonoBehaviour
     public GameObject shoppingCar;
     private Vector3 _firstPosition;
     public CustomerHUD customerHUD;
+    public HudDotIdle hudDotIdle;
+
 
     /// <summary>
     /// 
