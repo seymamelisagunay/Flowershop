@@ -10,25 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9ccbbdb54d58d645b95d03b1ec654d7, type: 3}
-  m_Name: RoseWaterStand
+  m_Name: Start Ground
   m_EditorClassIdentifier: 
-  logo: {fileID: 21300000, guid: c1b972517103d304aa3153b67e2a5b02, type: 3}
-  slotName: Rose Water Stand
-  Id: RoseWaterStand
-  itemType: 2
-  slotType: 2
-  slotEmptyPrefab: {fileID: 2064649203199760101, guid: 2796bf85067029244b0236bd3d257ab5,
+  logo: {fileID: 21300000, guid: 0e39b93619279a043a84df4c0b497a25, type: 3}
+  slotName: Money
+  Id: Money
+  itemType: 4
+  slotType: 4
+  slotEmptyPrefab: {fileID: 2064649203199760101, guid: 07cbca5259bb3f943a1aae122b5e214d,
     type: 3}
-  itemControllerPrefab: {fileID: 7551332985858698371, guid: 9213cc718ec19044c9a82d85d672ab68,
-    type: 3}
+  itemControllerPrefab: {fileID: 0}
   slotHudPrefab: {fileID: 4402175197117052178, guid: ac4158c95d37b404cb017104ebde6e42,
     type: 3}
-  firstTriggerCooldown: 0.1
+  firstTriggerCooldown: 1
   triggerCooldown: 0.05
   emptyData:
-    _isOpen: 1
-    _price: 250
-    _currenctPrice: 251
+    _isOpen: 0
+    _price: 100
+    _currenctPrice: 0
     OnChangeVariable:
       m_PersistentCalls:
         m_Calls: []
@@ -36,9 +35,9 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   stackData:
-    maxItemCount: 12
-    productionRate: 0.75
-    _productTypes: 020000000200000002000000
+    maxItemCount: 0
+    productionRate: 0
+    _productTypes: 
     OnChangeVariable:
       m_PersistentCalls:
         m_Calls: []

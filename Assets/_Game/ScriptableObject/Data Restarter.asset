@@ -16,14 +16,17 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1b3f7b67d657b06499a32144544d5251, type: 2}
   - {fileID: 11400000, guid: c67329c6fd93fed409432a1ffee98e97, type: 2}
   - {fileID: 11400000, guid: 5e71b62e13a23934594d5db5d156bfab, type: 2}
+  - {fileID: 11400000, guid: 4965f0f46bff28c44920d9805e767ad6, type: 2}
+  - {fileID: 11400000, guid: 8f515c65f3baa1547bbf1d8a35076c9e, type: 2}
   - {fileID: 11400000, guid: 5136f869b553ada408f736c0c54bab31, type: 2}
   - {fileID: 11400000, guid: 2065b0e70ebd2054a8a5a22e47f698c2, type: 2}
   - {fileID: 11400000, guid: 0826341a31ef74f41b188a328aff2756, type: 2}
   - {fileID: 11400000, guid: 145032698305b0142bea9024c92920b1, type: 2}
   - {fileID: 11400000, guid: 6183fff13c266aa448e991fecc0899ef, type: 2}
+  - {fileID: 11400000, guid: 4d6bf6d21a9a7ae4db992f9449065e0f, type: 2}
   - {fileID: 11400000, guid: cf5390bbc641c7e4e844874e77d1d363, type: 2}
+  - {fileID: 11400000, guid: 9a9cfb90107cb5d4eb2e8e2ce5f7c695, type: 2}
   - {fileID: 11400000, guid: 049bb00c9f93c164daa1e1764699f567, type: 2}
-  - {fileID: 11400000, guid: 4965f0f46bff28c44920d9805e767ad6, type: 2}
   cashDeskMoneyCountDefault: 0
   cashDeskMoneyCount: {fileID: 11400000, guid: 683a68aa1fb423a4387ea56adb92bbcb, type: 2}
   currentSlotOrderCountDefault: 1

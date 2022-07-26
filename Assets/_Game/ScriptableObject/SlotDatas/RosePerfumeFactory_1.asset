@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9ccbbdb54d58d645b95d03b1ec654d7, type: 3}
-  m_Name: RoseWaterFactory
+  m_Name: RosePerfumeFactory_1
   m_EditorClassIdentifier: 
   logo: {fileID: 21300000, guid: c1b972517103d304aa3153b67e2a5b02, type: 3}
   slotName: Rose Water Factory
-  Id: RoseWaterFactory
+  Id: RoseWaterFactory_1
   itemType: 2
   slotType: 1
   slotEmptyPrefab: {fileID: 2064649203199760101, guid: 2796bf85067029244b0236bd3d257ab5,
@@ -27,7 +27,7 @@ MonoBehaviour:
   triggerCooldown: 0.05
   emptyData:
     _isOpen: 0
-    _price: 400
+    _price: 500
     _currenctPrice: 0
     OnChangeVariable:
       m_PersistentCalls:
@@ -38,7 +38,7 @@ MonoBehaviour:
   stackData:
     maxItemCount: 4
     productionRate: 0.75
-    _productTypes: 020000000200000002000000
+    _productTypes: 
     OnChangeVariable:
       m_PersistentCalls:
         m_Calls: []

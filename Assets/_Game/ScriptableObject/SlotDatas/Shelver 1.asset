@@ -10,23 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9ccbbdb54d58d645b95d03b1ec654d7, type: 3}
-  m_Name: Money-First
+  m_Name: Shelver 1
   m_EditorClassIdentifier: 
-  logo: {fileID: 21300000, guid: 0e39b93619279a043a84df4c0b497a25, type: 3}
-  slotName: Money
-  Id: Money
+  logo: {fileID: 21300000, guid: 0455f328d2d0fb34c9b31327b2466894, type: 3}
+  slotName: SHELVER
+  Id: HrSHELVER1
   itemType: 4
-  slotType: 4
-  slotEmptyPrefab: {fileID: 2064649203199760101, guid: 07cbca5259bb3f943a1aae122b5e214d,
+  slotType: 5
+  slotEmptyPrefab: {fileID: 2064649203199760101, guid: 2796bf85067029244b0236bd3d257ab5,
     type: 3}
-  itemControllerPrefab: {fileID: 0}
+  itemControllerPrefab: {fileID: 7551332985858698371, guid: 6fe7fb66383bb234d92bd6be5aa1aced,
+    type: 3}
   slotHudPrefab: {fileID: 4402175197117052178, guid: ac4158c95d37b404cb017104ebde6e42,
     type: 3}
   firstTriggerCooldown: 1
   triggerCooldown: 0.05
   emptyData:
     _isOpen: 0
-    _price: 100
+    _price: 500
     _currenctPrice: 0
     OnChangeVariable:
       m_PersistentCalls:
@@ -35,8 +36,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   stackData:
-    maxItemCount: 0
-    productionRate: 0
+    maxItemCount: 4
+    productionRate: 0.75
     _productTypes: 
     OnChangeVariable:
       m_PersistentCalls:
