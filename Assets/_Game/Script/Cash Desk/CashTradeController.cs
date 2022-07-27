@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Collections;
 using _Game.Script.Character;
@@ -19,6 +20,8 @@ public class CashTradeController : MonoBehaviour
     public bool isInPlayer;
     public int currentCurrency;
 
+    private bool isContinueTrade;
+
     // Para kazanma
     public IntVariable tradeMoneyCount;
 
@@ -31,6 +34,15 @@ public class CashTradeController : MonoBehaviour
         var customerManager = FindObjectOfType<CustomerManager>();
         customerManager.cashTradeController = this;
         LoadMoney();
+    }
+
+    private void Update()
+    {
+        if (!isInPlayer || !isContinueTrade) return;
+        if (customerQueue.Count <= 0) return;
+        isContinueTrade = false;
+        NextCustomerSell();
+       
     }
 
     /// <summary>
@@ -80,10 +92,9 @@ public class CashTradeController : MonoBehaviour
     /// </summary>
     public void NextCustomerSell()
     {
-        if (customerQueue.Count <= 0) return;
-        if (!isInPlayer) return;
         var currentClient = customerQueue[0];
-        currentCurrency = currentClient.SellingProducts(NextClientCallback);
+        currentCurrency = currentClient.MoneyCalculator();
+        StartCoroutine(currentClient.SellingProducts(NextClientCallback));
     }
 
     /// <summary>
@@ -93,7 +104,6 @@ public class CashTradeController : MonoBehaviour
     {
         if (customerQueue.Count > 0)
             customerQueue.RemoveAt(0);
-
         var moneyObjectCount = currentCurrency / 10;
         tradeMoneyCount.Value += currentCurrency;
         for (int i = 0; i < moneyObjectCount; i++)
@@ -103,6 +113,9 @@ public class CashTradeController : MonoBehaviour
 
         // Burda Bekleyen Müşteriler Tekrar Yerleştirilmeli 
         ReSize();
+        if (customerQueue.Count > 0)
+            NextCustomerSell();
+      
     }
 
     /// <summary>
@@ -113,7 +126,6 @@ public class CashTradeController : MonoBehaviour
         customerQueueTargetPoints.ForEach((point) => { point.isFull = false; });
         for (var i = 0; i < customerQueue.Count; i++)
             customerQueue[i].SetTradePoint(customerQueueTargetPoints[i]);
-        NextCustomerSell();
     }
 
     /// <summary>
@@ -135,25 +147,26 @@ public class CashTradeController : MonoBehaviour
         isInPlayer = true;
         if (customerQueue.Count > 0)
         {
-            player?.hudDotIdle.gameObject.SetActive(true);
-            player?.hudDotIdle.Play();
+            player?.hudDotIdle?.gameObject.SetActive(true);
+            player?.hudDotIdle?.Play();
             StartCoroutine(PlayThreeDotEffect(player));
         }
+        else
+            isContinueTrade = true;
+
         StartCoroutine(StartCustomerSell(player.playerSettings.firstTriggerCooldown));
     }
-    
+
     private IEnumerator PlayThreeDotEffect(PlayerController player)
     {
         while (isInPlayer)
         {
-            yield return new WaitUntil(()=>customerQueue.Count <=0);
-            Debug.Log("akfjskdzfjsdkfjsdfjskdef");
-           
-            player?.hudDotIdle.Stop();
-            player?.hudDotIdle.gameObject.SetActive(false);
+            yield return new WaitUntil(() => customerQueue.Count <= 0);
+            player?.hudDotIdle?.Stop();
+            player?.hudDotIdle?.gameObject.SetActive(false);
         }
-    
     }
+
     /// <summary>
     /// 
     /// </summary>
@@ -161,14 +174,16 @@ public class CashTradeController : MonoBehaviour
     /// <returns></returns>
     private IEnumerator StartCustomerSell(float firstTriggerDuration)
     {
-        // while (isInPlayer)
-        // {
         yield return new WaitForSeconds(firstTriggerDuration);
-        if (isInPlayer)
+
+        if (customerQueue.Count <= 0) yield break;
+        if (!isInPlayer)
         {
-            NextCustomerSell();
+            isContinueTrade = true;
+            yield break;
         }
-        // }
+
+        NextCustomerSell();
     }
 
     [Button]
@@ -186,12 +201,12 @@ public class CashTradeController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag(playerTag))
-        {
-            isInPlayer = false;
-            var player = other.GetComponent<PlayerController>();
-            player?.hudDotIdle?.Stop();
-            player?.hudDotIdle?.gameObject.SetActive(false);
-        }
+        if (!other.CompareTag(playerTag)) return;
+        
+        isInPlayer = false;
+        isContinueTrade = false;
+        var player = other.GetComponent<PlayerController>();
+        player?.hudDotIdle?.Stop();
+        player?.hudDotIdle?.gameObject.SetActive(false);
     }
 }

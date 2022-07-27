@@ -40,7 +40,6 @@ public class CustomerController : MonoBehaviour
     public GameObject shoppingCar;
     private Vector3 _firstPosition;
     public CustomerHUD customerHUD;
-    public HudDotIdle hudDotIdle;
 
 
     /// <summary>
@@ -89,13 +88,10 @@ public class CustomerController : MonoBehaviour
     /// </summary>
     /// <param name="callback"></param>
     /// <returns></returns>
-    public int SellingProducts(Action callback)
+    public IEnumerator SellingProducts(Action callback)
     {
         waitingPoint = null;
-        var priceCount = MoneyCalculator();
-        Debug.Log("Customer Money : "+priceCount);
-        StartCoroutine(SellEffect(callback));
-        return priceCount;
+        return SellEffect(callback);
     }
 
     /// <summary>
@@ -127,7 +123,7 @@ public class CustomerController : MonoBehaviour
     /// 
     /// </summary>
     /// <returns></returns>
-    private int MoneyCalculator()
+    public int MoneyCalculator()
     {
         var money = 0;
         foreach (var productType in customerTradeData.ProductTypes)
