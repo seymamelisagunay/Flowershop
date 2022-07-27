@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class ItemChanger : MonoBehaviour
 {
+    /*
     public GameObject rose;
     public GameObject roseBasket;
     public float time;
@@ -27,5 +28,5 @@ public class ItemChanger : MonoBehaviour
         Sequence mySequence = DOTween.Sequence();
         mySequence.Append(rose.transform.DOScale(0f,time).SetEase(Ease.InOutBack));
         mySequence.Append(roseBasket.transform.DOScale(1f, time).SetEase(Ease.InOutBack));
-    }
+    }*/
 }
