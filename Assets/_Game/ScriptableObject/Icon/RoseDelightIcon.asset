@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RoseDelightIcon
   m_EditorClassIdentifier: 
   id: 3
-  _value: {fileID: 21300000, guid: ee8da0d6f25028547993cf4cb7eec86c, type: 3}
+  _value: {fileID: 523575415, guid: d612d5a380ac0d84a84df15f985ed425, type: 3}
   OnChangeVariable:
     m_PersistentCalls:
       m_Calls: []

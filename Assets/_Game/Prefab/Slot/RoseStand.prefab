@@ -704,6 +704,7 @@ MonoBehaviour:
   slotHud: {fileID: 782385176103757270}
   hudPoint: {fileID: 3405776377448403990}
   cameraFocus: {fileID: 0}
+  customerLimitIncreaseValue: 0
 --- !u!1 &4244207753221081047
 GameObject:
   m_ObjectHideFlags: 0
@@ -1401,7 +1402,7 @@ MonoBehaviour:
   firstFloorCount: 10
   secondFloorCount: 4
   firstFloorCircleRadius: 2.25
-  firstFloorHeight: 0.69
+  firstFloorHeight: 0.99
   secondFloorCircleRadius: 1.01
   secondFloorHeight: 1.54
   parent: {fileID: 1005802911481468277}
@@ -1609,8 +1610,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7684377084865955904}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: -0.28, z: 0}
-  m_LocalScale: {x: 265.1719, y: 265.17188, z: 265.17188}
+  m_LocalPosition: {x: 0.000000013091, y: -0.38576, z: 0}
+  m_LocalScale: {x: 289.11063, y: 289.1106, z: 289.1106}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2501873862007538702}

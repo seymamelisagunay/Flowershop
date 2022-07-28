@@ -29,7 +29,7 @@ public class RoseStandPickerController : MonoBehaviour, IPickerController
         {
             if (!gridSlot.isFull)
                 break;
-            gridSlot.slotInObject.GetComponent<ItemChanger>().OpenRoseBasket();
+          //  gridSlot.slotInObject.GetComponent<ItemChanger>().OpenRoseBasket();
         }
     }
 
@@ -90,7 +90,7 @@ public class RoseStandPickerController : MonoBehaviour, IPickerController
                     gridSlot.slotInObject = item;
                     item.transform.parent = gridSlot.transform;
                     _itemController.SetValue(productType);
-                    item.AddOnComplete(() => { item.GetComponent<ItemChanger>().OpenRoseBasket(); });
+                 //   item.AddOnComplete(() => { item.GetComponent<ItemChanger>().OpenRoseBasket(); });
                     item.Play(Vector3.zero);
                 }
 
