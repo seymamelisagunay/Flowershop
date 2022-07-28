@@ -60,7 +60,7 @@ public class CustomerController : MonoBehaviour
         _customerPickerController.Init(customerTradeData, this.shoppingData, customerSettings);
         _customerItemController.Init(customerTradeData);
         _customerItemController.shoppingData = this.shoppingData;
-  
+
         _input = GetComponent<IInput>();
         _input.StartListen();
         StartCoroutine(CustomerShoppingProgress());
@@ -71,7 +71,7 @@ public class CustomerController : MonoBehaviour
     /// Burada Bütün satın almalarımız bitti ve bekliyoruz oluyor 
     /// </summary>
     /// <param name="point"></param>
-    public void SetTradePoint(TradeWaitingPoint point)
+    public IEnumerator SetTradePoint(TradeWaitingPoint point)
     {
         customerHUD.uiEmojiController.ShowCashDeskIcon();
         point.isFull = true;
@@ -79,7 +79,8 @@ public class CustomerController : MonoBehaviour
         _pathIndex = 1;
         _activeGrid.isFull = false;
         GameManager.instance.NavMesh.CalculatePath(transform.position, point.transform.position, _path);
-        StartCoroutine(MoveToPoint(_path));
+        yield return MoveToPoint(_path);
+        _customerManager.cashTradeController.customerQueue.Add(this);
         waitingPoint = point;
     }
 

@@ -42,7 +42,6 @@ public class CashTradeController : MonoBehaviour
         if (customerQueue.Count <= 0) return;
         isContinueTrade = false;
         NextCustomerSell();
-       
     }
 
     /// <summary>
@@ -81,8 +80,7 @@ public class CashTradeController : MonoBehaviour
         foreach (var point in customerQueueTargetPoints)
         {
             if (point.isFull) continue;
-            customerQueue.Add(customerController);
-            customerController.SetTradePoint(point);
+            StartCoroutine(customerController.SetTradePoint(point));
             break;
         }
     }
@@ -115,7 +113,6 @@ public class CashTradeController : MonoBehaviour
         ReSize();
         if (customerQueue.Count > 0)
             NextCustomerSell();
-      
     }
 
     /// <summary>
@@ -202,7 +199,7 @@ public class CashTradeController : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (!other.CompareTag(playerTag)) return;
-        
+
         isInPlayer = false;
         isContinueTrade = false;
         var player = other.GetComponent<PlayerController>();
