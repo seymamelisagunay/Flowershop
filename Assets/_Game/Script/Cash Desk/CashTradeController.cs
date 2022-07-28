@@ -19,11 +19,11 @@ public class CashTradeController : MonoBehaviour
     [HideInInspector] public GridSlotController gridSlotController;
     public bool isInPlayer;
     public int currentCurrency;
-
     private bool isContinueTrade;
 
     // Para kazanma
     public IntVariable tradeMoneyCount;
+    private Coroutine resize;
 
     private void Start()
     {
@@ -34,14 +34,6 @@ public class CashTradeController : MonoBehaviour
         var customerManager = FindObjectOfType<CustomerManager>();
         customerManager.cashTradeController = this;
         LoadMoney();
-    }
-
-    private void Update()
-    {
-        if (!isInPlayer || !isContinueTrade) return;
-        if (customerQueue.Count <= 0) return;
-        isContinueTrade = false;
-        NextCustomerSell();
     }
 
     /// <summary>
@@ -85,45 +77,6 @@ public class CashTradeController : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    public void NextCustomerSell()
-    {
-        var currentClient = customerQueue[0];
-        currentCurrency = currentClient.MoneyCalculator();
-        StartCoroutine(currentClient.SellingProducts(NextClientCallback));
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    private void NextClientCallback()
-    {
-        if (customerQueue.Count > 0)
-            customerQueue.RemoveAt(0);
-        var moneyObjectCount = currentCurrency / 10;
-        tradeMoneyCount.Value += currentCurrency;
-        for (int i = 0; i < moneyObjectCount; i++)
-        {
-            CreateMoney();
-        }
-
-        // Burda Bekleyen Müşteriler Tekrar Yerleştirilmeli 
-        ReSize();
-        if (customerQueue.Count > 0)
-            NextCustomerSell();
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    private void ReSize()
-    {
-        customerQueueTargetPoints.ForEach((point) => { point.isFull = false; });
-        for (var i = 0; i < customerQueue.Count; i++)
-            customerQueue[i].SetTradePoint(customerQueueTargetPoints[i]);
-    }
 
     /// <summary>
     /// 
@@ -141,17 +94,27 @@ public class CashTradeController : MonoBehaviour
     {
         if (!other.CompareTag(playerTag)) return;
         var player = other.GetComponent<PlayerController>();
-        isInPlayer = true;
+        if (player.playerSettings.isBot) return;
         if (customerQueue.Count > 0)
         {
             player?.hudDotIdle?.gameObject.SetActive(true);
             player?.hudDotIdle?.Play();
             StartCoroutine(PlayThreeDotEffect(player));
         }
-        else
-            isContinueTrade = true;
 
+        isInPlayer = true;
         StartCoroutine(StartCustomerSell(player.playerSettings.firstTriggerCooldown));
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (!other.CompareTag(playerTag)) return;
+        var player = other.GetComponent<PlayerController>();
+        if (player.playerSettings.isBot) return;
+        isInPlayer = false;
+        isContinueTrade = false;
+        player?.hudDotIdle?.Stop();
+        player?.hudDotIdle?.gameObject.SetActive(false);
     }
 
     private IEnumerator PlayThreeDotEffect(PlayerController player)
@@ -171,16 +134,57 @@ public class CashTradeController : MonoBehaviour
     /// <returns></returns>
     private IEnumerator StartCustomerSell(float firstTriggerDuration)
     {
-        yield return new WaitForSeconds(firstTriggerDuration);
-
-        if (customerQueue.Count <= 0) yield break;
-        if (!isInPlayer)
+        while (isInPlayer)
         {
-            isContinueTrade = true;
-            yield break;
+            yield return new WaitForSeconds(firstTriggerDuration);
+            if (!isInPlayer) continue;
+            if (customerQueue.Count <= 0) continue;
+            yield return NextCustomerSell();
+            Debug.LogError("NextClient");
         }
+    }
 
-        NextCustomerSell();
+    /// <summary>
+    /// 
+    /// </summary>
+    public IEnumerator NextCustomerSell()
+    {
+        yield return ReSize();
+        var currentClient = customerQueue[0];
+        if (currentClient == null) yield break;
+        //0. client hazır olduğunda işleme başlanılacak 
+        yield return new WaitUntil(() => currentClient.isCashDeskReady);
+        currentCurrency = currentClient.MoneyCalculator();
+        yield return currentClient.SellingProducts();
+        CurrentClientMoneyCalculate();
+        customerQueue.Remove(currentClient);
+        yield return ReSize(); // Burda Bekleyen Müşteriler Tekrar Yerleştirilmeli 
+        Debug.LogError("Nexte geçe bilir .");
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    private void CurrentClientMoneyCalculate()
+    {
+        var moneyObjectCount = currentCurrency / 10;
+        tradeMoneyCount.Value += currentCurrency;
+        for (int i = 0; i < moneyObjectCount; i++)
+        {
+            CreateMoney();
+        }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    private IEnumerator ReSize()
+    {
+        customerQueueTargetPoints.ForEach((point) => { point.isFull = false; });
+        for (var i = 0; i < customerQueue.Count; i++)
+        {
+            yield return customerQueue[i]?.SetTradePoint(customerQueueTargetPoints[i]);
+        }
     }
 
     [Button]
@@ -194,16 +198,5 @@ public class CashTradeController : MonoBehaviour
     public void TestNextClientExit()
     {
         isInPlayer = false;
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (!other.CompareTag(playerTag)) return;
-
-        isInPlayer = false;
-        isContinueTrade = false;
-        var player = other.GetComponent<PlayerController>();
-        player?.hudDotIdle?.Stop();
-        player?.hudDotIdle?.gameObject.SetActive(false);
     }
 }

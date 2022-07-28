@@ -40,6 +40,7 @@ public class CustomerController : MonoBehaviour
     public GameObject shoppingCar;
     private Vector3 _firstPosition;
     public CustomerHUD customerHUD;
+    public bool isCashDeskReady;
 
 
     /// <summary>
@@ -66,7 +67,6 @@ public class CustomerController : MonoBehaviour
         StartCoroutine(CustomerShoppingProgress());
     }
 
-
     /// <summary>
     /// Burada Bütün satın almalarımız bitti ve bekliyoruz oluyor 
     /// </summary>
@@ -80,7 +80,14 @@ public class CustomerController : MonoBehaviour
         _activeGrid.isFull = false;
         GameManager.instance.NavMesh.CalculatePath(transform.position, point.transform.position, _path);
         yield return MoveToPoint(_path);
-        _customerManager.cashTradeController.customerQueue.Add(this);
+        var customer = _customerManager.cashTradeController.customerQueue.Find(x => x == this);
+        if (customer == null)
+            _customerManager.cashTradeController.customerQueue.Add(this);
+
+        if (point.isFirst)
+        {
+            isCashDeskReady = true;
+        }
         waitingPoint = point;
     }
 
@@ -89,10 +96,17 @@ public class CustomerController : MonoBehaviour
     /// </summary>
     /// <param name="callback"></param>
     /// <returns></returns>
-    public IEnumerator SellingProducts(Action callback)
+    public IEnumerator SellingProducts()
     {
+        if (waitingPoint != null)
+        {
+            waitingPoint.isReady = false;
+            waitingPoint.isFull = false;
+        }
+
         waitingPoint = null;
-        return SellEffect(callback);
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(SellEffect());
     }
 
     /// <summary>
@@ -100,15 +114,13 @@ public class CustomerController : MonoBehaviour
     /// </summary>
     /// <param name="callback"></param>
     /// <returns></returns>
-    private IEnumerator SellEffect(Action callback)
+    private IEnumerator SellEffect()
     {
-        yield return new WaitForSeconds(1f);
         Debug.Log("Alışveriş Arabasını yok et !");
         shoppingCar.SetActive(false);
         shoppingBox.gameObject.SetActive(true);
         shoppingBox.PlayScaleEffect(0.5f);
         customerHUD.uiEmojiController.ShowSmile();
-        callback.Invoke();
         // Client Çıktığı noktaya doğru gidiyor 
         _path = new NavMeshPath();
         _pathIndex = 1;

@@ -6,4 +6,5 @@ public class TradeWaitingPoint : MonoBehaviour
 {
     public bool isFirst;
     public bool isFull;
+    public bool isReady;
 }
