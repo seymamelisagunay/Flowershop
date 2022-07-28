@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class TradeWaitingPoint : MonoBehaviour
 {
+    public bool isFirst;
     public bool isFull;
 }

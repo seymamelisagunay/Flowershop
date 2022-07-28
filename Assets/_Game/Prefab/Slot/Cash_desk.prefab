@@ -200,7 +200,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefsKey: CashTradeDesk
   playerTag: Player
-  customerTradeTime: 0
   customerQueue: []
   customerQueueTargetPoints:
   - {fileID: 8484714410597996886}
@@ -213,7 +212,6 @@ MonoBehaviour:
   - {fileID: 1377025041950738888}
   - {fileID: 8565734309419420055}
   gridSlotController: {fileID: 0}
-  isInPlayer: 0
   currentCurrency: 0
   tradeMoneyCount: {fileID: 11400000, guid: 683a68aa1fb423a4387ea56adb92bbcb, type: 2}
 --- !u!54 &1437901325807061924
@@ -754,6 +752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cee4298f4da3e94bbd1911415e7a9b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFirst: 0
   isFull: 0
 --- !u!1 &5682917712300361955
 GameObject:
@@ -897,6 +896,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cee4298f4da3e94bbd1911415e7a9b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFirst: 0
   isFull: 0
 --- !u!1 &6447365495919704992
 GameObject:
@@ -942,6 +942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cee4298f4da3e94bbd1911415e7a9b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFirst: 0
   isFull: 0
 --- !u!1 &7142550518651758291
 GameObject:
@@ -1085,6 +1086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cee4298f4da3e94bbd1911415e7a9b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFirst: 0
   isFull: 0
 --- !u!1 &7639299280674595770
 GameObject:
@@ -1241,6 +1243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cee4298f4da3e94bbd1911415e7a9b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFirst: 0
   isFull: 0
 --- !u!1 &8484714409300100182
 GameObject:
@@ -1286,6 +1289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cee4298f4da3e94bbd1911415e7a9b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFirst: 0
   isFull: 0
 --- !u!1 &8484714410040804374
 GameObject:
@@ -1331,6 +1335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cee4298f4da3e94bbd1911415e7a9b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFirst: 0
   isFull: 0
 --- !u!1 &8484714410597996880
 GameObject:
@@ -1376,6 +1381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cee4298f4da3e94bbd1911415e7a9b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFirst: 1
   isFull: 0
 --- !u!1 &8484813946372573607
 GameObject:
@@ -1505,6 +1511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cee4298f4da3e94bbd1911415e7a9b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFirst: 0
   isFull: 0
 --- !u!1001 &8250640326929717205
 PrefabInstance:
