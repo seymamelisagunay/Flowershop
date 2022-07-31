@@ -10,6 +10,7 @@ TagManager:
   - Stand
   - Customer
   - Factory
+  - Cashier
   layers:
   - Default
   - TransparentFX

@@ -8,8 +8,6 @@ using UnityEngine.AI;
 
 public class ShelverController : MonoBehaviour
 {
-    public PlayerSettings shelverSettings;
-
     public PlayerPickerController pickerController;
     public PlayerItemController itemController;
 
@@ -127,7 +125,6 @@ public class ShelverController : MonoBehaviour
                     _pathIndex++;
             }
         }
-
         _input.ClearDirection();
     }
 }

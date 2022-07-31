@@ -64,7 +64,6 @@ public class SlotManager : MonoBehaviour
             .slot.slotType == SlotType.Stand);
         return result;
     }
-
     public List<SlotController> GetSlotController(SlotType slotType)
     {
         var result = slots.FindAll(x => x.slot.slotType == slotType && x.slot.emptyData.IsOpen);

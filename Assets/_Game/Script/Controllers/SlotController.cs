@@ -66,6 +66,10 @@ public class SlotController : MonoBehaviour
                 var shelverController = slot.itemControllerPrefab.GetComponent<ShelverHrController>();
                 shelverController.Init();
                 break;
+            case SlotType.Cashier:
+                var cashier = slot.itemControllerPrefab.GetComponent<CashierHrController>();
+                cashier.Init();
+                break;
             default:
                 return;
         }

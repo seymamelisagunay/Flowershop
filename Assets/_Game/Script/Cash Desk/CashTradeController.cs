@@ -20,6 +20,7 @@ public class CashTradeController : MonoBehaviour
     public bool isInPlayer;
     public int currentCurrency;
     private bool isContinueTrade;
+    public bool isCashier;
 
     // Para kazanma
     public IntVariable tradeMoneyCount;
@@ -92,6 +93,14 @@ public class CashTradeController : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
+        if (isCashier) return;
+        if (other.CompareTag("Cashier"))
+        {
+            isCashier = true;
+            isInPlayer = true;
+            StartCoroutine(StartCustomerSell(0));
+        }
+
         if (!other.CompareTag(playerTag)) return;
         var player = other.GetComponent<PlayerController>();
         if (player.playerSettings.isBot) return;
@@ -108,6 +117,7 @@ public class CashTradeController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (isCashier) return;
         if (!other.CompareTag(playerTag)) return;
         var player = other.GetComponent<PlayerController>();
         if (player.playerSettings.isBot) return;
@@ -136,7 +146,7 @@ public class CashTradeController : MonoBehaviour
     {
         while (isInPlayer)
         {
-            yield return new WaitForSeconds(firstTriggerDuration);
+            yield return new WaitForSeconds(0.01f);
             if (!isInPlayer) continue;
             if (customerQueue.Count <= 0) continue;
             yield return NextCustomerSell();
@@ -159,7 +169,6 @@ public class CashTradeController : MonoBehaviour
         CurrentClientMoneyCalculate();
         customerQueue.Remove(currentClient);
         yield return ReSize(); // Burda Bekleyen Müşteriler Tekrar Yerleştirilmeli 
-        Debug.LogError("Nexte geçe bilir .");
     }
 
     /// <summary>

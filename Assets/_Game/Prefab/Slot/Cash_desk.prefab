@@ -163,6 +163,7 @@ Transform:
   - {fileID: 1541812063577897800}
   - {fileID: 3689706173084941710}
   - {fileID: 5725416845246992550}
+  - {fileID: 33772794878703737}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -186,6 +187,7 @@ MonoBehaviour:
     OnChangeVariable:
       m_PersistentCalls:
         m_Calls: []
+  cashierPoint: {fileID: 33772794878703737}
 --- !u!114 &554909046425524620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefsKey: CashTradeDesk
   playerTag: Player
+  customerTradeTime: 0
   customerQueue: []
   customerQueueTargetPoints:
   - {fileID: 8484714410597996886}
@@ -212,6 +215,7 @@ MonoBehaviour:
   - {fileID: 1377025041950738888}
   - {fileID: 8565734309419420055}
   gridSlotController: {fileID: 0}
+  isInPlayer: 0
   currentCurrency: 0
   tradeMoneyCount: {fileID: 11400000, guid: 683a68aa1fb423a4387ea56adb92bbcb, type: 2}
 --- !u!54 &1437901325807061924
@@ -243,6 +247,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.99703, y: 1, z: 2.1974373}
   m_Center: {x: -1.4625839, y: 0, z: -0.87375385}
+--- !u!1 &1560039979765987496
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 33772794878703737}
+  m_Layer: 0
+  m_Name: CashierPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &33772794878703737
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560039979765987496}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -2.452, y: -0.33, z: -0.923}
+  m_LocalScale: {x: 0.99999976, y: 1, z: 0.99999976}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1502653092934122411}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1891188811466855601
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,6 +789,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFirst: 0
   isFull: 0
+  isReady: 0
 --- !u!1 &5682917712300361955
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,6 +934,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFirst: 0
   isFull: 0
+  isReady: 0
 --- !u!1 &6447365495919704992
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,6 +981,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFirst: 0
   isFull: 0
+  isReady: 0
 --- !u!1 &7142550518651758291
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,6 +1126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFirst: 0
   isFull: 0
+  isReady: 0
 --- !u!1 &7639299280674595770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1245,6 +1284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFirst: 0
   isFull: 0
+  isReady: 0
 --- !u!1 &8484714409300100182
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,6 +1331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFirst: 0
   isFull: 0
+  isReady: 0
 --- !u!1 &8484714410040804374
 GameObject:
   m_ObjectHideFlags: 0
@@ -1337,6 +1378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFirst: 0
   isFull: 0
+  isReady: 0
 --- !u!1 &8484714410597996880
 GameObject:
   m_ObjectHideFlags: 0
@@ -1383,6 +1425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFirst: 1
   isFull: 0
+  isReady: 0
 --- !u!1 &8484813946372573607
 GameObject:
   m_ObjectHideFlags: 0
@@ -1513,6 +1556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFirst: 0
   isFull: 0
+  isReady: 0
 --- !u!1001 &8250640326929717205
 PrefabInstance:
   m_ObjectHideFlags: 0

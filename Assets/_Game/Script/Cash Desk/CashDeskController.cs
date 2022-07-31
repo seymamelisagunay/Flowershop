@@ -8,6 +8,7 @@ public class CashDeskController : MonoBehaviour, IItemController
     public StackData stackData;
     private SlotController _slotController;
     private CashTradeController _cashTradeController;
+    public Transform cashierPoint;
 
     public void Init(StackData stackData)
     {

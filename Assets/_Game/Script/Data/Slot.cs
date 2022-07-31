@@ -85,7 +85,8 @@ public enum SlotType
     Stand = 2,
     CashDesk = 3,
     Money = 4,
-    Shelver = 5
+    Shelver = 5,
+    Cashier = 6
 }
 
 public enum ItemType

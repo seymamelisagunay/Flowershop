@@ -1878,7 +1878,7 @@ GameObject:
   - component: {fileID: 505912045}
   - component: {fileID: 505912044}
   m_Layer: 0
-  m_Name: HrShelver_02
+  m_Name: Cashier
   m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1913,7 +1913,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74ad4b31a325ed34eb9479090cbfad1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slot: {fileID: 11400000, guid: 9a9cfb90107cb5d4eb2e8e2ce5f7c695, type: 2}
+  slot: {fileID: 11400000, guid: d5c426bc2062c8f418bafb0777dc7366, type: 2}
   slotHud: {fileID: 0}
   hudPoint: {fileID: 148095432}
   cameraFocus: {fileID: 0}
@@ -5185,6 +5185,9 @@ MonoBehaviour:
   - isNewSlotOpen: 1
     orderCount: 14
     slotController: {fileID: 1885563306}
+  - isNewSlotOpen: 1
+    orderCount: 15
+    slotController: {fileID: 505912045}
   isClientCreate: {fileID: 11400000, guid: adc741b91321f874ca3dbed4ac23318b, type: 2}
   slots: []
 --- !u!4 &1524180895
