@@ -50,6 +50,8 @@ public class Slot : ScriptableObject
     /// </summary>
     public float triggerCooldown = 0.05f;
 
+    public float focusWaiting;
+
     /// <summary>
     /// Bunun Empty İçinbe alınması lazım ismi değiştirilip
     /// </summary>

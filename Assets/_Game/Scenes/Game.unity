@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ec34ef4bc9a73498603ed500c29fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
+  isActive: 0
   getBackDuration: 0.5
   duration: 0.5
   zoomInOut: 55
@@ -1860,7 +1860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ec34ef4bc9a73498603ed500c29fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
+  isActive: 0
   getBackDuration: 0.5
   duration: 0.5
   zoomInOut: 55
@@ -1942,7 +1942,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 505912043}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.5, y: 0.024, z: 8.95}
+  m_LocalPosition: {x: -11.76, y: 0.024, z: -7.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2257,7 +2257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ec34ef4bc9a73498603ed500c29fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
+  isActive: 0
   getBackDuration: 0.5
   duration: 0.5
   zoomInOut: 55
@@ -3227,7 +3227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ec34ef4bc9a73498603ed500c29fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
+  isActive: 0
   getBackDuration: 0.5
   duration: 0.5
   zoomInOut: 55
@@ -3347,7 +3347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ec34ef4bc9a73498603ed500c29fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
+  isActive: 0
   getBackDuration: 0.5
   duration: 0.5
   zoomInOut: 55
@@ -4473,7 +4473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ec34ef4bc9a73498603ed500c29fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
+  isActive: 0
   getBackDuration: 0.5
   duration: 0.5
   zoomInOut: 55
@@ -4558,7 +4558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ec34ef4bc9a73498603ed500c29fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
+  isActive: 0
   getBackDuration: 0.5
   duration: 0.5
   zoomInOut: 55
@@ -5169,25 +5169,25 @@ MonoBehaviour:
     slotController: {fileID: 1698955654}
   - isNewSlotOpen: 1
     orderCount: 9
-    slotController: {fileID: 1281584139}
+    slotController: {fileID: 505912045}
   - isNewSlotOpen: 1
     orderCount: 10
-    slotController: {fileID: 765007789}
+    slotController: {fileID: 1281584139}
   - isNewSlotOpen: 1
     orderCount: 11
-    slotController: {fileID: 2113657698}
+    slotController: {fileID: 765007789}
   - isNewSlotOpen: 1
     orderCount: 12
-    slotController: {fileID: 26321801}
+    slotController: {fileID: 2113657698}
   - isNewSlotOpen: 1
     orderCount: 13
-    slotController: {fileID: 835296820}
+    slotController: {fileID: 26321801}
   - isNewSlotOpen: 1
     orderCount: 14
-    slotController: {fileID: 1885563306}
+    slotController: {fileID: 835296820}
   - isNewSlotOpen: 1
     orderCount: 15
-    slotController: {fileID: 505912045}
+    slotController: {fileID: 1885563306}
   isClientCreate: {fileID: 11400000, guid: adc741b91321f874ca3dbed4ac23318b, type: 2}
   slots: []
 --- !u!4 &1524180895
@@ -5316,7 +5316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ec34ef4bc9a73498603ed500c29fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
+  isActive: 0
   getBackDuration: 0.5
   duration: 0.5
   zoomInOut: 55
@@ -5977,7 +5977,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ec34ef4bc9a73498603ed500c29fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
+  isActive: 0
   getBackDuration: 0.5
   duration: 0.5
   zoomInOut: 55

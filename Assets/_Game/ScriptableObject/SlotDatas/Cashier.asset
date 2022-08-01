@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ccbbdb54d58d645b95d03b1ec654d7, type: 3}
   m_Name: Cashier
   m_EditorClassIdentifier: 
-  logo: {fileID: 21300000, guid: 0455f328d2d0fb34c9b31327b2466894, type: 3}
-  slotName: SHELVER
-  Id: HrSHELVER1
+  logo: {fileID: 21300000, guid: 42ba21d7ddba92e458ea72a26cc9c837, type: 3}
+  slotName: Cashier
+  Id: Cashier
   itemType: 4
   slotType: 6
   slotEmptyPrefab: {fileID: 2064649203199760101, guid: 2796bf85067029244b0236bd3d257ab5,
@@ -25,10 +25,11 @@ MonoBehaviour:
     type: 3}
   firstTriggerCooldown: 1
   triggerCooldown: 0.05
+  focusWaiting: 2
   emptyData:
     _isOpen: 1
-    _price: 500
-    _currenctPrice: 500
+    _price: 400
+    _currenctPrice: 400
     OnChangeVariable:
       m_PersistentCalls:
         m_Calls: []
