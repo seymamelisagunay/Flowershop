@@ -49,7 +49,6 @@ public class FarmController : MonoBehaviour, IItemController
                 _currentGridSlotCount++;
             }
         }
-
         _currentGridSlotCount =
             _currentGridSlotCount > gridSlots.Count - 1 ? gridSlots.Count - 1 : _currentGridSlotCount;
     }
@@ -68,7 +67,6 @@ public class FarmController : MonoBehaviour, IItemController
     {
         transform.DOScale(Vector3.one, 0.1f).SetEase(Ease.OutElastic);
     }
-
     /// <summary>
     /// 
     /// </summary>
@@ -82,7 +80,6 @@ public class FarmController : MonoBehaviour, IItemController
             SetValue(ItemType.Rose);
         }
     }
-
     public (ItemType, Item, bool) GetValue(ItemType itemType)
     {
         if (stackData.ProductTypes.Count > 0)
@@ -94,7 +91,6 @@ public class FarmController : MonoBehaviour, IItemController
             _currentGridSlotCount--;
             return (ItemType.Rose, resultObject, true);
         }
-
         return (ItemType.Rose, null, false);
     }
 
