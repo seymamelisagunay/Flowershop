@@ -13,8 +13,8 @@ public class UIEmojiController : MonoBehaviour
     private Transform _camera;
     public TMP_Text item;
     public Image itemIcon;
-    public Image finishIcon;
-    public GameObject smile;
+    public Image cashDesk;
+    public Image smile;
 
     private void Start()
     {
@@ -40,19 +40,24 @@ public class UIEmojiController : MonoBehaviour
     }
     public void CloseFinishIcon()
     {
-        finishIcon.sprite = null;
+        cashDesk.gameObject.SetActive(false);
+        smile.gameObject.SetActive(false);
+        cashDesk.sprite = null;
     }
 
     public void ShowCashDeskIcon()
     {
+        cashDesk.gameObject.SetActive(true);
+        smile.gameObject.SetActive(false);
         CloseItemPanel();
-        finishIcon.sprite = GameManager.instance.cashDeskIcon.Value;
+        cashDesk.sprite = GameManager.instance.cashDeskIcon.Value;
     }
     public void ShowSmile()
     {
-        smile.SetActive(true);
+        cashDesk.gameObject.SetActive(false);
+        smile.gameObject.SetActive(true);
         CloseItemPanel();
         var emoji = GameManager.instance.emojiIcons.RandomSelectObject();
-        finishIcon.sprite = emoji.Value;
+        smile.sprite = emoji.Value;
     }
 }

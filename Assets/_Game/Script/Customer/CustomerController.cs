@@ -8,6 +8,7 @@ using DG.Tweening;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class CustomerController : MonoBehaviour
 {
@@ -88,6 +89,7 @@ public class CustomerController : MonoBehaviour
         {
             isCashDeskReady = true;
         }
+
         waitingPoint = point;
     }
 
@@ -158,7 +160,8 @@ public class CustomerController : MonoBehaviour
     {
         while (shoppingData.ProductTypes.Count > 0)
         {
-            yield return new WaitForSeconds(0.5f);
+            var randomWaitingTime = Random.Range(0.35f, 0.55f);
+            yield return new WaitForSeconds(randomWaitingTime);
             // Gidilecek olan stand Bulunacak Sıradaki Ürüne
             if (shoppingData.ProductTypes.Count <= 0) continue;
             var queuenItemType = shoppingData.ProductTypes[0];
@@ -167,7 +170,7 @@ public class CustomerController : MonoBehaviour
             if (activeSlot.slot.slotType != SlotType.Stand) continue;
             _activeStandController = activeSlot.GetComponentInChildren<StandController>();
             _activeGrid = _activeStandController.GetCustomerSlot();
-
+            _activeGrid.isFull = true;
             _path = new NavMeshPath();
             _pathIndex = 1;
             GameManager.instance.NavMesh.CalculatePath(transform.position, _activeGrid.transform.position, _path);

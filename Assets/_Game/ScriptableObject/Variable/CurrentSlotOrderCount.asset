@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d668ca7e652924584bb2fec981ca3e, type: 3}
   m_Name: CurrentSlotOrderCount
   m_EditorClassIdentifier: 
-  _value: 14
+  _value: 8
   OnChangeVariable:
     m_PersistentCalls:
       m_Calls: []

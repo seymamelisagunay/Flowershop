@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using _Game.Script.Controllers;
@@ -15,6 +16,8 @@ public class PlayerPickerController : MonoBehaviour, IPickerController
     private GridSlotController _gridSlotController;
     private bool _isStayFarm;
     private PlayerItemController _playerItemController;
+    private IItemController _activeItemController;
+    public float exitDistance;
 
     private IEnumerator Start()
     {
@@ -38,7 +41,6 @@ public class PlayerPickerController : MonoBehaviour, IPickerController
         _playerItemController = GetComponent<PlayerItemController>();
         _playerItemController.Init(playerStackData);
     }
-
 
     public void GetSaveData()
     {
@@ -64,11 +66,8 @@ public class PlayerPickerController : MonoBehaviour, IPickerController
     public void OnTriggerExit(Collider other)
     {
         if (!slotsTag.Contains(other.tag)) return; //Multi Tag Test Edilecek
-        var slotController = other.GetComponent<IItemController>();
-        _isStayFarm = false;
-        StopCoroutine(GetItem(slotController));
+        // var slotController = other.GetComponent<IItemController>();
     }
-
 
     private void SelectSlot(IItemController slotController)
     {
@@ -84,8 +83,15 @@ public class PlayerPickerController : MonoBehaviour, IPickerController
     {
         var slotItemController = itemController;
         yield return new WaitForSeconds(playerSettings.firstTriggerCooldown);
-        while (_isStayFarm)
+        var slot = (MonoBehaviour) slotItemController;
+
+        while (true)
         {
+            var distance = Vector3.Distance(transform.position, slot.transform.position);
+            if (distance >= exitDistance)
+                yield break;
+
+            yield return new WaitForSeconds(0.01f);
             if (playerStackData.CheckMaxCount())
             {
                 yield return new WaitForSeconds(playerSettings.pickingSpeed);
@@ -97,6 +103,7 @@ public class PlayerPickerController : MonoBehaviour, IPickerController
                     Debug.Log("item + null");
                     continue;
                 }
+
                 var gridSlot = _gridSlotController.GetPosition();
                 if (gridSlot == null)
                 {
@@ -108,7 +115,10 @@ public class PlayerPickerController : MonoBehaviour, IPickerController
                 item.transform.parent = gridSlot.transform;
                 gridSlot.isFull = true;
                 gridSlot.slotInObject = item;
+              
                 item.Play(Vector3.zero);
+                item.transform.localEulerAngles = Vector3.zero;
+
             }
             else
                 yield break;

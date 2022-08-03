@@ -150,7 +150,6 @@ public class CashTradeController : MonoBehaviour
             if (!isInPlayer) continue;
             if (customerQueue.Count <= 0) continue;
             yield return NextCustomerSell();
-            Debug.LogError("NextClient");
         }
     }
 

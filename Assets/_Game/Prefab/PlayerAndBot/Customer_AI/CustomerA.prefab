@@ -264,6 +264,7 @@ MonoBehaviour:
   hudPoint: {fileID: 0}
   playerSettings: {fileID: 11400000, guid: 7fdd1d2bb3fab1e4dac7b7add2a738b6, type: 2}
   rig: {fileID: 0}
+  hudDotIdle: {fileID: 0}
 --- !u!114 &5655030497427552280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,6 +386,7 @@ MonoBehaviour:
   shoppingBox: {fileID: 3117701894415738734}
   shoppingCar: {fileID: 3453326640391612087}
   customerHUD: {fileID: 6275245108753152320}
+  isCashDeskReady: 0
 --- !u!114 &76248307041298645
 MonoBehaviour:
   m_ObjectHideFlags: 0

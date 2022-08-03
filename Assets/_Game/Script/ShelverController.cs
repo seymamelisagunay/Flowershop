@@ -66,7 +66,12 @@ public class ShelverController : MonoBehaviour
             // 
             Debug.Log("Burda İtem Alındı ve itemi ");
 
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.5f);
+
+            if (pickerController.playerStackData.ProductTypes.Count <= 0)
+            {
+                continue;
+            }
             var itemType = pickerController.playerStackData.ProductTypes[0];
             var slotController = SlotManager.instance.GetActiveStand(itemType);
             _activeStand = slotController.GetComponentInChildren<StandController>();
@@ -96,7 +101,7 @@ public class ShelverController : MonoBehaviour
         {
             case SlotType.Farm:
                 var farmController = _activeSlot.GetComponentInChildren<FarmController>();
-                itemController = (IItemController) farmController;
+                itemController = (IItemController)farmController;
                 break;
             case SlotType.Factory:
                 var factoryController = _activeSlot.GetComponentInChildren<FactoryController>();

@@ -71,6 +71,7 @@ public class RosePerfumeStandPickerController : MonoBehaviour, IPickerController
                 gridSlot.slotInObject = item;
                 item.transform.parent = gridSlot.transform;
                 _itemController.SetValue(productType);
+                item.moveDurationValue = 1f;
                 item.Play(Vector3.zero);
             }
             else

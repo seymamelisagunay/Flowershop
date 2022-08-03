@@ -43,11 +43,10 @@ public class FarmController : MonoBehaviour, IItemController
         for (int i = 0; i < stackData.ProductTypes.Count; i++)
         {
             yield return new WaitForSeconds(0.5f);
-            if (i <= _currentGridSlotCount)
-            {
-                ItemMoveEffect(stackData.ProductTypes[i]);
-                _currentGridSlotCount++;
-            }
+            if (i > _currentGridSlotCount) continue;
+            
+            ItemMoveEffect(stackData.ProductTypes[i]);
+            _currentGridSlotCount++;
         }
         _currentGridSlotCount =
             _currentGridSlotCount > gridSlots.Count - 1 ? gridSlots.Count - 1 : _currentGridSlotCount;

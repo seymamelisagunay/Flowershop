@@ -47,6 +47,7 @@ public class CashDeskMoneyController : MonoBehaviour
                     gridSlot.isFull = false;
                     var item = gridSlot.slotInObject;
                     item.transform.parent = playerController.transform;
+                    item.moveDurationValue = 0.5f;
                     item.Play(Vector3.zero, true);
                 }
                 else

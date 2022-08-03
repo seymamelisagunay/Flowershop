@@ -31,7 +31,7 @@ public class CustomerPickerController : MonoBehaviour, IPickerController
     private void EmojiInit()
     {
         var firstItemList = shoppingData.ProductTypes.FindAll(x => x == shoppingData.ProductTypes[0]);
-        var itemListText = "0 / " + firstItemList.Count;
+        var itemListText = "0/" + firstItemList.Count;
         emojiController.SetItemText(itemListText);
         var itemSprite = GameManager.instance.itemIcons.Find(x => x.id == (int) shoppingData.ProductTypes[0]);
         emojiController.SetItemIcon(itemSprite.Value);
@@ -39,7 +39,7 @@ public class CustomerPickerController : MonoBehaviour, IPickerController
 
     private void SetItemUI(int maxItemCount, int itemCount, ItemType itemType)
     {
-        var itemListText = itemCount + " / " + maxItemCount;
+        var itemListText = itemCount + "/" + maxItemCount;
         emojiController.SetItemText(itemListText);
         var itemSprite = GameManager.instance.itemIcons.Find(x => x.id == (int) itemType);
         emojiController.SetItemIcon(itemSprite.Value);
