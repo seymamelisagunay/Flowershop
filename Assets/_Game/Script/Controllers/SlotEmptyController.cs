@@ -8,7 +8,8 @@ using UnityEngine;
 
 public class SlotEmptyController : MonoBehaviour, ISlotController
 {
-    [Header("Unlock Duration Related")] [SerializeField]
+    [Header("Unlock Duration Related")]
+    [SerializeField]
     private float
         baseUnlockDuration =
             0.01f; // for every unit of cost that smaller than threshold, use this value for duration calculation. 
@@ -21,7 +22,9 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
     [SerializeField]
     private int slowerUnlockDurationThreshold = 100; // every unity bigger than this one will be marked ass additional.
 
-    [Space] [Header("Money Transfer Related")] [SerializeField]
+    [Space]
+    [Header("Money Transfer Related")]
+    [SerializeField]
     private float moneyTransferSpeed;
 
     [SerializeField] private float moneyTransferInterval;
@@ -38,7 +41,7 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
     private PlayerController _playerController;
     private List<GameObject> _moneyStack = new();
     private Tweener _moneyTweener;
-
+    private Coroutine _oldCour    
 
     public void Init(SlotController slotController)
     {
@@ -78,6 +81,8 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
             _isInsidePlayer = true;
 
             if (_playerController == null) _playerController = other.GetComponent<PlayerController>();
+            if (_playerController.playerSettings.isBot) return;
+
             StartCoroutine(StayInPlayer(_playerController));
         }
     }
@@ -87,9 +92,6 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
         if (other.CompareTag("Player"))
         {
             _isInsidePlayer = false;
-
-            if (_playerController == null) _playerController = other.GetComponent<PlayerController>();
-            StopCoroutine(StayInPlayer(_playerController));
         }
     }
 
@@ -131,8 +133,8 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
             if (emptyData.CurrenctPrice < emptyData.Price) return;
             ActivateSlot();
         });
-        
-        while (_isInsidePlayer )
+
+        while (_isInsidePlayer)
         {
             if (!_isInsidePlayer) break;
             if (emptyData.CurrenctPrice == emptyData.Price) break;

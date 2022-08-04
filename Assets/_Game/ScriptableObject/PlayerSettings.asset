@@ -18,4 +18,4 @@ MonoBehaviour:
   rotateLerpFactor: 10
   pickingSpeed: 0.05
   firstTriggerCooldown: 0.1
-  maxPickerCount: 12
+  maxPickerCount: 3

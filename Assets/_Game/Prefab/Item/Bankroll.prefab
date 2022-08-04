@@ -47,36 +47,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   price: 10
-  moveDuration: {fileID: 11400000, guid: ff2227076e2c084429de3373e67660e1, type: 2}
+  moveDurationValue: 0.1
   curve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.0024604797
       value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
+      inSlope: 0.20480621
+      outSlope: 0.20480621
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.49346924
-      value: 0.5008453
-      inSlope: -0.000022415645
-      outSlope: -0.000022415645
-      tangentMode: 0
+      time: 0.49996316
+      value: 0.10189164
+      inSlope: 0.0005189702
+      outSlope: 0.0005189702
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.13911338
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -2.8635187
-      outSlope: -2.8635187
-      tangentMode: 0
+      inSlope: -0.20376827
+      outSlope: -0.20376827
+      tangentMode: 34
       weightedMode: 0
-      inWeight: 0.100331
+      inWeight: 0.33333334
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

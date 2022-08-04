@@ -25,6 +25,7 @@ MonoBehaviour:
     type: 3}
   firstTriggerCooldown: 0
   triggerCooldown: 0.05
+  focusWaiting: 0
   emptyData:
     _isOpen: 0
     _price: 500
