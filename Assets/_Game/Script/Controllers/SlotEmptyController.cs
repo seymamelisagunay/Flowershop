@@ -32,7 +32,7 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
 
     [SerializeField] private int moneyStackSize;
 
-    private const float FirstTimeCooldown = 0.1f;
+    private const float firstTimeCooldown = 0.1f;
 
     private SlotController _slotController;
     private bool _isInsidePlayer;
@@ -42,6 +42,8 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
     private List<GameObject> _moneyStack = new();
     private Tweener _moneyTweener;
     private Coroutine _oldCouroutine;
+
+    private Alarm _soundRepeater;
 
     public void Init(SlotController slotController)
     {
@@ -65,6 +67,8 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
             money.SetActive(false);
             _moneyStack.Add(money);
         }
+        _soundRepeater = new Alarm();
+        _soundRepeater.Start(0.2f);
     }
 
     private void SlotOpenEffect()
@@ -92,7 +96,6 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
         if (other.CompareTag("Player"))
         {
             _isInsidePlayer = false;
-            StopCoroutine(_oldCouroutine);
         }
     }
 
@@ -100,7 +103,7 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
     {
         yield return new WaitUntil(() => !player.characterController.inMotion && _isInsidePlayer);
         Debug.Log("Test Geçtik !");
-        yield return new WaitForSeconds(FirstTimeCooldown);
+        yield return new WaitForSeconds(firstTimeCooldown);
 
         // Calculate unlock duration
         var remainingCost = emptyData.Price - emptyData.CurrenctPrice;
@@ -128,7 +131,11 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
                 _isInsidePlayer = false;
                 return;
             }
-
+            if (_soundRepeater.Check())
+            {
+                SoundManager.instance.Play("money_transfer");
+                _soundRepeater.Start(0.1f);
+            }
             emptyData.CurrenctPrice += moneyAmountToDecrease;
             // _slotHud.emptyPrice.SetText(moneyCounter.ToString());
             if (emptyData.CurrenctPrice < emptyData.Price) return;

@@ -9,6 +9,12 @@ public class CashDeskMoneyController : MonoBehaviour
     public GridSlotController moneyGrid;
     [SerializeField] private bool isInPlayer;
     public IntVariable cashDeskMoney;
+    private Alarm _soundRepeater;
+    private void Start()
+    {
+        _soundRepeater = new Alarm();
+        _soundRepeater.Start(0.2f);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -49,6 +55,11 @@ public class CashDeskMoneyController : MonoBehaviour
                     item.transform.parent = playerController.transform;
                     item.moveDurationValue = 0.5f;
                     item.Play(Vector3.zero, true);
+                    if (_soundRepeater.Check())
+                    {
+                        SoundManager.instance.Play("money_transfer");
+                        _soundRepeater.Start(0.1f);
+                    }
                 }
                 else
                 {

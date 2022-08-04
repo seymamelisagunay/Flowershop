@@ -179,6 +179,7 @@ MonoBehaviour:
   itemType: 1
   price: 10
   moveDurationValue: 0.1
+  soundKey: collect_rose
   curve:
     serializedVersion: 2
     m_Curve:

@@ -39,6 +39,7 @@ public class PlayerPickerController : MonoBehaviour, IPickerController
         }
 
         _playerItemController = GetComponent<PlayerItemController>();
+        _playerItemController.playerSettings = playerSettings;
         _playerItemController.Init(playerStackData);
     }
 
@@ -118,6 +119,10 @@ public class PlayerPickerController : MonoBehaviour, IPickerController
               
                 item.Play(Vector3.zero);
                 item.transform.localEulerAngles = Vector3.zero;
+                if(!playerSettings.isBot)
+                {
+                    SoundManager.instance.Play(item.soundKey);
+                }
 
             }
             else

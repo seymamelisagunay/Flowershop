@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using _Game.Script.Controllers;
+using _Game.Script.Core.Character;
 using UnityEngine;
 
 public class PlayerItemController : MonoBehaviour, IItemController
 {
+    [HideInInspector]
+    public PlayerSettings playerSettings;
     public StackData stackData;
     private GridSlotController _gridSlotController;
 
@@ -46,6 +49,9 @@ public class PlayerItemController : MonoBehaviour, IItemController
                 gridSlot.slotInObject = null;
             }
             stackData.RemoveProduct(itemType);
+            if (!playerSettings.isBot)
+                SoundManager.instance.Play("place_item");
+
             return (item, resultData, true);
         }
 

@@ -248,6 +248,7 @@ MonoBehaviour:
   itemType: 3
   price: 10
   moveDurationValue: 0.1
+  soundKey: collect_gift
   curve:
     serializedVersion: 2
     m_Curve:

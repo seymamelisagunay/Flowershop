@@ -5,12 +5,14 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
+
 public class Item : MonoBehaviour
 {
     public ItemType itemType;
     public int price;
     // public FloatVariable moveDuration;
     public float moveDurationValue;
+    public string soundKey;
     public AnimationCurve curve;
 
     public UnityEvent onComplete;

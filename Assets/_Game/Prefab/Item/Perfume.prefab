@@ -48,6 +48,7 @@ MonoBehaviour:
   itemType: 2
   price: 20
   moveDurationValue: 0.1
+  soundKey: collect_perfume
   curve:
     serializedVersion: 2
     m_Curve:
