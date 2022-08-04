@@ -41,7 +41,7 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
     private PlayerController _playerController;
     private List<GameObject> _moneyStack = new();
     private Tweener _moneyTweener;
-    private Coroutine _oldCour    
+    private Coroutine _oldCouroutine;
 
     public void Init(SlotController slotController)
     {
@@ -83,7 +83,7 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
             if (_playerController == null) _playerController = other.GetComponent<PlayerController>();
             if (_playerController.playerSettings.isBot) return;
 
-            StartCoroutine(StayInPlayer(_playerController));
+            _oldCouroutine = StartCoroutine(StayInPlayer(_playerController));
         }
     }
 
@@ -92,6 +92,7 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
         if (other.CompareTag("Player"))
         {
             _isInsidePlayer = false;
+            StopCoroutine(_oldCouroutine);
         }
     }
 
