@@ -3941,15 +3941,15 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4fc2fe0434bbb444499249e58381b94d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: fda25e98ecbc9d84ab17f2e4d253cc3d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.508
+  m_Volume: 0.07
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 256
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -4154,7 +4154,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.459
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4252,17 +4252,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - key: collect_gift
-    value: {fileID: 8300000, guid: fb253e57aa81641459676e1d8551821f, type: 3}
+    value: {fileID: 8300000, guid: 4758169837024644bade86be0b8f7b6e, type: 3}
   - key: collect_perfume
-    value: {fileID: 8300000, guid: ee383a31aaa922546b86326e5088059f, type: 3}
+    value: {fileID: 8300000, guid: 96993b869a20b9d48acd713ec69eac80, type: 3}
   - key: collect_rose
     value: {fileID: 8300000, guid: a6928b46d3d42424fae31e697879e6d7, type: 3}
   - key: money_transfer
-    value: {fileID: 8300000, guid: cdff8761b0c60cc4db3f5c7582de2e0f, type: 3}
+    value: {fileID: 8300000, guid: 27514466cb4aeb24d8c69c2e2a3c142b, type: 3}
   - key: payment
     value: {fileID: 8300000, guid: a3d3867161cdb0841a7aa6be455cb214, type: 3}
   - key: place_item
-    value: {fileID: 8300000, guid: 2b63ca027056bf144adf216a746b12f6, type: 3}
+    value: {fileID: 8300000, guid: 4a67ee53066fd1142bc9624baddc5177, type: 3}
   - key: unlock
     value: {fileID: 8300000, guid: 4d5ad15437ab4ab4da202c88d25e2dc8, type: 3}
 --- !u!4 &1150435400

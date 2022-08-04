@@ -22,7 +22,7 @@ public class SoundManager : MonoBehaviour
 
         if (sound != null)
         {
-            _defaultAudioSource.Stop();
+            ///_defaultAudioSource.Stop();
             _defaultAudioSource.clip = sound.value;
             _defaultAudioSource.Play();
         }
