@@ -4256,7 +4256,7 @@ MonoBehaviour:
   - key: collect_perfume
     value: {fileID: 8300000, guid: 96993b869a20b9d48acd713ec69eac80, type: 3}
   - key: collect_rose
-    value: {fileID: 8300000, guid: a6928b46d3d42424fae31e697879e6d7, type: 3}
+    value: {fileID: 8300000, guid: c63bb5db27a0de440a50347343b95e5c, type: 3}
   - key: money_transfer
     value: {fileID: 8300000, guid: 27514466cb4aeb24d8c69c2e2a3c142b, type: 3}
   - key: payment
