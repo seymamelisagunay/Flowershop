@@ -43,9 +43,9 @@ public class RosePerfumeStandPickerController : MonoBehaviour, IPickerController
     {
         if (other.CompareTag(playerTag))
         {
-            _isStayPlayer = false;
             var itemController = other.GetComponent<IItemController>();
             StopCoroutine(GetItem(itemController));
+            _isStayPlayer = false;
         }
     }
 

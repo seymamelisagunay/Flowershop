@@ -81,6 +81,10 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
                 shelverIcon.SetActive(false);
                 cashierIcon.SetActive(true);
                 break;
+            default:
+                shelverIcon.SetActive(false);
+                cashierIcon.SetActive(false);
+                break;
         }
         _soundRepeater = new Alarm();
         _soundRepeater.Start(0.2f);
@@ -97,10 +101,10 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
     {
         if (other.CompareTag("Player") && !_slotController.slot.emptyData.IsOpen)
         {
+            var clonePlayer = other.GetComponent<PlayerController>();
 
-            if (_playerController == null) _playerController = other.GetComponent<PlayerController>();
-            if (_playerController.playerSettings.isBot) return;
-
+            if (clonePlayer.playerSettings.isBot) return;
+            _playerController = clonePlayer;
             _isInsidePlayer = true;
             _oldCouroutine = StartCoroutine(StayInPlayer(_playerController));
         }
@@ -110,6 +114,8 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
     {
         if (other.CompareTag("Player"))
         {
+            var clonePlayer = other.GetComponent<PlayerController>();
+            if (clonePlayer.playerSettings.isBot) return;
             _isInsidePlayer = false;
         }
     }

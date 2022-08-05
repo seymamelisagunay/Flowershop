@@ -24,8 +24,6 @@ public class TrashPickerController : MonoBehaviour, IPickerController
     {
         if (!other.CompareTag(playerTag)) return;
         _isStayPlayer = false;
-        var playerItemController = other.GetComponent<IItemController>();
-        StopCoroutine(GetItem(playerItemController));
     }
 
     public IEnumerator GetItem(IItemController itemController)

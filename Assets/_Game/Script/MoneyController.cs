@@ -31,14 +31,18 @@ public class MoneyController : MonoBehaviour, ISlotController
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag(playerTag)) return;
+        var clonePlayer = other.GetComponent<PlayerController>();
+        if (clonePlayer.playerSettings.isBot) return;
+        playerController = clonePlayer;
         isInPlayer = true;
-        playerController = other.GetComponent<PlayerController>();
         StartCoroutine(GetMoney());
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (!other.CompareTag(playerTag)) return;
+        var clonePlayer = other.GetComponent<PlayerController>();
+        if (clonePlayer.playerSettings.isBot) return;
         isInPlayer = false;
         StopCoroutine(GetMoney());
     }
