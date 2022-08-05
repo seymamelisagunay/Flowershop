@@ -5,6 +5,7 @@ using _Game.Script.Manager;
 using DG.Tweening;
 using ECM.Controllers;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.Animations.Rigging;
 
 namespace _Game.Script.Character
@@ -23,6 +24,7 @@ namespace _Game.Script.Character
         private bool _isRigActive;
         private CustomCameraFollow _cameraFollow;
         public HudDotIdle hudDotIdle;
+        public GameObject maxText;
 
         private void Awake()
         {
@@ -35,20 +37,27 @@ namespace _Game.Script.Character
 
         public void Init(Transform spawnPoint)
         {
+
             Input = GetComponent<IInput>();
             _spawnPoint = spawnPoint;
             OnOpenLevel();
             characterController.cameraFollow = _cameraFollow;
-        }
-
-        private void OnDestroy()
-        {
+            if (playerSettings.isBot) return;
+            var constraintSource = new ConstraintSource();
+            constraintSource.sourceTransform = _cameraFollow.transform;
+            constraintSource.weight =1;
+            var lookAt = maxText.GetComponent<LookAtConstraint>();
+            lookAt.AddSource(constraintSource);
         }
 
         private void Update()
         {
             if (playerSettings.isBot) return;
             CharacterMoveEffect();
+            if (_playerItemController.stackData.ProductTypes.Count >= _playerItemController.stackData.MaxItemCount)
+                maxText.SetActive(true);
+            else
+                maxText.SetActive(false);
         }
 
         private void CharacterMoveEffect()
