@@ -3151,6 +3151,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67117722a812a2e46ab8cb8eafbf5f5e, type: 3}
+--- !u!1 &834923446 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 132536, guid: 67117722a812a2e46ab8cb8eafbf5f5e,
+    type: 3}
+  m_PrefabInstance: {fileID: 834923445}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &835296818
 GameObject:
   m_ObjectHideFlags: 0
@@ -74075,6 +74081,8 @@ GameObject:
   - component: {fileID: 5734213909893173573}
   - component: {fileID: 5734213909893173574}
   - component: {fileID: 5734213909893173578}
+  - component: {fileID: 5734213909893173579}
+  - component: {fileID: 5734213909893173580}
   m_Layer: 5
   m_Name: Money
   m_TagString: Untagged
@@ -74136,6 +74144,48 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5734213909893173579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5734213909893173569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8c3d4b34f9e0640b122144556a8c6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inDebug: {fileID: 834923446}
+--- !u!114 &5734213909893173580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5734213909893173569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5734213909893173579}
+          m_TargetAssemblyTypeName: InDebugController, Assembly-CSharp
+          m_MethodName: ClickUI
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!222 &6119206710571134721
 CanvasRenderer:
   m_ObjectHideFlags: 0
