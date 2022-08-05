@@ -12,9 +12,7 @@ public class FarmController : MonoBehaviour, IItemController
     public ItemList itemList;
     public List<GridSlot> gridSlots = new List<GridSlot>();
     public List<GridSlot> botSlot = new List<GridSlot>();
-
     [ReadOnly] public StackData stackData;
-    private int _currentGridSlotCount;
 
     /// <summary>
     /// 
@@ -43,19 +41,16 @@ public class FarmController : MonoBehaviour, IItemController
         for (int i = 0; i < stackData.ProductTypes.Count; i++)
         {
             yield return new WaitForSeconds(0.5f);
-            if (i > _currentGridSlotCount) continue;
-            
+            if (i >= stackData.MaxItemCount) continue;
+
             ItemMoveEffect(stackData.ProductTypes[i]);
-            _currentGridSlotCount++;
         }
-        _currentGridSlotCount =
-            _currentGridSlotCount > gridSlots.Count - 1 ? gridSlots.Count - 1 : _currentGridSlotCount;
     }
 
     private void ItemMoveEffect(ItemType itemType)
     {
         var farm = itemList.GetItemPrefab(itemType);
-        var grid = gridSlots[_currentGridSlotCount];
+        var grid = gridSlots.Find(x => !x.isFull);
         var cloneObject = Instantiate(farm, grid.transform);
         grid.isFull = true;
         grid.slotInObject = cloneObject;
@@ -83,11 +78,11 @@ public class FarmController : MonoBehaviour, IItemController
     {
         if (stackData.ProductTypes.Count > 0)
         {
-            var resultObject = gridSlots[_currentGridSlotCount].slotInObject;
-            gridSlots[_currentGridSlotCount].isFull = false;
-            gridSlots[_currentGridSlotCount].slotInObject = null;
+            var slot =gridSlots.Find(x=>x.isFull);
+            var resultObject = slot.slotInObject;
+            slot.isFull = false;
+            slot.slotInObject = null;
             stackData.RemoveProduct(0);
-            _currentGridSlotCount--;
             return (ItemType.Rose, resultObject, true);
         }
         return (ItemType.Rose, null, false);
@@ -95,9 +90,6 @@ public class FarmController : MonoBehaviour, IItemController
 
     public void SetValue(ItemType itemType)
     {
-        _currentGridSlotCount++;
-        _currentGridSlotCount =
-            _currentGridSlotCount > gridSlots.Count - 1 ? gridSlots.Count - 1 : _currentGridSlotCount;
         stackData.AddProduct(itemType);
         ItemMoveEffect(itemType);
     }

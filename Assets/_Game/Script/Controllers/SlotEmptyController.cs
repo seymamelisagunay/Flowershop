@@ -44,6 +44,9 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
     private Coroutine _oldCouroutine;
 
     private Alarm _soundRepeater;
+    public GameObject shelverIcon;
+    public GameObject cashierIcon;
+
 
     public void Init(SlotController slotController)
     {
@@ -67,6 +70,18 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
             money.SetActive(false);
             _moneyStack.Add(money);
         }
+
+        switch (_slotController.slot.slotType)
+        {
+            case SlotType.Shelver:
+                shelverIcon.SetActive(true);
+                cashierIcon.SetActive(false);
+                break;
+            case SlotType.Cashier:
+                shelverIcon.SetActive(false);
+                cashierIcon.SetActive(true);
+                break;
+        }
         _soundRepeater = new Alarm();
         _soundRepeater.Start(0.2f);
     }
@@ -82,11 +97,11 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
     {
         if (other.CompareTag("Player") && !_slotController.slot.emptyData.IsOpen)
         {
-            _isInsidePlayer = true;
 
             if (_playerController == null) _playerController = other.GetComponent<PlayerController>();
             if (_playerController.playerSettings.isBot) return;
 
+            _isInsidePlayer = true;
             _oldCouroutine = StartCoroutine(StayInPlayer(_playerController));
         }
     }
