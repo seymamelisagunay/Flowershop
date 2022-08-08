@@ -4,6 +4,7 @@ using System.Collections;
 using _Game.Script.Character;
 using NaughtyAttributes;
 using UnityEngine;
+using MoreMountains.NiceVibrations;
 
 /// <summary>
 /// Bunun İçersinde Müşteriler Listelenecek ve bu Müşterilerden para alınacacak
@@ -167,6 +168,7 @@ public class CashTradeController : MonoBehaviour
         yield return currentClient.SellingProducts();
         CurrentClientMoneyCalculate();
         SoundManager.instance.Play("payment");
+        MMVibrationManager.Haptic(HapticTypes.Selection, false, true, this);
         customerQueue.Remove(currentClient);
         yield return ReSize(); // Burda Bekleyen Müşteriler Tekrar Yerleştirilmeli 
     }

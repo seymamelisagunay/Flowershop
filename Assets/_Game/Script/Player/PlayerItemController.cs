@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using _Game.Script.Controllers;
 using _Game.Script.Core.Character;
+using MoreMountains.NiceVibrations;
 using UnityEngine;
 
 public class PlayerItemController : MonoBehaviour, IItemController
@@ -50,7 +51,10 @@ public class PlayerItemController : MonoBehaviour, IItemController
             }
             stackData.RemoveProduct(itemType);
             if (!playerSettings.isBot)
+            {
                 SoundManager.instance.Play("place_item");
+                MMVibrationManager.Haptic(HapticTypes.Selection, false, true, this);
+            }
 
             return (item, resultData, true);
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using _Game.Script.Character;
 using _Game.Script.Manager;
 using DG.Tweening;
+using MoreMountains.NiceVibrations;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -156,6 +157,7 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
             {
                 SoundManager.instance.Play("money_transfer");
                 _soundRepeater.Start(0.1f);
+                MMVibrationManager.Haptic(HapticTypes.Selection, false, true, this);
             }
             emptyData.CurrenctPrice += moneyAmountToDecrease;
             // _slotHud.emptyPrice.SetText(moneyCounter.ToString());

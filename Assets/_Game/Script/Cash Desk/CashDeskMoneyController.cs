@@ -1,5 +1,6 @@
 using System.Collections;
 using _Game.Script.Character;
+using MoreMountains.NiceVibrations;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -59,6 +60,8 @@ public class CashDeskMoneyController : MonoBehaviour
                     {
                         SoundManager.instance.Play("money_transfer");
                         _soundRepeater.Start(0.1f);
+                        MMVibrationManager.Haptic(HapticTypes.Selection, false, true, this);
+
                     }
                 }
                 else
