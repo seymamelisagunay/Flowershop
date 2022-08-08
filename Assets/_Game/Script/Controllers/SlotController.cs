@@ -73,7 +73,7 @@ public class SlotController : MonoBehaviour
             default:
                 return;
         }
-
+        SoundManager.instance.Play("unlock");
         activeItemController?.Init(slot.stackData);
         slot.stackData.OnChangeVariable.AddListener(SaveSlotStackData);
     }
