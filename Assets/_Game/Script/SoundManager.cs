@@ -11,13 +11,12 @@ public class SoundManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-    }
-    private void Start()
-    {
         _defaultAudioSource = GetComponent<AudioSource>();
+
     }
     public void Play(string key)
     {
+        if (!SettingsController.instance.isSoundOpen) return;
         var sound = sounds.Find(x => x.key.Equals(key));
 
         if (sound != null)
