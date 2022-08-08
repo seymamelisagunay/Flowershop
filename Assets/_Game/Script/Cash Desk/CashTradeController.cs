@@ -4,6 +4,7 @@ using System.Collections;
 using _Game.Script.Character;
 using NaughtyAttributes;
 using UnityEngine;
+using MoreMountains.NiceVibrations;
 
 /// <summary>
 /// Bunun İçersinde Müşteriler Listelenecek ve bu Müşterilerden para alınacacak

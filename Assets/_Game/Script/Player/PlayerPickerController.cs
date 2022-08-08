@@ -6,6 +6,7 @@ using _Game.Script.Core.Character;
 using NaughtyAttributes;
 using Newtonsoft.Json;
 using UnityEngine;
+using MoreMountains.NiceVibrations;
 
 public class PlayerPickerController : MonoBehaviour, IPickerController
 {
@@ -122,8 +123,8 @@ public class PlayerPickerController : MonoBehaviour, IPickerController
                 if(!playerSettings.isBot)
                 {
                     SoundManager.instance.Play(item.soundKey);
+                    MMVibrationManager.Haptic(HapticTypes.Selection, false, true, this);
                 }
-
             }
             else
                 yield break;
