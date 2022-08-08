@@ -2,6 +2,7 @@ using System;
 using _Game.Script;
 using _Game.Script.Controllers;
 using _Game.Script.Manager;
+using MoreMountains.NiceVibrations;
 using NaughtyAttributes;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -73,6 +74,7 @@ public class SlotController : MonoBehaviour
             default:
                 return;
         }
+        MMVibrationManager.Haptic(HapticTypes.MediumImpact, false, true, this);
         SoundManager.instance.Play("unlock");
         activeItemController?.Init(slot.stackData);
         slot.stackData.OnChangeVariable.AddListener(SaveSlotStackData);
