@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9ccbbdb54d58d645b95d03b1ec654d7, type: 3}
+  m_Name: RoseDelightFactory 1
+  m_EditorClassIdentifier: 
+  logo: {fileID: 21300000, guid: 8ba46a52ca3e94a44ac0cf18659deef6, type: 3}
+  slotName: Delight Perfume Factory
+  Id: DelightPerfumeFactory_01
+  itemType: 3
+  slotType: 1
+  slotEmptyPrefab: {fileID: 2064649203199760101, guid: 2796bf85067029244b0236bd3d257ab5,
+    type: 3}
+  itemControllerPrefab: {fileID: 5255380998708170932, guid: 0e9b6ac32cc308e41ae3ceff37281ab7,
+    type: 3}
+  slotHudPrefab: {fileID: 4402175197117052178, guid: ac4158c95d37b404cb017104ebde6e42,
+    type: 3}
+  firstTriggerCooldown: 0
+  triggerCooldown: 0.05
+  focusWaiting: 0.5
+  emptyData:
+    _isOpen: 0
+    _price: 3500
+    _currenctPrice: 0
+    OnChangeVariable:
+      m_PersistentCalls:
+        m_Calls: []
+    OnChangeIsOpenVarible:
+      m_PersistentCalls:
+        m_Calls: []
+  stackData:
+    maxItemCount: 4
+    productionRate: 0.75
+    _productTypes: 
+    OnChangeVariable:
+      m_PersistentCalls:
+        m_Calls: []
