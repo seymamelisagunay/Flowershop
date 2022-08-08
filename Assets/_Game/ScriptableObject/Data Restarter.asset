@@ -28,6 +28,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9a9cfb90107cb5d4eb2e8e2ce5f7c695, type: 2}
   - {fileID: 11400000, guid: 049bb00c9f93c164daa1e1764699f567, type: 2}
   - {fileID: 11400000, guid: d5c426bc2062c8f418bafb0777dc7366, type: 2}
+  - {fileID: 11400000, guid: 8a8ac766deabdb949b4dbc80d1135252, type: 2}
+  - {fileID: 11400000, guid: f36c12b1d9f1b8441bd360703f6770f9, type: 2}
   cashDeskMoneyCountDefault: 0
   cashDeskMoneyCount: {fileID: 11400000, guid: 683a68aa1fb423a4387ea56adb92bbcb, type: 2}
   currentSlotOrderCountDefault: 1
