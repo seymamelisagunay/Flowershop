@@ -64,11 +64,11 @@ public class SlotController : MonoBehaviour
                 break;
             case SlotType.Shelver: //Shelver Bölümü oluyor Burası Shelver Üretiliyor ve devam ediyor
                 var shelverController = slot.itemControllerPrefab.GetComponent<ShelverHrController>();
-                shelverController.Init();
+                shelverController.Init(transform.position);
                 break;
             case SlotType.Cashier:
                 var cashier = slot.itemControllerPrefab.GetComponent<CashierHrController>();
-                cashier.Init();
+                cashier.Init(transform.position);
                 break;
             default:
                 return;
