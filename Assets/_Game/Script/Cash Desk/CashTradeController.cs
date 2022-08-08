@@ -166,7 +166,9 @@ public class CashTradeController : MonoBehaviour
         currentCurrency = currentClient.MoneyCalculator();
         yield return currentClient.SellingProducts();
         CurrentClientMoneyCalculate();
-        SoundManager.instance.Play("payment");
+        if(Vector3.Distance(transform.position, Camera.main.transform.position) < 21.68f) {
+            SoundManager.instance.Play("payment");
+        }
         customerQueue.Remove(currentClient);
         yield return ReSize(); // Burda Bekleyen Müşteriler Tekrar Yerleştirilmeli 
     }
