@@ -43,8 +43,8 @@ namespace _Game.Script.Manager
 
         public void ButtonShowTerms()
         {
-            Application.OpenURL("https://www.gnarlygamestudio.com/assets/images/Terms%20Of%20Service.pdf");
-            Application.OpenURL("https://www.gnarlygamestudio.com/assets/images/Privacy%20Policy.pdf");
+            Application.OpenURL("https://gnarlyteam.com/assets/img/company/terms_of_service.pdf");
+            Application.OpenURL("https://gnarlyteam.com/assets/img/company/privacy_policy.pdf");
         }
     }
 }
