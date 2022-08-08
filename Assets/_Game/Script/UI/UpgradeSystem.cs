@@ -40,16 +40,16 @@ public class UpgradeSystem : MonoBehaviour
     public void Start() //baslangicta level ismimizi ve upgrade paralarini atiyoruz 
     {
         money.OnChangeVariable.AddListener(MoneyShake);
-        playerUpgradeLevelName.text = _upgradeLevelName + _playerUpgradeLevel;
-        playerUpgradeMoney.text = PlayerUpgradeMoneyArray[_playerUpgradeLevel - 1].ToString();
-        shelverUpgradeLevelName.text = _upgradeLevelName + _shelverUpgradeLevel;
-        shelverUpgradeMoney.text = ShelverUpgradeMoneyArray[_shelverUpgradeLevel - 1].ToString();
-        carryUpgradeLevelName.text = _upgradeLevelName + _carryUpgradeLevel;
-        carryUpgradeMoney.text = CarryUpgradeMoneyArray[_carryUpgradeLevel - 1].ToString();
-        perfumeUpgradeLevelName.text = _upgradeLevelName + _perfumeUpgradeLevel;
-        perfumeUpgradeMoney.text = PerfumeUpgradeMoneyArray[_perfumeUpgradeLevel - 1].ToString();
-        delightUpgradeLevelName.text = _upgradeLevelName + _delightUpgradeLevel;
-        delightUpgradeMoney.text = DelightUpgradeMoneyArray[_delightUpgradeLevel - 1].ToString();
+        // playerUpgradeLevelName.text = _upgradeLevelName + _playerUpgradeLevel;
+        // playerUpgradeMoney.text = PlayerUpgradeMoneyArray[_playerUpgradeLevel - 1].ToString();
+        // shelverUpgradeLevelName.text = _upgradeLevelName + _shelverUpgradeLevel;
+        // shelverUpgradeMoney.text = ShelverUpgradeMoneyArray[_shelverUpgradeLevel - 1].ToString();
+        // carryUpgradeLevelName.text = _upgradeLevelName + _carryUpgradeLevel;
+        // carryUpgradeMoney.text = CarryUpgradeMoneyArray[_carryUpgradeLevel - 1].ToString();
+        // perfumeUpgradeLevelName.text = _upgradeLevelName + _perfumeUpgradeLevel;
+        // perfumeUpgradeMoney.text = PerfumeUpgradeMoneyArray[_perfumeUpgradeLevel - 1].ToString();
+        // delightUpgradeLevelName.text = _upgradeLevelName + _delightUpgradeLevel;
+        // delightUpgradeMoney.text = DelightUpgradeMoneyArray[_delightUpgradeLevel - 1].ToString();
     }
 
     public int UpgradeButton(int[] UpgradeMoneyArray, int upgradeLevel, TMP_Text upgradeLevelName,
