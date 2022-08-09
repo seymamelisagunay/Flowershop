@@ -237,7 +237,7 @@ PlayerSettings:
   clonedFromGUID: 6d1e00116d3549c4b96abc75df6efaef
   templatePackageId: 
   templateDefaultScene: Assets/Scenes/SampleScene.unity
-  useCustomMainManifest: 0
+  useCustomMainManifest: 1
   useCustomLauncherManifest: 0
   useCustomMainGradleTemplate: 0
   useCustomLauncherGradleManifest: 0
@@ -792,7 +792,8 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
-    Android: MOREMOUNTAINS_NICEVIBRATIONS
+    Android: MOREMOUNTAINS_NICEVIBRATIONS;tenjin_applovin_enabled
+    iPhone: tenjin_applovin_enabled
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:

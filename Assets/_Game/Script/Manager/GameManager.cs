@@ -41,6 +41,7 @@ namespace _Game.Script.Manager
             PlayerCreator();
             slotManager.slotStates.ForEach(x => { x.slotController.Init(); });
             slotManager.SlotOpen();
+            YsoCorp.GameUtils.YCManager.instance.OnGameStarted(1);
         }
 
         private void PlayerCreator()
