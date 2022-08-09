@@ -29,11 +29,9 @@ public class Item : MonoBehaviour
         DOVirtual.DelayedCall(moveDurationValue, () =>
         {
             transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-            Debug.Log("Rose Test : " + transform.localScale);
             var endValue = transform.localScale * 2.4f;
             transform.DOScale(endValue, 0.35f).SetEase(Ease.OutBack).OnComplete(() =>
             {
-                Debug.Log("Rose Test finish : " + transform.localScale);
             });
         });
 

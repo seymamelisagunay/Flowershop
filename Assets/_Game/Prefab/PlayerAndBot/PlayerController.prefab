@@ -266,7 +266,7 @@ MonoBehaviour:
     OnChangeVariable:
       m_PersistentCalls:
         m_Calls: []
-  exitDistance: 3
+  exitDistance: 3.7
 --- !u!114 &7579631767987793856
 MonoBehaviour:
   m_ObjectHideFlags: 0

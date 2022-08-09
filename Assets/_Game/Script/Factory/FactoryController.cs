@@ -40,8 +40,8 @@ public class FactoryController : MonoBehaviour
         while (true)
         {
             yield return new WaitUntil(() => picker.pickerData.ProductTypes.Count > 0);
-            yield return new WaitUntil(() => slotController.slot.stackData.CheckMaxCount());
-            yield return new WaitUntil(() => factoryItemController.itemData.CheckMaxCount());
+            yield return new WaitUntil(() => slotController.slot.stackData.IsAvailable());
+            yield return new WaitUntil(() => factoryItemController.itemData.IsAvailable());
             machine?.Play(itemCreateDuration, machineStrength, machineVibration);
             yield return new WaitForSeconds(itemCreateDuration);
             // Item Üretilecek

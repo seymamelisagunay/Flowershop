@@ -57,7 +57,7 @@ public class RosePerfumeStandPickerController : MonoBehaviour, IPickerController
 
         while (_isStayPlayer)
         {
-            if (standStackData.CheckMaxCount())
+            if (standStackData.IsAvailable())
             {
                 yield return new WaitForSeconds(_slotController.slot.triggerCooldown);
                 if (playerItemController.stackData.ProductTypes.Count <= 0) break;

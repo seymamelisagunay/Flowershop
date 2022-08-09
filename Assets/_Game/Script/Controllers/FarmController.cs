@@ -23,6 +23,7 @@ public class FarmController : MonoBehaviour, IItemController
         this.stackData = stackData;
         OpenFarmEffect();
         StartCoroutine(StackDataLoad());
+        Debug.Log("Farmer çalışıyor!");
         StartCoroutine(Creator());
     }
 
@@ -69,8 +70,9 @@ public class FarmController : MonoBehaviour, IItemController
     {
         while (true)
         {
+            yield return null;
+            if (!stackData.IsAvailable()) continue;
             yield return new WaitForSeconds(stackData.ProductionRate);
-            if (!stackData.CheckMaxCount()) continue;
             SetValue(ItemType.Rose);
         }
     }
@@ -78,7 +80,7 @@ public class FarmController : MonoBehaviour, IItemController
     {
         if (stackData.ProductTypes.Count > 0)
         {
-            var slot =gridSlots.Find(x=>x.isFull);
+            var slot = gridSlots.Find(x => x.isFull);
             var resultObject = slot.slotInObject;
             slot.isFull = false;
             slot.slotInObject = null;

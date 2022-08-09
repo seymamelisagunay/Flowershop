@@ -85,7 +85,7 @@ public class PlayerPickerController : MonoBehaviour, IPickerController
     {
         var slotItemController = itemController;
         yield return new WaitForSeconds(playerSettings.firstTriggerCooldown);
-        var slot = (MonoBehaviour) slotItemController;
+        var slot = (MonoBehaviour)slotItemController;
 
         while (true)
         {
@@ -94,40 +94,38 @@ public class PlayerPickerController : MonoBehaviour, IPickerController
                 yield break;
 
             yield return new WaitForSeconds(0.01f);
-            if (playerStackData.CheckMaxCount())
+
+            yield return new WaitForSeconds(playerSettings.pickingSpeed);
+            if (!playerStackData.IsAvailable()) yield break;
+            //Toplama yapılacak 
+            var (productType, item, isItemFinish) = slotItemController.GetValue();
+            if (!isItemFinish) continue;
+            if (item == null)
             {
-                yield return new WaitForSeconds(playerSettings.pickingSpeed);
-                //Toplama yapılacak 
-                var (productType, item, isItemFinish) = slotItemController.GetValue();
-                if (!isItemFinish) continue;
-                if (item == null)
-                {
-                    Debug.Log("item + null");
-                    continue;
-                }
-
-                var gridSlot = _gridSlotController.GetPosition();
-                if (gridSlot == null)
-                {
-                    Debug.Log("null");
-                    continue;
-                }
-
-                _playerItemController.SetValue(productType);
-                item.transform.parent = gridSlot.transform;
-                gridSlot.isFull = true;
-                gridSlot.slotInObject = item;
-              
-                item.Play(Vector3.zero);
-                item.transform.localEulerAngles = Vector3.zero;
-                if(!playerSettings.isBot)
-                {
-                    SoundManager.instance.Play(item.soundKey);
-                    MMVibrationManager.Haptic(HapticTypes.Selection, false, true, this);
-                }
+                Debug.LogError("item + null");
+                continue;
             }
-            else
-                yield break;
+
+            var gridSlot = _gridSlotController.GetPosition();
+            if (gridSlot == null)
+            {
+                Debug.LogError(" : gridSlot null");
+                continue;
+            }
+
+            _playerItemController.SetValue(productType);
+            item.transform.parent = gridSlot.transform;
+            gridSlot.isFull = true;
+            gridSlot.slotInObject = item;
+
+            item.Play(Vector3.zero);
+            item.transform.localEulerAngles = Vector3.zero;
+            if (!playerSettings.isBot)
+            {
+                SoundManager.instance.Play(item.soundKey);
+                MMVibrationManager.Haptic(HapticTypes.Selection, false, true, this);
+            }
+
         }
     }
 }

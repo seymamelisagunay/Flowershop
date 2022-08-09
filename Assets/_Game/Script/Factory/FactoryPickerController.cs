@@ -47,7 +47,7 @@ public class FactoryPickerController : MonoBehaviour, IPickerController
 
         while (_isStayPlayer)
         {
-            if (pickerData.CheckMaxCount())
+            if (pickerData.IsAvailable())
             {
                 yield return new WaitForSeconds(_slotController.slot.triggerCooldown);
                 var (productType, item, isItemFinish) = playerItemController.GetValue(pickerItemType);

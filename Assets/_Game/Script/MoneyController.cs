@@ -70,6 +70,7 @@ public class MoneyController : MonoBehaviour, ISlotController
                 var item = gridSlot.slotInObject;
                 item.transform.parent = playerController.transform;
                 item.Play(Vector3.zero, true);
+                SoundManager.instance.Play("money_transfer");
             }
         }
     }

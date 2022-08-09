@@ -65,7 +65,7 @@ namespace _Game.Script.Controllers
             OnChangeVariable?.Invoke(this);
         }
 
-        public bool CheckMaxCount()
+        public bool IsAvailable()
         {
             return _productTypes.Count < maxItemCount;
         }

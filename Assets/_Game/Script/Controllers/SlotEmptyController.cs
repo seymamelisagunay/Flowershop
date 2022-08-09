@@ -124,7 +124,6 @@ public class SlotEmptyController : MonoBehaviour, ISlotController
     private IEnumerator StayInPlayer(PlayerController player)
     {
         yield return new WaitUntil(() => !player.characterController.inMotion && _isInsidePlayer);
-        Debug.Log("Test Geçtik !");
         yield return new WaitForSeconds(firstTimeCooldown);
 
         // Calculate unlock duration
