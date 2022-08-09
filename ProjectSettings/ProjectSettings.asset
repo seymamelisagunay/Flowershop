@@ -134,7 +134,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.3.3
+  bundleVersion: 0.5.0
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -160,7 +160,7 @@ PlayerSettings:
     iPhone: 0
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
-  AndroidBundleVersionCode: 2
+  AndroidBundleVersionCode: 4
   AndroidMinSdkVersion: 22
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
@@ -256,7 +256,7 @@ PlayerSettings:
   AndroidEnableTango: 0
   androidEnableBanner: 1
   androidUseLowAccuracyLocation: 0
-  androidUseCustomKeystore: 0
+  androidUseCustomKeystore: 1
   m_AndroidBanners:
   - width: 320
     height: 180
@@ -792,8 +792,8 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
-    Android: MOREMOUNTAINS_NICEVIBRATIONS;tenjin_applovin_enabled
-    iPhone: tenjin_applovin_enabled
+    Android: MOREMOUNTAINS_NICEVIBRATIONS;gameanalytics_max_enabled;tenjin_applovin_enabled
+    iPhone: gameanalytics_max_enabled;tenjin_applovin_enabled
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:

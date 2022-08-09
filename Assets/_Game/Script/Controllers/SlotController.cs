@@ -2,6 +2,7 @@ using System;
 using _Game.Script;
 using _Game.Script.Controllers;
 using _Game.Script.Manager;
+using GameAnalyticsSDK;
 using MoreMountains.NiceVibrations;
 using NaughtyAttributes;
 using Newtonsoft.Json;
@@ -18,8 +19,9 @@ public class SlotController : MonoBehaviour
     public Transform hudPoint;
     public IItemController activeItemController;
     [ReadOnly] public CameraFocus cameraFocus;
-    
+
     public int customerLimitIncreaseValue;
+
 
     public void Init()
     {
@@ -33,13 +35,13 @@ public class SlotController : MonoBehaviour
     {
         if (!slot.emptyData.IsOpen) return;
         GameManager.instance.customerManager.IncreaseCustomerLimit(customerLimitIncreaseValue);
-        
+
         switch (slot.slotType)
         {
             case SlotType.Farm:
                 var cloneFarm = slot.itemControllerPrefab.GetComponent<FarmController>();
                 activeItemController = Instantiate(cloneFarm, transform);
-                var cloneFarmItemController = (FarmController) activeItemController;
+                var cloneFarmItemController = (FarmController)activeItemController;
                 cloneFarmItemController.name += slot.Id;
                 break;
             case SlotType.Factory:
@@ -53,7 +55,7 @@ public class SlotController : MonoBehaviour
                 GameManager.instance.isClientCreate.Value = true;
                 var stand = slot.itemControllerPrefab.GetComponent<StandItemController>();
                 activeItemController = Instantiate(stand, transform);
-                var standController = (StandItemController) activeItemController;
+                var standController = (StandItemController)activeItemController;
                 standController.name += slot.Id;
                 GameManager.instance.ItemTypeList.Add(slot.itemType);
                 break;
@@ -86,6 +88,9 @@ public class SlotController : MonoBehaviour
         emptySlot.GetComponent<ISlotController>().Init(this);
         slot.emptyData.OnChangeVariable.AddListener(SaveSlotEmptyData);
         cameraFocus?.Focus(slot.focusWaiting);
+        if (PlayerPrefs.HasKey("show_" + slot.slotName)) return;
+        PlayerPrefs.SetString("show_" + slot.slotName, "sunal_orhon");
+        GameAnalytics.NewDesignEvent("show_" + slot.slotName, 1);
     }
 
     private void CreateHud()

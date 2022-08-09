@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using _Game.Script.Character;
 using DG.Tweening;
+using GameAnalyticsSDK;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -60,6 +61,7 @@ public class MoneyController : MonoBehaviour, ISlotController
                 _slotController.slot.emptyData.IsOpen = true;
                 SlotManager.instance.NextSlot();
                 _slotController.OpenSlot();
+                GameAnalytics.NewDesignEvent ("unlock_"+_slotController.slot.slotName,1);
                 SlotClose();
                 yield return null;
             }

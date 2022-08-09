@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using _Game.Script.Character;
 using Assets._Game.Script.Variable;
+using GameAnalyticsSDK;
 using Sources.Utility;
 using UnityEngine;
 
@@ -30,6 +31,7 @@ namespace _Game.Script.Manager
             ItemTypeList.value.Clear();
             instance = this;
             slotManager = FindObjectOfType<SlotManager>();
+            GameAnalytics.Initialize();
         }
 
         /// <summary>

@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 26321801}
   - component: {fileID: 26321800}
   m_Layer: 0
-  m_Name: RosePerfumeFactory_01
+  m_Name: perfume_factory_2
   m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -305,7 +305,7 @@ Transform:
   m_Children:
   - {fileID: 538067549}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &93761462 stripped
 MonoBehaviour:
@@ -319,6 +319,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d88f3229a818eb49938e64f2be887d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &105413630
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 105413631}
+  m_Layer: 0
+  m_Name: = Slots
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &105413631
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105413630}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.418666, y: -6.095681, z: 7.1601133}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &113454249
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,7 +996,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 39
+  m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &281398357
 GameObject:
@@ -1242,7 +1273,7 @@ GameObject:
   - component: {fileID: 457439895}
   - component: {fileID: 457439898}
   m_Layer: 0
-  m_Name: CashDesk-Slot
+  m_Name: cash_desk
   m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1295,7 +1326,7 @@ Transform:
   m_Children:
   - {fileID: 363311130}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &457439898
 MonoBehaviour:
@@ -1327,7 +1358,7 @@ GameObject:
   - component: {fileID: 505912045}
   - component: {fileID: 505912044}
   m_Layer: 0
-  m_Name: Cashier
+  m_Name: cashier_1
   m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1397,7 +1428,7 @@ Transform:
   m_Children:
   - {fileID: 148095432}
   m_Father: {fileID: 0}
-  m_RootOrder: 36
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &520102267
 GameObject:
@@ -1701,7 +1732,7 @@ GameObject:
   - component: {fileID: 576479494}
   - component: {fileID: 576479497}
   m_Layer: 0
-  m_Name: StartGround
+  m_Name: first_money_slot
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1754,7 +1785,7 @@ Transform:
   m_Children:
   - {fileID: 1327054785}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &576479497
 MonoBehaviour:
@@ -2071,7 +2102,7 @@ GameObject:
   - component: {fileID: 765007789}
   - component: {fileID: 765007788}
   m_Layer: 0
-  m_Name: RoseDelightFactory
+  m_Name: gift_factory_1
   m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2141,7 +2172,7 @@ Transform:
   m_Children:
   - {fileID: 772741514}
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &772741513
 GameObject:
@@ -2259,7 +2290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22457152, guid: 67117722a812a2e46ab8cb8eafbf5f5e, type: 3}
       propertyPath: m_RootOrder
-      value: 38
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: 22457152, guid: 67117722a812a2e46ab8cb8eafbf5f5e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2486,7 +2517,7 @@ GameObject:
   - component: {fileID: 835296820}
   - component: {fileID: 835296823}
   m_Layer: 0
-  m_Name: Rose-Slot3
+  m_Name: rose_farm_3
   m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2539,7 +2570,7 @@ Transform:
   m_Children:
   - {fileID: 572823941}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &835296823
 MonoBehaviour:
@@ -2704,7 +2735,7 @@ GameObject:
   - component: {fileID: 921311630}
   - component: {fileID: 921311633}
   m_Layer: 0
-  m_Name: RoseStand
+  m_Name: rose_stand
   m_TagString: Stand
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2757,7 +2788,7 @@ Transform:
   m_Children:
   - {fileID: 1173502836}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &921311633
 MonoBehaviour:
@@ -2788,7 +2819,7 @@ GameObject:
   - component: {fileID: 937008853}
   - component: {fileID: 937008852}
   m_Layer: 0
-  m_Name: Rose-Slot2
+  m_Name: rose_farm_2
   m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2841,7 +2872,7 @@ Transform:
   m_Children:
   - {fileID: 633227596}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &954957367
 GameObject:
@@ -3881,7 +3912,7 @@ GameObject:
   - component: {fileID: 1281584139}
   - component: {fileID: 1281584138}
   m_Layer: 0
-  m_Name: RoseDelightStand
+  m_Name: gift_stand_1
   m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3951,7 +3982,7 @@ Transform:
   m_Children:
   - {fileID: 207462802}
   m_Father: {fileID: 0}
-  m_RootOrder: 34
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1324065417
 GameObject:
@@ -3982,7 +4013,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 37
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1327054784
 GameObject:
@@ -4229,7 +4260,7 @@ GameObject:
   - component: {fileID: 1424125684}
   - component: {fileID: 1424125686}
   m_Layer: 0
-  m_Name: Rose-Slot1
+  m_Name: rose_farm_1
   m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4249,7 +4280,7 @@ Transform:
   m_Children:
   - {fileID: 1612868392}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1424125684
 MonoBehaviour:
@@ -4314,7 +4345,7 @@ GameObject:
   - component: {fileID: 1430144984}
   - component: {fileID: 1430144987}
   m_Layer: 0
-  m_Name: RosePerfumeFactory
+  m_Name: perfume_factory_1
   m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4367,7 +4398,7 @@ Transform:
   m_Children:
   - {fileID: 1177923192}
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1430144987
 MonoBehaviour:
@@ -4526,7 +4557,7 @@ GameObject:
   - component: {fileID: 1638395301}
   - component: {fileID: 1638395304}
   m_Layer: 0
-  m_Name: RosePerfumeStand
+  m_Name: perfume_stand
   m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4579,7 +4610,7 @@ Transform:
   m_Children:
   - {fileID: 1855310124}
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1638395304
 MonoBehaviour:
@@ -4611,7 +4642,7 @@ GameObject:
   - component: {fileID: 1698955654}
   - component: {fileID: 1698955653}
   m_Layer: 0
-  m_Name: HrShelver
+  m_Name: shelver
   m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4681,7 +4712,7 @@ Transform:
   m_Children:
   - {fileID: 1169672289}
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1736595742
 GameObject:
@@ -4696,7 +4727,7 @@ GameObject:
   - component: {fileID: 1736595744}
   - component: {fileID: 1736595743}
   m_Layer: 0
-  m_Name: RoseDelightFactory_01
+  m_Name: gift_factory_2
   m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4766,7 +4797,7 @@ Transform:
   m_Children:
   - {fileID: 621372992}
   m_Father: {fileID: 0}
-  m_RootOrder: 35
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1768006062
 GameObject:
@@ -5394,7 +5425,7 @@ GameObject:
   - component: {fileID: 1885563306}
   - component: {fileID: 1885563309}
   m_Layer: 0
-  m_Name: Rose-Slot4
+  m_Name: rose_farm_4
   m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5447,7 +5478,7 @@ Transform:
   m_Children:
   - {fileID: 669362754}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1885563309
 MonoBehaviour:
@@ -5639,7 +5670,7 @@ GameObject:
   - component: {fileID: 2113657698}
   - component: {fileID: 2113657697}
   m_Layer: 0
-  m_Name: HrShelver_01
+  m_Name: shelver_2
   m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5709,7 +5740,7 @@ Transform:
   m_Children:
   - {fileID: 284262032}
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1407169938936817700
 GameObject:
