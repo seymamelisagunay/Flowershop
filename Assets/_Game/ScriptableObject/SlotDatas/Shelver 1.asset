@@ -28,7 +28,7 @@ MonoBehaviour:
   focusWaiting: 0
   emptyData:
     _isOpen: 0
-    _price: 500
+    _price: 800
     _currenctPrice: 0
     OnChangeVariable:
       m_PersistentCalls:

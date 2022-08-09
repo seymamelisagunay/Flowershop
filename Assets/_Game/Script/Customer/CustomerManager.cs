@@ -18,7 +18,7 @@ public class CustomerManager : MonoBehaviour
     public List<AreaPositionSelector> spawnPoint;
     public BoolVariable isClientCreate;
     public List<ItemType> selectItem;
-
+    [SerializeField]
     private int _maxCustomerCount;
 
     private void Start()
